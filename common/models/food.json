@@ -21,7 +21,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "food": {
+      "type": "hasMany",
+      "model": "meal",
+      "foreignKey": "mealId",
+      "through": "mealfood"
+    }
+  },
   "acls": [],
   "methods": {}
 }

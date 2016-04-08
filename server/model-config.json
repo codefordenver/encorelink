@@ -38,7 +38,7 @@
   },
   "mealfood": {
     "dataSource": "db",
-    "public": false
+    "public": true
   },
   "meal": {
     "dataSource": "db",
