@@ -10,7 +10,6 @@
     "username": "wdouglas",
     "password": "",
     "name": "postgres",
-    "connector": "postgresql",
-    "debug": true
+    "connector": "postgresql"
   }
 }
