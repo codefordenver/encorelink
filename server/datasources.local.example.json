@@ -7,9 +7,10 @@
     "host": "localhost",
     "port": 5432,
     "database": "ketohero",
-    "username": "wdouglas",
+    "username": "user",
     "password": "",
     "name": "postgres",
-    "connector": "postgresql"
+    "connector": "postgresql",
+    "debug": true
   }
 }
