@@ -1,5 +1,23 @@
-## Waffle.io Hackshop
+# Keto Hero
 
-[![Stories Ready to Work On](https://badge.waffle.io/whitebird08/ketohero-cfd.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/whitebird08/ketohero-cfd)
+[waffle board for project tasks](https://waffle.io/codefordenver/ketohero)
 
-This repo was created from http://hackshop.waffle.io. Use [the Waffle board](https://waffle.io/whitebird08/ketohero-cfd) for this repo to always know what to do next for your hackshop project!
+### Dependencies
+You will need:
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL](http://www.postgresql.org/)
+
+### Set up
+After cloning, run `npm install` to install the necessary node dependencies.
+
+Create a new database in postgres, and then copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
+
+### Start App
+To start the app run:
+```
+node .
+```
+or to gain additional features from strongloop (you will need to `npm install -g strongloop`) such as clustering:
+```
+slc run
+```
