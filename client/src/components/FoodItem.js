@@ -12,7 +12,7 @@ export default class FoodItem extends React.Component {
     fat: 30,
     carbs: 30,
     quantity: 100
-  }
+  };
 
 
   render() {
