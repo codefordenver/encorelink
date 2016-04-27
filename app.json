@@ -1,0 +1,40 @@
+{
+  "name": "ketohero",
+  "description": "review apps",
+  "scripts": {
+  },
+  "env": {
+    "NODE_ENV": {
+      "required": true
+    },
+    "PG_DB": {
+      "required": true
+    },
+    "PG_HOST": {
+      "required": true
+    },
+    "PG_PORT": {
+      "required": true
+    },
+    "PG_PW": {
+      "required": true
+    },
+    "PG_USER": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "papertrail",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
