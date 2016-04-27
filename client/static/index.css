@@ -1,0 +1,9 @@
+.app-container {
+  width: 400px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.testing-buttons {
+  border: 1px solid black;
+}
