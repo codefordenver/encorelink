@@ -21,6 +21,9 @@ Running `vagrant up` downloads an Ubuntu image to your host machine and
 provisions it with everything this project needs to run. This will take a few
 minutes, so be patient.
 
+#### Troubleshooting
+For port errors, make sure postgres is not running
+
 ### Running the App
 
 Once `vagrant up` has finished, follow these steps to start the server.
