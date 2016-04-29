@@ -1,7 +1,16 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var path = require('path');
 
 var app = module.exports = loopback();
+
+
+if (process.env.NODE_ENV==='production') {
+app.use('/client', function (req, res) {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
+})
+app.use('/dist', loopback.static(path.join(__dirname, '../client/dist')));
+};
 
 app.start = function() {
   // start the web server
