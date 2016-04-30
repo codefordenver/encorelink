@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/codefordenver/ketohero.png?label=ready&title=Ready)](https://waffle.io/codefordenver/ketohero)
 # Keto Hero
 
 [waffle board for project tasks](https://waffle.io/codefordenver/ketohero)
