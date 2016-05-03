@@ -47,7 +47,7 @@
     "dataSource": "postgres",
     "public": true
   },
-  "user": {
+  "ketouser": {
     "dataSource": "postgres",
     "public": true
   },

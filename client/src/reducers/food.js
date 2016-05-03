@@ -1,19 +1,17 @@
-const userManager = (state = {
-  isFetching: false,
-  user: {},
-  userid: 0
+const food = (state = {
+  foodData: [],
+  isFetching: false
 }, action) => {
   switch (action.type) {
-    case 'REQUEST_USER':
+    case 'REQUEST_FOOD':
       return {
         ...state,
-        userid: action.userid,
         isFetching: true
       }
-    case 'RECEIVE_USER':
+    case 'RECEIVE_FOOD':
       return {
         ...state,
-        user: action.user,
+        foodData: action.food,
         isFetching: false
       }
     default:
@@ -21,4 +19,4 @@ const userManager = (state = {
   }
 }
 
-export default userManager;
+export default food;
