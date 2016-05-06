@@ -22,10 +22,10 @@
   },
   "validations": [],
   "relations": {
-    "food": {
+    "meals": {
       "type": "hasMany",
       "model": "meal",
-      "foreignKey": "mealId",
+      "foreignKey": "foodId",
       "through": "mealfood"
     }
   },

@@ -1,0 +1,24 @@
+{
+  "name": "usermeal",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    },
+    "meal": {
+      "type": "belongsTo",
+      "model": "meal",
+      "foreignKey": "mealId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

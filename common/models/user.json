@@ -11,7 +11,8 @@
     "meals": {
       "type": "hasMany",
       "model": "meal",
-      "foreignKey": "ownerId"
+      "foreignKey": "userId",
+      "through": "usermeal"
     }
   },
   "acls": [],

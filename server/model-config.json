@@ -50,5 +50,9 @@
   "user": {
     "dataSource": "postgres",
     "public": true
+  },
+  "usermeal": {
+    "dataSource": "postgres",
+    "public": true
   }
 }

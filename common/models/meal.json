@@ -16,11 +16,17 @@
   },
   "validations": [],
   "relations": {
-    "food": {
+    "foods": {
       "type": "hasMany",
       "model": "food",
-      "foreignKey": "foodId",
+      "foreignKey": "mealId",
       "through": "mealfood"
+    },
+    "users": {
+      "type": "hasMany",
+      "model": "user",
+      "foreignKey": "mealId",
+      "through": "usermeal"
     }
   },
   "acls": [],
