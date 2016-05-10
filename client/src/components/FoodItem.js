@@ -7,9 +7,9 @@ export default class FoodItem extends React.Component {
   static defaultProps = {
     id: 0,
     name: 'Food',
-    protein: 40,
-    fat: 30,
-    carbs: 30,
+    protein: .4,
+    fat: .3,
+    carbs: .3,
     quantity: 100
   };
 

@@ -8,6 +8,6 @@ const ketoApp = combineReducers({
   viewManager,
   userManager,
   food
-})
+});
 
 export default ketoApp;

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import ketoApp from './reducers';
+
+import configureStore from './store/configureStore';
 import App from './components/App';
 
-let store = createStore(ketoApp);
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>

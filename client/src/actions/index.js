@@ -59,3 +59,13 @@ export function fetchFood() {
       .then(json => dispatch(receiveFood(json)))
   }
 }
+
+/*
+fetch('/api/users/login',
+  {
+    method: 'POST',
+    body: JSON.stringify({username:"scottsmeester", password:"password123"}),
+    headers: { 'Content-Type': 'application/json'}})
+.then(res => res.json())
+.then(res => console.log(res.id));
+*/
