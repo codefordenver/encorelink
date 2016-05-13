@@ -39,7 +39,8 @@ Once `vagrant up` has finished, follow these steps to start the server.
 6. Rejoice!
 
 #### Troubleshooting
-To shut down any running vagrant processes use vagranthalt
+-To shut down any running vagrant processes use 'vagrant halt'
+-After using 'vagrant destroy' your computer should be left at a clean state, as if you never created the guest machine in the first place.
 
 ### Coding
 
