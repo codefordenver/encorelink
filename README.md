@@ -38,6 +38,9 @@ Once `vagrant up` has finished, follow these steps to start the server.
 	- Frontend:	http://ketohero.dev:8080/client
 6. Rejoice!
 
+#### Troubleshooting
+To shut down any running vagrant processes use vagranthalt
+
 ### Coding
 
 Just code as you normally would in the repo directory you cloned above. Vagrant
