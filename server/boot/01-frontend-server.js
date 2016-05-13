@@ -10,7 +10,12 @@ if (process.env.NODE_ENV !== 'production') {
   new WebpackDevServer(webpack(devConfig), {
     publicPath: devConfig.output.publicPath,
     hot: true,
-    historyApiFallback: false
+    historyApiFallback: false,
+    proxy: {
+      '/api/*': {
+        target: 'http://0.0.0.0:3000'
+      }
+    }
   }).listen(8080, '0.0.0.0', function (err, result) {
     if (err) {
       return console.log(err);
