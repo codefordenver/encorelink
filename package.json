@@ -24,7 +24,6 @@
     "loopback-component-explorer": "^2.4.0",
     "loopback-connector-postgresql": "^2.4.1",
     "loopback-datasource-juggler": "^2.39.0",
-    "mysql": "^2.10.2",
     "numeral": "^1.5.3",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
