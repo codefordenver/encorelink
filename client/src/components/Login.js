@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,6 +12,10 @@ class Login extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
+  static propTypes = {
+    loginRequest: PropTypes.func.isRequired
+  }
+
   handlePasswordChange(ev) {
     this.setState({password: ev.target.value});
   }
@@ -22,7 +26,7 @@ class Login extends React.Component {
 
   handleFormSubmit(ev) {
     ev.preventDefault();
-    console.log(this.state);
+    this.props.loginRequest(this.state.username, this.state.password);
   }
 
   render() {
@@ -44,5 +48,7 @@ class Login extends React.Component {
     )
   }
 }
+
+
 
 export default Login;

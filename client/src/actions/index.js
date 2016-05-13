@@ -38,6 +38,29 @@ export function fetchUser(userid) {
   }
 }
 
+function loginSuccess(response) {
+  return {
+    type: 'LOGIN_SUCCESS',
+    payload: response
+  }
+}
+
+export function loginRequest(username, password) {
+  return dispatch => {
+    dispatch({
+      type: 'LOGIN_REQUEST',
+      payload: { username }
+    })
+    return fetch('http://localhost:3000/api/users/login',
+      {
+        method: 'POST',
+        body: JSON.stringify({username, password}),
+        headers: { 'Content-Type': 'application/json'}})
+    .then(res => res.json())
+    .then(res => dispatch(loginSuccess(res)));
+  }
+}
+
 function requestFood() {
   return {
     type: 'REQUEST_FOOD'
