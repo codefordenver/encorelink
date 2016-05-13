@@ -10,6 +10,7 @@ import MealList from './MealList';
 
 import styles from './styles';
 
+
 const View = ({ view, user, meals }) => {
 
   const views = {
@@ -21,7 +22,7 @@ const View = ({ view, user, meals }) => {
 
   return (
     <div className='app-container'>
-      <h1>KetoHero</h1>
+      <img src='static/img/ketohero-logo.png'/>
       <div className='testing-buttons'>
         <p>Testing buttons</p>
         <ViewChanger />
