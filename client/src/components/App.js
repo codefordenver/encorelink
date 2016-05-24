@@ -4,9 +4,9 @@ import ViewContainer from '../containers/ViewContainer';
 
 
 
-const App = () => (
+const App = (props) => (
   <div>
-    <ViewContainer />
+    {props.children}
   </div>
 );
 

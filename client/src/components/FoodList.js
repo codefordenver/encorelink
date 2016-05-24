@@ -1,41 +1,47 @@
 import React from 'react';
-import foodData from '../data/foodData';
+import { connect } from 'react-redux';
 
+import { fetchFood } from '../actions';
 import FoodItem from './FoodItem';
 
 class FoodList extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      FoodItems: [],
-      loading: true
-    }
+  constructor(props) {
+    super(props)
   }
 
   componentWillMount() {
-  	// Fetch the data, set the state
-  	// state.FoodItems = array of individual foods
-    this.setState({
-      FoodItems: foodData,
-      loading: false
-    });
+  	this.props.fetchFood();
   }
 
   render() {
-    if(this.state.loading) {
+    const { isFetching, foodData } = this.props;
+    if(isFetching) {
       return (
         <div>Loading...</div>
       )
+    } else {
+    	const foodList = foodData.map(food => {
+        return <FoodItem {...food} key={food.id} />
+      })
+      return (
+        <div>
+          {foodList}
+        </div>
+      )
     }
-  	const list = this.state.FoodItems.map((item, index) => {
-      return <FoodItem {...item} key={index} id={null}/>
-    })
-    return (
-      <div>
-        {list}
-      </div>
-    )
   }
 }
 
-export default FoodList;
+function mapStateToProps(state) {
+  return {
+    isFetching: state.food.isFetching,
+    foodData: state.food.foodData
+  }
+}
+
+const mapDispatchToProps = {
+  fetchFood
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoodList);

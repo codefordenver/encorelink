@@ -20,9 +20,9 @@ const getUserMeals = (mealsData, mealIds) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: getCurrentUser(userData, state.userManager),
+    user: getCurrentUser(userData, state.userManager.userid),
     view: state.viewManager,
-    meals: getUserMeals(mealsData, getCurrentUser(userData, state.userManager).mealIds)
+    meals: getUserMeals(mealsData, getCurrentUser(userData, state.userManager.userid).mealIds)
   }
 }
 
