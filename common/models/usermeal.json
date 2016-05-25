@@ -5,7 +5,15 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "userId": {
+      "type": "number",
+      "required": true
+    },
+    "mealId": {
+      "type": "number",
+      "required": "true"
+    }},
   "validations": [],
   "relations": {
     "user": {
