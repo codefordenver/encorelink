@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { withRouter } from 'react-router';
 
 class Login extends React.Component {
   constructor(props) {
@@ -29,6 +30,12 @@ class Login extends React.Component {
     this.props.loginRequest(this.state.username, this.state.password);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.isLoggedIn) {
+      this.props.router.push('/client/home');
+    }
+  }
+
   render() {
     return (
       <div className='login'>
@@ -44,6 +51,9 @@ class Login extends React.Component {
                  required />
           <button type="submit">Login</button>
         </form>
+        <div>
+          <span>{this.props.errorMessage}</span>
+        </div>
       </div>
     )
   }
@@ -51,4 +61,4 @@ class Login extends React.Component {
 
 
 
-export default Login;
+export default withRouter(Login);

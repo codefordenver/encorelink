@@ -1,35 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-import ViewChanger from './ViewChanger';
-import UserChanger from './UserChanger';
-
-import FoodItem from './FoodItem';
-import FoodList from './FoodList';
-import MealItem from './MealItem';
-import MealList from './MealList';
-
-import styles from './styles';
-
-
-const View = ({ view, user, meals }) => {
-
-  const views = {
-    FoodList: <FoodList />,
-    FoodItem: <FoodItem id={2} />,
-    MealItem: <MealItem id={2} quantity={200} />,
-    MealList: <MealList meals={meals} />
-  }
+const View = ({ children, userId }) => {
 
   return (
     <div className='app-container'>
       <img src='static/img/ketohero-logo.png'/>
-      <div className='testing-buttons'>
-        <p>Testing buttons</p>
-        <ViewChanger />
-        <UserChanger />
+      <div>
+        <span>
+          <Link to='/client/foodlist'>Food List</Link>
+        </span>
       </div>
-      <h3>{"Username: " + user.username}</h3>
-      {views[view]}
+      <h3>{`UserID: ${userId}`}</h3>
+      {children}
     </div>
   );
 }

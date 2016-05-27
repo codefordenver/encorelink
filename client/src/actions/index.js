@@ -1,5 +1,3 @@
-import fetch from 'isomorphic-fetch';
-
 
 export const changeView = (view) => {
   return {
@@ -38,6 +36,12 @@ export function fetchUser(userid) {
   }
 }
 
+function startLoginRequest() {
+  return {
+    type: 'LOGIN_REQUEST'
+  }
+}
+
 function loginSuccess(response) {
   return {
     type: 'LOGIN_SUCCESS',
@@ -45,19 +49,30 @@ function loginSuccess(response) {
   }
 }
 
+function loginFailure(response) {
+  return {
+    type: 'LOGIN_FAILURE',
+    payload: response
+  }
+}
+
 export function loginRequest(username, password) {
   return dispatch => {
-    dispatch({
-      type: 'LOGIN_REQUEST',
-      payload: { username }
-    })
-    return fetch('http://localhost:3000/api/users/login',
+    dispatch(startLoginRequest());
+    return fetch('/api/users/login',
       {
         method: 'POST',
         body: JSON.stringify({username, password}),
         headers: { 'Content-Type': 'application/json'}})
     .then(res => res.json())
-    .then(res => dispatch(loginSuccess(res)));
+    .then(res => {
+      if(res.error) {
+        console.log(res.error)
+        dispatch(loginFailure(res.error));
+      } else {
+        dispatch(loginSuccess(res));
+      }
+    });
   }
 }
 
@@ -77,7 +92,7 @@ function receiveFood(json) {
 export function fetchFood() {
   return dispatch => {
     dispatch(requestFood());
-    return fetch(`http://localhost:3000/api/food`)
+    return fetch(`/api/food`)
       .then(response => response.json())
       .then(json => dispatch(receiveFood(json)))
   }
