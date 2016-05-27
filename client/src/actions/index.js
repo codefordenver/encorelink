@@ -59,7 +59,7 @@ function loginFailure(response) {
 export function loginRequest(username, password) {
   return dispatch => {
     dispatch(startLoginRequest());
-    return fetch('http://localhost:3000/api/users/login',
+    return fetch('/api/users/login',
       {
         method: 'POST',
         body: JSON.stringify({username, password}),
@@ -92,7 +92,7 @@ function receiveFood(json) {
 export function fetchFood() {
   return dispatch => {
     dispatch(requestFood());
-    return fetch(`http://localhost:3000/api/food`)
+    return fetch(`/api/food`)
       .then(response => response.json())
       .then(json => dispatch(receiveFood(json)))
   }
