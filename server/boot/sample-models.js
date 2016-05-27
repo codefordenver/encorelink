@@ -128,6 +128,30 @@ module.exports = function(app) {
     {
       userId: 3,
       mealId: 6
+    },
+    {
+      userId: 1,
+      mealId: 4
+    },
+    {
+      userId: 1,
+      mealId: 5
+    },
+    {
+      userId: 2,
+      mealId: 6
+    },
+    {
+      userId: 2,
+      mealId: 1
+    },
+    {
+      userId: 3,
+      mealId: 2
+    },
+    {
+      userId: 3,
+      mealId: 3
     }
   ]
 
@@ -161,6 +185,36 @@ module.exports = function(app) {
     {
       mealId: 3,
       foodId: 6,
+      qty: 6
+    },
+    {
+      mealId: 1,
+      foodId: 3,
+      qty: 1
+    },
+    {
+      mealId: 1,
+      foodId: 4,
+      qty: 2
+    },
+    {
+      mealId: 2,
+      foodId: 5,
+      qty: 3
+    },
+    {
+      mealId: 2,
+      foodId: 6,
+      qty: 4
+    },
+    {
+      mealId: 3,
+      foodId: 1,
+      qty: 5
+    },
+    {
+      mealId: 3,
+      foodId: 2,
       qty: 6
     }
   ]
