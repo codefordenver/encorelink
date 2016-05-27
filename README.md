@@ -1,6 +1,6 @@
 # EncoreLink
 
-[![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers) 
+[![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers)
 [![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=master)](https://travis-ci.org/codefordenver/encorelink)
 
 ## Setup - Option 1 (Vagrant)
@@ -31,11 +31,10 @@ Once `vagrant up` has finished, follow these steps to start the server.
 
 1. `vagrant ssh` to login into the virtual machine.
 2. `cd /vagrant` to navigate to the project.
-3. `node .` to start the server.
-4. Open your browser
-5.
-	- Backend:	http://encorelink.dev:3000/explorer
-	- Frontend:	http://encorelink.dev:8080
+3. `npm start` to start the api and client (webpack-dev-server).
+4. Open a second terminal, navigate to the project folder, and run `vagrant rsync-auto` (required for rsync file syncing and webpack hot reload)
+	- Backend:	http://ketohero.dev:3000/explorer
+	- Frontend:	http://ketohero.dev:8080
 6. Rejoice!
 
 #### Troubleshooting
