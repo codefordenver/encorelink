@@ -10,7 +10,8 @@ import foodData from '../data/foodData';
 
 const mapStateToProps = (state) => {
   return {
-    userId: state.userManager.userId
+    userId: state.userManager.userId,
+    userToken: state.userManager.userToken
   }
 }
 

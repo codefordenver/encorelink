@@ -89,10 +89,10 @@ function receiveFood(json) {
   }
 }
 
-export function fetchFood() {
+export function fetchFood(userToken) {
   return dispatch => {
     dispatch(requestFood());
-    return fetch(`/api/food`)
+    return fetch(`/api/food?access_token=${userToken}`)
       .then(response => response.json())
       .then(json => dispatch(receiveFood(json)))
   }
