@@ -14,11 +14,11 @@ export default class FoodItem extends React.Component {
   };
 
   percent(number) {
-    return numeral(number).format('0.0 %');
+    return numeral(number / 100).format('0.0 %');
   }
 
   decimal(number) {
-    return numeral(number).format('0.0');
+    return numeral(number / 100).format('0.0');
   }
 
   render() {
