@@ -32,7 +32,7 @@ class Login extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.isLoggedIn) {
-      this.props.router.push('/client/home');
+      this.props.router.push('/home');
     }
   }
 

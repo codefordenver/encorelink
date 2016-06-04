@@ -33,9 +33,9 @@ Once `vagrant up` has finished, follow these steps to start the server.
 2. `cd /vagrant` to navigate to the project.
 3. `node .` to start the server.
 4. Open your browser
-5. 
+5.
 	- Backend:	http://ketohero.dev:3000/explorer
-	- Frontend:	http://ketohero.dev:8080/client
+	- Frontend:	http://ketohero.dev:8080
 6. Rejoice!
 
 #### Troubleshooting

@@ -71,6 +71,7 @@ export function loginRequest(username, password) {
         dispatch(loginFailure(res.error));
       } else {
         dispatch(loginSuccess(res));
+        localStorage.setItem('userToken', res.id);
       }
     });
   }
@@ -95,6 +96,28 @@ export function fetchFood(userToken) {
     return fetch(`/api/food?access_token=${userToken}`)
       .then(response => response.json())
       .then(json => dispatch(receiveFood(json)))
+  }
+}
+
+function requestUserMeals() {
+  return {
+    type: 'REQUEST_USER_MEALS'
+  }
+}
+
+function receieveUserMeals(json) {
+  return {
+    type: 'RECEIVE_USER_MEALS',
+    payload: json
+  }
+}
+
+export function fetchUserMeals(userToken, userId) {
+  return dispatch => {
+    dispatch(requestUserMeals());
+    return fetch(`/api/users/${userId}/meals?access_token=${userToken}`)
+      .then(response => response.json())
+      .then(json => dispatch(receieveUserMeals(json)))
   }
 }
 

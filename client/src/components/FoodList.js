@@ -10,7 +10,8 @@ class FoodList extends React.Component {
   }
 
   componentWillMount() {
-  	this.props.fetchFood(this.props.location.query.userToken);
+    const userToken = localStorage.getItem('userToken');
+  	this.props.fetchFood(userToken);
   }
 
   render() {

@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const View = ({ children, userId, userToken }) => {
+const View = (props) => {
 
   return (
     <div className='app-container'>
-      <img src='static/img/ketohero-logo.png'/>
+      <img src='/public/img/ketohero-logo.png'/>
       <div>
         <span>
-          <Link to={`/client/foodlist?userToken=${userToken}`}>Food List</Link>
+          <Link to={'/home'}>Home</Link>
+          {' | '}
+          <Link to={'/foodlist'}>Food List</Link>
         </span>
       </div>
-      <h3>{`UserID: ${userId}`}</h3>
-      {children}
+      <h3>{`UserID: ${props.userId}`}</h3>
+      {props.children}
     </div>
   );
 }
