@@ -13,7 +13,8 @@
     "mealId": {
       "type": "number",
       "required": "true"
-    }},
+    }
+  },
   "validations": [],
   "relations": {
     "user": {

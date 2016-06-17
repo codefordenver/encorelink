@@ -43,5 +43,35 @@
       "permission": "ALLOW"
     }
   ],
-  "methods": {}
+  "methods": {
+    "fullMeal": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "fullMeal",
+          "type": "object",
+          "required": true,
+          "description": "The meal object with an array of objects representing the mealfoods",
+          "http": {
+            "source": "body"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "meal",
+          "type": "object",
+          "root": true,
+          "description": "The created meal"
+        }
+      ],
+      "description": "Create a new meal along with associated relations",
+      "http": [
+        {
+          "path": "/full-meal",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
