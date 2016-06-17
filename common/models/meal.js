@@ -14,19 +14,26 @@ module.exports = function(Meal) {
 
     var models = Meal.app.models;
 
-    Meal.create(mealToCreate, function(err, meal) {
-      if (err) {
-        return callback(err);
-      }
+    Meal.beginTransaction({isolationLevel: Meal.Transaction.READ_COMMITTED}, function(err, tx) {
+      if (err) return callback(err);
 
-      async.each(mealfoodsToCreate, function(mealfoodToCreate, cb) {
-        mealfoodToCreate.mealId = meal.id;
-        models.mealfood.create(mealfoodToCreate, cb);
-      }, function done(err) {
-        if (err) {
-          return callback(err);
-        }
-        callback(null, meal);
+      var options = {transaction: tx};
+
+      Meal.create(mealToCreate, options, function(err, meal) {
+        if (err) return callback(err);
+
+        async.each(mealfoodsToCreate, function(mealfoodToCreate, cb) {
+          mealfoodToCreate.mealId = meal.id;
+          models.mealfood.create(mealfoodToCreate, options, cb);
+        }, function done(err) {
+          if (err) return callback(err);
+
+          tx.commit(function(err) {
+            if (err) return callback(err);
+
+            callback(null, meal);
+          });
+        });
       });
     });
   };
