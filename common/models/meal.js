@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var async = require('async');
 
 module.exports = function(Meal) {
   /**
@@ -17,13 +18,16 @@ module.exports = function(Meal) {
       if (err) {
         return callback(err);
       }
-      mealfoodsToCreate.forEach(function(mealfoodToCreate) {
+
+      async.each(mealfoodsToCreate, function(mealfoodToCreate, cb) {
         mealfoodToCreate.mealId = meal.id;
-        models.mealfood.create(mealfoodToCreate, function(err, mealfood) {
-          if (err) console.log('mealfood err', err);
-        });
+        models.mealfood.create(mealfoodToCreate, cb);
+      }, function done(err) {
+        if (err) {
+          return callback(err);
+        }
+        callback(null, meal);
       });
-      callback(null, meal);
     });
   };
 };
