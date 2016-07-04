@@ -36,3 +36,20 @@ We want to use this to test the following (for all these, need to determine acce
 11. We track AD requests to share calendar with another email - each is considered a referral.
 12. We track musician requests to share calendar with another email - each is considered a referral.
 
+###Google Calendar
+This is on Darren's google account. Need to move to Julia's Google for Nonprofits account when she gets that set up
+https://calendar.google.com/calendar/embed?src=tte1m4pue2v512s5a0gggl26h8%40group.calendar.google.com&ctz=America/Denver
+
+###AD Sign-Up Email
+TBD
+
+###AD Welocme Email
+TBD
+
+###Musician Sign-Up Email
+TBD
+
+###Musician Welcome Email
+TBD
+
+
