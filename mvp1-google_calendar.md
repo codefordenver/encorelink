@@ -1,4 +1,4 @@
-#MVP 1: Google Calendar
+#MVP 1: Google Calendar + Email
 
 ###Assumptions
 Our fundamental assumption is that health care activity directors and volunteer musicians want to connect to offer performances, and that both groups will work together to offer concerts, but need a common scheduling tool. Our first crack at this will be to create a simple Google Calendar and some conventions for use. We will also provide an email to a small set of health care activity directors and music students with an offer to share the calendar with them
