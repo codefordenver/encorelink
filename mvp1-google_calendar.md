@@ -41,15 +41,68 @@ This is on Darren's google account. Need to move to Julia's Google for Nonprofit
 https://calendar.google.com/calendar/embed?src=tte1m4pue2v512s5a0gggl26h8%40group.calendar.google.com&ctz=America/Denver
 
 ###AD Sign-Up Email
-TBD
+Hi [Name]!
+
+Would you like to offer quality concerts to your patients, but can't afford to take them to a paid performace? There are lots of young musicians right here in Denver that would love to get more experience at real live performances before an audience. We've created a calendar that allows you to request a performance at a specific day and time, so these musicians can sign up. We'd be happy to invite you to the calendar - just reply to this email with the word "Yes" at the end of the subject line, and we'll share the calendar with you and send a confirmation email with instructions on how to create your first performance request.
+
+***Reply to this email to get signed up!***
+
+Thanks,
+
+Julia Che
+Code for Denver - Music Volunteers
 
 ###AD Welocme Email
-TBD
+Welcome [Name]!
+
+So glad you decided to sign up. We've shared the calendar with you, so you are all set to go. Below are the instructions for accessing the calendar and creating a performance request.
+1. Open your email and find the email titled [email] has shared a calendar with you
+2. Click the "View Your Calendar" link in the email. This will open the calendar in Google Calendar.
+3. Pick a day and time you want to have a performance. Create an event on that day at that time. The title of the event should be [Name of Org] - [Short Description]. For example, if you work for The Denver Hospice and you want a classical performance at Burns Park, the title of the event should be The Denver Hospice - Classical at Burns Park.
+4. Make sure the Calendar dropdown says Music Volunteers and click Edit Details.
+5. In the Where field, make sure the location is specified. 
+6. If you have extra details, enter them - breif is better!
+7. Click Save - you're done!
+
+When a musician signs up for your event, you'll get an email letting you know.
+
+***Give it a shot!***
+
+Let me know if you have any questions.
+
+Julia Che
+Code for Denver - Music Volunteers
 
 ###Musician Sign-Up Email
-TBD
+Hi [Name]!
+
+Would you like to help people who are sick or dying, and also need to get more live performance practice? There are lots of young health care facilities right here in Denver that would love to book you to give a free concert for their patients. We've created a calendar that allows you to find performances requested at a specific location for a specific day and time, so you can find opportunities that make sense for you. We'd be happy to invite you to the calendar - just reply to this email with the word "Yes" at the end of the subject line, and we'll share the calendar with you and send a confirmation email with instructions on how to find your first performance request.
+
+***Reply to this email to get signed up!***
+
+Thanks,
+
+Julia Che
+Code for Denver - Music Volunteers
 
 ###Musician Welcome Email
-TBD
+
+Welcome [Name]!
+
+So glad you decided to sign up. We've shared the calendar with you, so you are all set to go. Below are the instructions for accessing the calendar and booking a performance request.
+1. Open your email and find the email titled [email] has shared a calendar with you
+2. Click the "View Your Calendar" link in the email. This will open the calendar in Google Calendar.
+3. Browse the calendar to find a performance request on a day and time that works for you
+4. Open the event and make sure the details work for you.
+5. To book, just add yourself as a Guest in Add Guests on the right hand side and click Add
+6. Click Save and you're done! The activity director for the health care facility will contact you to set it up.
+
+***Give it a shot!***
+
+Let me know if you have any questions.
+
+Let me know if you have any questions.
+Julia Che
+Code for Denver - Music Volunteers
 
 
