@@ -1,6 +1,6 @@
 #Music Volunteers: Vision
 
-###Fundabental Beliefs
+###Fundamental Beliefs
 - We believe that listening to live music can improve the quality of life for people who are sick or dying. We believe that health care activity directors would like to offer live music to their patients, but they can only book limited performances with their available budget.
 - We believe that volunteer performances by music students would offer a good alternative to professional bands. We believe that music students and the Directors of their Schools of Music would be willing to provide free concerts for these people for two main reasons: 
   - they want to improve the quality of life of the underserved people
