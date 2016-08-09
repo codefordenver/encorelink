@@ -1,0 +1,29 @@
+{
+  "name": "mealfood",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "qty": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "meal": {
+      "type": "belongsTo",
+      "model": "meal",
+      "foreignKey": "mealId"
+    },
+    "food": {
+      "type": "belongsTo",
+      "model": "food",
+      "foreignKey": "foodId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
