@@ -36,5 +36,9 @@
   "user": {
     "dataSource": "postgres",
     "public": true
+  },
+  "Event": {
+    "dataSource": "postgres",
+    "public": true
   }
 }
