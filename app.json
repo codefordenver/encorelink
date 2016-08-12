@@ -7,19 +7,7 @@
     "NODE_ENV": {
       "required": true
     },
-    "PG_DB": {
-      "required": true
-    },
-    "PG_HOST": {
-      "required": true
-    },
-    "PG_PORT": {
-      "required": true
-    },
-    "PG_PW": {
-      "required": true
-    },
-    "PG_USER": {
+    "DATABASE_URL": {
       "required": true
     }
   },
