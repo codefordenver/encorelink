@@ -33,25 +33,7 @@
     "dataSource": "db",
     "public": false
   },
-  "food": {
-    "dataSource": "postgres",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "mealfood": {
-    "dataSource": "postgres",
-    "public": true
-  },
-  "meal": {
-    "dataSource": "postgres",
-    "public": true
-  },
   "user": {
-    "dataSource": "postgres",
-    "public": true
-  },
-  "usermeal": {
     "dataSource": "postgres",
     "public": true
   }
