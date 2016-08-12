@@ -1,5 +1,5 @@
 {
-  "name": "keto-test",
+  "name": "encorelink",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
@@ -48,5 +48,5 @@
     "url": ""
   },
   "license": "UNLICENSED",
-  "description": "keto-test"
+  "description": "encorelink"
 }

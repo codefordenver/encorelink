@@ -4,7 +4,7 @@
 
 ## Setup - Option 1 (Vagrant)
 
-Keto Hero uses a [Vagrant](https://www.vagrantup.com/) virtual machine as the
+EncoreLink uses a [Vagrant](https://www.vagrantup.com/) virtual machine as the
 development environment. This isolates your dev environment from your host
 machine, ensures everyone has the same setup, and automatically installs
 everything you need to get going. Just follow these steps:
@@ -48,7 +48,7 @@ Just code as you normally would in the repo directory you cloned above. Vagrant
 automatically syncs with this repo directory and runs your code inside the
 virtual machine.
 
-## Setup - Option 2 (DIY)
+## Setup - Option 2
 
 1. Install [Node.js](https://nodejs.org/)
 2. Install [PostgreSQL](http://www.postgresql.org/)

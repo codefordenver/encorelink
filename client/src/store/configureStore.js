@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-import ketoApp from '../reducers'
+import encoreLinkApp from '../reducers'
 
 export default function configureStore(initialState) {
   return createStore(
-    ketoApp,
+    encoreLinkApp,
     initialState,
     applyMiddleware(
       thunkMiddleware
