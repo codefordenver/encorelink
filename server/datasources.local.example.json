@@ -6,7 +6,7 @@
   "postgres": {
     "host": "localhost",
     "port": 5432,
-    "database": "ketohero",
+    "database": "encorelink",
     "username": "vagrant",
     "password": "",
     "name": "postgres",
