@@ -6,7 +6,7 @@ class Login extends React.Component {
     super(props)
     this.state = {
       password: '',
-      username: ''
+      email: ''
     }
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -22,12 +22,12 @@ class Login extends React.Component {
   }
 
   handleUsernameChange(ev) {
-    this.setState({username: ev.target.value});
+    this.setState({email: ev.target.value});
   }
 
   handleFormSubmit(ev) {
     ev.preventDefault();
-    this.props.loginRequest(this.state.username, this.state.password);
+    this.props.loginRequest(this.state.email, this.state.password);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,7 +42,7 @@ class Login extends React.Component {
         <form className='form-login' onSubmit={this.handleFormSubmit}>
           <input type="text"
                  onChange={this.handleUsernameChange}
-                 placeholder="Username"
+                 placeholder="Email"
                  required
                  autofocus />
           <input type="password"

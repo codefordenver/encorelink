@@ -56,13 +56,13 @@ function loginFailure(response) {
   }
 }
 
-export function loginRequest(username, password) {
+export function loginRequest(email, password) {
   return dispatch => {
     dispatch(startLoginRequest());
     return fetch('/api/users/login',
       {
         method: 'POST',
-        body: JSON.stringify({username, password}),
+        body: JSON.stringify({email, password}),
         headers: { 'Content-Type': 'application/json'}})
     .then(res => res.json())
     .then(res => {
@@ -71,6 +71,47 @@ export function loginRequest(username, password) {
         dispatch(loginFailure(res.error));
       } else {
         dispatch(loginSuccess(res));
+        localStorage.setItem('userToken', res.id);
+      }
+    });
+  }
+}
+
+function startRegisterRequest() {
+  return {
+    type: 'REGISTER_REQUEST'
+  }
+}
+
+function registerSuccess(response) {
+  return {
+    type: 'REGISTER_SUCCESS',
+    payload: response
+  }
+}
+
+function registerFailure(response) {
+  return {
+    type: 'REGISTER_FAILURE',
+    payload: response
+  }
+}
+
+export function registerRequest(email, password) {
+  return dispatch => {
+    dispatch(startRegisterRequest());
+    return fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
+    .then(res => {
+      if(res.error) {
+        console.log(res.error)
+        dispatch(registerFailure(res.error));
+      } else {
+        dispatch(registerSuccess(res));
         localStorage.setItem('userToken', res.id);
       }
     });
