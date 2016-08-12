@@ -4,10 +4,10 @@ import food from './food';
 import userMeals from './userMeals';
 
 
-const ketoApp = combineReducers({
+const encoreLinkApp = combineReducers({
   userManager,
   food,
   userMeals
 });
 
-export default ketoApp;
+export default encoreLinkApp;
