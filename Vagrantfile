@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
-  config.vm.hostname = "ketohero.dev"
+  config.vm.hostname = "encorelink.dev"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -120,13 +120,13 @@ Vagrant.configure(2) do |config|
     # sudo update-rc.d postgresql enable
     sudo service postgresql restart
     sudo -u postgres createuser -D -w vagrant
-    sudo -u postgres createdb -O vagrant ketohero
+    sudo -u postgres createdb -O vagrant encorelink
     sudo cp /vagrant/pg_hba.conf /etc/postgresql/9.*/main/pg_hba.conf
     sudo service postgresql restart
 
-    # install ketohero dependencies
+    # install encorelink dependencies
     echo " "
-    echo Installing ketohero dependencies...
+    echo Installing encorelink dependencies...
     echo " "
     cd /vagrant
     npm install

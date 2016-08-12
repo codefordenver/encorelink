@@ -5,7 +5,7 @@ const View = (props) => {
 
   return (
     <div className='app-container'>
-      <img src='/public/img/ketohero-logo.png'/>
+      <img src='/public/img/encorelink-logo.png'/>
       <div>
         <span>
           <Link to={'/home'}>Home</Link>

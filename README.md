@@ -33,8 +33,8 @@ Once `vagrant up` has finished, follow these steps to start the server.
 3. `node .` to start the server.
 4. Open your browser
 5.
-	- Backend:	http://ketohero.dev:3000/explorer
-	- Frontend:	http://ketohero.dev:8080
+	- Backend:	http://encorelink.dev:3000/explorer
+	- Frontend:	http://encorelink.dev:8080
 6. Rejoice!
 
 #### Troubleshooting
