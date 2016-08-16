@@ -67,3 +67,14 @@ following inside Vagrant, in the `/vagrant` directory:
 npm install -g strongloop
 slc run
 ```
+
+## Linting
+
+This project uses [eslint](http://eslint.org/) for checking coding practices and standards.
+It is expected that any opened pull requests have a passing eslint run.
+
+It is highly recommended that you configure your editor to run eslint on the fly
+while you code.
+
+Additionally, you can run eslint on the command line with `npm run lint` (or
+`npm run lint -- --fix` to have eslint attempt to fix some of the issues)
