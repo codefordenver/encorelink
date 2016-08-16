@@ -6,12 +6,12 @@ const mapStateToProps = (state) => {
   return {
     userId: state.userManager.userId,
     userToken: state.userManager.userToken
-  }
-}
+  };
+};
 
 
 const ViewContainer = connect(
   mapStateToProps
-)(View)
+)(View);
 
 export default ViewContainer;

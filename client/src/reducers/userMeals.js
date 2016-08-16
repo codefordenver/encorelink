@@ -7,15 +7,15 @@ const userMeals = (state = {
       return {
         ...state,
         isFetching: true
-      }
+      };
     case 'RECEIVE_USER_MEALS':
       return {
         isFetching: false,
         meals: action.payload
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default userMeals;

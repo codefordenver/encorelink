@@ -12,7 +12,7 @@ const userManager = (state = {
       return {
         ...state,
         isFetching: true
-      }
+      };
     case 'LOGIN_SUCCESS':
       return {
         ...state,
@@ -21,18 +21,18 @@ const userManager = (state = {
         isLoggedIn: true,
         isFetching: false,
         isError: false,
-        errorMessage: '',
-      }
+        errorMessage: ''
+      };
     case 'LOGIN_FAILURE':
       return {
         ...state,
         isFetching: false,
         isError: true,
         errorMessage: action.payload.message
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default userManager;

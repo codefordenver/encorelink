@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const View = (props) => {
-
   return (
-    <div className='app-container'>
-      <img src='/public/img/encorelink-logo.png'/>
+    <div className="app-container">
+      <img src="/public/img/encorelink-logo.png" alt="EncoreLink" />
       <div>
         <span>
           <Link to={'/home'}>Home</Link>
@@ -17,6 +16,6 @@ const View = (props) => {
       {props.children}
     </div>
   );
-}
+};
 
 export default View;

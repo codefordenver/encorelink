@@ -7,16 +7,16 @@ const food = (state = {
       return {
         ...state,
         isFetching: true
-      }
+      };
     case 'RECEIVE_FOOD':
       return {
         ...state,
         foodData: action.food,
         isFetching: false
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default food;

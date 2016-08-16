@@ -8,12 +8,12 @@ import FoodList from './components/FoodList';
 import UserMealsListContainer from './containers/UserMealsListContainer';
 
 const routes = (
-  <Route path='/' component={App}>
+  <Route path="/" component={App}>
     <IndexRoute component={RegisterContainer} />
-    <Route path='/login' component={LoginContainer} />
-    <Route path='/home' component={ViewContainer}>
+    <Route path="/login" component={LoginContainer} />
+    <Route path="/home" component={ViewContainer}>
       <IndexRoute component={UserMealsListContainer} />
-      <Route path='/foodlist' component={FoodList} />
+      <Route path="/foodlist" component={FoodList} />
     </Route>
   </Route>
 );
