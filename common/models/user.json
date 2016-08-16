@@ -7,14 +7,7 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {
-    "meals": {
-      "type": "hasMany",
-      "model": "meal",
-      "foreignKey": "userId",
-      "through": "usermeal"
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",
