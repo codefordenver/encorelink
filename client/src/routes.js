@@ -5,10 +5,12 @@ import LoginContainer from './containers/LoginContainer';
 import ViewContainer from './containers/ViewContainer';
 import FoodList from './components/FoodList';
 import UserMealsListContainer from './containers/UserMealsListContainer';
+import Landing from './components/Landing';
 
 const routes = (
   <Route path='/' component={App}>
     <IndexRoute component={LoginContainer} />
+    <Route path='/landing' component={Landing} />
     <Route path='/home' component={ViewContainer}>
       <IndexRoute component={UserMealsListContainer} />
       <Route path='/foodlist' component={FoodList} />
