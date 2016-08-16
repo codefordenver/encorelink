@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { withRouter } from 'react-router';
+import { Link } from 'react-router';
 
 class Login extends React.Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class Login extends React.Component {
         </form>
         <div>
           <span>{this.props.errorMessage}</span>
+          <Link to="/landing">Landing</Link>
         </div>
       </div>
     )
