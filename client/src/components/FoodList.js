@@ -5,39 +5,34 @@ import { fetchFood } from '../actions';
 import FoodItem from './FoodItem';
 
 class FoodList extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentWillMount() {
     const userToken = localStorage.getItem('userToken');
-  	this.props.fetchFood(userToken);
+    this.props.fetchFood(userToken);
   }
 
   render() {
     const { isFetching, foodData } = this.props;
-    if(isFetching) {
-      return (
-        <div>Loading...</div>
-      )
-    } else {
-    	const foodList = foodData.map(food => {
-        return <FoodItem {...food} key={food.id} />
-      })
-      return (
-        <div>
-          {foodList}
-        </div>
-      )
+
+    if (isFetching) {
+      return <div>Loading...</div>;
     }
+    const foodList = foodData.map(food => {
+      return <FoodItem {...food} key={food.id} />;
+    });
+    return (
+      <div>
+        {foodList}
+      </div>
+    );
   }
+
 }
 
 function mapStateToProps(state) {
   return {
     isFetching: state.food.isFetching,
     foodData: state.food.foodData
-  }
+  };
 }
 
 const mapDispatchToProps = {

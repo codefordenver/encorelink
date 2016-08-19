@@ -4,6 +4,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node .",
+    "lint": "eslint .",
     "pretest": "jshint .",
     "posttest": "nsp check"
   },
@@ -36,12 +37,16 @@
     "webpack": "^1.12.14"
   },
   "devDependencies": {
-    "eslint": "^2.5.3",
-    "eslint-plugin-react": "^4.2.3",
-    "react-hot-loader": "^1.3.0",
-    "webpack-dev-server": "^1.14.1",
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.0.0",
     "jshint": "^2.5.6",
-    "nsp": "^2.1.0"
+    "nsp": "^2.1.0",
+    "react-hot-loader": "^1.3.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "repository": {
     "type": "",

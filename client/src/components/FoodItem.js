@@ -1,15 +1,15 @@
 import React from 'react';
-import styles from './styles';
 import numeral from 'numeral';
+import styles from './styles';
 
 export default class FoodItem extends React.Component {
 
   static defaultProps = {
     id: 0,
     name: 'Food',
-    protein: .4,
-    fat: .3,
-    carbs: .3,
+    protein: 0.4,
+    fat: 0.3,
+    carbs: 0.3,
     quantity: 100
   };
 
@@ -22,9 +22,9 @@ export default class FoodItem extends React.Component {
   }
 
   render() {
-    const {fat, carbs, protein, quantity, name} = this.props;
+    const { fat, carbs, protein, quantity, name } = this.props;
     return (
-      <div className='foodContainer' style={styles.foodItem}>
+      <div className="foodContainer" style={styles.foodItem}>
         <div>
           {`Protein: ${this.percent(protein)} `}
           {`Fat: ${this.percent(fat)} `}
@@ -40,6 +40,6 @@ export default class FoodItem extends React.Component {
           {`Carbs: ${this.decimal(carbs * quantity)}g`}
         </div>
       </div>
-    )
+    );
   }
 }

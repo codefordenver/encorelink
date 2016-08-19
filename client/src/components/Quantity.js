@@ -9,8 +9,8 @@ export default class Quantity extends React.Component {
   render() {
     return (
       <div>
-        {"Quantity: " + this.props.quantity}
+        {'Quantity: ' + this.props.quantity}
       </div>
-    )
+    );
   }
 }

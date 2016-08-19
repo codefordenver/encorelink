@@ -1,14 +1,13 @@
 import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 class Register extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       password: '',
       email: ''
-    }
+    };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -19,11 +18,11 @@ class Register extends React.Component {
   };
 
   handlePasswordChange(ev) {
-    this.setState({password: ev.target.value});
+    this.setState({ password: ev.target.value });
   }
 
   handleEmailChange(ev) {
-    this.setState({email: ev.target.value});
+    this.setState({ email: ev.target.value });
   }
 
   handleFormSubmit(ev) {
@@ -32,24 +31,26 @@ class Register extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.isLoggedIn) {
+    if (nextProps.isLoggedIn) {
       this.props.router.push('/home');
     }
   }
 
   render() {
     return (
-      <div className='register'>
-        <form className='form-register' onSubmit={this.handleFormSubmit}>
+      <div className="register">
+        <form className="form-register" onSubmit={this.handleFormSubmit}>
           <input type="text"
-                 onChange={this.handleEmailChange}
-                 placeholder="Email"
-                 required
-                 autofocus />
+            onChange={this.handleEmailChange}
+            placeholder="Email"
+            required
+            autoFocus
+          />
           <input type="password"
-                 onChange={this.handlePasswordChange}
-                 placeholder="Password"
-                 required />
+            onChange={this.handlePasswordChange}
+            placeholder="Password"
+            required
+          />
           <button type="submit">Register</button>
         </form>
         <div>
@@ -61,10 +62,9 @@ class Register extends React.Component {
           <Link to="/login">Login</Link>
         </p>
       </div>
-    )
+    );
   }
 }
-
 
 
 export default withRouter(Register);

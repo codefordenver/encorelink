@@ -1,8 +1,4 @@
-import React, { Component } from 'react';
-
-import ViewContainer from '../containers/ViewContainer';
-
-
+import React, { PropTypes } from 'react';
 
 const App = (props) => (
   <div>
@@ -10,4 +6,8 @@ const App = (props) => (
   </div>
 );
 
-export default App
+App.propTypes = {
+  children: PropTypes.node
+};
+
+export default App;

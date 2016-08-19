@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     isFetching: state.userMeals.isFetching,
     userId: state.userManager.userId,
     userToken: state.userManager.userToken
-  }
+  };
 };
 
 const mapDispatchToProps = {
