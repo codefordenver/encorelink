@@ -1,6 +1,7 @@
 # EncoreLink
 
-[![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers) [![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=eslint)](https://travis-ci.org/codefordenver/encorelink)
+[![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers) 
+[![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=master)](https://travis-ci.org/codefordenver/encorelink)
 
 ## Setup - Option 1 (Vagrant)
 
