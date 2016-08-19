@@ -32,7 +32,7 @@ module.exports = function(app, done) {
     var WebpackDevServer = require('webpack-dev-server');
     var devConfig = require('../webpack.dev.config.js');
 
-    new WebpackDevServer(webpack(devConfig), {
+    var server = new WebpackDevServer(webpack(devConfig), {
       contentBase: path.resolve(__dirname, '../../client'),
       publicPath: devConfig.output.publicPath,
       hot: true,
@@ -42,7 +42,14 @@ module.exports = function(app, done) {
           target: 'http://0.0.0.0:3000'
         }
       }
-    }).listen(8080, '0.0.0.0', function (err, result) {
+    });
+
+    // For non-api routes serve the index file
+    server.use(/^(?!\/?api).+$/, function (req, res) {
+      res.sendFile(path.join(__dirname, '../../client/index.html'));
+    });
+
+    server.listen(8080, '0.0.0.0', function (err, result) {
       if (err) {
         return console.log(err);
       }
