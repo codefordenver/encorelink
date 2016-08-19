@@ -24,4 +24,9 @@ module.exports = function(app) {
     }
   ];
 
+  User.create(users, function(err, users) {
+    if (err) throw err;
+
+    console.log('Created users:', users);
+  });
 };

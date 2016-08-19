@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import encoreLinkApp from '../reducers';
+import encoreLinkReducer from '../reducers';
 
 export default function configureStore(initialState) {
   return createStore(
-    encoreLinkApp,
+    encoreLinkReducer,
     initialState,
     applyMiddleware(
       thunkMiddleware
