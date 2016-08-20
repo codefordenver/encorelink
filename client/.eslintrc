@@ -18,6 +18,7 @@
   "rules": {
     "arrow-body-style": 1,
     "comma-dangle": 0,
+    "no-global-assign": 0,
     "prefer-template": 1,
     "react/jsx-filename-extension": 0,
     "react/jsx-first-prop-new-line": 0,
