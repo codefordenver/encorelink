@@ -64,6 +64,33 @@ export function loginRequest(email, password) {
   };
 }
 
+function startCreateEventRequest() {
+  return {
+    type: 'CREATE_EVENT_REQUEST'
+  };
+}
+
+export function createEvent(name, date) {
+  return dispatch => {
+    dispatch(startCreateEventRequest());
+    return fetch('/api/events',
+      {
+        method: 'POST',
+        body: JSON.stringify({ name, date }),
+        headers: { 'Content-Type': 'application/json' } })
+    .then(res => res.json())
+    .then(res => {
+      if (res.error) {
+        console.log(res.error);
+        dispatch(loginFailure(res.error));
+      } else {
+        dispatch(loginSuccess(res));
+        localStorage.setItem('userToken', res.id);
+      }
+    });
+  };
+}
+
 function startRegisterRequest() {
   return {
     type: 'REGISTER_REQUEST'
