@@ -7,7 +7,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    './src/index'
+    './src/js/index'
   ],
   output: {
     path: path.resolve(__dirname, '../client/dist'),
@@ -18,10 +18,13 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
-      include: path.resolve(__dirname, '../client/src')
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['react-hot', 'babel'],
+        include: path.resolve(__dirname, '../client/src/js')
+      },
+      { test: /\.s?css$/, loader: 'style!css!sass' },
+    ]
   }
 };
