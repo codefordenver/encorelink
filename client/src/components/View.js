@@ -7,11 +7,16 @@ const View = (props) => {
       <img src="/public/img/encorelink-logo.png" alt="EncoreLink" />
 
       <h3>{`UserID: ${props.userId}`}</h3>
-
       {props.children}
+
       <p>
-        <Link to="/volunteerViewEvents">View Events</Link>
+        <Link to="/createEvent">
+          Create Event
+        </Link> | <Link to="/volunteerViewEvents">
+          View Events
+        </Link>
       </p>
+
     </div>
   );
 };
