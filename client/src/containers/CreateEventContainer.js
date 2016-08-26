@@ -5,10 +5,6 @@ import CreateEvent from '../components/CreateEvent';
 
 const mapStateToProps = () => {
   return {
-  //   isError: state.eventManager.isError,
-  //   errorMessage: state.eventManager.errorMessage,
-  //   isFetching: state.eventManager.isFetching,
-  //   isLoggedIn: state.eventManager.isLoggedIn
   };
 };
 

@@ -82,10 +82,6 @@ export function createEvent(name, date) {
     .then(res => {
       if (res.error) {
         console.log(res.error);
-        dispatch(loginFailure(res.error));
-      } else {
-        dispatch(loginSuccess(res));
-        localStorage.setItem('userToken', res.id);
       }
     });
   };
