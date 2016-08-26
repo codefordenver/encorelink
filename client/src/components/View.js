@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const View = (props) => {
   return (
@@ -8,6 +9,9 @@ const View = (props) => {
       <h3>{`UserID: ${props.userId}`}</h3>
 
       {props.children}
+      <p>
+        <Link to="/volunteerViewEvents">View Events</Link>
+      </p>
     </div>
   );
 };

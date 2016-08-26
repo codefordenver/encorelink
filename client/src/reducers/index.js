@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import userManager from './userManager';
-import userMeals from './userMeals';
+import eventManager from './eventManager';
 
 
 const encoreLinkReducer = combineReducers({
   userManager,
-  userMeals
+  eventManager
 });
 
 export default encoreLinkReducer;
