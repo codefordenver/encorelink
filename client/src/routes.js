@@ -5,12 +5,14 @@ import LoginContainer from './containers/LoginContainer';
 import RegisterContainer from './containers/RegisterContainer';
 import ViewContainer from './containers/ViewContainer';
 import CreateEventContainer from './containers/CreateEventContainer';
+import VolunteerViewEvents from './containers/VolunteerViewEventsContainer';
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={RegisterContainer} />
     <Route path="/login" component={LoginContainer} />
     <Route path="/createEvent" component={CreateEventContainer} />
+    <Route path="/volunteerViewEvents" component={VolunteerViewEvents} />
     <Route path="/home" component={ViewContainer}>
       <div>Coming soon...</div>
     </Route>

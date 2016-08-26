@@ -87,6 +87,37 @@ export function createEvent(name, date) {
   };
 }
 
+function startGetVolunteerEvents() {
+  return {
+    type: 'GET_VOLUNTEER_EVENTS_REQUEST'
+  };
+}
+
+function volunteerViewEventsSuccess(response) {
+  return {
+    type: 'GET_VOLUNTEER_EVENTS_SUCCESS',
+    payload: response
+  };
+}
+
+export function volunteerViewEvents() {
+  return dispatch => {
+    dispatch(startGetVolunteerEvents());
+    return fetch('/api/events',
+      {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' } })
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          console.log(res.error);
+        } else {
+          dispatch(volunteerViewEventsSuccess(res));
+        }
+      });
+  };
+}
+
 function startRegisterRequest() {
   return {
     type: 'REGISTER_REQUEST'

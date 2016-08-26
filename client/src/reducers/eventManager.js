@@ -7,6 +7,17 @@ const eventManager = (state = {
         ...state,
         isFetching: true
       };
+    case 'GET_VOLUNTEER_EVENTS_REQUEST':
+      return {
+        ...state,
+        isFetching: true
+      };
+    case 'GET_VOLUNTEER_EVENTS_SUCCESS':
+      return {
+        ...state,
+        events: action.payload,
+        isFetching: false
+      };
     default:
       return state;
   }
