@@ -70,7 +70,6 @@ button {
   background-color: #403f3f;
   cursor: pointer;
 }
-
 .intro-box {
   display: flex;
   justify-content: center;
@@ -78,41 +77,33 @@ button {
   background-color: #62cadb;
   height: 500px;
 }
-
 .intro-box-content {
     text-align: center;
 }
-
 .how-it-works, .get-started-today {
   background-color: #fff;
   text-align: center;
 }
-
 .hiw-container, .ets-container, .ett-container, .gst-container {
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
 }
-
 .hiw-col {
   width: 170px;
 }
-
 .ets-col p {
   width: 240px;
   text-align: left;
 }
-
 .easy-to-track {
   background-color: #EFEFEF;
   text-align: center;
 }
-
 .ett-container h3 {
   text-align: left;
   width: 80%;
 }
-
 footer {
   background-color: #898989;
   color: #fff;
