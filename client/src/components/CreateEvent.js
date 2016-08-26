@@ -40,7 +40,7 @@ class CreateEvent extends React.Component {
             required
             autoFocus
           />
-          <input type="text"
+          <input type="date"
             onChange={this.handleDateChange}
             placeholder="date"
             required
