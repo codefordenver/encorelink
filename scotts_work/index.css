@@ -15,12 +15,16 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; }
 ins { text-decoration: none; }
 del { text-decoration: line-through; }
 table { border-collapse: collapse; border-spacing: 0; }
- 
+
 body {
     font-size: 62.5%;
     text-align: center;
     color: #000000;
     background-color: #525659;
+}
+h1, h2, h3, h4, h5, h6 {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 /* container - place inside each section or around the entire page depending on your layout */
 .container {
@@ -47,10 +51,16 @@ header {
   padding-left: 30px;
   padding-right: 30px;
 }
-.logoImg {
+.logo-img {
   width: 200px;
 }
-.login button {
+.blue-bkgd {
+  background-color: #62CADB;
+}
+.blue-txt {
+  color: #62CADB;
+}
+button {
   border-radius: 8px; 
   -moz-border-radius: 8px; 
   -webkit-border-radius: 8px; 
@@ -61,13 +71,50 @@ header {
   cursor: pointer;
 }
 
-.introBox {
+.intro-box {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #62cadb;
-  height: 700px;
+  height: 500px;
 }
- 
+
+.intro-box-content {
+    text-align: center;
+}
+
+.how-it-works, .get-started-today {
+  background-color: #fff;
+  text-align: center;
+}
+
+.hiw-container, .ets-container, .ett-container, .gst-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.hiw-col {
+  width: 170px;
+}
+
+.ets-col p {
+  width: 240px;
+  text-align: left;
+}
+
+.easy-to-track {
+  background-color: #EFEFEF;
+  text-align: center;
+}
+
+.ett-container h3 {
+  text-align: left;
+  width: 80%;
+}
+
 footer {
+  background-color: #898989;
+  color: #fff;
+  padding: 20px;
 }
