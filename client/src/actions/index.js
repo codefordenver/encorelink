@@ -1,214 +1,103 @@
+import { createApiAction, createAction } from '../utils/reduxActions';
+import {
+  CREATE_EVENT_REQUEST,
+  GET_VOLUNTEER_EVENTS_REQUEST,
+  GET_VOLUNTEER_EVENTS_SUCCESS,
+  LOGIN_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  RECEIVE_USER,
+  REGISTER_FAILURE,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS,
+  REQUEST_USER
+} from '../constants/reduxConstants';
 
-
-function requestUser(userid) {
-  return {
-    type: 'REQUEST_USER',
-    userid
-  };
-}
-
-function receiveUser(json) {
-  return {
-    type: 'RECEIVE_USER',
-    user: json
-  };
-}
+const requestUser = createAction(REQUEST_USER);
+const receiveUser = createAction(RECEIVE_USER);
 
 export function fetchUser(userid) {
-  return dispatch => {
-    dispatch(requestUser(userid));
-    return fetch(`http://localhost:3000/api/Users/${userid}`)
-      .then(response => response.json())
-      .then(json => dispatch(receiveUser(json)));
-  };
+  return createApiAction({
+    callApi: () => fetch(`http://localhost:3000/api/Users/${userid}`)
+      .then(response => response.json()),
+    startAction: () => requestUser(userid),
+    successAction: (res) => receiveUser(res)
+  });
 }
 
-function startLoginRequest() {
-  return {
-    type: 'LOGIN_REQUEST'
-  };
-}
-
-function loginSuccess(response) {
-  return {
-    type: 'LOGIN_SUCCESS',
-    payload: response
-  };
-}
-
-function loginFailure(response) {
-  return {
-    type: 'LOGIN_FAILURE',
-    payload: response
-  };
-}
+const startLoginRequest = createAction(LOGIN_REQUEST);
+const loginSuccess = createAction(LOGIN_SUCCESS);
+const loginFailure = createAction(LOGIN_FAILURE);
 
 export function loginRequest(email, password) {
-  return dispatch => {
-    dispatch(startLoginRequest());
-    return fetch('/api/users/login',
-      {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-        headers: { 'Content-Type': 'application/json' } })
-    .then(res => res.json())
-    .then(res => {
-      if (res.error) {
-        console.log(res.error);
-        dispatch(loginFailure(res.error));
-      } else {
-        dispatch(loginSuccess(res));
-        localStorage.setItem('userToken', res.id);
-      }
-    });
-  };
+  return createApiAction({
+    callApi: () => fetch('/api/users/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()),
+
+    startAction: startLoginRequest,
+    successAction: (res) => {
+      localStorage.setItem('userToken', res.id);
+      return loginSuccess(res);
+    },
+    failAction: (res) => loginFailure(res.error)
+  });
 }
 
-function startCreateEventRequest() {
-  return {
-    type: 'CREATE_EVENT_REQUEST'
-  };
-}
+const startCreateEventRequest = createAction(CREATE_EVENT_REQUEST);
 
 export function createEvent(name, date) {
-  return dispatch => {
-    dispatch(startCreateEventRequest());
-    return fetch('/api/events',
-      {
-        method: 'POST',
-        body: JSON.stringify({ name, date }),
-        headers: { 'Content-Type': 'application/json' } })
-    .then(res => res.json())
-    .then(res => {
-      if (res.error) {
-        console.log(res.error);
-      }
-    });
-  };
+  return createApiAction({
+    callApi: () => fetch('/api/events', {
+      method: 'POST',
+      body: JSON.stringify({ name, date }),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()),
+
+    startAction: () => startCreateEventRequest(),
+    failAction: (res) => console.log(res.error)
+  });
 }
 
-function startGetVolunteerEvents() {
-  return {
-    type: 'GET_VOLUNTEER_EVENTS_REQUEST'
-  };
-}
-
-function volunteerViewEventsSuccess(response) {
-  return {
-    type: 'GET_VOLUNTEER_EVENTS_SUCCESS',
-    payload: response
-  };
-}
+const startGetVolunteerEvents = createAction(GET_VOLUNTEER_EVENTS_REQUEST);
+const volunteerViewEventsSuccess = createAction(GET_VOLUNTEER_EVENTS_SUCCESS);
 
 export function volunteerViewEvents() {
+  return createApiAction({
+    callApi: () => fetch('/api/events', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()),
+
+    startAction: () => startGetVolunteerEvents(),
+    successAction: (res) => volunteerViewEventsSuccess(res),
+    failAction: (res) => console.log(res.error)
+  });
+}
+
+const startRegisterRequest = createAction(REGISTER_REQUEST);
+const registerSuccess = createAction(REGISTER_SUCCESS);
+const registerFailure = createAction(REGISTER_FAILURE);
+
+function registerSuccessAndLogin(response, email, password) {
   return dispatch => {
-    dispatch(startGetVolunteerEvents());
-    return fetch('/api/events',
-      {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' } })
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          console.log(res.error);
-        } else {
-          dispatch(volunteerViewEventsSuccess(res));
-        }
-      });
-  };
-}
-
-function startRegisterRequest() {
-  return {
-    type: 'REGISTER_REQUEST'
-  };
-}
-
-function registerSuccess(response) {
-  return {
-    type: 'REGISTER_SUCCESS',
-    payload: response
-  };
-}
-
-function registerFailure(response) {
-  return {
-    type: 'REGISTER_FAILURE',
-    payload: response
+    dispatch(registerSuccess(response));
+    dispatch(loginRequest(email, password));
   };
 }
 
 export function registerRequest(email, password) {
-  return dispatch => {
-    dispatch(startRegisterRequest());
-    return fetch('/api/users', {
+  return createApiAction({
+    callApi: () => fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => res.json())
-    .then(res => {
-      if (res.error) {
-        console.log(res.error);
-        dispatch(registerFailure(res.error));
-      } else {
-        dispatch(registerSuccess(res));
-        localStorage.setItem('userToken', res.id);
-      }
-    });
-  };
-}
+    }).then(res => res.json()),
 
-function requestFood() {
-  return {
-    type: 'REQUEST_FOOD'
-  };
+    startAction: () => startRegisterRequest(),
+    successAction: (res) => registerSuccessAndLogin(res, email, password),
+    failAction: (res) => registerFailure(res.error)
+  });
 }
-
-function receiveFood(json) {
-  return {
-    type: 'RECEIVE_FOOD',
-    food: json
-  };
-}
-
-export function fetchFood(userToken) {
-  return dispatch => {
-    dispatch(requestFood());
-    return fetch(`/api/food?access_token=${userToken}`)
-      .then(response => response.json())
-      .then(json => dispatch(receiveFood(json)));
-  };
-}
-
-function requestUserMeals() {
-  return {
-    type: 'REQUEST_USER_MEALS'
-  };
-}
-
-function receieveUserMeals(json) {
-  return {
-    type: 'RECEIVE_USER_MEALS',
-    payload: json
-  };
-}
-
-export function fetchUserMeals(userToken, userId) {
-  return dispatch => {
-    dispatch(requestUserMeals());
-    return fetch(`/api/users/${userId}/meals?access_token=${userToken}`)
-      .then(response => response.json())
-      .then(json => dispatch(receieveUserMeals(json)));
-  };
-}
-
-/*
-fetch('/api/users/login',
-  {
-    method: 'POST',
-    body: JSON.stringify({username:"scottsmeester", password:"password123"}),
-    headers: { 'Content-Type': 'application/json'}})
-.then(res => res.json())
-.then(res => console.log(res.id));
-*/

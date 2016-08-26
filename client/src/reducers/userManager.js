@@ -1,4 +1,10 @@
-const userManager = (state = {
+import {
+  LOGIN_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS
+} from '../constants/reduxConstants';
+
+const initialState = {
   isFetching: false,
   user: {},
   userId: null,
@@ -6,14 +12,16 @@ const userManager = (state = {
   isLoggedIn: false,
   isError: false,
   errorMessage: ''
-}, action) => {
+};
+
+const userManager = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_REQUEST':
+    case LOGIN_REQUEST:
       return {
         ...state,
         isFetching: true
       };
-    case 'LOGIN_SUCCESS':
+    case LOGIN_SUCCESS:
       return {
         ...state,
         userId: action.payload.userId,
@@ -23,7 +31,7 @@ const userManager = (state = {
         isError: false,
         errorMessage: ''
       };
-    case 'LOGIN_FAILURE':
+    case LOGIN_FAILURE:
       return {
         ...state,
         isFetching: false,
