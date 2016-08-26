@@ -1,7 +1,5 @@
 const eventManager = (state = {
-  user: {},
-  userId: null,
-  userToken: null,
+  isFetching: false
 }, action) => {
   switch (action.type) {
     case 'CREATE_EVENT_REQUEST':
