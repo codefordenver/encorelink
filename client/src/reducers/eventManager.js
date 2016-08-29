@@ -1,18 +1,26 @@
-const eventManager = (state = {
+import {
+  CREATE_EVENT_REQUEST,
+  GET_VOLUNTEER_EVENTS_REQUEST,
+  GET_VOLUNTEER_EVENTS_SUCCESS
+} from '../constants/reduxConstants';
+
+const initialState = {
   isFetching: false
-}, action) => {
+};
+
+const eventManager = (state = initialState, action) => {
   switch (action.type) {
-    case 'CREATE_EVENT_REQUEST':
+    case CREATE_EVENT_REQUEST:
       return {
         ...state,
         isFetching: true
       };
-    case 'GET_VOLUNTEER_EVENTS_REQUEST':
+    case GET_VOLUNTEER_EVENTS_REQUEST:
       return {
         ...state,
         isFetching: true
       };
-    case 'GET_VOLUNTEER_EVENTS_SUCCESS':
+    case GET_VOLUNTEER_EVENTS_SUCCESS:
       return {
         ...state,
         events: action.payload,
