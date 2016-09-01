@@ -7,7 +7,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    './src/js/index'
+    './src/index'
   ],
   output: {
     path: path.resolve(__dirname, '../client/dist'),
@@ -22,7 +22,7 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        include: path.resolve(__dirname, '../client/src/js')
+        include: path.resolve(__dirname, '../client/src')
       },
       { test: /\.s?css$/, loader: 'style!css!sass' },
     ]
