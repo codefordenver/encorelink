@@ -1,5 +1,5 @@
 /* reset styles */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b, u, i, center,
 dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
@@ -14,26 +14,32 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; }
 :focus { outline: 0; }
 ins { text-decoration: none; }
 del { text-decoration: line-through; }
-table { border-collapse: collapse; border-spacing: 0; }
+table { border-collapse: collapse; border-spacing: 0; }*/
 
 body {
-    font-size: 62.5%;
-    text-align: center;
     color: #000000;
     background-color: #525659;
 }
-h1, h2, h3, h4, h5, h6 {
+
+
+
+/*h1, h2, h3, h4, h5, h6 {
   padding-top: 20px;
   padding-bottom: 20px;
-}
+}*/
 /* container - place inside each section or around the entire page depending on your layout */
 .container {
     width: 1200px;
     margin: 0 auto;
-    text-align: left;
-    position: relative;
-    font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+    /*text-align: left;*/
+    /*position: relative;*/
+    /*font: 1.2em Verdana, Arial, Helvetica, sans-serif;*/
 }
+.top-bar {
+  background-color: #fff;
+}
+
+
 /* for clearing any floats <br class="clearfloat"/> */
 .clearfloat {
     clear:both;
@@ -41,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1px;
     line-height: 0px;
 }
-header {
+/*header {
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -50,17 +56,29 @@ header {
   padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
-}
+}*/
 .logo-img {
   width: 200px;
 }
 .blue-bkgd {
-  background-color: #62CADB;
+  background-color: #62cadb;
 }
 .blue-txt {
-  color: #62CADB;
+  color: #62cadb;
 }
-button {
+.intro-box {
+  background-color: #62cadb;
+  height: 500px;
+}
+.intro-box-content {
+  text-align: center;
+}
+
+
+
+
+
+/*button {
   border-radius: 8px; 
   -moz-border-radius: 8px; 
   -webkit-border-radius: 8px; 
@@ -69,17 +87,7 @@ button {
   color: white;
   background-color: #403f3f;
   cursor: pointer;
-}
-.intro-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #62cadb;
-  height: 500px;
-}
-.intro-box-content {
-    text-align: center;
-}
+}*/
 .how-it-works, .get-started-today {
   background-color: #fff;
   text-align: center;
