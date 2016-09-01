@@ -24,7 +24,10 @@ module.exports = {
         loaders: ['react-hot', 'babel'],
         include: path.resolve(__dirname, '../client/src')
       },
-      { test: /\.s?css$/, loader: 'style!css!sass' },
+      {
+        test: /\.s?css$/,
+        loader: 'style!css!sass'
+      }
     ]
   }
 };

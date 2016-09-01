@@ -26,10 +26,16 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, '../client/src')
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['react-hot', 'babel'],
+        include: path.resolve(__dirname, '../client/src')
+      },
+      {
+        test: /\.s?css$/,
+        loader: 'style!css!sass'
+      }
+    ]
   }
 };
