@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 const View = (props) => {
@@ -19,6 +19,11 @@ const View = (props) => {
 
     </div>
   );
+};
+
+View.propTypes = {
+  userId: PropTypes.number,
+  children: PropTypes.node
 };
 
 export default View;

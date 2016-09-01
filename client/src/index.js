@@ -1,11 +1,10 @@
-import './scss/app.scss';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 import configureStore from './store/configureStore';
+import './scss/app.scss';
 
 const store = configureStore();
 

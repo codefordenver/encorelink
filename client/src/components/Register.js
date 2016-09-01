@@ -2,6 +2,14 @@ import React, { PropTypes } from 'react';
 import { Link, withRouter } from 'react-router';
 
 class Register extends React.Component {
+  static propTypes = {
+    errorMessage: PropTypes.string,
+    registerRequest: PropTypes.func.isRequired,
+    router: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,9 +21,11 @@ class Register extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  static propTypes = {
-    registerRequest: PropTypes.func.isRequired
-  };
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isLoggedIn) {
+      this.props.router.push('/home');
+    }
+  }
 
   handlePasswordChange(ev) {
     this.setState({ password: ev.target.value });
@@ -28,12 +38,6 @@ class Register extends React.Component {
   handleFormSubmit(ev) {
     ev.preventDefault();
     this.props.registerRequest(this.state.email, this.state.password);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.isLoggedIn) {
-      this.props.router.push('/home');
-    }
   }
 
   render() {
