@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { Link, withRouter } from 'react-router';
 
 class Register extends React.Component {
-  /*commenting out, as there is an error here
   static propTypes = {
     errorMessage: PropTypes.string,
     registerRequest: PropTypes.func.isRequired,
@@ -10,7 +9,7 @@ class Register extends React.Component {
       push: PropTypes.func.isRequired
     }).isRequired
   };
-*/
+
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +42,7 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className="register">
+      <div className="register intro-box">
         <form className="form-register" onSubmit={this.handleFormSubmit}>
           <input type="text"
             onChange={this.handleEmailChange}

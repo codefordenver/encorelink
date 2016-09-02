@@ -19,10 +19,10 @@ function Landing() {
               </button>
             </div>
           </section>
-          </div>
-          <div className="large-4 columns">
-            <RegisterContainer />
-          </div>
+        </div>
+        <div className="large-4 columns">
+          <RegisterContainer />
+        </div>
       </div>
       <section className="how-it-works">
         <div className="row small-12">
