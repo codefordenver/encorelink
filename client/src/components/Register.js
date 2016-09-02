@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Link, withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 
 class Register extends React.Component {
   static propTypes = {
@@ -70,7 +70,7 @@ class Register extends React.Component {
             <input type="radio" name="role" value="musician" /> Musician
           </div>
           <div>
-            <input type="checkbox" name="terms" value="agree" /> 
+            <input type="checkbox" name="terms" value="agree" />
             Agree to <a href="">EncoreLink Terms</a>
           </div>
           <button value="getStarted" className="button" type="submit">
