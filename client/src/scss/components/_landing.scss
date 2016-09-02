@@ -1,0 +1,155 @@
+/* reset styles */
+
+
+/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0; padding: 0;  border: 0; outline: 0; font-size: 100%;
+    vertical-align: baseline; background: transparent;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }*/
+
+body {
+    color: #000000;
+    background-color: #525659;
+}
+
+
+/*h1, h2, h3, h4, h5, h6 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}*/
+
+
+/* container - place inside each section or around the entire page depending on your layout */
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    /*text-align: left;*/
+    /*position: relative;*/
+    /*font: 1.2em Verdana, Arial, Helvetica, sans-serif;*/
+}
+
+.top-bar {
+    background-color: #fff;
+}
+
+
+/* for clearing any floats <br class="clearfloat"/> */
+
+.clearfloat {
+    clear: both;
+    height: 0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+
+/*header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}*/
+
+.logo-img {
+    width: 200px;
+}
+
+.blue-bkgd {
+    background-color: #62cadb;
+}
+
+.blue-txt {
+    color: #62cadb;
+}
+
+.intro-box {
+    background-color: #62cadb;
+    height: 500px;
+}
+
+.intro-box-content {
+    text-align: center;
+}
+
+.register-box {
+    background-color: lightblue;
+    height: 500px;
+    color: #6fa2aa;
+    padding: 50px 50px 50px 50px;
+}
+
+.register-signup {
+    font-size: xx-large;
+}
+
+.form-register {
+    font-size: small;
+}
+
+
+/*button {
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: 0px solid #800000;
+  padding: 15px 30px;
+  color: white;
+  background-color: #403f3f;
+  cursor: pointer;
+}*/
+
+.how-it-works,
+.get-started-today {
+    background-color: #fff;
+    text-align: center;
+}
+
+.hiw-container,
+.ets-container,
+.ett-container,
+.gst-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.hiw-col {
+    width: 170px;
+}
+
+.ets-col p {
+    width: 240px;
+    text-align: left;
+}
+
+.easy-to-track {
+    background-color: #EFEFEF;
+    text-align: center;
+}
+
+.ett-container h3 {
+    text-align: left;
+    width: 80%;
+}
+
+footer {
+    background-color: #898989;
+    color: #fff;
+    padding: 20px;
+}

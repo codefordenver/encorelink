@@ -1,7 +1,15 @@
 import React, { PropTypes } from 'react';
-import { Link, withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 
 class Register extends React.Component {
+  static propTypes = {
+    errorMessage: PropTypes.string,
+    registerRequest: PropTypes.func.isRequired,
+    router: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,9 +21,11 @@ class Register extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  static propTypes = {
-    registerRequest: PropTypes.func.isRequired
-  };
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isLoggedIn) {
+      this.props.router.push('/home');
+    }
+  }
 
   handlePasswordChange(ev) {
     this.setState({ password: ev.target.value });
@@ -30,37 +40,46 @@ class Register extends React.Component {
     this.props.registerRequest(this.state.email, this.state.password);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.isLoggedIn) {
-      this.props.router.push('/home');
-    }
-  }
-
   render() {
     return (
-      <div className="register">
+      <div className="register-box">
+        <div className="register-signup">Signup</div>
         <form className="form-register" onSubmit={this.handleFormSubmit}>
+          <div>Username:</div>
+          <input type="text"
+            onChange={this.handleUsernameChange}
+            placeholder="Username"
+            required
+            autoFocus
+          />
+          <div>Email:</div>
           <input type="text"
             onChange={this.handleEmailChange}
             placeholder="Email"
             required
-            autoFocus
           />
+          <div>Password:</div>
           <input type="password"
             onChange={this.handlePasswordChange}
             placeholder="Password"
             required
           />
-          <button type="submit">Register</button>
+          <div>Are you signing up as a:</div>
+          <div>
+            <input type="radio" name="role" value="organizer" /> Organizer
+            <input type="radio" name="role" value="musician" /> Musician
+          </div>
+          <div>
+            <input type="checkbox" name="terms" value="agree" />
+            Agree to <a href="">EncoreLink Terms</a>
+          </div>
+          <button value="getStarted" className="button" type="submit">
+            Get Started Today
+          </button>
         </form>
         <div>
           <span>{this.props.errorMessage}</span>
         </div>
-
-        <p>
-          Already have an account?
-          <Link to="/login">Login</Link>
-        </p>
       </div>
     );
   }

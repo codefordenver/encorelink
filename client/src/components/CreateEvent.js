@@ -3,7 +3,8 @@ import { withRouter } from 'react-router';
 
 class CreateEvent extends React.Component {
   static propTypes = {
-    createEvent: PropTypes.func.isRequired
+    createEvent: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string
   };
 
   constructor(props) {
