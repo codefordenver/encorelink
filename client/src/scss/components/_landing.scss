@@ -1,44 +1,29 @@
-/* reset styles */
-/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, b, u, i, center,
-dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-    margin: 0; padding: 0;  border: 0; outline: 0; font-size: 100%;
-    vertical-align: baseline; background: transparent;
-}
-body { line-height: 1; }
-ol, ul { list-style: none; }
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after, q:before, q:after { content: ''; }
-:focus { outline: 0; }
-ins { text-decoration: none; }
-del { text-decoration: line-through; }
-table { border-collapse: collapse; border-spacing: 0; }*/
-
 body {
     color: #000000;
     background-color: #525659;
 }
-
-
-
-/*h1, h2, h3, h4, h5, h6 {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}*/
+h3 {
+  color: #4B8990;
+}
 /* container - place inside each section or around the entire page depending on your layout */
 .container {
     width: 1200px;
     margin: 0 auto;
-    /*text-align: left;*/
-    /*position: relative;*/
-    /*font: 1.2em Verdana, Arial, Helvetica, sans-serif;*/
 }
 .top-bar {
   background-color: #fff;
 }
 
+.button {
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: 0px solid #800000;
+  padding: 15px 30px;
+  color: white;
+  background-color: #403F3F;
+  cursor: pointer;
+}
 
 /* for clearing any floats <br class="clearfloat"/> */
 .clearfloat {
@@ -63,31 +48,22 @@ body {
 .blue-bkgd {
   background-color: #62cadb;
 }
+.blue-bkgd2 {
+    background-color: #B4DFE5;
+}
 .blue-txt {
   color: #62cadb;
+}
+.dark-green-btn {
+    background-color: #4B8990;
 }
 .intro-box {
   background-color: #62cadb;
   height: 500px;
 }
 .intro-box-content {
-  text-align: center;
+  padding: 90px;
 }
-
-
-
-
-
-/*button {
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border: 0px solid #800000;
-  padding: 15px 30px;
-  color: white;
-  background-color: #403f3f;
-  cursor: pointer;
-}*/
 .how-it-works, .get-started-today {
   background-color: #fff;
   text-align: center;

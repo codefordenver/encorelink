@@ -42,27 +42,31 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className="register intro-box">
+      <div className="register blue-bkgd2">
+        <h3>Signup</h3>
         <form className="form-register" onSubmit={this.handleFormSubmit}>
-          <input type="text"
-            onChange={this.handleEmailChange}
-            placeholder="Email"
-            required
-            autoFocus
-          />
-          <input type="password"
-            onChange={this.handlePasswordChange}
-            placeholder="Password"
-            required
-          />
-          <button type="submit">Register</button>
+          <label>Email
+            <input type="text"
+              onChange={this.handleEmailChange}
+              placeholder="Email"
+              required
+              autoFocus
+            />
+          </label>
+          <label>Password
+            <input type="password"
+              onChange={this.handlePasswordChange}
+              placeholder="Password"
+              required
+            />
+          </label>
+          <button className="button dark-green-btn" type="submit">Register</button>
         </form>
         <div>
           <span>{this.props.errorMessage}</span>
         </div>
-
         <p>
-          Already have an account?
+          Already have an account?&nbsp;
           <Link to="/login">Login</Link>
         </p>
       </div>

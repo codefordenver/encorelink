@@ -5,23 +5,21 @@ function Landing() {
   return (
     <div>
       <div className="row">
-        <div className="large-8 columns">
-          <section className="row align-middle align-center intro-box">
+        <div className="small-12 large-8 columns">
+          <div className="row align-middle align-center intro-box blue-bkgd">
             <div className="small-12 column intro-box-content">
               <h1>Match. Play. Contritube.</h1>
               <p>
                 Encore Link is the best way to match volunteer musicians with organizations
                 who are in need of musicians who donate their time.
               </p>
-              <h3>Are you a Volunteer Musician or Organizer:</h3>
-              <button value="getStarted" className="button" type="submit">
-                Get Started Today
-              </button>
             </div>
-          </section>
+          </div>
         </div>
-        <div className="large-4 columns">
-          <RegisterContainer />
+        <div className="small-12 large-4 columns blue-bkgd2">
+          <div className="row align-middle align-center">
+              <RegisterContainer />
+          </div>
         </div>
       </div>
       <section className="how-it-works">
