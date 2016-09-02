@@ -20,3 +20,5 @@ npm-debug.log
 server/datasources.local.json
 .vagrant/
 client/dist
+.vscode
+

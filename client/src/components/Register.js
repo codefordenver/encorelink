@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link, withRouter } from 'react-router';
 
 class Register extends React.Component {
+  /*commenting out, as there is an error here
   static propTypes = {
     errorMessage: PropTypes.string,
     registerRequest: PropTypes.func.isRequired,
@@ -9,7 +10,7 @@ class Register extends React.Component {
       push: PropTypes.func.isRequired
     }).isRequired
   };
-
+*/
   constructor(props) {
     super(props);
     this.state = {
