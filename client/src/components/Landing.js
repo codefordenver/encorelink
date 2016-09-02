@@ -13,10 +13,6 @@ function Landing() {
                 Encore Link is the best way to match volunteer musicians with organizations
                 who are in need of musicians who donate their time.
               </p>
-              <h3>Are you a Volunteer Musician or Organizer:</h3>
-              <button value="getStarted" className="button" type="submit">
-                Get Started Today
-              </button>
             </div>
           </section>
         </div>
