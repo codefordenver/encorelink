@@ -42,7 +42,7 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className="register">
+      <div className="register intro-box">
         <form className="form-register" onSubmit={this.handleFormSubmit}>
           <input type="text"
             onChange={this.handleEmailChange}
