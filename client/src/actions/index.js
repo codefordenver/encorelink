@@ -12,6 +12,7 @@ import {
   REGISTER_SUCCESS,
   REQUEST_USER
 } from '../constants/reduxConstants';
+import { getUserId, getUserToken } from '../reducers/userManager';
 
 const requestUser = createAction(REQUEST_USER);
 const receiveUser = createAction(RECEIVE_USER);
@@ -50,7 +51,8 @@ const startCreateEventRequest = createAction(CREATE_EVENT_REQUEST);
 
 export function createEvent(name, date) {
   return createApiAction({
-    callApi: () => fetch('/api/events', {
+    callApi: (state) =>
+    fetch(`/api/users/${getUserId(state)}/events?access_token=${getUserToken(state)}`, {
       method: 'POST',
       body: JSON.stringify({ name, date }),
       headers: { 'Content-Type': 'application/json' }

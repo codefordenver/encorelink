@@ -44,3 +44,5 @@ const userManager = (state = initialState, action) => {
 };
 
 export default userManager;
+export function getUserId(state) { return state.userManager.userId; }
+export function getUserToken(state) { return state.userManager.userToken; }
