@@ -50,31 +50,16 @@ h3 {
 .intro-box {
   height: 500px;
   display: flex;
-  /*justify-content: space-between;*/
-  /*align-items: center*/
 }
 .reg-box {
   padding-left: 90px;
   padding-right: 90px;
 }
-
-
-.how-it-works, .get-started-today {
+.how-it-works, .easy-to-sched, .get-started-today {
   background-color: #fff;
-  text-align: center;
 }
-.hiw-container, .ets-container, .ett-container, .gst-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
-}
-.hiw-col {
-  width: 170px;
-}
-.ets-col p {
-  width: 240px;
-  text-align: left;
-}
+
+
 .easy-to-track {
   background-color: #EFEFEF;
   text-align: center;

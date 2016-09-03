@@ -20,32 +20,31 @@ function Landing() {
             </div>
           </div>
       </div>
-      <section className="how-it-works">
-        <div className="row small-12">
+      <div className="row how-it-works">
+        <div className="small-12 column center">
           <h1 className="blue-txt">How It Works</h1>
         </div>
         <div className="row">
-          <div className="hiw-container">
-            <div className="hiw-col">
-              <h1 className="circleNum">1</h1>
-              <p>Activity Director Schedules Open Spots for Musicians</p>
-            </div>
-            <div className="hiw-col">
-              <h1 className="circleNum">2</h1>
-              <p>Musicians Search and Schedule Volunteering Spots</p>
-            </div>
-            <div className="hiw-col">
-              <h1 className="circleNum">3</h1>
-              <p>Musicians Play for Audience</p>
-            </div>
+          <div className="small-4 column">
+            <h1 className="circleNum">1</h1>
+            <p>Activity Director Schedules Open Spots for Musicians</p>
+          </div>
+          <div className="small-4 column">
+            <h1 className="circleNum">2</h1>
+            <p>Musicians Search and Schedule Volunteering Spots</p>
+          </div>
+          <div className="small-4 column">
+            <h1 className="circleNum">3</h1>
+            <p>Musicians Play for Audience</p>
           </div>
         </div>
-        <div className="row">
+      </div>
+      <div className="row easy-to-sched">
+        <div className="small-12 column">
           <h1 className="blue-txt">Easy to Schedule</h1>
         </div>
         <div className="row">
-          <div className="ets-container">
-            <div className="ets-col">
+            <div className="small-4 column">
               <h1 className="circleNum">icon</h1>
               <p>
                 Lorem ipsum dolor sit amet, cibo alienum quo at, putant delicata
@@ -54,7 +53,7 @@ function Landing() {
                 zril dicant splendide, te iuvaret appetere vis.
               </p>
             </div>
-            <div className="ets-col">
+            <div className="small-4 column">
               <h1 className="circleNum">icon</h1>
               <p>
                 Ne nostro bonorum intellegam mea, ullum iuvaret epicuri vim an.
@@ -64,7 +63,7 @@ function Landing() {
                 facete integre, mea et oblique abhorreant definiebas.
               </p>
             </div>
-            <div className="ets-col">
+            <div className="small-4 column">
               <h1 className="circleNum">icon</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
@@ -76,10 +75,9 @@ function Landing() {
                 velit aliquam eget.
               </p>
             </div>
-          </div>
         </div>
-      </section>
-      <section className="easy-to-track">
+      </div>
+      <div className="easy-to-track">
         <h1 className="blue-txt">Easy to Track</h1>
         <div className="ett-container">
           <h3>
@@ -89,11 +87,11 @@ function Landing() {
             zril dicant splendide, te iuvaret appetere vis.
           </h3>
         </div>
-      </section>
-      <section className="get-started-today">
+      </div>
+      <div className="get-started-today">
         <h1 className="blue-txt">Get Started Today</h1>
         <div className="gst-container" />
-      </section>
+      </div>
     </div>
   );
 }
