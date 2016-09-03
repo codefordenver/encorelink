@@ -77,18 +77,20 @@ function Landing() {
           </div>
         </div>
       </div>
-      <div className="row easy-to-track">
+      <div className="row easy-to-track align-spaced">
         <h1 className="blue-txt">Easy to Track</h1>
-        <div className="ett-container">
+        <div className="left">
           Lorem ipsum dolor sit amet, cibo alienum quo at, putant delicata
           vituperatoribus sit ei. An agam offendit disputationi vel, menandri
           prodesset vituperatoribus eos in. Has et vitae omittantur. Eu mea
           zril dicant splendide, te iuvaret appetere vis.
         </div>
       </div>
-      <div className="row get-started-today">
-        <h1 className="blue-txt">Get Started Today</h1>
-        <div className="gst-container" />
+      <div className="row get-started-today align-spaced">
+        <div className="small-12 column">
+          <h1 className="blue-txt">Get Started Today</h1>
+          <div className="gst-container" />
+        </div>
       </div>
     </div>
   );
