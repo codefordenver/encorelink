@@ -5,7 +5,7 @@ function Landing() {
   return (
     <div>
       <div className="row">
-        <div className="small-12 large-8 column align-middle blue-bkgd intro-box">
+        <div className="small-12 medium-6 large-8 column align-middle blue-bkgd intro-box">
           <div className="reg-box">
             <h1>Match. Play. Contritube.</h1>
             <p>
@@ -14,7 +14,7 @@ function Landing() {
             </p>
           </div>
         </div>
-          <div className="small-12 large-4 column align-middle blue-bkgd2 intro-box">
+          <div className="small-12 medium-6 large-4 column align-middle blue-bkgd2 intro-box align-spaced">
             <div className="form-box">
               <RegisterContainer />
             </div>
