@@ -4,25 +4,21 @@ import RegisterContainer from '../containers/RegisterContainer';
 function Landing() {
   return (
     <div>
-      <div className="row align-middle intro-box blue-bkgd">
-        <div className="small-12 large-8 columns">
-          <div className="row align-middle align-center intro-box-content">
-            <div className="small-12 column">
-              <h1>Match. Play. Contritube.</h1>
-              <p>
-                Encore Link is the best way to match volunteer musicians with organizations
-                who are in need of musicians who donate their time.
-              </p>
-            </div>
+      <div className="row">
+        <div className="small-12 large-8 column align-middle blue-bkgd intro-box">
+          <div className="reg-box">
+            <h1>Match. Play. Contritube.</h1>
+            <p>
+              Encore Link is the best way to match volunteer musicians with organizations
+              who are in need of musicians who donate their time.
+            </p>
           </div>
         </div>
-          <div className="small-12 large-4 columns intro-box blue-bkgd2">
-            <div className="row align-middle align-center">
-              <div className="small-12 column">
-                  <RegisterContainer />
-              </div>
+          <div className="small-12 large-4 column align-middle blue-bkgd2 intro-box">
+            <div className="form-box">
+              <RegisterContainer />
             </div>
-        </div>
+          </div>
       </div>
       <section className="how-it-works">
         <div className="row small-12">

@@ -49,10 +49,16 @@ h3 {
 }
 .intro-box {
   height: 500px;
+  display: flex;
+  /*justify-content: space-between;*/
+  /*align-items: center*/
 }
-.intro-box-content {
-  padding: 90px;
+.reg-box {
+  padding-left: 90px;
+  padding-right: 90px;
 }
+
+
 .how-it-works, .get-started-today {
   background-color: #fff;
   text-align: center;
