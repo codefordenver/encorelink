@@ -1,6 +1,6 @@
 # EncoreLink
 
-[![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers) 
+[![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers)
 [![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=master)](https://travis-ci.org/codefordenver/encorelink)
 
 ## Setup - Option 1 (Vagrant)
@@ -31,7 +31,7 @@ Once `vagrant up` has finished, follow these steps to start the server.
 
 1. `vagrant ssh` to login into the virtual machine.
 2. `cd /vagrant` to navigate to the project.
-3. `node .` to start the server.
+3. `npm start` to start the server.
 4. Open your browser
 5.
 	- Backend:	http://encorelink.dev:3000/explorer
@@ -79,3 +79,15 @@ while you code.
 
 Additionally, you can run eslint on the command line with `npm run lint` (or
 `npm run lint -- --fix` to have eslint attempt to fix some of the issues)
+
+## Things work locally but not on Heroku...
+We run the app with a different configuration for local development than we do
+for deploying. If things work when running locally, but fail when deploying,
+run `npm run heroku` to emulate the config used for
+production (visible on localhost:3000).
+
+You might also want to make sure you have the same npm modules that will be
+installed on heroku (this can be done with `rm -rf node_modules && npm install
+--production`). In this case, you'll have to start the app with
+`NODE_ENV=production npm start` (or otherwise export `NODE_ENV=production`
+before starting).
