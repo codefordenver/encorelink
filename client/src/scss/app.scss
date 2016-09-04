@@ -1,0 +1,4 @@
+@import './vendors/foundation/foundation';
+@include foundation-everything(true);
+
+@import './components/landing';

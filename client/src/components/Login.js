@@ -1,7 +1,15 @@
 import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
 class Login extends React.Component {
+  static propTypes = {
+    errorMessage: PropTypes.string,
+    loginRequest: PropTypes.func.isRequired,
+    router: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +21,10 @@ class Login extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  static propTypes = {
-    loginRequest: PropTypes.func.isRequired
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isLoggedIn) {
+      this.props.router.push('/home');
+    }
   }
 
   handlePasswordChange(ev) {
@@ -28,12 +38,6 @@ class Login extends React.Component {
   handleFormSubmit(ev) {
     ev.preventDefault();
     this.props.loginRequest(this.state.email, this.state.password);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.isLoggedIn) {
-      this.props.router.push('/home');
-    }
   }
 
   render() {
@@ -55,11 +59,11 @@ class Login extends React.Component {
         </form>
         <div>
           <span>{this.props.errorMessage}</span>
+          <Link to="/landing">Landing</Link>
         </div>
       </div>
     );
   }
 }
-
 
 export default withRouter(Login);

@@ -2,6 +2,14 @@ import React, { PropTypes } from 'react';
 import { Link, withRouter } from 'react-router';
 
 class Register extends React.Component {
+  static propTypes = {
+    errorMessage: PropTypes.string,
+    registerRequest: PropTypes.func.isRequired,
+    router: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,9 +21,11 @@ class Register extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  static propTypes = {
-    registerRequest: PropTypes.func.isRequired
-  };
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isLoggedIn) {
+      this.props.router.push('/home');
+    }
+  }
 
   handlePasswordChange(ev) {
     this.setState({ password: ev.target.value });
@@ -30,35 +40,33 @@ class Register extends React.Component {
     this.props.registerRequest(this.state.email, this.state.password);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.isLoggedIn) {
-      this.props.router.push('/home');
-    }
-  }
-
   render() {
     return (
-      <div className="register">
+      <div className="register blue-bkgd2">
+        <h3>Signup</h3>
         <form className="form-register" onSubmit={this.handleFormSubmit}>
-          <input type="text"
-            onChange={this.handleEmailChange}
-            placeholder="Email"
-            required
-            autoFocus
-          />
-          <input type="password"
-            onChange={this.handlePasswordChange}
-            placeholder="Password"
-            required
-          />
-          <button type="submit">Register</button>
+          <label>Email
+            <input type="text"
+              onChange={this.handleEmailChange}
+              placeholder="Email"
+              required
+              autoFocus
+            />
+          </label>
+          <label>Password
+            <input type="password"
+              onChange={this.handlePasswordChange}
+              placeholder="Password"
+              required
+            />
+          </label>
+          <button className="button dark-green-btn" type="submit">Register</button>
         </form>
         <div>
           <span>{this.props.errorMessage}</span>
         </div>
-
         <p>
-          Already have an account?
+          Already have an account?&nbsp;
           <Link to="/login">Login</Link>
         </p>
       </div>
