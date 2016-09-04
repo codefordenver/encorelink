@@ -5,99 +5,93 @@ function Landing() {
   return (
     <div>
       <div className="row">
-        <div className="large-8 columns">
-          <section className="row align-middle align-center intro-box">
-            <div className="small-12 column intro-box-content">
-              <h1>Match. Play. Contritube.</h1>
-              <p>
-                Encore Link is the best way to match volunteer musicians with organizations
-                who are in need of musicians who donate their time.
-              </p>
-              <h3>Are you a Volunteer Musician or Organizer:</h3>
-              <button value="getStarted" className="button" type="submit">
-                Get Started Today
-              </button>
-            </div>
-          </section>
-        </div>
-        <div className="large-4 columns">
-          <RegisterContainer />
-        </div>
-      </div>
-      <section className="how-it-works">
-        <div className="row small-12">
-          <h1 className="blue-txt">How It Works</h1>
-        </div>
-        <div className="row">
-          <div className="hiw-container">
-            <div className="hiw-col">
-              <h1 className="circleNum">1</h1>
-              <p>Activity Director Schedules Open Spots for Musicians</p>
-            </div>
-            <div className="hiw-col">
-              <h1 className="circleNum">2</h1>
-              <p>Musicians Search and Schedule Volunteering Spots</p>
-            </div>
-            <div className="hiw-col">
-              <h1 className="circleNum">3</h1>
-              <p>Musicians Play for Audience</p>
-            </div>
+        <div className="small-12 medium-6 large-8 column align-middle blue-bkgd intro-box">
+          <div className="reg-box">
+            <h1>Match. Play. Contritube.</h1>
+            <p>
+              Encore Link is the best way to match volunteer musicians with organizations
+              who are in need of musicians who donate their time.
+            </p>
           </div>
         </div>
-        <div className="row">
+        <div className="small-12 medium-6 large-4 column align-middle blue-bkgd2 intro-box align-spaced">
+          <div className="form-box">
+            <RegisterContainer />
+          </div>
+        </div>
+      </div>
+      <div className="row how-it-works align-spaced">
+        <div className="small-12 column">
+          <h1 className="blue-txt">How It Works</h1>
+        </div>
+        <div className="row align-center">
+          <div className="column small-4">
+            <h1 className="circleNum">1</h1>
+            <p>Activity Director Schedules Open Spots for Musicians</p>
+          </div>
+          <div className="column small-4">
+            <h1 className="circleNum">2</h1>
+            <p>Musicians Search and Schedule Volunteering Spots</p>
+          </div>
+          <div className="column small-4">
+            <h1 className="circleNum">3</h1>
+            <p>Musicians Play for Audience</p>
+          </div>
+        </div>
+      </div>
+      <div className="row easy-to-sched align-spaced">
+        <div className="small-12 column">
           <h1 className="blue-txt">Easy to Schedule</h1>
         </div>
         <div className="row">
-          <div className="ets-container">
-            <div className="ets-col">
-              <h1 className="circleNum">icon</h1>
-              <p>
-                Lorem ipsum dolor sit amet, cibo alienum quo at, putant delicata
-                vituperatoribus sit ei. An agam offendit disputationi vel, menandri
-                prodesset vituperatoribus eos in. Has et vitae omittantur. Eu mea
-                zril dicant splendide, te iuvaret appetere vis.
-              </p>
-            </div>
-            <div className="ets-col">
-              <h1 className="circleNum">icon</h1>
-              <p>
-                Ne nostro bonorum intellegam mea, ullum iuvaret epicuri vim an.
-                In nemore mediocrem neglegentur nec. Cu sea liber deseruisse, persius
-                civibus ex cum. Eum facete placerat postulant eu. Modus option
-                mnesarchum ut vis, vide gubergren voluptatum et per. Sed ea nullam
-                facete integre, mea et oblique abhorreant definiebas.
-              </p>
-            </div>
-            <div className="ets-col">
-              <h1 className="circleNum">icon</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-                consequat commodo urna, luctus lacinia orci varius non. Aenean risus
-                ex, malesuada ullamcorper ipsum in, porta feugiat justo. Cras vel
-                ligula sed lacus convallis pellentesque. Nulla cursus iaculis metus,
-                non ultricies nibh elementum a. Sed et ante tristique, pellentesque
-                leo eu, dignissim neque. Morbi ullamcorper velit felis, ut maximus
-                velit aliquam eget.
-              </p>
-            </div>
+          <div className="column small-4">
+            <h1 className="circleNum">icon</h1>
+            <p className="left">
+              Lorem ipsum dolor sit amet, cibo alienum quo at, putant delicata
+              vituperatoribus sit ei. An agam offendit disputationi vel, menandri
+              prodesset vituperatoribus eos in. Has et vitae omittantur. Eu mea
+              zril dicant splendide, te iuvaret appetere vis.
+            </p>
+          </div>
+          <div className="column small-4">
+            <h1 className="circleNum">icon</h1>
+            <p className="left">
+              Ne nostro bonorum intellegam mea, ullum iuvaret epicuri vim an.
+              In nemore mediocrem neglegentur nec. Cu sea liber deseruisse, persius
+              civibus ex cum. Eum facete placerat postulant eu. Modus option
+              mnesarchum ut vis, vide gubergren voluptatum et per. Sed ea nullam
+              facete integre, mea et oblique abhorreant definiebas.
+            </p>
+          </div>
+          <div className="column small-4">
+            <h1 className="circleNum">icon</h1>
+            <p className="left">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+              consequat commodo urna, luctus lacinia orci varius non. Aenean risus
+              ex, malesuada ullamcorper ipsum in, porta feugiat justo. Cras vel
+              ligula sed lacus convallis pellentesque. Nulla cursus iaculis metus,
+              non ultricies nibh elementum a. Sed et ante tristique, pellentesque
+              leo eu, dignissim neque. Morbi ullamcorper velit felis, ut maximus
+              velit aliquam eget.
+            </p>
           </div>
         </div>
-      </section>
-      <section className="easy-to-track">
+      </div>
+      <div className="row easy-to-track align-spaced">
         <h1 className="blue-txt">Easy to Track</h1>
-        <div className="ett-container">
-          <h3>
-            Lorem ipsum dolor sit amet, cibo alienum quo at, putant delicata
-            vituperatoribus sit ei. An agam offendit disputationi vel, menandri
-            prodesset vituperatoribus eos in. Has et vitae omittantur. Eu mea
-            zril dicant splendide, te iuvaret appetere vis.
-          </h3>
+        <div className="left">
+          Lorem ipsum dolor sit amet, cibo alienum quo at, putant delicata
+          vituperatoribus sit ei. An agam offendit disputationi vel, menandri
+          prodesset vituperatoribus eos in. Has et vitae omittantur. Eu mea
+          zril dicant splendide, te iuvaret appetere vis.
         </div>
-      </section>
-      <section className="get-started-today">
-        <h1 className="blue-txt">Get Started Today</h1>
-        <div className="gst-container" />
-      </section>
+      </div>
+      <div className="row get-started-today align-spaced">
+        <div className="small-12 column">
+          <h1 className="blue-txt">Get Started Today</h1>
+          <div className="gst-container" />
+        </div>
+      </div>
     </div>
   );
 }
