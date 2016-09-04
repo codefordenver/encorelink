@@ -10,8 +10,18 @@ module.exports = function(app, done) {
 
     compiler.run(function(err, stats) {
       if (err) {
-        return console.log(err);
+        return done(err);
       }
+
+      var jsonStats = stats.toJson();
+      if (jsonStats.errors.length > 0) {
+        return done(jsonStats.errors);
+      }
+      if (jsonStats.warnings.length > 0) {
+        console.warn('Webpack warnings:');
+        console.error.apply(null, jsonStats.warnings);
+      }
+
       console.log('webpacked for production');
 
       app.use('/dist', loopback.static(path.join(__dirname, '../../client/dist')));
