@@ -14,11 +14,11 @@ function Landing() {
             </p>
           </div>
         </div>
-          <div className="small-12 medium-6 large-4 column align-middle blue-bkgd2 intro-box align-spaced">
-            <div className="form-box">
-              <RegisterContainer />
-            </div>
+        <div className="small-12 medium-6 large-4 column align-middle blue-bkgd2 intro-box align-spaced">
+          <div className="form-box">
+            <RegisterContainer />
           </div>
+        </div>
       </div>
       <div className="row how-it-works align-spaced">
         <div className="small-12 column">
