@@ -1,5 +1,8 @@
 .theater {
   background-color: #62cadb;
+  h1 {
+    color: #000;
+  }
   .register {
     margin: 20px 0;
     @include breakpoint(medium) {

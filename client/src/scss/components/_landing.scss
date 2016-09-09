@@ -1,58 +1,11 @@
-body {
-    color: #000000;
-    background-color: #525659;
-}
-h3 {
-  color: #4B8990;
-}
-.top-bar {
-  background-color: #fff;
-}
-
-.button {
-  border-radius: 8px;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border: 0px solid #800000;
-  padding: 15px 30px;
-  color: white;
-  background-color: #403F3F;
-  cursor: pointer;
-}
-
-/* for clearing any floats <br class="clearfloat"/> */
-.clearfloat {
-    clear:both;
-    height:0;
-    font-size: 1px;
-    line-height: 0px;
-}
-.logo-img {
-  width: 200px;
-}
-.blue-txt {
-  color: #62cadb;
-}
-.dark-green-btn {
-    background-color: #4B8990;
-}
-.intro-box {
-  height: 500px;
-  display: flex;
-}
-.how-it-works, .easy-to-sched, .get-started-today, .easy-to-track, .get-started-today {
-  background-color: #fff;
-  text-align: center;
-  padding: 90px 40px;
-}
-.easy-to-track {
-  background-color: #EFEFEF;
-}
-.left {
-  text-align: left;
-}
-footer {
-  background-color: #898989;
-  color: #fff;
-  padding: 20px;
+.landing-page {
+  .content-block {
+    padding: 30px 0;
+    @include breakpoint (large) {
+      padding: 50px 0;
+    }
+  }
+  .easy-to-track {
+    background-color: #EFEFEF;
+  }
 }

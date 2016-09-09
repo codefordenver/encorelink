@@ -43,7 +43,7 @@ class Register extends React.Component {
   render() {
     return (
       <div className="register">
-        <h3>Signup</h3>
+        <h3>Sign up</h3>
         <form className="form-register" onSubmit={this.handleFormSubmit}>
           <label>Email
             <input type="text"
@@ -60,14 +60,14 @@ class Register extends React.Component {
               required
             />
           </label>
-          <button className="button dark-green-btn" type="submit">Register</button>
+          <button className="button secondary" type="submit">Register</button>
         </form>
         <div>
           <span>{this.props.errorMessage}</span>
         </div>
         <p>
           Already have an account?&nbsp;
-          <Link to="/login">Login</Link>
+          <Link to="/login">Log in</Link>
         </p>
       </div>
     );
