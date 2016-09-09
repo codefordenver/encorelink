@@ -10,9 +10,18 @@ import {
   REGISTER_FAILURE,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
-  REQUEST_USER
+  REQUEST_USER,
+  GET_LOCAL_DATA
 } from '../constants/reduxConstants';
 import { getUserId, getUserToken } from '../reducers/userManager';
+
+const loadLocalData = createAction(GET_LOCAL_DATA);
+
+export function getLocalData() {
+  const userId = Number(localStorage.userId);
+  const userToken = localStorage.userToken;
+  return loadLocalData({ userId, userToken });
+}
 
 const requestUser = createAction(REQUEST_USER);
 const receiveUser = createAction(RECEIVE_USER);
@@ -37,9 +46,9 @@ export function loginRequest(email, password) {
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()),
-
     startAction: startLoginRequest,
     successAction: (res) => {
+      localStorage.setItem('userId', res.userId);
       localStorage.setItem('userToken', res.id);
       return loginSuccess(res);
     },
