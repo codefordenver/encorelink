@@ -4,18 +4,16 @@ import RegisterContainer from '../containers/RegisterContainer';
 function Landing() {
   return (
     <div>
-      <div className="row">
-        <div className="small-12 medium-6 large-8 column align-middle blue-bkgd intro-box">
-          <div className="reg-box">
+      <div className="theater">
+        <div className="row">
+          <div className="small-12 medium-6 large-6 large-offset-1 column align-middle">
             <h1>Match. Play. Contritube.</h1>
             <p>
               Encore Link is the best way to match volunteer musicians with organizations
               who are in need of musicians who donate their time.
             </p>
           </div>
-        </div>
-        <div className="small-12 medium-6 large-4 column align-middle blue-bkgd2 intro-box align-spaced">
-          <div className="form-box">
+          <div className="small-12 medium-6 large-4 large-offset-1 column align-middle">
             <RegisterContainer />
           </div>
         </div>

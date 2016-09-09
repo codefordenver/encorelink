@@ -42,7 +42,7 @@ class Register extends React.Component {
 
   render() {
     return (
-      <div className="register blue-bkgd2">
+      <div className="register">
         <h3>Signup</h3>
         <form className="form-register" onSubmit={this.handleFormSubmit}>
           <label>Email
