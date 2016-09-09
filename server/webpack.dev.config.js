@@ -15,7 +15,10 @@ module.exports = {
     publicPath: 'http://0.0.0.0:8080/dist/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
   ],
   module: {
     loaders: [
