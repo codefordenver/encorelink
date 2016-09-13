@@ -33,23 +33,25 @@ class CreateEvent extends React.Component {
 
   render() {
     return (
-      <div className="create-event">
-        <form className="form-create-event" onSubmit={this.handleFormSubmit}>
-          <input type="text"
-            onChange={this.handleNameChange}
-            placeholder="name"
-            required
-            autoFocus
-          />
-          <input type="date"
-            onChange={this.handleDateChange}
-            placeholder="date"
-            required
-          />
-          <button type="submit">Create Event</button>
-        </form>
-        <div>
-          <span>{this.props.errorMessage}</span>
+      <div className="row create-event">
+        <div className="column small-12 medium-6 medium-offset-3 large-4 large-offset-4">
+          <form className="form-create-event" onSubmit={this.handleFormSubmit}>
+            <input type="text"
+              onChange={this.handleNameChange}
+              placeholder="name"
+              required
+              autoFocus
+            />
+            <input type="date"
+              onChange={this.handleDateChange}
+              placeholder="date"
+              required
+            />
+            <button className="button secondary" type="submit">Create Event</button>
+          </form>
+          <div>
+            <span>{this.props.errorMessage}</span>
+          </div>
         </div>
       </div>
     );
