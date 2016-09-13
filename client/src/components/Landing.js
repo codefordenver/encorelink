@@ -35,55 +35,6 @@ function Landing() {
           <p className="text-left">Musicians Play for Audience</p>
         </div>
       </div>
-      <div className="row content-block text-center">
-        <div className="small-12 column">
-          <h1 className="blue-txt">Easy to Schedule</h1>
-        </div>
-        <div className="column small-12 large-4">
-          <h1>icon</h1>
-          <p className="text-left">
-            Lorem ipsum dolor sit amet, cibo alienum quo at, putant delicata
-            vituperatoribus sit ei. An agam offendit disputationi vel, menandri
-            prodesset vituperatoribus eos in. Has et vitae omittantur. Eu mea
-            zril dicant splendide, te iuvaret appetere vis.
-          </p>
-        </div>
-        <div className="column small-12 large-4">
-          <h1>icon</h1>
-          <p className="text-left">
-            Ne nostro bonorum intellegam mea, ullum iuvaret epicuri vim an.
-            In nemore mediocrem neglegentur nec. Cu sea liber deseruisse, persius
-            civibus ex cum. Eum facete placerat postulant eu. Modus option
-            mnesarchum ut vis, vide gubergren voluptatum et per. Sed ea nullam
-            facete integre, mea et oblique abhorreant definiebas.
-          </p>
-        </div>
-        <div className="column small-12 large-4">
-          <h1>icon</h1>
-          <p className="text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            consequat commodo urna, luctus lacinia orci varius non. Aenean risus
-            ex, malesuada ullamcorper ipsum in, porta feugiat justo. Cras vel
-            ligula sed lacus convallis pellentesque. Nulla cursus iaculis metus,
-            non ultricies nibh elementum a. Sed et ante tristique, pellentesque
-            leo eu, dignissim neque. Morbi ullamcorper velit felis, ut maximus
-            velit aliquam eget.
-          </p>
-        </div>
-      </div>
-      <div className="easy-to-track content-block">
-        <div className="row text-center">
-          <div className="small-12 column">
-            <h1 className="blue-txt">Easy to Track</h1>
-            <div className="text-left">
-              Lorem ipsum dolor sit amet, cibo alienum quo at, putant delicata
-              vituperatoribus sit ei. An agam offendit disputationi vel, menandri
-              prodesset vituperatoribus eos in. Has et vitae omittantur. Eu mea
-              zril dicant splendide, te iuvaret appetere vis.
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
