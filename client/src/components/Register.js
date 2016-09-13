@@ -60,6 +60,9 @@ class Register extends React.Component {
               required
             />
           </label>
+          <label>By clicking Register, you agreee to the site
+            <Link to="/login">Login</Link>
+          </label>
           <button className="button secondary" type="submit">Register</button>
         </form>
         <div>
