@@ -2,6 +2,7 @@ import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  LOGOUT,
   GET_LOCAL_DATA
 } from '../constants/reduxConstants';
 
@@ -39,6 +40,8 @@ const userManager = (state = initialState, action) => {
         isError: true,
         errorMessage: action.payload.message
       };
+    case LOGOUT:
+      return initialState;
     case GET_LOCAL_DATA:
       return {
         ...state,
