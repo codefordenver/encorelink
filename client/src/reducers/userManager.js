@@ -1,7 +1,8 @@
 import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
-  LOGIN_SUCCESS
+  LOGIN_SUCCESS,
+  GET_LOCAL_DATA
 } from '../constants/reduxConstants';
 
 const initialState = {
@@ -37,6 +38,12 @@ const userManager = (state = initialState, action) => {
         isFetching: false,
         isError: true,
         errorMessage: action.payload.message
+      };
+    case GET_LOCAL_DATA:
+      return {
+        ...state,
+        userId: action.payload.userId || null,
+        userToken: action.payload.userToken || null
       };
     default:
       return state;

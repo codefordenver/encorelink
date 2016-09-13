@@ -55,7 +55,7 @@ class Login extends React.Component {
             placeholder="Password"
             required
           />
-          <button type="submit">Login</button>
+          <button className="button secondary" type="submit">Log in</button>
         </form>
         <div>
           <span>{this.props.errorMessage}</span>

@@ -1,4 +1,9 @@
 @import './vendors/foundation/foundation';
 @include foundation-everything(true);
 
+@import './components/global';
 @import './components/landing';
+@import './components/theater';
+@import './components/register';
+@import './components/footer';
+@import './components/header';

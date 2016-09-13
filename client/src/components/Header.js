@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 function Header() {
   return (
@@ -7,7 +8,7 @@ function Header() {
         <img className="logo-img" src="public/img/encorelink-logo.png" alt="EncoreLink" />
       </div>
       <div className="top-bar-right text-right">
-        <button className="button" value="login" type="submit">Log in</button>
+        <Link className="button" to="/login">Log in</Link>
       </div>
     </header>
   );
