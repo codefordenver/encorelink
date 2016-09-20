@@ -99,11 +99,11 @@ function registerSuccessAndLogin(response, email, password) {
   };
 }
 
-export function registerRequest(email, password) {
+export function registerRequest(email, password, isVolunteer) {
   return createApiAction({
     callApi: () => fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ isVolunteer, email, password }),
       headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()),
 

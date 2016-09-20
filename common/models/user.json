@@ -5,7 +5,11 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "isVolunteer": {
+      "type": "boolean"
+    }
+  },
   "validations": [],
   "relations": {
     "events": {
