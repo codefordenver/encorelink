@@ -42,24 +42,26 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login">
-        <form className="form-login" onSubmit={this.handleFormSubmit}>
-          <input type="text"
-            onChange={this.handleUsernameChange}
-            placeholder="Email"
-            required
-            autoFocus
-          />
-          <input type="password"
-            onChange={this.handlePasswordChange}
-            placeholder="Password"
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-        <div>
-          <span>{this.props.errorMessage}</span>
-          <Link to="/landing">Landing</Link>
+      <div className="login row">
+        <div className="column small-12 medium-6 medium-offset-3 large-4 large-offset-4">
+          <form className="form-login" onSubmit={this.handleFormSubmit}>
+            <input type="text"
+              onChange={this.handleUsernameChange}
+              placeholder="Email"
+              required
+              autoFocus
+            />
+            <input type="password"
+              onChange={this.handlePasswordChange}
+              placeholder="Password"
+              required
+            />
+            <button className="button secondary" type="submit">Log in</button>
+          </form>
+          <div>
+            <span>{this.props.errorMessage}</span>
+            <Link to="/landing">Go back to Landing</Link>
+          </div>
         </div>
       </div>
     );

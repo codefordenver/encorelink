@@ -6,6 +6,7 @@ import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  LOGOUT,
   RECEIVE_USER,
   REGISTER_FAILURE,
   REGISTER_REQUEST,
@@ -54,6 +55,13 @@ export function loginRequest(email, password) {
     },
     failAction: (res) => loginFailure(res.error)
   });
+}
+
+const logout = createAction(LOGOUT);
+export function logoutUser() {
+  localStorage.removeItem('userId');
+  localStorage.removeItem('userToken');
+  return logout();
 }
 
 const startCreateEventRequest = createAction(CREATE_EVENT_REQUEST);
