@@ -24,15 +24,15 @@ function Landing() {
         </div>
         <div className="column small-12 large-4">
           <h1>1</h1>
-          <p className="text-left">Activity Director Schedules Open Spots for Musicians</p>
+          <img src="../../public/img/how/how_organizer.png" alt="Organizers Create Volunteering Spots" />
         </div>
         <div className="column small-12 large-4">
           <h1>2</h1>
-          <p className="text-left">Musicians Search and Schedule Volunteering Spots</p>
+          <img src="../../public/img/how/how_musician.png" alt="Musicians Search and Schedule Volunteering Spots" />
         </div>
         <div className="column small-12 large-4">
           <h1>3</h1>
-          <p className="text-left">Musicians Play for Audience</p>
+          <img src="../../public/img/how/how_performance.png" alt="Musicians Play for Audience" />
         </div>
       </div>
     </div>
