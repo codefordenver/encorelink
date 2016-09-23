@@ -15,11 +15,11 @@ class Register extends React.Component {
     this.state = {
       password: '',
       email: '',
-      isVolunteer: ''
+      isVolunteer: false
     };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleIsVolunteerChange = this.handleIsVolunteerChange.bind(this);
+    this.handleVolunteerChange = this.handleVolunteerChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
@@ -37,8 +37,8 @@ class Register extends React.Component {
     this.setState({ email: ev.target.value });
   }
 
-  handleIsVolunteerChange(ev) {
-    this.setState({ isVolunteer: ev.target.value });
+  handleVolunteerChange(ev) {
+    this.setState({ isVolunteer: ev.target.checked });
   }
 
   handleFormSubmit(ev) {
@@ -68,6 +68,7 @@ class Register extends React.Component {
           </label>
           <label>I am a volunteer
             <input type="checkbox"
+              checked={this.state.isVolunteer}
               onChange={this.handleVolunteerChange}
             />
           </label>
