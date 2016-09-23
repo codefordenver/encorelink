@@ -14,10 +14,12 @@ class Register extends React.Component {
     super(props);
     this.state = {
       password: '',
-      email: ''
+      email: '',
+      isVolunteer: false
     };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleVolunteerChange = this.handleVolunteerChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
@@ -35,9 +37,13 @@ class Register extends React.Component {
     this.setState({ email: ev.target.value });
   }
 
+  handleVolunteerChange(ev) {
+    this.setState({ isVolunteer: ev.target.checked });
+  }
+
   handleFormSubmit(ev) {
     ev.preventDefault();
-    this.props.registerRequest(this.state.email, this.state.password);
+    this.props.registerRequest(this.state.email, this.state.password, this.state.isVolunteer);
   }
 
   render() {
@@ -58,6 +64,12 @@ class Register extends React.Component {
               onChange={this.handlePasswordChange}
               placeholder="Password"
               required
+            />
+          </label>
+          <label>I am a volunteer
+            <input type="checkbox"
+              checked={this.state.isVolunteer}
+              onChange={this.handleVolunteerChange}
             />
           </label>
           <label>By clicking Register, you agree to the site
