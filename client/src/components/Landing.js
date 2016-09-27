@@ -7,7 +7,7 @@ function Landing() {
       <div className="theater">
         <div className="row">
           <div className="small-12 medium-6 large-6 large-offset-1 column align-middle text-center">
-            <h1>Match. Play. Contritube.</h1>
+            <h1>Match. Play. Contribute.</h1>
             <p>
               Encore Link is the best way to match volunteer musicians with organizations
               who are in need of musicians who donate their time.
