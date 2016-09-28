@@ -33,21 +33,59 @@ class CreateEvent extends React.Component {
 
   render() {
     return (
-      <div className="row create-event">
-        <div className="column small-12 medium-6 medium-offset-3 large-4 large-offset-4">
+      <div className="row">
+        <div className="small-12 columns">
+          <h1>Schedule Performance</h1>
+          <h4 className="subheader">Fill form below to set up a performance time slot</h4>
           <form className="form-create-event" onSubmit={this.handleFormSubmit}>
-            <input type="text"
-              onChange={this.handleNameChange}
-              placeholder="name"
-              required
-              autoFocus
-            />
-            <input type="date"
-              onChange={this.handleDateChange}
-              placeholder="date"
-              required
-            />
-            <button className="button secondary" type="submit">Create Event</button>
+            <div className="row">
+              <div className="small-3 medium-2 columns">
+                <label>Start Date/Time</label>
+              </div>
+              <div className="small-9 medium-10 columns">
+                <input type="datetime-local"
+                  onChange={this.handleDateChange}
+                  placeholder="date"
+                  required
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="small-3 medium-2 columns">
+                <label>End Date Time</label>
+              </div>
+              <div className="small-9 medium-10 columns">
+                <input type="datetime-local"
+                  required
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="small-3 medium-2 columns">
+                <label>Location</label>
+              </div>
+              <div className="small-9 medium-10 columns">
+                <input type="text"
+                  onChange={this.handleNameChange}
+                  placeholder="Location"
+                  required
+                  autoFocus
+                />
+              </div>
+            </div><div className="row">
+              <div className="small-3 medium-2 columns">
+                <label>Notes</label>
+              </div>
+              <div className="small-9 medium-10 columns">
+                <textarea placeholder="Notes" />
+              </div>
+            </div>
+            <div className="row">
+              <div className="small-3 medium-2 columns" />
+              <div className="small-9 medium-10 columns">
+                <input className="button" type="submit" value="Schedule" />
+              </div>
+            </div>
           </form>
           <div>
             <span>{this.props.errorMessage}</span>
