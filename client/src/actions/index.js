@@ -87,7 +87,7 @@ const volunteerViewEventSuccess = createAction(GET_VOLUNTEER_EVENT_SUCCESS);
 
 export function volunteerViewEvents(id) {
   return createApiAction({
-    callApi: () => fetch('/api/events' + (id ? '/' + id : null), {
+    callApi: () => fetch('/api/events' + (id ? '/' + id : ''), {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()),
