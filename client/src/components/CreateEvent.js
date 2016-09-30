@@ -11,10 +11,12 @@ class CreateEvent extends React.Component {
     super(props);
     this.state = {
       name: '',
-      date: ''
+      date: '',
+      notes: ''
     };
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleNotesChange = this.handleNotesChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
@@ -26,9 +28,13 @@ class CreateEvent extends React.Component {
     this.setState({ date: ev.target.value });
   }
 
+  handleNotesChange(ev) {
+    this.setState({ notes: ev.target.value });
+  }
+
   handleFormSubmit(ev) {
     ev.preventDefault();
-    this.props.createEvent(this.state.name, this.state.date);
+    this.props.createEvent(this.state.name, this.state.date, this.state.notes);
   }
 
   render() {
@@ -77,7 +83,7 @@ class CreateEvent extends React.Component {
                 <label>Notes</label>
               </div>
               <div className="small-9 medium-10 columns">
-                <textarea placeholder="Notes" />
+                <textarea placeholder="Notes" onChange={this.handleNotesChange} />
               </div>
             </div>
             <div className="row">
