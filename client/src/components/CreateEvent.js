@@ -83,7 +83,7 @@ class CreateEvent extends React.Component {
                 <label>Notes</label>
               </div>
               <div className="small-9 medium-10 columns">
-                <input type="textarea" placeholder="Notes" onChange={this.handleNotesChange} />
+                <textarea placeholder="Notes" onChange={this.handleNotesChange} />
               </div>
             </div>
             <div className="row">
