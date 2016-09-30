@@ -7,7 +7,8 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    './src/index'
+    './src/index',
+    'babel-polyfill'
   ],
   output: {
     path: path.resolve(__dirname, '../client/dist'),

@@ -1,13 +1,15 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import promiseMiddleware from './promiseMiddleware';
+import errorMiddleware from './errorMiddleware';
 
 import encoreLinkReducer from '../reducers/rootReducer';
 
 export default function configureStore(initialState) {
   const middlewares = [
     thunkMiddleware,
-    promiseMiddleware
+    promiseMiddleware,
+    errorMiddleware
   ];
 
   if (process.env.NODE_ENV === 'development') {
