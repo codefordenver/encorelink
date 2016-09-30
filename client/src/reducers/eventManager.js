@@ -2,6 +2,7 @@ import {
   CREATE_EVENT_REQUEST,
   GET_VOLUNTEER_EVENTS_REQUEST,
   GET_VOLUNTEER_EVENTS_SUCCESS,
+  GET_VOLUNTEER_EVENT_SUCCESS,
   LOGOUT
 } from '../constants/reduxConstants';
 
@@ -25,6 +26,12 @@ const eventManager = (state = initialState, action) => {
       return {
         ...state,
         events: action.payload,
+        isFetching: false
+      };
+    case GET_VOLUNTEER_EVENT_SUCCESS:
+      return {
+        ...state,
+        event: action.payload,
         isFetching: false
       };
     case LOGOUT:
