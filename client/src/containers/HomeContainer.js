@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import View from '../components/View';
+import Home from '../components/Home';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,8 +10,8 @@ const mapStateToProps = (state) => {
 };
 
 
-const ViewContainer = connect(
+const HomeContainer = connect(
   mapStateToProps
-)(View);
+)(Home);
 
-export default ViewContainer;
+export default HomeContainer;

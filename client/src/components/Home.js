@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-const View = (props) => {
+const Home = (props) => {
   return (
     <div className="app-container">
       <img src="/public/img/encorelink-logo.png" alt="EncoreLink" />
@@ -21,9 +21,9 @@ const View = (props) => {
   );
 };
 
-View.propTypes = {
+Home.propTypes = {
   userId: PropTypes.number,
   children: PropTypes.node
 };
 
-export default View;
+export default Home;
