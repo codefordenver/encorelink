@@ -2,10 +2,12 @@ import React, { PropTypes } from 'react';
 import { withRouter } from 'react-router';
 
 class Event extends React.Component {
-
   static propTypes = {
     loadEvent: PropTypes.func.isRequired,
-    event: PropTypes.object.isRequired
+    event: PropTypes.object.isRequired,
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired
+    }).isRequired
   }
 
   static defaultProps = {
@@ -13,7 +15,7 @@ class Event extends React.Component {
   }
 
   componentWillMount() {
-    this.props.loadEvent( this.props.params.id );
+    this.props.loadEvent(this.props.params.id);
   }
 
   render() {
