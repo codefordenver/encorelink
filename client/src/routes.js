@@ -6,6 +6,7 @@ import Landing from './components/Landing';
 import HomeContainer from './containers/HomeContainer';
 import CreateEventContainer from './containers/CreateEventContainer';
 import VolunteerViewEvents from './containers/VolunteerViewEventsContainer';
+import EventContainer from './containers/EventContainer';
 import Terms from './components/Terms';
 
 const routes = (
@@ -14,6 +15,7 @@ const routes = (
     <Route path="/login" component={LoginContainer} />
     <Route path="/createEvent" component={CreateEventContainer} />
     <Route path="/volunteerViewEvents" component={VolunteerViewEvents} />
+    <Route path="/event/:id" component={EventContainer} />
     <Route path="/terms" component={Terms} />
     <Route path="/home" component={HomeContainer}>
       <div>Coming soon...</div>

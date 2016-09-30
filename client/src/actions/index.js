@@ -3,6 +3,7 @@ import {
   CREATE_EVENT_REQUEST,
   GET_VOLUNTEER_EVENTS_REQUEST,
   GET_VOLUNTEER_EVENTS_SUCCESS,
+  GET_VOLUNTEER_EVENT_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -82,18 +83,25 @@ export function createEvent(name, date, notes) {
 
 const startGetVolunteerEvents = createAction(GET_VOLUNTEER_EVENTS_REQUEST);
 const volunteerViewEventsSuccess = createAction(GET_VOLUNTEER_EVENTS_SUCCESS);
+const volunteerViewEventSuccess = createAction(GET_VOLUNTEER_EVENT_SUCCESS);
 
-export function volunteerViewEvents() {
+export function volunteerViewEvents(id) {
   return createApiAction({
-    callApi: () => fetch('/api/events', {
+    callApi: () => fetch('/api/events' + (id ? '/' + id : null), {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json()),
 
     startAction: () => startGetVolunteerEvents(),
-    successAction: (res) => volunteerViewEventsSuccess(res),
+    successAction: (res) => {
+      return id ? volunteerViewEventSuccess(res) : volunteerViewEventsSuccess(res);
+    },
     failAction: (res) => console.log(res.error)
   });
+}
+
+export function loadEvent(id) {
+  return volunteerViewEvents(id);
 }
 
 const startRegisterRequest = createAction(REGISTER_REQUEST);
