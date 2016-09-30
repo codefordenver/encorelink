@@ -60,7 +60,7 @@ class Login extends React.Component {
           </form>
           <div>
             <span>{this.props.errorMessage}</span>
-            <Link to="/landing">Go back to Landing</Link>
+            <Link to="/">Go back to Landing</Link>
           </div>
         </div>
       </div>
