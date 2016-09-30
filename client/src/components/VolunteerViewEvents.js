@@ -18,7 +18,7 @@ class VolunteerViewEvents extends React.Component {
 
   render() {
     const events = this.props.events.map(event =>
-      <div key={event.id}>{ event.name }, { event.date }</div>
+      <div key={event.id}>{ event.name }, { event.date }, { event.notes }</div>
     );
     return (
       <div className="volunteer-view-events">
