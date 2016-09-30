@@ -35,12 +35,20 @@ export function createApiAction({
 }
 
 export function createAction(type) {
-  return (data) => {
-    const action = {
-      type,
-      payload: data
-    };
+  return (payload) => {
+    return { type, payload };
+  };
+}
 
-    return action;
+export function createErrorAction(type, message) {
+  return (data) => {
+    return {
+      type,
+      payload: data,
+      error: true,
+      meta: {
+        errorMessage: message || data.message
+      }
+    };
   };
 }

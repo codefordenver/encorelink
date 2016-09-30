@@ -18,6 +18,7 @@
   "rules": {
     "arrow-body-style": 0,
     "comma-dangle": 0,
+    "generator-star-spacing": 0,
     "import/default": 2,
     "import/named": 2,
     "import/namespace": 2,
