@@ -1,38 +1,38 @@
 {
-    "name": "Event",
-    "plural": "Events",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "Event",
+  "plural": "Events",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
     },
-    "properties": {
-        "name": {
-            "type": "string",
-            "required": true
-        },
-        "date": {
-            "type": "date",
-            "required": true
-        },
-        "notes": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-        },
-        "endDate": {
-            "type": "date"
-        }
+    "date": {
+      "type": "date",
+      "required": true
     },
-    "validations": [],
-    "relations": {
-        "user": {
-            "type": "belongsTo",
-            "model": "user",
-            "foreignKey": ""
-        }
+    "notes": {
+      "type": "string"
     },
-    "acls": [],
-    "methods": {}
+    "location": {
+      "type": "string",
+    },
+    "endDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
 }
