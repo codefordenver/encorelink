@@ -20,7 +20,6 @@
         },
         "location": {
             "type": "string",
-            "default": "Facility"
         },
         "endDate": {
             "type": "date"
