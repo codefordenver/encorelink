@@ -72,12 +72,12 @@ export function logoutUser() {
 const startCreateEventRequest = createAction(CREATE_EVENT_REQUEST);
 const createEventFail = createErrorAction(CREATE_EVENT_FAIL);
 
-export function createEvent(name, date, notes, location, endDate) {
+export function createEvent(formData) {
   return createApiAction({
     callApi: (state) =>
       callApi(`/api/users/${getUserId(state)}/events?access_token=${getUserToken(state)}`, {
         method: 'POST',
-        body: JSON.stringify({ name, date, notes, location, endDate }),
+        body: JSON.stringify(formData),
       }),
 
     startAction: () => startCreateEventRequest(),
