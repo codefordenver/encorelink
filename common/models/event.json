@@ -17,6 +17,12 @@
     },
     "notes": {
       "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "date"
     }
   },
   "validations": [],
