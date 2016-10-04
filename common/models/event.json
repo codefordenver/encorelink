@@ -19,7 +19,7 @@
       "type": "string"
     },
     "location": {
-      "type": "string",
+      "type": "string"
     },
     "endDate": {
       "type": "date"
