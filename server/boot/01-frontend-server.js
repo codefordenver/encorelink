@@ -59,7 +59,7 @@ module.exports = function(app, done) {
       res.sendFile(path.join(__dirname, '../../client/index.html'));
     });
 
-    server.listen(8080, '0.0.0.0', function (err, result) {
+    server.listen(8080, '0.0.0.0', function (err /*, result */) {
       if (err) {
         return console.log(err);
       }
