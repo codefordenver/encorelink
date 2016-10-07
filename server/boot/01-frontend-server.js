@@ -49,7 +49,7 @@ module.exports = function(app, done) {
       historyApiFallback: false,
       proxy: {
         '/api/*': {
-          target: 'http://0.0.0.0:3000'
+          target: 'http://localhost:3000'
         }
       }
     });
