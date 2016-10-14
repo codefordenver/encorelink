@@ -7,8 +7,9 @@
     "heroku": "npm run clean && cross-env NODE_ENV=production npm start",
     "start": "node .",
     "lint": "eslint .",
-    "pretest": "jshint .",
-    "posttest": "nsp check"
+    "pretest": "npm run lint",
+    "posttest": "nsp check",
+    "test": "jest client"
   },
   "dependencies": {
     "async": "^2.0.0-rc.6",
@@ -46,15 +47,17 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
+    "babel-jest": "^16.0.0",
     "cross-env": "^2.0.1",
     "eslint": "^3.6.1",
     "eslint-config-airbnb": "^10.0.0",
     "eslint-plugin-import": "^1.13.0",
     "eslint-plugin-jsx-a11y": "^2.1.0",
     "eslint-plugin-react": "^6.0.0",
-    "jshint": "^2.5.6",
+    "jest": "^16.0.0",
     "nsp": "^2.1.0",
     "react-hot-loader": "^3.0.0-beta.5",
+    "react-test-renderer": "^15.3.2",
     "redux-logger": "^2.6.1",
     "rimraf": "^2.5.4",
     "webpack-dev-server": "^1.14.1"
