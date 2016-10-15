@@ -17,6 +17,7 @@ const routes = (
     <Route path="/volunteerViewEvents" component={VolunteerViewEvents} />
     <Route path="/event/:id" component={EventContainer} />
     <Route path="/terms" component={Terms} />
+    <Route path="/organizerDashboard" component={OrganizerDashboard} />
     <Route path="/home" component={HomeContainer}>
       <div>Coming soon...</div>
     </Route>
