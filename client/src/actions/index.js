@@ -69,6 +69,7 @@ const logout = createAction(LOGOUT);
 export function logoutUser() {
   localStorage.removeItem('userId');
   localStorage.removeItem('userToken');
+  browserHistory.push('/');
   return logout();
 }
 
