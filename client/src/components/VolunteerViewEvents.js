@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
 class VolunteerViewEvents extends React.Component {
 
@@ -23,6 +23,7 @@ class VolunteerViewEvents extends React.Component {
     return (
       <div className="volunteer-view-events">
         <h3>Events</h3>
+        <Link to="/createEvent">Create Event</Link>
         { events }
       </div>
     );
