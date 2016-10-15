@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import { withRouter, Link } from 'react-router';
 
-class VolunteerViewEvents extends React.Component {
+class Events extends React.Component {
 
   static propTypes = {
-    volunteerViewEvents: PropTypes.func.isRequired,
+    loadEvents: PropTypes.func.isRequired,
     events: PropTypes.array.isRequired
   }
 
@@ -13,7 +13,7 @@ class VolunteerViewEvents extends React.Component {
   }
 
   componentWillMount() {
-    this.props.volunteerViewEvents();
+    this.props.loadEvents();
   }
 
   render() {
@@ -30,4 +30,4 @@ class VolunteerViewEvents extends React.Component {
   }
 }
 
-export default withRouter(VolunteerViewEvents);
+export default withRouter(Events);
