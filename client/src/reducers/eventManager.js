@@ -1,8 +1,8 @@
 import {
   CREATE_EVENT_REQUEST,
-  GET_VOLUNTEER_EVENTS_REQUEST,
-  GET_VOLUNTEER_EVENTS_SUCCESS,
-  GET_VOLUNTEER_EVENT_SUCCESS,
+  LOAD_EVENTS_REQUEST,
+  LOAD_EVENTS_SUCCESS,
+  LOAD_EVENT_SUCCESS,
   LOGOUT
 } from '../constants/reduxConstants';
 
@@ -17,18 +17,18 @@ const eventManager = (state = initialState, action) => {
         ...state,
         isFetching: true
       };
-    case GET_VOLUNTEER_EVENTS_REQUEST:
+    case LOAD_EVENTS_REQUEST:
       return {
         ...state,
         isFetching: true
       };
-    case GET_VOLUNTEER_EVENTS_SUCCESS:
+    case LOAD_EVENTS_SUCCESS:
       return {
         ...state,
         events: action.payload,
         isFetching: false
       };
-    case GET_VOLUNTEER_EVENT_SUCCESS:
+    case LOAD_EVENT_SUCCESS:
       return {
         ...state,
         event: action.payload,
