@@ -1,12 +1,15 @@
+import { browserHistory } from 'react-router';
+
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import {
   CREATE_EVENT_FAIL,
   CREATE_EVENT_REQUEST,
+  CREATE_EVENT_SUCCESS,
   GET_LOCAL_DATA,
+  GET_VOLUNTEER_EVENT_SUCCESS,
   GET_VOLUNTEER_EVENTS_FAILURE,
   GET_VOLUNTEER_EVENTS_REQUEST,
   GET_VOLUNTEER_EVENTS_SUCCESS,
-  GET_VOLUNTEER_EVENT_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -70,6 +73,7 @@ export function logoutUser() {
 }
 
 const startCreateEventRequest = createAction(CREATE_EVENT_REQUEST);
+const startCreateEventSuccess = createAction(CREATE_EVENT_SUCCESS);
 const createEventFail = createErrorAction(CREATE_EVENT_FAIL);
 
 export function createEvent(formData) {
@@ -81,6 +85,10 @@ export function createEvent(formData) {
       }),
 
     startAction: () => startCreateEventRequest(),
+    successAction: (res) => {
+      browserHistory.push(`/event/${res.id}`);
+      return startCreateEventSuccess(res);
+    },
     failAction: (error) => createEventFail(error)
   });
 }
