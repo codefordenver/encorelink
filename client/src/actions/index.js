@@ -1,12 +1,15 @@
+import { browserHistory } from 'react-router';
+
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import {
   CREATE_EVENT_FAIL,
   CREATE_EVENT_REQUEST,
+  CREATE_EVENT_SUCCESS,
   GET_LOCAL_DATA,
-  GET_VOLUNTEER_EVENTS_FAILURE,
-  GET_VOLUNTEER_EVENTS_REQUEST,
-  GET_VOLUNTEER_EVENTS_SUCCESS,
-  GET_VOLUNTEER_EVENT_SUCCESS,
+  LOAD_EVENTS_FAILURE,
+  LOAD_EVENTS_REQUEST,
+  LOAD_EVENTS_SUCCESS,
+  LOAD_EVENT_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -66,44 +69,51 @@ const logout = createAction(LOGOUT);
 export function logoutUser() {
   localStorage.removeItem('userId');
   localStorage.removeItem('userToken');
+  browserHistory.push('/');
   return logout();
 }
 
 const startCreateEventRequest = createAction(CREATE_EVENT_REQUEST);
+const startCreateEventSuccess = createAction(CREATE_EVENT_SUCCESS);
 const createEventFail = createErrorAction(CREATE_EVENT_FAIL);
 
-export function createEvent(name, date, notes) {
+export function createEvent(formData) {
   return createApiAction({
     callApi: (state) =>
       callApi(`/api/users/${getUserId(state)}/events?access_token=${getUserToken(state)}`, {
         method: 'POST',
-        body: JSON.stringify({ name, date, notes }),
+        body: JSON.stringify(formData),
       }),
 
     startAction: () => startCreateEventRequest(),
+    successAction: (res) => {
+      browserHistory.push(`/event/${res.id}`);
+      return startCreateEventSuccess(res);
+    },
     failAction: (error) => createEventFail(error)
   });
 }
 
-const startGetVolunteerEvents = createAction(GET_VOLUNTEER_EVENTS_REQUEST);
-const volunteerViewEventsSuccess = createAction(GET_VOLUNTEER_EVENTS_SUCCESS);
-const volunteerViewEventSuccess = createAction(GET_VOLUNTEER_EVENT_SUCCESS);
-const volunteerViewEventsFail = createErrorAction(GET_VOLUNTEER_EVENTS_FAILURE);
+const startGetVolunteerEvents = createAction(LOAD_EVENTS_REQUEST);
+const loadEventsFail = createErrorAction(LOAD_EVENTS_FAILURE);
 
-export function volunteerViewEvents(id) {
+const loadEventsSuccess = createAction(LOAD_EVENTS_SUCCESS);
+const loadEventSuccess = createAction(LOAD_EVENT_SUCCESS);
+
+export function loadEvents(id) {
   return createApiAction({
     callApi: () => callApi('/api/events' + (id ? '/' + id : '')),
 
     startAction: () => startGetVolunteerEvents(),
     successAction: (res) => {
-      return id ? volunteerViewEventSuccess(res) : volunteerViewEventsSuccess(res);
+      return id ? loadEventSuccess(res) : loadEventsSuccess(res);
     },
-    failAction: (error) => volunteerViewEventsFail(error)
+    failAction: (error) => loadEventsFail(error)
   });
 }
 
 export function loadEvent(id) {
-  return volunteerViewEvents(id);
+  return loadEvents(id);
 }
 
 const startRegisterRequest = createAction(REGISTER_REQUEST);

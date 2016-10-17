@@ -24,35 +24,35 @@ class OrganizerProfile extends React.Component {
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Organization name:
-                  <input type="text" required />
+                  <input type="text" onChange={this.handleOrganizationNameChange} required />
                 </label>
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Your name:
-                  <input type="text" required />
+                  <input type="text" onChange={this.handleNameChange} required />
                 </label>
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Job title:
-                  <input type="text" required />
+                  <input type="text" onChange={this.handleJobTitleChange} required />
                 </label>
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Address:
-                  <input type="text" required />
+                  <input type="text" onChange={this.handleAddressLine1Change} required />
                 </label>
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>City:
-                  <input type="text" required />
+                  <input type="text" onChange={this.handleAddressCityChange} required />
                 </label>
               </div>
             </div>
@@ -61,7 +61,7 @@ class OrganizerProfile extends React.Component {
                 <div className="row">
                   <div className="small-12 medium-12 columns">
                     <label>State:
-                      <input type="text" required />
+                      <input type="text" onChange={this.handleAddressStateChange} required />
                     </label>
                   </div>
                 </div>
@@ -70,7 +70,7 @@ class OrganizerProfile extends React.Component {
                 <div className="row">
                   <div className="small-12 medium-12 columns">
                     <label>Zipcode:
-                      <input type="text" required />
+                      <input type="text" onChange={this.handleAddressZipChange} required />
                     </label>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ class OrganizerProfile extends React.Component {
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Email:
-                  <input type="text" required />
+                  <input type="text" onChange={this.handleEmailChange} required />
                 </label>
               </div>
             </div>
@@ -88,7 +88,7 @@ class OrganizerProfile extends React.Component {
                 <div className="row">
                   <div className="small-12 medium-12 columns">
                     <label>Phone:
-                      <input type="text" required />
+                      <input type="text" onChange={this.handlePhoneChange} required />
                     </label>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ class OrganizerProfile extends React.Component {
                 <div className="row">
                   <div className="small-12 medium-12 columns">
                     <label>Ext:
-                      <input type="text" required />
+                      <input type="text" onChange={this.handlePhoneExtChange} required />
                     </label>
                   </div>
                 </div>
@@ -106,30 +106,30 @@ class OrganizerProfile extends React.Component {
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Best contact method:
-                  <input type="text" required />
+                  <input type="text" onChange={this.handleBestContatMethodChange} required />
                 </label>
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Special notes:
-                  <textarea></textarea>
+                  <textarea onChange={this.handleNotesChange}></textarea>
                 </label>
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Does the facility have a piano or any other instruments:</label>
-                  <input type="radio" name="hasInstruments" value="piano" id="hasInstrumentsPiano"/><label for="hasInstrumentsPiano">Piano</label>
-                  <input type="radio" name="hasInstruments" value="no" id="hasInstrumentsNo"/><label for="hasInstrumentsNo">Not yet</label>
-                  <input type="radio" name="hasInstruments" value="other" id="hasInstrumentsOther"/><label for="hasInstrumentsOther">Other</label>
+                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="piano" id="hasInstrumentsPiano"/><label for="hasInstrumentsPiano">Piano</label>
+                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="no" id="hasInstrumentsNo"/><label for="hasInstrumentsNo">Not yet</label>
+                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="other" id="hasInstrumentsOther"/><label for="hasInstrumentsOther">Other</label>
                 
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Please read the disclaimer <a href="#">here</a>. By signing up, you agree to this agreement:
-                  <input type="checkbox" name="acceptDisclaimer" />I agree.
+                  <input type="checkbox" onChange={this.handleAcceptDisclaimerChange} name="acceptDisclaimer" />I agree.
                 </label>
               </div>
             </div>

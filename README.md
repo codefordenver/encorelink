@@ -58,13 +58,13 @@ virtual machine.
 5. Run `npm install`
 6. Create a new database in postgres
 7. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
-8. Run `node .`
+8. Run `npm start`
 
 ## Other
 
 To gain additional features from StrongLoop, such as clustering, run the
 following inside Vagrant, in the `/vagrant` directory:
-```
+```bash
 npm install -g strongloop
 slc run
 ```
@@ -79,6 +79,20 @@ while you code.
 
 Additionally, you can run eslint on the command line with `npm run lint` (or
 `npm run lint -- --fix` to have eslint attempt to fix some of the issues)
+
+## Testing
+
+This project uses Facebook's [jest](https://facebook.github.io/jest/) library for testing,
+and takes advantage of their [snapshot testing](https://facebook.github.io/jest/docs/tutorial-react.html#snapshot-testing).
+
+For development run:
+
+```bash
+npm test -- --watch
+```
+
+This will run the tests in an interactive mode, where tests will automatically be
+re-run when files are changed, and snapshots can be updated on the fly.
 
 ## Things work locally but not on Heroku...
 We run the app with a different configuration for local development than we do

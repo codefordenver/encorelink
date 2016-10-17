@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
-class VolunteerViewEvents extends React.Component {
+class Events extends React.Component {
 
   static propTypes = {
-    volunteerViewEvents: PropTypes.func.isRequired,
+    loadEvents: PropTypes.func.isRequired,
     events: PropTypes.array.isRequired
   }
 
@@ -13,20 +13,21 @@ class VolunteerViewEvents extends React.Component {
   }
 
   componentWillMount() {
-    this.props.volunteerViewEvents();
+    this.props.loadEvents();
   }
 
   render() {
     const events = this.props.events.map(event =>
-      <div key={event.id}>{ event.name }, { event.date }, { event.notes }</div>
+      <div key={event.id}>{ event.name }, { event.date }, { event.endDate }, { event.location }, { event.notes }</div>
     );
     return (
       <div className="volunteer-view-events">
         <h3>Events</h3>
+        <Link to="/createEvent">Create Event</Link>
         { events }
       </div>
     );
   }
 }
 
-export default withRouter(VolunteerViewEvents);
+export default withRouter(Events);

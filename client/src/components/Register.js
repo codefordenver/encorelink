@@ -25,7 +25,7 @@ class Register extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.isLoggedIn) {
-      this.props.router.push('/home');
+      this.props.router.push('/events');
     }
   }
 
