@@ -120,9 +120,9 @@ class OrganizerProfile extends React.Component {
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Does the facility have a piano or any other instruments:</label>
-                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="piano" id="hasInstrumentsPiano"/><label for="hasInstrumentsPiano">Piano</label>
-                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="no" id="hasInstrumentsNo"/><label for="hasInstrumentsNo">Not yet</label>
-                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="other" id="hasInstrumentsOther"/><label for="hasInstrumentsOther">Other</label>
+                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="piano" id="hasInstrumentsPiano"/><label htmlFor="hasInstrumentsPiano">Piano</label>
+                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="no" id="hasInstrumentsNo"/><label htmlFor="hasInstrumentsNo">Not yet</label>
+                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="other" id="hasInstrumentsOther"/><label htmlFor="hasInstrumentsOther">Other</label>
                 
               </div>
             </div>
