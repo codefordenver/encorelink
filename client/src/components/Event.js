@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
 class Event extends React.Component {
   static propTypes = {
@@ -23,6 +23,10 @@ class Event extends React.Component {
       <div className="event">
         <h3>{ this.props.event.name }</h3>
         Date: { this.props.event.date }
+        <br />
+        <br />
+        <br />
+        <Link to="/events">Back to Events</Link>
       </div>
     );
   }
