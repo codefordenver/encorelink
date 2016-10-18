@@ -10,7 +10,7 @@ class Header extends React.Component {
   render() {
     const loggedIn = (
       <div>
-        {this.props.userId}
+        Hello, ##User ID: {this.props.userId}##
         <button className="button" onClick={this.props.logoutUser}>Log out</button>
       </div>
     );
