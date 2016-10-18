@@ -7,7 +7,8 @@ import Events from
 const mapStateToProps = (state) => {
   return {
     isFetching: state.eventManager.isFetching,
-    events: state.eventManager.events
+    events: state.eventManager.events,
+    isLoggedIn: state.userManager.isLoggedIn
   };
 };
 
