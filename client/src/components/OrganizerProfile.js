@@ -3,23 +3,26 @@ import { withRouter } from 'react-router';
 
 class OrganizerProfile extends React.Component {
   static propTypes = {
-    //organizerProfile: PropTypes.func.isRequired,
+    // organizerProfile: PropTypes.func.isRequired,
     errorMessage: PropTypes.string
   };
 
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
       <div className="row">
         <div className="small-12 columns">
           <h1>Create Profile</h1>
-          <h5 className="subheader">Create profile here to become an organization in our system. It's 100% free to use. Our goal is to help you match to as many volunteer musicians as possible</h5>
-          <br/>
+          <h5 className="subheader">
+            Create profile here to become an organization in our system.
+            It's 100% free to use. Our goal is to help you match to as many volunteer musicians as possible.
+          </h5>
+          <br />
           <h3>Please complete your profile before you scheduling your first time slot.</h3>
-          <br/>
+          <br />
           <form className="form-create-event" onSubmit={this.handleFormSubmit}>
             <div className="row">
               <div className="small-12 medium-12 columns">
@@ -113,22 +116,22 @@ class OrganizerProfile extends React.Component {
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Special notes:
-                  <textarea onChange={this.handleNotesChange}></textarea>
+                  <textarea onChange={this.handleNotesChange} />
                 </label>
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
                 <label>Does the facility have a piano or any other instruments:</label>
-                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="piano" id="hasInstrumentsPiano"/><label htmlFor="hasInstrumentsPiano">Piano</label>
-                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="no" id="hasInstrumentsNo"/><label htmlFor="hasInstrumentsNo">Not yet</label>
-                  <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="other" id="hasInstrumentsOther"/><label htmlFor="hasInstrumentsOther">Other</label>
-                
+                <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="piano" id="hasInstrumentsPiano" /><label htmlFor="hasInstrumentsPiano">Piano</label>
+                <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="no" id="hasInstrumentsNo" /><label htmlFor="hasInstrumentsNo">Not yet</label>
+                <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="other" id="hasInstrumentsOther" /><label htmlFor="hasInstrumentsOther">Other</label>
+
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
-                <label>Please read the disclaimer <a href="#">here</a>. By signing up, you agree to this agreement:
+                <label>Please read the disclaimer <a>here</a>. By signing up, you agree to this agreement:
                   <input type="checkbox" onChange={this.handleAcceptDisclaimerChange} name="acceptDisclaimer" />I agree.
                 </label>
               </div>
