@@ -19,13 +19,7 @@
     }
   },
   "validations": [],
-  "relations": {
-    "users": {
-      "type": "hasMany",
-      "model": "user",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

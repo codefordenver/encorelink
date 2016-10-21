@@ -16,11 +16,6 @@
       "type": "hasMany",
       "model": "Event",
       "foreignKey": ""
-    },
-    "organization": {
-      "type": "belongsTo",
-      "model": "Organization",
-      "foreignKey": ""
     }
   },
   "acls": [
