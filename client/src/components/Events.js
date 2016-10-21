@@ -12,22 +12,22 @@ class EventRow extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="small-4 columns">
-          {moment(this.props.event.date).format('LLLL')}
-        </div>
-        <div className="small-4 columns">
-          {this.props.event.endDate}
-        </div>
         <div className="small-2 columns">
-          {this.props.event.name}
+          {moment(this.props.event.date).format('MMM ddd D')}
         </div>
-        <div className="small-2 columns">
-          {this.props.event.location}
+        <div className="small-3 columns">
+          {moment(this.props.event.date).format('hh:mm a')}-{moment(this.props.event.endDate).format('hh:mm a')}
+        </div>
+        <div className="small-6 columns">
+          {this.props.event.name} {this.props.event.location}
+        </div>
+        <div className="small-1 columns">
+          <Link to="">details</Link>
         </div>
       </div>
     );
   }
-} 
+}
 
 class Events extends React.Component {
   static propTypes = {
