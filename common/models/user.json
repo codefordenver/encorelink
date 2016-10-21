@@ -6,7 +6,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "isVolunteer": {
+    "isMusician": {
       "type": "boolean"
     }
   },

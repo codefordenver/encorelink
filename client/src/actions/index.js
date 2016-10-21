@@ -127,11 +127,11 @@ function registerSuccessAndLogin(response, email, password) {
   };
 }
 
-export function registerRequest(email, password, isVolunteer) {
+export function registerRequest(email, password, isMusician) {
   return createApiAction({
     callApi: () => callApi('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ isVolunteer, email, password })
+      body: JSON.stringify({ isMusician, email, password })
     }),
 
     startAction: () => startRegisterRequest(),
