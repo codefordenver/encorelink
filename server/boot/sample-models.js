@@ -49,7 +49,7 @@ module.exports = function (app) {
       "notes": "sample note",
       "location": "east colfax corner",
       "endDate": "2016-12-22T15:00:00.000Z",
-      "userId": 1
+      "ownerId": 1
     },
     {
       "name": "event 2",
@@ -57,7 +57,7 @@ module.exports = function (app) {
       "notes": "sample note",
       "location": "east colfax corner",
       "endDate": "2017-01-22T15:00:00.000Z",
-      "userId": 1
+      "ownerId": 1
     },
     {
       "name": "event 3",
@@ -65,7 +65,7 @@ module.exports = function (app) {
       "notes": "sample note",
       "location": "east colfax corner",
       "endDate": "2016-11-22T15:00:00.000Z",
-      "userId": 1
+      "ownerId": 1
     },
     {
       "name": "event 4",
@@ -73,7 +73,7 @@ module.exports = function (app) {
       "notes": "sample note",
       "location": "east colfax corner",
       "endDate": "2016-12-23T15:00:00.000Z",
-      "userId": 1
+      "ownerId": 1
     },
 
   ];
