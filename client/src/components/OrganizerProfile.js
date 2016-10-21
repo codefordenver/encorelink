@@ -3,13 +3,8 @@ import { withRouter } from 'react-router';
 
 class OrganizerProfile extends React.Component {
   static propTypes = {
-    // organizerProfile: PropTypes.func.isRequired,
     errorMessage: PropTypes.string
   };
-
-  // constructor(props) {
-  //   super(props);
-  // }
 
   render() {
     return (
