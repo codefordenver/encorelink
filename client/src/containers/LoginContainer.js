@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  loginRequest
+  onSubmit: loginRequest
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

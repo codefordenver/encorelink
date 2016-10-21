@@ -11,8 +11,8 @@ const CreateEvent = ({ handleSubmit, errorMessage }) => (
       <form className="form-create-event" onSubmit={handleSubmit}>
         <FormattedFormField title="Name">
           <Field
-            component="input"
             name="name"
+            component="input"
             type="text"
             placeholder="name"
             required
@@ -21,8 +21,8 @@ const CreateEvent = ({ handleSubmit, errorMessage }) => (
         </FormattedFormField>
         <FormattedFormField title="Start Date/Time">
           <Field
-            component="input"
             name="date"
+            component="input"
             type="datetime-local"
             placeholder="date"
             required
@@ -30,16 +30,16 @@ const CreateEvent = ({ handleSubmit, errorMessage }) => (
         </FormattedFormField>
         <FormattedFormField title="End Date/Time">
           <Field
-            component="input"
             name="endDate"
+            component="input"
             type="datetime-local"
             required
           />
         </FormattedFormField>
         <FormattedFormField title="Location">
           <Field
-            component="input"
             name="location"
+            component="input"
             type="text"
             placeholder="Location"
             required
@@ -47,8 +47,8 @@ const CreateEvent = ({ handleSubmit, errorMessage }) => (
         </FormattedFormField>
         <FormattedFormField title="Notes">
           <Field
-            component="textarea"
             name="notes"
+            component="textarea"
             placeholder="Notes"
           />
         </FormattedFormField>
