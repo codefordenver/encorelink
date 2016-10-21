@@ -16,6 +16,11 @@
       "type": "hasMany",
       "model": "Event",
       "foreignKey": ""
+    },
+    "organization": {
+      "type": "hasOne",
+      "model": "Organization",
+      "foreignKey": "adminId"
     }
   },
   "acls": [

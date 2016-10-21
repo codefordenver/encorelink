@@ -19,7 +19,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "admin": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "adminId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
