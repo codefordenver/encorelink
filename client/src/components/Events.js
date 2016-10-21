@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { withRouter, Link } from 'react-router';
+import moment from 'moment';
 
 class EventRow extends React.Component {
   static propTypes = {
@@ -12,7 +13,7 @@ class EventRow extends React.Component {
     return (
       <div className="row">
         <div className="small-4 columns">
-          {this.props.event.date};
+          {moment(this.props.event.date).format('LLLL')}
         </div>
         <div className="small-4 columns">
           {this.props.event.endDate}

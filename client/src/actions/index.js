@@ -94,19 +94,13 @@ export function createEvent(formData) {
   });
 }
 
+
 const startGetVolunteerEvents = createAction(LOAD_EVENTS_REQUEST);
 const loadEventsFail = createErrorAction(LOAD_EVENTS_FAILURE);
-<<<<<<< HEAD
 
 const loadEventsSuccess = createAction(LOAD_EVENTS_SUCCESS);
 const loadEventSuccess = createAction(LOAD_EVENT_SUCCESS);
 
-=======
-
-const loadEventsSuccess = createAction(LOAD_EVENTS_SUCCESS);
-const loadEventSuccess = createAction(LOAD_EVENT_SUCCESS);
-
->>>>>>> 64f44f3... 167: ViewVolunteerEvents to Events ; GET_VOLUNTEER_EVENTS to LOAD_EVENTS
 export function loadEvents(id) {
   return createApiAction({
     callApi: () => callApi('/api/events' + (id ? '/' + id : '')),
