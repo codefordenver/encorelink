@@ -1,7 +1,15 @@
 import React, { PropTypes } from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
 class Login extends React.Component {
+  static propTypes = {
+    errorMessage: PropTypes.string,
+    loginRequest: PropTypes.func.isRequired,
+    router: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +21,10 @@ class Login extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  static propTypes = {
-    loginRequest: PropTypes.func.isRequired
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isLoggedIn) {
+      this.props.router.push('/events');
+    }
   }
 
   handlePasswordChange(ev) {
@@ -30,36 +40,32 @@ class Login extends React.Component {
     this.props.loginRequest(this.state.email, this.state.password);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.isLoggedIn) {
-      this.props.router.push('/home');
-    }
-  }
-
   render() {
     return (
-      <div className="login">
-        <form className="form-login" onSubmit={this.handleFormSubmit}>
-          <input type="text"
-            onChange={this.handleUsernameChange}
-            placeholder="Email"
-            required
-            autoFocus
-          />
-          <input type="password"
-            onChange={this.handlePasswordChange}
-            placeholder="Password"
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-        <div>
-          <span>{this.props.errorMessage}</span>
+      <div className="login row">
+        <div className="column small-12 medium-6 medium-offset-3 large-4 large-offset-4">
+          <form className="form-login" onSubmit={this.handleFormSubmit}>
+            <input type="text"
+              onChange={this.handleUsernameChange}
+              placeholder="Email"
+              required
+              autoFocus
+            />
+            <input type="password"
+              onChange={this.handlePasswordChange}
+              placeholder="Password"
+              required
+            />
+            <button className="button secondary" type="submit">Log in</button>
+          </form>
+          <div>
+            <span>{this.props.errorMessage}</span>
+            <Link to="/">Go back to Landing</Link>
+          </div>
         </div>
       </div>
     );
   }
 }
-
 
 export default withRouter(Login);

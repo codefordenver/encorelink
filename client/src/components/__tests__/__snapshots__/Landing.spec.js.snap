@@ -1,0 +1,122 @@
+exports[`test Landing renders correctly 1`] = `
+<div
+  className="landing-page">
+  <div
+    className="theater">
+    <div
+      className="row">
+      <div
+        className="small-12 medium-6 large-6 large-offset-1 column align-middle text-center">
+        <h1>
+          Match. Play. Contribute.
+        </h1>
+        <p>
+          Encore Link is the best way to match volunteer musicians with organizations who are in need of musicians who donate their time.
+        </p>
+      </div>
+      <div
+        className="small-12 medium-6 large-4 large-offset-1 column align-middle">
+        <div
+          className="register">
+          <h3>
+            Sign up
+          </h3>
+          <form
+            className="form-register"
+            onSubmit={[Function]}>
+            <label>
+              Email
+              <input
+                autoFocus={true}
+                onChange={[Function]}
+                placeholder="Email"
+                required={true}
+                type="text" />
+            </label>
+            <label>
+              Password
+              <input
+                onChange={[Function]}
+                placeholder="Password"
+                required={true}
+                type="password" />
+            </label>
+            <label>
+              I am a volunteer
+              <input
+                checked={false}
+                onChange={[Function]}
+                type="checkbox" />
+            </label>
+            <label>
+              By clicking Register, you agree to the site
+              <a
+                href={undefined}
+                onClick={[Function]}
+                style={Object {}}>
+                 terms
+              </a>
+            </label>
+            <button
+              className="button secondary"
+              type="submit">
+              Register
+            </button>
+          </form>
+          <div>
+            <span>
+              
+            </span>
+          </div>
+          <p>
+            Already have an account? 
+            <a
+              href={undefined}
+              onClick={[Function]}
+              style={Object {}}>
+              Log in
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row content-block text-center">
+    <div
+      className="small-12 column">
+      <h1
+        className="blue-txt">
+        How It Works
+      </h1>
+    </div>
+    <div
+      className="column small-12 large-4">
+      <h1>
+        1
+      </h1>
+      <img
+        alt="Organizers Create Volunteering Spots"
+        src="../../public/img/how/how_organizer.png" />
+    </div>
+    <div
+      className="column small-12 large-4">
+      <h1>
+        2
+      </h1>
+      <img
+        alt="Musicians Search and Schedule Volunteering Spots"
+        src="../../public/img/how/how_musician.png" />
+    </div>
+    <div
+      className="column small-12 large-4">
+      <h1>
+        3
+      </h1>
+      <img
+        alt="Musicians Play for Audience"
+        src="../../public/img/how/how_performance.png" />
+    </div>
+  </div>
+</div>
+`;

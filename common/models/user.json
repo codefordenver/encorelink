@@ -5,9 +5,31 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "isMusician": {
+      "type": "boolean"
+    }
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "events": {
+      "type": "hasMany",
+      "model": "Event",
+      "foreignKey": "ownerId"
+    },
+    "organization": {
+      "type": "hasOne",
+      "model": "Organization",
+      "foreignKey": "adminId"
+    },
+    "eventsAttending": {
+      "type": "hasMany",
+      "model": "Event",
+      "foreignKey": "volunteerId",
+      "through": "EventVolunteer",
+      "keyThrough": "eventId"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

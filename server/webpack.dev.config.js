@@ -7,7 +7,8 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    './src/index'
+    './src/index',
+    'babel-polyfill'
   ],
   output: {
     path: path.resolve(__dirname, '../client/dist'),
@@ -15,13 +16,22 @@ module.exports = {
     publicPath: 'http://0.0.0.0:8080/dist/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['react-hot', 'babel'],
-      include: path.resolve(__dirname, '../client/src')
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['babel'],
+        include: path.resolve(__dirname, '../client/src')
+      },
+      {
+        test: /\.s?css$/,
+        loaders: ['style', 'css', 'sass']
+      }
+    ]
   }
 };

@@ -31,11 +31,13 @@ Once `vagrant up` has finished, follow these steps to start the server.
 
 1. `vagrant ssh` to login into the virtual machine.
 2. `cd /vagrant` to navigate to the project.
-3. `npm start` to start the api and client (webpack-dev-server).
+3. `npm start` to start the server.
 4. Open a second terminal, navigate to the project folder, and run `vagrant rsync-auto` (required for rsync file syncing and webpack hot reload)
-	- Backend:	http://ketohero.dev:3000/explorer
-	- Frontend:	http://ketohero.dev:8080
-6. Rejoice!
+5. Open your browser
+6.
+	- Backend:	http://encorelink.dev:3000/explorer
+	- Frontend:	http://encorelink.dev:8080
+7. Rejoice!
 
 #### Troubleshooting
 -To shut down any running vagrant processes use 'vagrant halt'
@@ -57,13 +59,13 @@ virtual machine.
 5. Run `npm install`
 6. Create a new database in postgres
 7. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
-8. Run `node .`
+8. Run `npm start`
 
 ## Other
 
 To gain additional features from StrongLoop, such as clustering, run the
 following inside Vagrant, in the `/vagrant` directory:
-```
+```bash
 npm install -g strongloop
 slc run
 ```
@@ -78,3 +80,29 @@ while you code.
 
 Additionally, you can run eslint on the command line with `npm run lint` (or
 `npm run lint -- --fix` to have eslint attempt to fix some of the issues)
+
+## Testing
+
+This project uses Facebook's [jest](https://facebook.github.io/jest/) library for testing,
+and takes advantage of their [snapshot testing](https://facebook.github.io/jest/docs/tutorial-react.html#snapshot-testing).
+
+For development run:
+
+```bash
+npm test -- --watch
+```
+
+This will run the tests in an interactive mode, where tests will automatically be
+re-run when files are changed, and snapshots can be updated on the fly.
+
+## Things work locally but not on Heroku...
+We run the app with a different configuration for local development than we do
+for deploying. If things work when running locally, but fail when deploying,
+run `npm run heroku` to emulate the config used for
+production (visible on localhost:3000).
+
+You might also want to make sure you have the same npm modules that will be
+installed on heroku (this can be done with `rm -rf node_modules && npm install
+--production`). In this case, you'll have to start the app with
+`NODE_ENV=production npm start` (or otherwise export `NODE_ENV=production`
+before starting).

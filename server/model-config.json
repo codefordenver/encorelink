@@ -40,5 +40,13 @@
   "Event": {
     "dataSource": "postgres",
     "public": true
+  },
+  "Organization": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "EventVolunteer": {
+    "dataSource": "postgres",
+    "public": true
   }
 }

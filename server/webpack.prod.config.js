@@ -4,7 +4,8 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    path.join(__dirname, '../client/src/index.js')
+    path.join(__dirname, '../client/src/index.js'),
+    'babel-polyfill'
   ],
   output: {
     path: path.join(__dirname, '../client/dist'),
@@ -26,10 +27,16 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, '../client/src')
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['babel'],
+        include: path.resolve(__dirname, '../client/src')
+      },
+      {
+        test: /\.s?css$/,
+        loaders: ['style', 'css', 'sass']
+      }
+    ]
   }
 };

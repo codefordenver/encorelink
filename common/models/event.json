@@ -14,10 +14,32 @@
     "date": {
       "type": "date",
       "required": true
+    },
+    "notes": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "date"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "ownerId"
+    },
+    "volunteers": {
+      "type": "hasMany",
+      "model": "user",
+      "foreignKey": "eventId",
+      "through": "EventVolunteer",
+      "keyThrough": "volunteerId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

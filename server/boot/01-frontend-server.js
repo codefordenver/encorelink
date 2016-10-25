@@ -10,8 +10,18 @@ module.exports = function(app, done) {
 
     compiler.run(function(err, stats) {
       if (err) {
-        return console.log(err);
+        return done(err);
       }
+
+      var jsonStats = stats.toJson();
+      if (jsonStats.errors.length > 0) {
+        return done(jsonStats.errors);
+      }
+      if (jsonStats.warnings.length > 0) {
+        console.warn('Webpack warnings:');
+        console.error.apply(null, jsonStats.warnings);
+      }
+
       console.log('webpacked for production');
 
       app.use('/dist', loopback.static(path.join(__dirname, '../../client/dist')));
@@ -32,17 +42,24 @@ module.exports = function(app, done) {
     var WebpackDevServer = require('webpack-dev-server');
     var devConfig = require('../webpack.dev.config.js');
 
-    new WebpackDevServer(webpack(devConfig), {
+    var server = new WebpackDevServer(webpack(devConfig), {
       contentBase: path.resolve(__dirname, '../../client'),
       publicPath: devConfig.output.publicPath,
       hot: true,
       historyApiFallback: false,
       proxy: {
         '/api/*': {
-          target: 'http://0.0.0.0:3000'
+          target: 'http://localhost:3000'
         }
       }
-    }).listen(8080, '0.0.0.0', function (err, result) {
+    });
+
+    // For non-api routes serve the index file
+    server.use(/^(?!\/?api).+$/, function (req, res) {
+      res.sendFile(path.join(__dirname, '../../client/index.html'));
+    });
+
+    server.listen(8080, '0.0.0.0', function (err /*, result */) {
       if (err) {
         return console.log(err);
       }
@@ -51,4 +68,4 @@ module.exports = function(app, done) {
       done();
     });
   }
-}
+};

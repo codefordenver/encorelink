@@ -1,0 +1,11 @@
+.landing-page {
+  .content-block {
+    padding: 30px 0;
+    @include breakpoint (large) {
+      padding: 50px 0;
+    }
+  }
+  .easy-to-track {
+    background-color: #EFEFEF;
+  }
+}
