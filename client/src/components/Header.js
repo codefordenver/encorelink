@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 class Header extends React.Component {
   static propTypes = {
     userId: PropTypes.number,
+    user: PropTypes.object,
     logoutUser: PropTypes.func.isRequired
   };
 

@@ -26,6 +26,7 @@ const userManager = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
+        user: action.payload,
         userId: action.payload.userId,
         userToken: action.payload.id,
         isLoggedIn: true,

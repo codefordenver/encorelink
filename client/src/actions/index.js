@@ -53,7 +53,7 @@ export function loginRequest(email, password) {
   return createApiAction({
     callApi: () => callApi('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, include: 'user' }),
     }),
     startAction: startLoginRequest,
     successAction: (res) => {
