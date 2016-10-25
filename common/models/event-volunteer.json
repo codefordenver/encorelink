@@ -5,7 +5,13 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "pending"
+    }
+  },
   "validations": [],
   "relations": {
     "volunteer": {
