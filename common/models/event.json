@@ -27,10 +27,17 @@
   },
   "validations": [],
   "relations": {
-    "user": {
+    "owner": {
       "type": "belongsTo",
       "model": "user",
-      "foreignKey": ""
+      "foreignKey": "ownerId"
+    },
+    "volunteers": {
+      "type": "hasMany",
+      "model": "user",
+      "foreignKey": "eventId",
+      "through": "EventVolunteer",
+      "keyThrough": "volunteerId"
     }
   },
   "acls": [],

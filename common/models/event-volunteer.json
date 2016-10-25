@@ -1,0 +1,24 @@
+{
+  "name": "EventVolunteer",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "volunteer": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "volunteerId"
+    },
+    "event": {
+      "type": "belongsTo",
+      "model": "Event",
+      "foreignKey": "eventId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

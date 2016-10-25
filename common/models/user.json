@@ -15,12 +15,19 @@
     "events": {
       "type": "hasMany",
       "model": "Event",
-      "foreignKey": ""
+      "foreignKey": "ownerId"
     },
     "organization": {
       "type": "hasOne",
       "model": "Organization",
       "foreignKey": "adminId"
+    },
+    "eventsAttending": {
+      "type": "hasMany",
+      "model": "Event",
+      "foreignKey": "volunteerId",
+      "through": "EventVolunteer",
+      "keyThrough": "eventId"
     }
   },
   "acls": [
