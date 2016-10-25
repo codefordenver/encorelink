@@ -8,6 +8,14 @@
   "properties": {
     "isMusician": {
       "type": "boolean"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "instruments": {
+      "type": [
+        "string"
+      ]
     }
   },
   "validations": [],
