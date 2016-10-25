@@ -8,6 +8,7 @@ import CreateEventContainer from './containers/CreateEventContainer';
 import VolunteerViewEvents from './containers/VolunteerViewEventsContainer';
 import EventContainer from './containers/EventContainer';
 import Terms from './components/Terms';
+import OrganizerDashboard from './components/OrganizerDashboard';
 
 const routes = (
   <Route path="/" component={App}>
