@@ -12,7 +12,7 @@ class OrganizerProfile extends React.Component {
         <div className="small-12 columns">
           <h1>Create Your Profile</h1>
           <h5 className="subheader">
-            Your profile provides information we can share witn musicians so they know about you and your organization.
+            Your profile provides information we can share with musicians so they know about you and your organization.
           </h5>
           <br />
           <form className="form-create-event" onSubmit={this.handleFormSubmit}>
