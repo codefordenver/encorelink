@@ -10,13 +10,10 @@ class OrganizerProfile extends React.Component {
     return (
       <div className="row">
         <div className="small-12 columns">
-          <h1>Create Profile</h1>
+          <h1>Create Your Profile</h1>
           <h5 className="subheader">
-            Create profile here to become an organization in our system.
-            It's 100% free to use. Our goal is to help you match to as many volunteer musicians as possible.
+            Your profile provides information we can share witn musicians so they know about you and your organization.
           </h5>
-          <br />
-          <h3>Please complete your profile before you scheduling your first time slot.</h3>
           <br />
           <form className="form-create-event" onSubmit={this.handleFormSubmit}>
             <div className="row">
@@ -95,7 +92,7 @@ class OrganizerProfile extends React.Component {
                 <div className="row">
                   <div className="small-12 medium-12 columns">
                     <label>Ext:
-                      <input type="text" onChange={this.handlePhoneExtChange} required />
+                      <input type="text" onChange={this.handlePhoneExtChange} />
                     </label>
                   </div>
                 </div>
@@ -103,8 +100,8 @@ class OrganizerProfile extends React.Component {
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
-                <label>Best contact method:
-                  <input type="text" onChange={this.handleBestContatMethodChange} required />
+                <label>Best contact method (email is default):
+                  <input type="text" onChange={this.handleBestContatMethodChange} />
                 </label>
               </div>
             </div>
@@ -120,20 +117,13 @@ class OrganizerProfile extends React.Component {
                 <label>Does the facility have a piano or any other instruments:</label>
                 <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="piano" id="hasInstrumentsPiano" /><label htmlFor="hasInstrumentsPiano">Piano</label>
                 <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="no" id="hasInstrumentsNo" /><label htmlFor="hasInstrumentsNo">Not yet</label>
-                <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="other" id="hasInstrumentsOther" /><label htmlFor="hasInstrumentsOther">Other</label>
+                <input type="radio" name="hasInstruments" onChange={this.handleHasInstrumentsChange} value="other" id="hasInstrumentsOther" /><label htmlFor="hasInstrumentsOther">Other (please specify in special notes above)</label>
 
               </div>
             </div>
             <div className="row">
               <div className="small-12 medium-12 columns">
-                <label>Please read the disclaimer <a>here</a>. By signing up, you agree to this agreement:
-                  <input type="checkbox" onChange={this.handleAcceptDisclaimerChange} name="acceptDisclaimer" />I agree.
-                </label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="small-12 medium-12 columns">
-                <button type="submit" className="button">Sign up</button>
+                <button type="submit" className="button">Submit</button>
               </div>
             </div>
           </form>
