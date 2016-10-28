@@ -50,7 +50,7 @@ const startLoginRequest = createAction(LOGIN_REQUEST);
 const loginSuccess = createAction(LOGIN_SUCCESS);
 const loginFailure = createErrorAction(LOGIN_FAILURE);
 
-//TODO:this should be refactored to get user data in same call as logging in
+// TODO:this should be refactored to get user data in same call as logging in
 function loginSuccessAndFetchUser(response) {
   return dispatch => {
     localStorage.setItem('userId', response.userId);
@@ -109,7 +109,7 @@ const loadEventSuccess = createAction(LOAD_EVENT_SUCCESS);
 
 export function loadEvents(id) {
   return createApiAction({
-    callApi: () => callApi('/api/events' + (id ? '/' + id : '')),
+    callApi: () => callApi(`/api/events${id ? `/${id}` : ''}`),
 
     startAction: () => startGetVolunteerEvents(),
     successAction: (res) => {

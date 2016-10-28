@@ -61,20 +61,20 @@ class Register extends React.Component {
               placeholder="Email"
               required
               autoFocus
-              />
+            />
           </label>
           <label>Password
             <input type="password"
               onChange={this.handlePasswordChange}
               placeholder="Password"
               required
-              />
+            />
           </label>
           <label>I am a volunteer
             <input type="checkbox"
               checked={this.state.isMusician}
               onChange={this.handleVolunteerChange}
-              />
+            />
           </label>
           <label>By clicking Register, you agree to the site
             <Link to="/terms"> terms</Link>
