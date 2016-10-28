@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { withRouter, Link } from 'react-router';
+import EventRow from './EventRow';
 
 class Events extends React.Component {
 
@@ -18,7 +19,7 @@ class Events extends React.Component {
 
   render() {
     const events = this.props.events.map(event =>
-      <div key={event.id}>{ event.name }, { event.date }, { event.endDate }, { event.location }, { event.notes }</div>
+      <EventRow key={event.id} event={event} />
     );
     return (
       <div className="volunteer-view-events">

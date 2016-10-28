@@ -31,6 +31,7 @@
     "loopback-component-explorer": "^2.4.0",
     "loopback-connector-postgresql": "^2.4.1",
     "loopback-datasource-juggler": "^2.39.0",
+    "moment": "^2.15.1",
     "node-sass": "^3.8.0",
     "numeral": "^1.5.3",
     "react": "^15.3.0",

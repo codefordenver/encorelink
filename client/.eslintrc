@@ -25,6 +25,7 @@
     "import/no-unresolved": 2,
     "jsx-a11y/label-has-for": 0,  # For our purposes let's wait for an option to support label nesting
                                   # see https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/51
+    "linebreak-style": 0,
     "max-len": 1,
     "no-global-assign": 0,
     "no-unsafe-negation": 0,
