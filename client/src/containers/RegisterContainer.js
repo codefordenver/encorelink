@@ -8,7 +8,8 @@ const mapStateToProps = (state) => {
     isError: state.userManager.isError,
     errorMessage: state.userManager.errorMessage,
     isFetching: state.userManager.isFetching,
-    isLoggedIn: state.userManager.isLoggedIn
+    isLoggedIn: state.userManager.isLoggedIn,
+    isMusician: state.userManager.user.isMusician
   };
 };
 

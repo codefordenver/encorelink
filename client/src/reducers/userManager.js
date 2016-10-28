@@ -3,6 +3,7 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGOUT,
+  RECEIVE_USER,
   GET_LOCAL_DATA
 } from '../constants/reduxConstants';
 
@@ -42,6 +43,11 @@ const userManager = (state = initialState, action) => {
       };
     case LOGOUT:
       return initialState;
+    case RECEIVE_USER:
+      return {
+        ...state,
+        user: action.payload
+      };
     case GET_LOCAL_DATA:
       return {
         ...state,

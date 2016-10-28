@@ -37,8 +37,9 @@ const receiveUser = createAction(RECEIVE_USER);
 const receiveUserFail = createErrorAction(RECEIVE_USER_FAILURE);
 
 export function fetchUser(userid) {
+  const userToken = localStorage.userToken;
   return createApiAction({
-    callApi: () => callApi(`http://localhost:3000/api/Users/${userid}`),
+    callApi: () => callApi(`http://localhost:3000/api/users/${userid}?access_token=${userToken}`),
     startAction: () => requestUser(userid),
     successAction: (res) => receiveUser(res),
     failAction: (err) => receiveUserFail(err)
@@ -49,6 +50,16 @@ const startLoginRequest = createAction(LOGIN_REQUEST);
 const loginSuccess = createAction(LOGIN_SUCCESS);
 const loginFailure = createErrorAction(LOGIN_FAILURE);
 
+//TODO:this should be refactored to get user data in same call as logging in
+function loginSuccessAndFetchUser(response) {
+  return dispatch => {
+    localStorage.setItem('userId', response.userId);
+    localStorage.setItem('userToken', response.id);
+    dispatch(loginSuccess(response));
+    dispatch(fetchUser(response.userId));
+  };
+}
+
 export function loginRequest(loginData) {
   return createApiAction({
     callApi: () => callApi('/api/users/login', {
@@ -56,11 +67,7 @@ export function loginRequest(loginData) {
       body: JSON.stringify(loginData),
     }),
     startAction: startLoginRequest,
-    successAction: (res) => {
-      localStorage.setItem('userId', res.userId);
-      localStorage.setItem('userToken', res.id);
-      return loginSuccess(res);
-    },
+    successAction: loginSuccessAndFetchUser,
     failAction: (error) => loginFailure(error)
   });
 }
