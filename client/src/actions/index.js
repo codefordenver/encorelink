@@ -49,11 +49,11 @@ const startLoginRequest = createAction(LOGIN_REQUEST);
 const loginSuccess = createAction(LOGIN_SUCCESS);
 const loginFailure = createErrorAction(LOGIN_FAILURE);
 
-export function loginRequest(email, password) {
+export function loginRequest(loginData) {
   return createApiAction({
     callApi: () => callApi('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(loginData),
     }),
     startAction: startLoginRequest,
     successAction: (res) => {
@@ -94,7 +94,6 @@ export function createEvent(formData) {
   });
 }
 
-
 const startGetVolunteerEvents = createAction(LOAD_EVENTS_REQUEST);
 const loadEventsFail = createErrorAction(LOAD_EVENTS_FAILURE);
 
@@ -124,15 +123,15 @@ const registerFailure = createErrorAction(REGISTER_FAILURE);
 function registerSuccessAndLogin(response, email, password) {
   return dispatch => {
     dispatch(registerSuccess(response));
-    dispatch(loginRequest(email, password));
+    dispatch(loginRequest({ email, password }));
   };
 }
 
-export function registerRequest(email, password, isVolunteer) {
+export function registerRequest(email, password, isMusician) {
   return createApiAction({
     callApi: () => callApi('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ isVolunteer, email, password })
+      body: JSON.stringify({ isMusician, email, password })
     }),
 
     startAction: () => startRegisterRequest(),

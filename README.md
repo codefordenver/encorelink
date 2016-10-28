@@ -32,11 +32,12 @@ Once `vagrant up` has finished, follow these steps to start the server.
 1. `vagrant ssh` to login into the virtual machine.
 2. `cd /vagrant` to navigate to the project.
 3. `npm start` to start the server.
-4. Open your browser
-5.
+4. Open a second terminal, navigate to the project folder, and run `vagrant rsync-auto` (required for rsync file syncing and webpack hot reload)
+5. Open your browser
+6.
 	- Backend:	http://encorelink.dev:3000/explorer
 	- Frontend:	http://encorelink.dev:8080
-6. Rejoice!
+7. Rejoice!
 
 #### Troubleshooting
 -To shut down any running vagrant processes use 'vagrant halt'
