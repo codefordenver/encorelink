@@ -1,10 +1,20 @@
 .volunteer-view-events {
+
+    background-color: gray;
+    margin: 10px;
+    margin-bottom: 20px;
+    
     .event-list{
     
         border: groove;
+        margin-right: 20px;
+        margin-left: 20px;
+        background-color: white; 
 
         h4{
             background-color: lightblue;
         }
     }
+
+    
 }
