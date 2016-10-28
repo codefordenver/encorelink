@@ -18,6 +18,7 @@ const routes = (
     <Route path="/organizerProfile" component={OrganizerProfile} />
     <Route path="/events" component={EventsContainer} />
     <Route path="/event/:id" component={EventContainer} />
+  
     <Route path="/terms" component={Terms} />
   </Route>
 );
