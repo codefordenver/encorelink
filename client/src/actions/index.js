@@ -50,24 +50,18 @@ const startLoginRequest = createAction(LOGIN_REQUEST);
 const loginSuccess = createAction(LOGIN_SUCCESS);
 const loginFailure = createErrorAction(LOGIN_FAILURE);
 
-// TODO:this should be refactored to get user data in same call as logging in
-function loginSuccessAndFetchUser(response) {
-  return dispatch => {
-    localStorage.setItem('userId', response.userId);
-    localStorage.setItem('userToken', response.id);
-    dispatch(loginSuccess(response));
-    dispatch(fetchUser(response.userId));
-  };
-}
-
 export function loginRequest(loginData) {
   return createApiAction({
-    callApi: () => callApi('/api/users/login', {
+    callApi: () => callApi('/api/users/login?include=user', {
       method: 'POST',
       body: JSON.stringify(loginData),
     }),
     startAction: startLoginRequest,
-    successAction: loginSuccessAndFetchUser,
+    successAction: (res) => {
+      localStorage.setItem('userId', res.userId);
+      localStorage.setItem('userToken', res.id);
+      return loginSuccess(res);
+    },
     failAction: (error) => loginFailure(error)
   });
 }

@@ -18,7 +18,9 @@ const initialState = {
 };
 
 const userManager = (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case LOGIN_REQUEST:
       return {
         ...state,
@@ -27,8 +29,9 @@ const userManager = (state = initialState, action) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        userId: action.payload.userId,
-        userToken: action.payload.id,
+        userId: payload.userId,
+        userToken: payload.id,
+        user: payload.user,
         isLoggedIn: true,
         isFetching: false,
         isError: false,
@@ -39,20 +42,20 @@ const userManager = (state = initialState, action) => {
         ...state,
         isFetching: false,
         isError: true,
-        errorMessage: action.payload.message
+        errorMessage: payload.message
       };
     case LOGOUT:
       return initialState;
     case RECEIVE_USER:
       return {
         ...state,
-        user: action.payload
+        user: payload
       };
     case GET_LOCAL_DATA:
       return {
         ...state,
-        userId: action.payload.userId || null,
-        userToken: action.payload.userToken || null
+        userId: payload.userId || null,
+        userToken: payload.userToken || null
       };
     default:
       return state;
