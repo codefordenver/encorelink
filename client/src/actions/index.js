@@ -37,8 +37,9 @@ const receiveUser = createAction(RECEIVE_USER);
 const receiveUserFail = createErrorAction(RECEIVE_USER_FAILURE);
 
 export function fetchUser(userid) {
+  const userToken = localStorage.userToken;
   return createApiAction({
-    callApi: () => callApi(`http://localhost:3000/api/Users/${userid}`),
+    callApi: () => callApi(`http://localhost:3000/api/users/${userid}?access_token=${userToken}`),
     startAction: () => requestUser(userid),
     successAction: (res) => receiveUser(res),
     failAction: (err) => receiveUserFail(err)
@@ -51,7 +52,7 @@ const loginFailure = createErrorAction(LOGIN_FAILURE);
 
 export function loginRequest(loginData) {
   return createApiAction({
-    callApi: () => callApi('/api/users/login', {
+    callApi: () => callApi('/api/users/login?include=user', {
       method: 'POST',
       body: JSON.stringify(loginData),
     }),
@@ -102,7 +103,7 @@ const loadEventSuccess = createAction(LOAD_EVENT_SUCCESS);
 
 export function loadEvents(id) {
   return createApiAction({
-    callApi: () => callApi('/api/events' + (id ? '/' + id : '')),
+    callApi: () => callApi(`/api/events${id ? `/${id}` : ''}`),
 
     startAction: () => startGetVolunteerEvents(),
     successAction: (res) => {
