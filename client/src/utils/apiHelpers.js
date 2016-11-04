@@ -1,6 +1,10 @@
 export default async function callApi(url, options) {
   const res = await fetch(url, {
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: localStorage.userToken
+    },
     ...options
   });
   const json = await res.json();

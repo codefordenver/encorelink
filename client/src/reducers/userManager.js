@@ -54,8 +54,9 @@ const userManager = (state = initialState, action) => {
     case GET_LOCAL_DATA:
       return {
         ...state,
-        userId: payload.userId || null,
-        userToken: payload.userToken || null
+        userId: payload.userId || state.userId,
+        userToken: payload.userToken || state.userToken,
+        user: payload.user || state.user
       };
     default:
       return state;
@@ -65,3 +66,6 @@ const userManager = (state = initialState, action) => {
 export default userManager;
 export function getUserId(state) { return state.userManager.userId; }
 export function getUserToken(state) { return state.userManager.userToken; }
+export function isLoggedInUserAMusician(state) {
+  return state.userManager.user.isMusician;
+}
