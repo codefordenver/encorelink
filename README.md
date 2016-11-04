@@ -4,9 +4,7 @@
 [![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=master)](https://travis-ci.org/codefordenver/encorelink)
 
 ##General Documentation
-Right now, all the documentation is for internal Code for Denver purposes only.
-We'll move a lot of it here when we are ready. If you are with Code for Denver and
-have access to our Google Drive, you can access the docs we have [here](https://drive.google.com/drive/folders/0BzPSX8eOfTADckNXd3VIc1U3UUE).
+The documents we created when building EncoreLink are [here](https://drive.google.com/drive/folders/0BzPSX8eOfTADckNXd3VIc1U3UUE).
 Probably the most helpful will be:
 
 *[Putting the "M" back in MVP](https://docs.google.com/document/d/1OCzHpkwCCtp6Qd_aMqwniDmMnx_vRkkeY7PamH2XaVU/edit) - this is our current spec
