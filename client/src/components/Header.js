@@ -3,14 +3,15 @@ import { Link } from 'react-router';
 
 class Header extends React.Component {
   static propTypes = {
-    userId: PropTypes.number,
-    logoutUser: PropTypes.func.isRequired
+    isLoggedIn: PropTypes.bool.isRequired,
+    logoutUser: PropTypes.func.isRequired,
+    user: PropTypes.object
   };
 
   render() {
     const loggedIn = (
       <div>
-        Hello, ##User ID: {this.props.userId}##
+        Hello, {this.props.user.email}
         <button className="button" onClick={this.props.logoutUser}>Log out</button>
       </div>
     );
@@ -23,7 +24,7 @@ class Header extends React.Component {
           <img className="logo-img" src="/public/img/encorelink-logo.png" alt="EncoreLink" />
         </div>
         <div className="top-bar-right text-right">
-          {this.props.userId ? loggedIn : loggedOut}
+          {this.props.isLoggedIn ? loggedIn : loggedOut}
         </div>
       </header>
     );
