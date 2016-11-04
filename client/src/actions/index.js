@@ -21,7 +21,7 @@ import {
   REGISTER_SUCCESS,
   REQUEST_USER
 } from '../constants/reduxConstants';
-import { getUserId, getUserToken } from '../reducers/userManager';
+import { getUserId } from '../reducers/userManager';
 import callApi from '../utils/apiHelpers';
 
 const loadLocalData = createAction(GET_LOCAL_DATA);
@@ -29,7 +29,8 @@ const loadLocalData = createAction(GET_LOCAL_DATA);
 export function getLocalData() {
   const userId = Number(localStorage.userId);
   const userToken = localStorage.userToken;
-  return loadLocalData({ userId, userToken });
+  const user = localStorage.user && JSON.parse(localStorage.user);
+  return loadLocalData({ user, userId, userToken });
 }
 
 const requestUser = createAction(REQUEST_USER);
@@ -37,9 +38,8 @@ const receiveUser = createAction(RECEIVE_USER);
 const receiveUserFail = createErrorAction(RECEIVE_USER_FAILURE);
 
 export function fetchUser(userid) {
-  const userToken = localStorage.userToken;
   return createApiAction({
-    callApi: () => callApi(`http://localhost:3000/api/users/${userid}?access_token=${userToken}`),
+    callApi: () => callApi(`http://localhost:3000/api/users/${userid}`),
     startAction: () => requestUser(userid),
     successAction: (res) => receiveUser(res),
     failAction: (err) => receiveUserFail(err)
@@ -60,6 +60,7 @@ export function loginRequest(loginData) {
     successAction: (res) => {
       localStorage.setItem('userId', res.userId);
       localStorage.setItem('userToken', res.id);
+      localStorage.setItem('user', JSON.stringify(res.user));
       return loginSuccess(res);
     },
     failAction: (error) => loginFailure(error)
@@ -81,7 +82,7 @@ const createEventFail = createErrorAction(CREATE_EVENT_FAIL);
 export function createEvent(formData) {
   return createApiAction({
     callApi: (state) =>
-      callApi(`/api/users/${getUserId(state)}/events?access_token=${getUserToken(state)}`, {
+      callApi(`/api/users/${getUserId(state)}/events`, {
         method: 'POST',
         body: JSON.stringify(formData),
       }),

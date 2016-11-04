@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { registerRequest } from '../actions';
+import { isLoggedInUserAMusician } from '../reducers/userManager';
 
 import Register from '../components/Register';
 
@@ -9,7 +10,7 @@ const mapStateToProps = (state) => {
     errorMessage: state.userManager.errorMessage,
     isFetching: state.userManager.isFetching,
     isLoggedIn: state.userManager.isLoggedIn,
-    isMusician: state.userManager.user.isMusician
+    isMusician: isLoggedInUserAMusician(state)
   };
 };
 

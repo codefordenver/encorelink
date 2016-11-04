@@ -1,35 +1,36 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import moment from 'moment';
+import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
-class EventRow extends React.Component {
-  static propTypes = {
-    event: PropTypes.shape({
-      date: PropTypes.string.isRequired,
-      endDate: PropTypes.object.isRequired,
-      name: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired
-    }).isRequired
-  }
-
-  render() {
-    return (
-      <div className="row">
-        <div className="small-2 columns">
-          {moment(this.props.event.date).format('MMM ddd D')}
-        </div>
-        <div className="small-3 columns">
-          {moment(this.props.event.date).format('hh:mm a')}-{moment(this.props.event.endDate).format('hh:mm a')}
-        </div>
-        <div className="small-5 columns">
-          {this.props.event.name} {this.props.event.location}
-        </div>
-        <div className="small-2 columns">
-          <Link to="">details</Link>
-        </div>
+function EventRow({ event }) {
+  const { id, date, endDate, name, location } = event;
+  const { day, time } = getFormattedDayAndTime(date, endDate);
+  return (
+    <div className="row event-row">
+      <div className="small-12 medium-2 columns">
+        {day}
       </div>
-    );
-  }
+      <div className="small-12 medium-3 columns">
+        {time}
+      </div>
+      <div className="small-12 medium-5 columns">
+        {name} {location}
+      </div>
+      <div className="small-12 medium-2 columns">
+        <Link to={`/event/${id}`}>details</Link>
+      </div>
+    </div>
+  );
 }
+
+EventRow.propTypes = {
+  event: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    endDate: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    location: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export default EventRow;
