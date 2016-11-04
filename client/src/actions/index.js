@@ -49,9 +49,7 @@ export function loginRequest(loginData) {
       body: JSON.stringify(loginData),
     }),
     startAction: startLoginRequest,
-    successAction: (res) => {
-      return loginSuccess(res);
-    },
+    successAction: (res) => loginSuccess(res),
     failAction: (error) => loginFailure(error)
   });
 }
