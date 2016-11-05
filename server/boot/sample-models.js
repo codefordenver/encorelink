@@ -44,40 +44,36 @@ module.exports = function (app) {
   var Event = app.models.Event;
   var events = [
     {
-      "name": "event 1",
-      "date": "2016-12-22T14:00:00.000Z",
-      "notes": "sample note",
-      "location": "east colfax corner",
-      "endDate": "2016-12-22T15:00:00.000Z",
-      "ownerId": 1,
-      "created": new Date()
+      name: 'event 1',
+      date: '2016-12-22T14:00:00.000Z',
+      notes: 'sample note',
+      location: 'east colfax corner',
+      endDate: '2016-12-22T15:00:00.000Z',
+      ownerId: 1
     },
     {
-      "name": "event 2",
-      "date": "2017-01-22T14:00:00.000Z",
-      "notes": "sample note",
-      "location": "east colfax corner",
-      "endDate": "2017-01-22T15:00:00.000Z",
-      "ownerId": 1,
-      "created": new Date()
+      name: 'event 2',
+      date: '2017-01-22T14:00:00.000Z',
+      notes: 'sample note',
+      location: 'east colfax corner',
+      endDate: '2017-01-22T15:00:00.000Z',
+      ownerId: 1
     },
     {
-      "name": "event 3",
-      "date": "2016-11-22T14:00:00.000Z",
-      "notes": "sample note",
-      "location": "east colfax corner",
-      "endDate": "2016-11-22T15:00:00.000Z",
-      "ownerId": 1,
-      "created": new Date()
+      name: 'event 3',
+      date: '2016-11-22T14:00:00.000Z',
+      notes: 'sample note',
+      location: 'east colfax corner',
+      endDate: '2016-11-22T15:00:00.000Z',
+      ownerId: 1
     },
     {
-      "name": "event 4",
-      "date": "2016-12-23T14:00:00.000Z",
-      "notes": "sample note",
-      "location": "east colfax corner",
-      "endDate": "2016-12-23T15:00:00.000Z",
-      "ownerId": 1,
-      "created": new Date()
+      name: 'event 4',
+      date: '2016-12-23T14:00:00.000Z',
+      notes: 'sample note',
+      location: 'east colfax corner',
+      endDate: '2016-12-23T15:00:00.000Z',
+      ownerId: 1
     },
 
   ];
