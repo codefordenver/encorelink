@@ -23,6 +23,7 @@ import {
 } from '../constants/reduxConstants';
 import { getUserId } from '../reducers/userManager';
 import callApi from '../utils/apiHelpers';
+import { correctDatesForKeys } from '../utils/dateFormatting';
 
 const loadLocalData = createAction(GET_LOCAL_DATA);
 
@@ -84,7 +85,7 @@ export function createEvent(formData) {
     callApi: (state) =>
       callApi(`/api/users/${getUserId(state)}/events`, {
         method: 'POST',
-        body: JSON.stringify(formData),
+        body: JSON.stringify(correctDatesForKeys(formData, ['date', 'endDate'])),
       }),
 
     startAction: () => startCreateEventRequest(),
