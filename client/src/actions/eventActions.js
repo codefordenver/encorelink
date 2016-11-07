@@ -1,5 +1,5 @@
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
-import callApi from '../utils/apiHelpers';
+import { put } from '../utils/apiHelpers';
 import { getUserId } from '../reducers/userManager';
 import {
   SIGNUP_FOR_EVENT,
@@ -13,8 +13,7 @@ const signUpForEventFailure = createErrorAction(SIGNUP_FOR_EVENT_FAILURE);
 
 export function signUpForEvent(event) { // eslint-disable-line import/prefer-default-export
   return createApiAction({
-    callApi: (state) => callApi(`/api/users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
-      method: 'PUT',
+    callApi: (state) => put(`users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
       body: JSON.stringify({
         status: 'accepted' // until we actually implement a way to accept these
       })
