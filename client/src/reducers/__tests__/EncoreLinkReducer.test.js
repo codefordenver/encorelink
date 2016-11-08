@@ -1,10 +1,9 @@
-import { fromJS } from 'immutable';
 import encoreLinkReducer from '../rootReducer';
 
-//This test confirms that our initial state is what we want
+// This test confirms that our initial state is what we want
 describe('encoreLinkReducer', () => {
   it('merges the initial state from all EncoreLink-specific reducers', () => {
-    expect(encoreLinkReducer(undefined, {})).toEqual(fromJS({
+    expect(encoreLinkReducer(undefined, {})).toEqual(({
       userManager: {
         user: {},
         userId: null,
