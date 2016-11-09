@@ -16,7 +16,7 @@ We use Loopback to create and control our data. Once you install it with npm and
 
 * The Loopback site has a good [Getting Started](http://loopback.io/getting-started/) page that shows you the basics of using that command line tool.
 * The main files that represent the model in our code are the .json files in the `common\model` folder. Examples are `user.json` and `event.json`.
-* JSON is just data, so comments are not allowed. Plus Loopback generates these JSO files, so our comments would be toast if we altered the model using the Loopback CLI.
+* JSON is just data, so comments are not allowed. Plus Loopback generates these JSON files, so our comments would be toast if we altered the model using the Loopback CLI.
  * NOTE: We might look to commenting these files in the future by either minifying to remove comments or adding a comment element
 
 ##State
@@ -34,33 +34,5 @@ Let's walk through an example of the first step of our primary use case: an Orga
 We suggest that you have the app installed on your machine as described on the [README](README.md), and run through the app with your dev tools window open,
 so you can verify for yourself what's going on.
 
-####Initial State
-The person gets to the landing page by hitting the URL in the browser. At this point we have to be in some initial state.
-The initial state is defined in  `const initialState`  in both `userManager.js` and `eventManager.js`. This sets the initial state to:
-
-<!-- end the list -->
-
-
-          //in userManager.js
-          const initialState = {
-            isFetching: false,
-            user: {},
-            userId: null,
-            userToken: null,
-            isLoggedIn: false,
-            isError: false,
-            errorMessage: ''
-          };
-
-          //in eventManager.js
-          const initialState = {
-            isFetching: false
-          };
-
-`combineReducers` merges these two states - easy, since both set `isFetching` to `false`.
-
-Now, if we look in the dev console, we see that `prev state` represents that initial state the code set up for us.
-
-####Clicking the Register Button
 
 
