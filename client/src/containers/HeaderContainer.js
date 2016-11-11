@@ -5,7 +5,8 @@ import Header from '../components/Header';
 
 const mapStateToProps = (state) => {
   return {
-    userId: state.userManager.userId
+    isLoggedIn: state.userManager.isLoggedIn,
+    user: state.userManager.user
   };
 };
 

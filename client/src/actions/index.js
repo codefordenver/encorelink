@@ -5,7 +5,6 @@ import {
   CREATE_EVENT_FAIL,
   CREATE_EVENT_REQUEST,
   CREATE_EVENT_SUCCESS,
-  GET_LOCAL_DATA,
   LOAD_EVENTS_FAILURE,
   LOAD_EVENTS_REQUEST,
   LOAD_EVENTS_SUCCESS,
@@ -19,20 +18,12 @@ import {
   REGISTER_FAILURE,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
-  REQUEST_USER
+  REQUEST_USER,
+  START_LOGIN_VALID_CHECK
 } from '../constants/reduxConstants';
 import { getUserId } from '../reducers/userManager';
 import callApi from '../utils/apiHelpers';
 import { correctDatesForKeys } from '../utils/dateFormatting';
-
-const loadLocalData = createAction(GET_LOCAL_DATA);
-
-export function getLocalData() {
-  const userId = Number(localStorage.userId);
-  const userToken = localStorage.userToken;
-  const user = localStorage.user && JSON.parse(localStorage.user);
-  return loadLocalData({ user, userId, userToken });
-}
 
 const requestUser = createAction(REQUEST_USER);
 const receiveUser = createAction(RECEIVE_USER);
@@ -40,7 +31,7 @@ const receiveUserFail = createErrorAction(RECEIVE_USER_FAILURE);
 
 export function fetchUser(userid) {
   return createApiAction({
-    callApi: () => callApi(`http://localhost:3000/api/users/${userid}`),
+    callApi: () => callApi(`/api/users/${userid}`),
     startAction: () => requestUser(userid),
     successAction: (res) => receiveUser(res),
     failAction: (err) => receiveUserFail(err)
@@ -58,20 +49,13 @@ export function loginRequest(loginData) {
       body: JSON.stringify(loginData),
     }),
     startAction: startLoginRequest,
-    successAction: (res) => {
-      localStorage.setItem('userId', res.userId);
-      localStorage.setItem('userToken', res.id);
-      localStorage.setItem('user', JSON.stringify(res.user));
-      return loginSuccess(res);
-    },
+    successAction: (res) => loginSuccess(res),
     failAction: (error) => loginFailure(error)
   });
 }
 
 const logout = createAction(LOGOUT);
 export function logoutUser() {
-  localStorage.removeItem('userId');
-  localStorage.removeItem('userToken');
   browserHistory.push('/');
   return logout();
 }
@@ -140,5 +124,16 @@ export function registerRequest(email, password, isMusician) {
     startAction: () => startRegisterRequest(),
     successAction: (res) => registerSuccessAndLogin(res, email, password),
     failAction: (error) => registerFailure(error)
+  });
+}
+
+const startLoginValidCheck = createAction(START_LOGIN_VALID_CHECK);
+
+export function checkIfLoginIsValid() {
+  return createApiAction({
+    shouldCallApi: (state) => getUserId(state),
+    callApi: (state) => callApi(`/api/users/${getUserId(state)}`),
+    startAction: startLoginValidCheck,
+    failAction: logoutUser
   });
 }

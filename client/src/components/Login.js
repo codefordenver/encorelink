@@ -9,12 +9,23 @@ class Login extends React.Component {
     handleSubmit: PropTypes.func.isRequired,
     router: PropTypes.shape({
       push: PropTypes.func.isRequired
+    }).isRequired,
+    location: PropTypes.shape({
+      state: PropTypes.shape({
+        nextPathname: PropTypes.string
+      })
     }).isRequired
   };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.isLoggedIn) {
-      this.props.router.push('/events');
+      const locationState = nextProps.location.state;
+
+      if (locationState && locationState.nextPathname) {
+        this.props.router.push(locationState.nextPathname);
+      } else {
+        this.props.router.push('/events');
+      }
     }
   }
 
