@@ -22,7 +22,7 @@ import {
   START_LOGIN_VALID_CHECK
 } from '../constants/reduxConstants';
 import { getUserId } from '../reducers/userManager';
-import callApi from '../utils/apiHelpers';
+import { get, post } from '../utils/apiHelpers';
 import { correctDatesForKeys } from '../utils/dateFormatting';
 
 const requestUser = createAction(REQUEST_USER);
@@ -31,7 +31,7 @@ const receiveUserFail = createErrorAction(RECEIVE_USER_FAILURE);
 
 export function fetchUser(userid) {
   return createApiAction({
-    callApi: () => callApi(`/api/users/${userid}`),
+    callApi: () => get(`users/${userid}`),
     startAction: () => requestUser(userid),
     successAction: (res) => receiveUser(res),
     failAction: (err) => receiveUserFail(err)
@@ -44,8 +44,7 @@ const loginFailure = createErrorAction(LOGIN_FAILURE);
 
 export function loginRequest(loginData) {
   return createApiAction({
-    callApi: () => callApi('/api/users/login?include=user', {
-      method: 'POST',
+    callApi: () => post('users/login?include=user', {
       body: JSON.stringify(loginData),
     }),
     startAction: startLoginRequest,
@@ -67,8 +66,7 @@ const createEventFail = createErrorAction(CREATE_EVENT_FAIL);
 export function createEvent(formData) {
   return createApiAction({
     callApi: (state) =>
-      callApi(`/api/users/${getUserId(state)}/events`, {
-        method: 'POST',
+      post(`users/${getUserId(state)}/events`, {
         body: JSON.stringify(correctDatesForKeys(formData, ['date', 'endDate'])),
       }),
 
@@ -89,7 +87,7 @@ const loadEventSuccess = createAction(LOAD_EVENT_SUCCESS);
 
 export function loadEvents(id) {
   return createApiAction({
-    callApi: () => callApi(`/api/events${id ? `/${id}` : ''}`),
+    callApi: () => get(`events${id ? `/${id}` : ''}`),
 
     startAction: () => startGetVolunteerEvents(),
     successAction: (res) => {
@@ -116,8 +114,7 @@ function registerSuccessAndLogin(response, email, password) {
 
 export function registerRequest(email, password, isMusician) {
   return createApiAction({
-    callApi: () => callApi('/api/users', {
-      method: 'POST',
+    callApi: () => post('users', {
       body: JSON.stringify({ isMusician, email, password })
     }),
 
@@ -132,7 +129,7 @@ const startLoginValidCheck = createAction(START_LOGIN_VALID_CHECK);
 export function checkIfLoginIsValid() {
   return createApiAction({
     shouldCallApi: (state) => getUserId(state),
-    callApi: (state) => callApi(`/api/users/${getUserId(state)}`),
+    callApi: (state) => get(`users/${getUserId(state)}`),
     startAction: startLoginValidCheck,
     failAction: logoutUser
   });

@@ -6,8 +6,8 @@ export function allowApiToAccessState(store) {
   getState = store.getState;
 }
 
-export default async function callApi(url, options) {
-  const res = await fetch(url, {
+async function callApi(url, options) {
+  const res = await fetch(`/api/${url}`, {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -24,3 +24,10 @@ export default async function callApi(url, options) {
 
   return json;
 }
+export default callApi;
+
+export const get = (url, options) => callApi(url, { ...options, method: 'GET' });
+export const post = (url, options) => callApi(url, { ...options, method: 'POST' });
+export const patch = (url, options) => callApi(url, { ...options, method: 'PATCH' });
+export const put = (url, options) => callApi(url, { ...options, method: 'PUT' });
+export const del = (url, options) => callApi(url, { ...options, method: 'DELETE' });
