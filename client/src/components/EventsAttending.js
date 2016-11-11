@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import { withRouter, Link } from 'react-router';
 import EventRow from './EventRow';
 
-class Events extends React.Component {
+class EventsAttending extends React.Component {
 
   static propTypes = {
-    loadEvents: PropTypes.func.isRequired,
+    loadEventsAttending: PropTypes.func.isRequired,
     events: PropTypes.array.isRequired
   }
 
@@ -14,7 +14,7 @@ class Events extends React.Component {
   }
 
   componentWillMount() {
-    this.props.loadEvents();
+    this.props.loadEventsAttending();
   }
 
   render() {
@@ -23,7 +23,7 @@ class Events extends React.Component {
     );
     return (
       <div className="volunteer-view-events">
-        <h3>Events</h3>
+        <h3>EventsAttending</h3>
         <Link to="/createEvent">Create Event</Link>
         { events }
       </div>
@@ -31,4 +31,4 @@ class Events extends React.Component {
   }
 }
 
-export default Events;
+export default withRouter(EventsAttending);
