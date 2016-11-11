@@ -1,0 +1,17 @@
+exports[`encoreLinkReducer has the expected initial state 1`] = `
+Object {
+  "eventManager": Object {
+    "isFetching": false,
+  },
+  "form": Object {},
+  "userManager": Object {
+    "errorMessage": "",
+    "isError": false,
+    "isFetching": false,
+    "isLoggedIn": false,
+    "user": Object {},
+    "userId": null,
+    "userToken": null,
+  },
+}
+`;
