@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { registerRequest } from '../actions';
+import { registerRequest } from '../actions/userActions';
 import { isLoggedInUserAMusician } from '../reducers/userManager';
 
 import Register from '../components/Register';

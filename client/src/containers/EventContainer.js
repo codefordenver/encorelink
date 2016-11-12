@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { loadEvent } from '../actions';
+import { loadEvent } from '../actions/modelActions';
 import { isLoggedInUserAMusician } from '../reducers/userManager';
 import { signUpForEvent } from '../actions/eventActions';
 import { getModels, dbViewIsFetching } from '../reducers/modelManager';

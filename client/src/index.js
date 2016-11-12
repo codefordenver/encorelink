@@ -8,7 +8,7 @@ import { persistStore } from 'redux-persist';
 import routes from './routes';
 import configureStore from './store/configureStore';
 import { allowApiToAccessState } from './utils/apiHelpers';
-import { checkIfLoginIsValid } from './actions';
+import { checkIfLoginIsValid } from './actions/userActions';
 import './scss/app.scss';
 
 const store = configureStore();

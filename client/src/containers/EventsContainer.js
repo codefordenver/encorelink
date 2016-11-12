@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { loadEvents } from '../actions';
+import { loadEvents } from '../actions/modelActions';
 import { getModels, dbViewIsFetching } from '../reducers/modelManager';
 import Events from '../components/Events';
 
