@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { withRouter, Link } from 'react-router';
+import { Link } from 'react-router';
 import EventRow from './EventRow';
 
 class Events extends React.Component {
@@ -31,4 +31,4 @@ class Events extends React.Component {
   }
 }
 
-export default withRouter(Events);
+export default Events;

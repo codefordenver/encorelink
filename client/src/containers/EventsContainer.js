@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
 import { loadEvents } from '../actions';
-
-import Events from
-'../components/Events';
+import { getModels, dbViewIsFetching } from '../reducers/modelManager';
+import Events from '../components/Events';
 
 const mapStateToProps = (state) => {
   return {
-    isFetching: state.eventManager.isFetching,
-    events: state.eventManager.events
+    isFetching: dbViewIsFetching(state, 'events'),
+    events: getModels(state, 'events')
   };
 };
 

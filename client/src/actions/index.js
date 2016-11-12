@@ -2,13 +2,16 @@ import { browserHistory } from 'react-router';
 
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import {
+  API_ACTION_START,
+  API_ACTION_SUCCESS,
+  API_ACTION_FAIL,
   CREATE_EVENT_FAIL,
   CREATE_EVENT_REQUEST,
   CREATE_EVENT_SUCCESS,
-  LOAD_EVENTS_FAILURE,
-  LOAD_EVENTS_REQUEST,
-  LOAD_EVENTS_SUCCESS,
-  LOAD_EVENT_SUCCESS,
+  // LOAD_EVENTS_FAILURE,
+  // LOAD_EVENTS_REQUEST,
+  // LOAD_EVENTS_SUCCESS,
+  // LOAD_EVENT_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -22,8 +25,120 @@ import {
   START_LOGIN_VALID_CHECK
 } from '../constants/reduxConstants';
 import { getUserId } from '../reducers/userManager';
-import { get, post } from '../utils/apiHelpers';
+import { get, post, put, patch, del } from '../utils/apiHelpers';
 import { correctDatesForKeys } from '../utils/dateFormatting';
+//
+// const loadStart = createAction(LOAD_START);
+// const loadSuccess = createAction(LOAD_SUCCESS);
+// const loadFail = createAction(LOAD_FAIL);
+//
+// /**
+//
+// */
+// export function load(model, id, relationship, relatedId) {
+//   const metaData = { model, id, relationship, relatedId };
+//
+//   return createApiAction({
+//     callApi: () => get(model, id, relationship, relatedId)(),
+//     startAction: () => loadStart(null, metaData),
+//     successAction: (res) => loadSuccess(res, metaData),
+//     failAction: (err) => loadFail(err, metaData)
+//   });
+// }
+//
+// export function fetchUser(userId) {
+//   return apiAction(get, 'users', userId)()
+// }
+//
+const apiActionStart = createAction(API_ACTION_START);
+const apiActionSuccess = createAction(API_ACTION_SUCCESS);
+const apiActionFail = createErrorAction(API_ACTION_FAIL);
+//
+//
+// // example: apiAction('put', 'users', 1, 'eventsAttending', 'rel', 1)()
+// // example: apiAction('post', 'users', 1, 'events')({ body: eventData, params: { ... } })
+//
+// function apiAction(apiMethod, ...urlSections) {
+//   const metaData = { method: apiMethod, urlSections };
+//
+//   return (urlOptions) => createApiAction({
+//     callApi: api[apiMethod](...urlSections)(urlOptions),
+//
+//     startAction: () => apiActionStart(null, metaData),
+//     successAction: (res) => apiActionSuccess(res, metaData),
+//     failAction: (err) => apiActionFail(err, metaData)
+//   });
+// }
+
+// example: apiAction('put', 'users/1/eventsAttending/rel/1')
+// example: apiAction('post', 'users/1/events', { body: eventData, params: { ... } })
+
+const api = { get, put, post, patch, delete: del };
+
+// favorite
+export function apiAction(method, url, options) {
+  const metaData = { method, url, options };
+
+  return createApiAction({
+    // TODO: shouldCallApi: modelReducer.shouldCallApi(url),
+    callApi: () => api[method](url, options),
+
+    startAction: () => apiActionStart(null, metaData),
+    successAction: (res) => apiActionSuccess(res, metaData),
+    failAction: (err) => apiActionFail(err, metaData)
+  });
+}
+// Question: what about chained events?
+//
+// in reducers -> parse url
+// - update models
+// - update modelQueryViews -> ids
+// - add pending posts with post tx id
+
+export const loadEvents = (id) => apiAction('get', `events${id ? `/${id}` : ''}`);
+
+// const modelLoadStart = createAction(LOAD_MODEL_START);
+// const modelLoadSuccess = createAction(LOAD_MODEL_SUCCESS);
+// const modelLoadFail = createAction(LOAD_MODEL_FAIL);
+//
+// export function loadModelById(model, id) {
+//   return createApiAction({
+//     callApi: () => get(`${model}/${id}`),
+//     startAction: () => modelLoadStart(null, { model, id }),
+//     successAction: (res) => modelLoadSuccess(res, { model, id }),
+//     failAction: (err) => modelLoadFail(err, { model, id })
+//   });
+// }
+
+// current
+// get(url, ?options);
+//
+// // could maybe also split url by /
+//
+// get(model, { ?id, ?relationship, ?requestOptions })
+//
+// get(model, ?id, ?relationship, ?relatedId)(requestOptions)
+//
+// get('user')()
+//
+// get
+// post
+// patch
+// put
+// del
+//
+// get.all(model)
+// get.byId(model, id)
+// get.all(model).for(model, id)
+//
+// create(model)
+// create(model).for(model, id)
+// create(model).forLoggedInUser()
+//
+// update.byId(model, id)
+// update.byId(model, id).for(model, id)
+//
+// link(model, id).to(model, id)
 
 const requestUser = createAction(REQUEST_USER);
 const receiveUser = createAction(RECEIVE_USER);
@@ -79,23 +194,23 @@ export function createEvent(formData) {
   });
 }
 
-const startGetVolunteerEvents = createAction(LOAD_EVENTS_REQUEST);
-const loadEventsFail = createErrorAction(LOAD_EVENTS_FAILURE);
+// const startGetVolunteerEvents = createAction(LOAD_EVENTS_REQUEST);
+// const loadEventsFail = createErrorAction(LOAD_EVENTS_FAILURE);
+//
+// const loadEventsSuccess = createAction(LOAD_EVENTS_SUCCESS);
+// const loadEventSuccess = createAction(LOAD_EVENT_SUCCESS);
 
-const loadEventsSuccess = createAction(LOAD_EVENTS_SUCCESS);
-const loadEventSuccess = createAction(LOAD_EVENT_SUCCESS);
-
-export function loadEvents(id) {
-  return createApiAction({
-    callApi: () => get(`events${id ? `/${id}` : ''}`),
-
-    startAction: () => startGetVolunteerEvents(),
-    successAction: (res) => {
-      return id ? loadEventSuccess(res) : loadEventsSuccess(res);
-    },
-    failAction: (error) => loadEventsFail(error)
-  });
-}
+// export function loadEvents(id) {
+//   return createApiAction({
+//     callApi: () => get(`events${id ? `/${id}` : ''}`),
+//
+//     startAction: () => startGetVolunteerEvents(),
+//     successAction: (res) => {
+//       return id ? loadEventSuccess(res) : loadEventsSuccess(res);
+//     },
+//     failAction: (error) => loadEventsFail(error)
+//   });
+// }
 
 export function loadEvent(id) {
   return loadEvents(id);
