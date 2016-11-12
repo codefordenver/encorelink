@@ -1,31 +1,23 @@
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { loadEvent } from '../actions/modelActions';
 import { isLoggedInUserAMusician } from '../reducers/userManager';
 import { signUpForEvent } from '../actions/eventActions';
-import { getModels, dbViewIsFetching } from '../reducers/modelManager';
+import gimmeData from '../utils/gimmeData';
 
 import Event from '../components/Event';
 
-const mapStateToProps = (state, props) => {
+function urlFn(state, props) {
   const eventId = props.params.id;
-  const eventUrl = `events/${eventId}`;
+  return `events/${eventId}`;
+}
 
+function mapStateToProps(state) {
   return {
-    isFetching: dbViewIsFetching(state, eventUrl),
     isMusician: isLoggedInUserAMusician(state),
-    event: getModels(state, eventUrl)
   };
-};
+}
 
 const mapDispatchToProps = {
-  loadEvent,
   signUpForEvent
 };
 
-const EventContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Event);
-
-export default withRouter(EventContainer);
+export default withRouter(gimmeData(urlFn, mapStateToProps, mapDispatchToProps)(Event));

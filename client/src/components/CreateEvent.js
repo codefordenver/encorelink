@@ -45,8 +45,7 @@ const CreateEvent = ({ handleSubmit, errorMessage }) => (
               style={{ width: '100%' }}
               onPlaceSelected={param => props.input.onChange(param.formatted_address)}
               types={[]}
-            />
-          }
+            />}
           />
         </FormattedFormField>
         <FormattedFormField title="Notes">

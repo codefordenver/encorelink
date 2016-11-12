@@ -1,17 +1,4 @@
-import { connect } from 'react-redux';
-import { loadEvents } from '../actions/modelActions';
-import { getModels, dbViewIsFetching } from '../reducers/modelManager';
 import Events from '../components/Events';
+import gimmeData from '../utils/gimmeData';
 
-const mapStateToProps = (state) => {
-  return {
-    isFetching: dbViewIsFetching(state, 'events'),
-    events: getModels(state, 'events')
-  };
-};
-
-const mapDispatchToProps = {
-  loadEvents
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Events);
+export default gimmeData('events')(Events);

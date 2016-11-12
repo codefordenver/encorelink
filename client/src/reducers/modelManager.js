@@ -38,7 +38,7 @@ function allModelsReducer(modelState = initialModels, action) {
     const modelName = getModelNameFromUrl(action.meta.url);
     return {
       ...modelState,
-      [modelName]: updateModels(modelState, action.payload)
+      [modelName]: updateModels(modelState[modelName], action.payload)
     };
   }
 
@@ -99,6 +99,10 @@ function dbViewsReducer(dbViewsState = initialDbViews, action) {
   }
 }
 
+// dbViews other possible names - what should we use?
+// - cachedApiData
+// - apiData
+// - dataForUrls
 export default combineReducers({
   allModels: allModelsReducer,
   dbViews: dbViewsReducer
@@ -134,9 +138,9 @@ export function getModels(state, url) {
   return hydrateModels(modelName, allModels, dbView.ids);
 }
 
-export function getDbViewStatus(state, url) {
+export function getUrlStatus(state, url) {
   const dbView = state.modelManager.dbViews[url];
   return dbView && dbView.status;
 }
 
-export const dbViewIsFetching = (state, url) => getDbViewStatus(state, url) === FETCHING;
+export const dbViewIsFetching = (state, url) => getUrlStatus(state, url) === FETCHING;
