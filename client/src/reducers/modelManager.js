@@ -17,7 +17,7 @@ function getModelNameFromUrl(url) {
   return urlParts[0]; // or 2
 }
 
-function updateModels(modelState, modelName, data) {
+function updateModels(modelState, data) {
   const nextModelState = { ...modelState };
   const normalizedData = Array.isArray(data) ? data : [data];
 
@@ -29,12 +29,17 @@ function updateModels(modelState, modelName, data) {
 }
 
 // {
-//   [id]: model
+//    [modelName]: {
+//      [id]: model
+//    }
 // }
 function allModelsReducer(modelState = initialModels, action) {
   if (action.type === API_ACTION_SUCCESS) {
     const modelName = getModelNameFromUrl(action.meta.url);
-    return updateModels(modelState, modelName, action.payload);
+    return {
+      ...modelState,
+      [modelName]: updateModels(modelState, action.payload)
+    };
   }
 
   return modelState;
@@ -102,14 +107,19 @@ export default combineReducers({
 
 // Selectors
 
-function hydrateModels(allModels, ids) {
+function hydrateModels(modelName, allModels, ids) {
+  const modelsOfSameType = allModels[modelName];
+  if (!modelsOfSameType) {
+    return undefined;
+  }
+
   if (Array.isArray(ids)) {
-    return ids.reduce((models, id) => {
-      models.push(allModels[id]);
-      return models;
+    return ids.reduce((hydratedModels, id) => {
+      hydratedModels.push(modelsOfSameType[id]);
+      return hydratedModels;
     }, []);
   }
-  return allModels[ids];
+  return modelsOfSameType[ids];
 }
 
 export function getModels(state, url) {
@@ -120,7 +130,8 @@ export function getModels(state, url) {
   }
 
   const { allModels } = state.modelManager;
-  return hydrateModels(allModels, dbView.ids);
+  const modelName = getModelNameFromUrl(url);
+  return hydrateModels(modelName, allModels, dbView.ids);
 }
 
 export function getDbViewStatus(state, url) {
