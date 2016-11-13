@@ -15,7 +15,7 @@ const apiActionFail = createErrorAction(API_ACTION_FAIL);
 
 // example: apiAction('put', 'users/1/eventsAttending/rel/1')
 // example: apiAction('post', 'users/1/events', { body: eventData, params: { ... } })
-export function apiAction(method, url, options) {
+export function apiAction(method, url, options) { // eslint-disable-line import/prefer-default-export
   const metaData = { method, url, options };
 
   return createApiAction({
@@ -27,6 +27,3 @@ export function apiAction(method, url, options) {
     failAction: (err) => apiActionFail(err, metaData)
   });
 }
-
-export const loadEvents = (id) => apiAction('get', `events${id ? `/${id}` : ''}`);
-export const loadEvent = loadEvents;
