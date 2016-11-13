@@ -41,8 +41,8 @@ function updateUrlData(updater, urlDataState, action) {
 
 const initialUrlData = {};
 
-// This reducer stores the status of different api url requests and the ids of
-// the corresponding model returned from each request
+// This reducer stores the status of different api url GET requests and the ids
+// of the corresponding model returned from each request
 //
 // The data shape is as follows:
 // {
@@ -52,6 +52,13 @@ const initialUrlData = {};
 //  }
 // }
 export default function urlDataReducer(urlDataState = initialUrlData, action) {
+  // For now ignore any actions that aren't GET requests.
+  // At some point we might want to set urls to be stale based on things like
+  // POSTs that create a new model
+  if (action.meta && action.meta.method !== 'get') {
+    return urlDataState;
+  }
+
   switch (action.type) {
     case API_ACTION_START:
       return updateUrlData(setUrlDataFetching, urlDataState, action);

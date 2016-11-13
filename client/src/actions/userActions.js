@@ -21,7 +21,7 @@ const loginFailure = createErrorAction(LOGIN_FAILURE);
 export function loginRequest(loginData) {
   return createApiAction({
     callApi: () => post('users/login?include=user', {
-      body: JSON.stringify(loginData),
+      body: loginData,
     }),
     startAction: startLoginRequest,
     successAction: (res) => loginSuccess(res),
@@ -50,7 +50,7 @@ function registerSuccessAndLogin(response, email, password) {
 export function registerRequest(email, password, isMusician) {
   return createApiAction({
     callApi: () => post('users', {
-      body: JSON.stringify({ isMusician, email, password })
+      body: { isMusician, email, password }
     }),
 
     startAction: () => startRegisterRequest(),
