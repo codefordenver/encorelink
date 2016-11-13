@@ -3,6 +3,15 @@
 [![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers)
 [![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=master)](https://travis-ci.org/codefordenver/encorelink)
 
+##General Documentation
+The documents we created when building EncoreLink are [here](https://drive.google.com/drive/folders/0BzPSX8eOfTADckNXd3VIc1U3UUE).
+Probably the most helpful will be:
+
+*[Putting the "M" back in MVP](https://docs.google.com/document/d/1OCzHpkwCCtp6Qd_aMqwniDmMnx_vRkkeY7PamH2XaVU/edit) - this is our current spec
+
+##Developer Documentation
+Developer documentation currently lives [here](DEVDOCS.md)
+
 ## Setup - Option 1 (Vagrant)
 
 EncoreLink uses a [Vagrant](https://www.vagrantup.com/) virtual machine as the
