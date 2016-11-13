@@ -45,7 +45,10 @@ export function signUpForEvent(event) {
     }),
 
     startAction: () => signUpForEventStart(),
-    successAction: (res) => signUpForEventSuccess(res),
+    successAction: (res) => {
+      browserHistory.push('/eventsAttending');
+      return signUpForEventSuccess(res);
+    },
     failAction: (error) => signUpForEventFailure(error)
   });
 }
