@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { apiAction } from '../actions/modelActions';
-import { getModels, getUrlStatus } from '../reducers/modelManager';
+import { getModels, getUrlDataStatus } from '../reducers/modelManager';
 
 function isObject(o) {
   return o !== null && typeof o === 'object';
@@ -19,7 +19,7 @@ export default function gimmeData(urlFn, mapStateToProps, mapDispatchToProps) {
       ...mappedStateProps,
       data: getModels(state, url),
       url,
-      urlStatus: getUrlStatus(state, url)
+      urlStatus: getUrlDataStatus(state, url)
     };
   };
 

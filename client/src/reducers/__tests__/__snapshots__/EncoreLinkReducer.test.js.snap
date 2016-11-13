@@ -6,7 +6,7 @@ Object {
   },
   "modelManager": Object {
     "allModels": Object {},
-    "dbViews": Object {},
+    "allUrlData": Object {},
   },
   "userManager": Object {
     "errorMessage": "",
