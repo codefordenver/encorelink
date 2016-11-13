@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
+import { Link } from 'react-router';
 
 class Event extends React.Component {
   static propTypes = {
@@ -34,6 +35,10 @@ class Event extends React.Component {
           <button className="button" onClick={() => this.props.signUpForEvent(this.props.event)}>
             Sign Up
           </button> }
+        <br />
+        <br />
+        <br />
+        <Link to="/events">Back to Events</Link>
       </div>
     );
   }
