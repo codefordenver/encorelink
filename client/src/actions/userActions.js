@@ -5,6 +5,7 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGOUT,
+  RECEIVE_USER,
   REGISTER_FAILURE,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
@@ -59,12 +60,14 @@ export function registerRequest(email, password, isMusician) {
 }
 
 const startLoginValidCheck = createAction(START_LOGIN_VALID_CHECK);
+const receiveUser = createAction(RECEIVE_USER);
 
 export function checkIfLoginIsValid() {
   return createApiAction({
     shouldCallApi: (state) => getUserId(state),
     callApi: (state) => get(`users/${getUserId(state)}`),
     startAction: startLoginValidCheck,
+    successAction: receiveUser,
     failAction: logoutUser
   });
 }

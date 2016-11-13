@@ -1,7 +1,8 @@
 import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
-  LOGIN_SUCCESS
+  LOGIN_SUCCESS,
+  RECEIVE_USER
 } from '../constants/reduxConstants';
 
 const initialState = {
@@ -40,6 +41,11 @@ const userManager = (state = initialState, action) => {
         isFetching: false,
         isError: true,
         errorMessage: payload.message
+      };
+    case RECEIVE_USER:
+      return {
+        ...state,
+        user: payload
       };
     default:
       return state;
