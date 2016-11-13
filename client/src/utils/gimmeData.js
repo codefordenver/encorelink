@@ -8,6 +8,33 @@ function isObject(o) {
   return o !== null && typeof o === 'object';
 }
 
+// This is a higher order component that will handle fetching data from a
+// loopback api endpoint, and pass that data into the resulting wrapped component.
+//
+// Simple usage:
+// const ComponentContainer = gimmeData('events')(Component);
+//
+// The first argument can be either a url string, or a function that returns a
+// url string.
+// e.g.
+// const dynamicUrlFn = (state, props) => `events/${props.eventId}`;
+// const ComponentContainer = gimmeData(dynamicUrlFn)(Component);
+//
+// If additional data or actions need to be passed to the component, `gimmeData`
+// optionally takes the same mapStateToProps or mapDispatchToProps args that
+// redux's `connect` higher order component takes.
+// e.g.
+// const mapStateToProps = (state) => {
+//   return { stuff: getSomeDataFromState(state) };
+// };
+// const mapDispatchToProps = {
+//   doSomething: someReduxAction
+// };
+// const ComponentContainer = gimmeData(
+//   'events',
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Component);
 export default function gimmeData(urlFn, mapStateToProps, mapDispatchToProps) {
   const finalUrlFn = (typeof urlFn === 'function') ? urlFn : () => urlFn;
 
