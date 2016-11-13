@@ -21,14 +21,14 @@ Instead saw: ${createPromise}`);
 export function createApiAction({
   callApi,
   shouldCallApi,
-  requestAction,
+  startAction,
   successAction,
   failAction
 }) {
   return createPromiseAction({
     createPromise: callApi,
     shouldCallPromise: shouldCallApi,
-    startAction: requestAction,
+    startAction,
     successAction,
     failAction
   });
