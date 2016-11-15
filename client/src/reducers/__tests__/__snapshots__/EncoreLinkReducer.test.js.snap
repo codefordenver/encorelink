@@ -4,6 +4,9 @@ Object {
     "isFetching": false,
   },
   "form": Object {},
+  "miscStateManager": Object {
+    "appInitiallized": false,
+  },
   "userManager": Object {
     "errorMessage": "",
     "isError": false,
