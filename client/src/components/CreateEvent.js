@@ -4,7 +4,7 @@ import Autocomplete from 'react-google-autocomplete';
 
 import FormattedFormField from './FormattedFormField';
 
-const CreateEvent = ({ handleSubmit, errorMessage, handlePlaceSelction }) => (
+const CreateEvent = ({ handleSubmit, errorMessage }) => (
   <div className="row">
     <div className="small-12 columns">
       <h1>Schedule Performance</h1>
@@ -70,7 +70,6 @@ const CreateEvent = ({ handleSubmit, errorMessage, handlePlaceSelction }) => (
 );
 
 CreateEvent.propTypes = {
-  handlePlaceSelection: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   errorMessage: PropTypes.string
 };
