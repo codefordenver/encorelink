@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import Autocomplete from 'react-google-autocomplete';
 
 import FormattedFormField from './FormattedFormField';
 
@@ -37,12 +38,15 @@ const CreateEvent = ({ handleSubmit, errorMessage }) => (
           />
         </FormattedFormField>
         <FormattedFormField title="Location">
-          <Field
-            name="location"
-            component="input"
-            type="text"
-            placeholder="Location"
-            required
+          <Field name="location" component={props =>
+            <Autocomplete
+              type="text"
+              name="location"
+              style={{ width: '100%' }}
+              onPlaceSelected={param => props.input.onChange(param.formatted_address)}
+              types={[]}
+            />
+          }
           />
         </FormattedFormField>
         <FormattedFormField title="Notes">

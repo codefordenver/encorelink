@@ -2,6 +2,10 @@
   "name": "encorelink",
   "version": "1.0.0",
   "main": "server/server.js",
+  "engines": {
+    "node": "6.6.x",
+    "npm": "3.10.x"
+  },
   "scripts": {
     "clean": "rimraf client/dist/",
     "heroku": "npm run clean && cross-env NODE_ENV=production npm start",
@@ -36,6 +40,7 @@
     "numeral": "^1.5.3",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "react-google-autocomplete": "^1.0.7",
     "react-redux": "^4.4.1",
     "react-router": "^2.4.0",
     "redux": "^3.3.1",
