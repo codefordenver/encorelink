@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import Autocomplete from 'react-google-autocomplete';
 
 import FormattedFormField from './FormattedFormField';
 
-const CreateEvent = ({ handleSubmit, errorMessage }) => (
+const CreateEvent = ({ handleSubmit, errorMessage, handlePlaceSelction }) => (
   <div className="row">
     <div className="small-12 columns">
       <h1>Schedule Performance</h1>
@@ -37,12 +38,12 @@ const CreateEvent = ({ handleSubmit, errorMessage }) => (
           />
         </FormattedFormField>
         <FormattedFormField title="Location">
-          <Field
-            name="location"
-            component="input"
+          <Autocomplete
             type="text"
-            placeholder="Location"
-            required
+            name="location"
+            style={{ width: '100%' }}
+            onPlaceSelected={this.handlePlaceSelction}
+            types={[]}
           />
         </FormattedFormField>
         <FormattedFormField title="Notes">
