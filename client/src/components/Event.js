@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { getFormattedDayAndTime } from '../utils/dateFormatting';
 import { Link } from 'react-router';
+import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
 class Event extends React.Component {
   static propTypes = {

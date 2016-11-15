@@ -12,7 +12,7 @@ class Header extends React.Component {
     const loggedIn = (
       <div>
         Hello, {this.props.user.email}
-        {" "}
+        {' '}
         <button className="button" onClick={this.props.logoutUser}>Log out</button>
       </div>
     );
