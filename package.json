@@ -2,6 +2,10 @@
   "name": "encorelink",
   "version": "1.0.0",
   "main": "server/server.js",
+  "engines": {
+    "node": "6.6.x",
+    "npm": "3.10.x"
+  },
   "scripts": {
     "clean": "rimraf client/dist/",
     "heroku": "npm run clean && cross-env NODE_ENV=production npm start",
