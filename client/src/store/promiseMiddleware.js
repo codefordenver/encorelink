@@ -31,7 +31,7 @@ function handlePromise(action, dispatch, getState) {
 function createPromiseMiddleware({ dispatch, getState }) {
   return next => action => {
     if (action.type === PROMISE_ACTION) {
-      handlePromise(action, dispatch, getState);
+      return handlePromise(action, dispatch, getState);
     }
 
     return next(action);

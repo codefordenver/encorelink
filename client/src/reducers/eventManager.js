@@ -2,8 +2,7 @@ import {
   CREATE_EVENT_REQUEST,
   LOAD_EVENTS_REQUEST,
   LOAD_EVENTS_SUCCESS,
-  LOAD_EVENT_SUCCESS,
-  LOGOUT
+  LOAD_EVENT_SUCCESS
 } from '../constants/reduxConstants';
 
 const initialState = {
@@ -34,8 +33,6 @@ const eventManager = (state = initialState, action) => {
         event: action.payload,
         isFetching: false
       };
-    case LOGOUT:
-      return initialState;
     default:
       return state;
   }

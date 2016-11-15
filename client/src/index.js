@@ -1,16 +1,28 @@
+import 'babel-core/register';
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
-import 'babel-core/register';
-import 'babel-polyfill';
+import { persistStore } from 'redux-persist';
 import routes from './routes';
 import configureStore from './store/configureStore';
-import { getLocalData } from './actions/index';
+import { allowApiToAccessState } from './utils/apiHelpers';
+import { checkIfLoginIsValid } from './actions';
 import './scss/app.scss';
 
 const store = configureStore();
-store.dispatch(getLocalData());
+allowApiToAccessState(store);
+
+function afterPersistenceRestore() {
+  store.dispatch(checkIfLoginIsValid());
+}
+
+// persists the redux store to localStorage, and rehydrates
+// on reload
+persistStore(store, {
+  debounce: 100
+}, afterPersistenceRestore);
 
 ReactDOM.render(
   <Provider store={store}>

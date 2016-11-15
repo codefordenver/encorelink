@@ -18,16 +18,12 @@ class Event extends React.Component {
     signUpForEvent: PropTypes.func.isRequired
   }
 
-  static defaultProps = {
-    event: {}
-  }
-
   componentWillMount() {
     this.props.loadEvent(this.props.params.id);
   }
 
   render() {
-    const { date, endDate, name, location } = this.props.event;
+    const { date, endDate, name, location } = this.props.event || {};
     const { day, time } = getFormattedDayAndTime(date, endDate);
     return (
       <div className="event">

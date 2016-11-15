@@ -2,9 +2,7 @@ import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
-  LOGOUT,
-  RECEIVE_USER,
-  GET_LOCAL_DATA
+  RECEIVE_USER
 } from '../constants/reduxConstants';
 
 const initialState = {
@@ -44,19 +42,10 @@ const userManager = (state = initialState, action) => {
         isError: true,
         errorMessage: payload.message
       };
-    case LOGOUT:
-      return initialState;
     case RECEIVE_USER:
       return {
         ...state,
         user: payload
-      };
-    case GET_LOCAL_DATA:
-      return {
-        ...state,
-        userId: payload.userId || state.userId,
-        userToken: payload.userToken || state.userToken,
-        user: payload.user || state.user
       };
     default:
       return state;
@@ -64,8 +53,11 @@ const userManager = (state = initialState, action) => {
 };
 
 export default userManager;
+
 export function getUserId(state) { return state.userManager.userId; }
 export function getUserToken(state) { return state.userManager.userToken; }
+export function getUser(state) { return state.userManager.user; }
+export function isLoggedIn(state) { return state.userManager.isLoggedIn; }
 export function isLoggedInUserAMusician(state) {
   return state.userManager.user.isMusician;
 }
