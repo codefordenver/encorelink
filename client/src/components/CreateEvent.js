@@ -38,13 +38,14 @@ const CreateEvent = ({ handleSubmit, errorMessage, handlePlaceSelction }) => (
           />
         </FormattedFormField>
         <FormattedFormField title="Location">
-          <Autocomplete
-            type="text"
-            name="location"
-            style={{ width: '100%' }}
-            onPlaceSelected={this.handlePlaceSelction}
-            types={[]}
-          />
+          <Field name="location" component={props =>
+            <Autocomplete
+              type="text"
+              name="location"
+              style={{ width: '100%' }}
+              onPlaceSelected={param => props.input.onChange(param.formatted_address)}
+              types={[]}/>
+          }/>
         </FormattedFormField>
         <FormattedFormField title="Notes">
           <Field
@@ -69,6 +70,7 @@ const CreateEvent = ({ handleSubmit, errorMessage, handlePlaceSelction }) => (
 );
 
 CreateEvent.propTypes = {
+  handlePlaceSelection: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   errorMessage: PropTypes.string
 };
