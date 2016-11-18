@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router';
 
 class Register extends React.Component {
   static propTypes = {
-    errorMessage: PropTypes.string,
     registerRequest: PropTypes.func.isRequired,
     router: PropTypes.shape({
       push: PropTypes.func.isRequired
@@ -81,9 +80,6 @@ class Register extends React.Component {
           </label>
           <button className="button secondary" type="submit">Register</button>
         </form>
-        <div>
-          <span>{this.props.errorMessage}</span>
-        </div>
         <p>
           Already have an account?&nbsp;
           <Link to="/login">Log in</Link>

@@ -63,11 +63,6 @@ exports[`test Landing renders correctly 1`] = `
               Register
             </button>
           </form>
-          <div>
-            <span>
-              
-            </span>
-          </div>
           <p>
             Already have an account? 
             <a

@@ -1,14 +1,12 @@
 import { connect } from 'react-redux';
-import { loginRequest } from '../actions';
-
+import { loginRequest } from '../actions/userActions';
+import { userIsBeingFetched, isLoggedIn } from '../reducers/userReducer';
 import Login from '../components/Login';
 
 const mapStateToProps = (state) => {
   return {
-    isError: state.userManager.isError,
-    errorMessage: state.userManager.errorMessage,
-    isFetching: state.userManager.isFetching,
-    isLoggedIn: state.userManager.isLoggedIn
+    isFetching: userIsBeingFetched(state),
+    isLoggedIn: isLoggedIn(state)
   };
 };
 

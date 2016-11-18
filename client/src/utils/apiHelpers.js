@@ -1,4 +1,4 @@
-import { getUserToken } from '../reducers/userManager';
+import { getUserToken } from '../reducers/userReducer';
 
 let getState = null;
 
@@ -6,15 +6,19 @@ export function allowApiToAccessState(store) {
   getState = store.getState;
 }
 
-async function callApi(url, options) {
-  const res = await fetch(`/api/${url}`, {
+async function callApi(url, { method, body }) {
+  const fetchOptions = {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
       Authorization: getUserToken(getState())
     },
-    ...options
-  });
+    method
+  };
+  if (body) {
+    fetchOptions.body = JSON.stringify(body);
+  }
+  const res = await fetch(`/api/${url}`, fetchOptions);
   const json = await res.json();
 
   if (!res.ok) {
@@ -24,7 +28,6 @@ async function callApi(url, options) {
 
   return json;
 }
-export default callApi;
 
 export const get = (url, options) => callApi(url, { ...options, method: 'GET' });
 export const post = (url, options) => callApi(url, { ...options, method: 'POST' });
