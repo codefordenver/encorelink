@@ -77,7 +77,7 @@ class Register extends React.Component {
             />
             I am a volunteer
           </label>
-          <label>By clicking Register, you agree to the site
+          <label className="terms">By clicking Register, you agree to the site
             <Link to="/terms"> terms</Link>
           </label>
           <button className="button secondary" type="submit">Register</button>

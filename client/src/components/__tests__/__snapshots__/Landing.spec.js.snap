@@ -49,7 +49,8 @@ exports[`test Landing renders correctly 1`] = `
                 type="checkbox" />
               I am a volunteer
             </label>
-            <label>
+            <label
+              className="terms">
               By clicking Register, you agree to the site
               <a
                 href={undefined}

@@ -12,6 +12,10 @@
 
   .register label {
     font-size: 16px;
+
+    &.terms {
+      font-size: 14px;
+    }
   }
 
   .volunteer-check {
