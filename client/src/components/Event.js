@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
+import GoogleMapEmbeded from './GoogleMapEmbeded';
 
 function Event({ data, signUpForEvent, isMusician }) {
   const { date, endDate, name, location, notes } = data || {};
@@ -14,12 +15,7 @@ function Event({ data, signUpForEvent, isMusician }) {
       </div>
       <div className="small-12 medium-8 large-6 columns">
         <div className="flex-video">
-          <iframe
-            width="600"
-            height="350"
-            frameBorder="0" style={{ border: 0 }}
-            src={'https://www.google.com/maps/embed/v1/place?key=AIzaSyDwAaGJGP92_ZEZUqrzWSpgBm5vXam5Lwg&q=' + encodeURIComponent(location)} allowFullScreen
-          />
+          <GoogleMapEmbeded query={location} />
         </div>
       </div>
       <div className="small-12 columns">
