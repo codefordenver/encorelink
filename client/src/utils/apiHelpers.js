@@ -1,4 +1,4 @@
-import { getUserToken } from '../reducers/userManager';
+import { getUserToken } from '../reducers/userReducer';
 
 let getState = null;
 

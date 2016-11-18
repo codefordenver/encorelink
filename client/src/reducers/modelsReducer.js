@@ -1,19 +1,21 @@
 import { combineReducers } from 'redux';
-import allModelsReducer from './allModelsReducer';
+import normalizedModelsReducer from './normalizedModelsReducer';
 import urlDataReducer from './urlDataReducer';
 import { getModelNameFromUrl } from '../utils/urlParsing';
 import { FETCHING } from '../constants/modelStatus';
 
+export const stateKey = 'models';
+
 export default combineReducers({
-  allModels: allModelsReducer,
+  normalizedModels: normalizedModelsReducer,
   allUrlData: urlDataReducer
 });
 
 
 // Selectors
 
-function hydrateModels(modelName, allModels, ids) {
-  const modelsOfSameType = allModels[modelName];
+function hydrateModels(modelName, normalizedModels, ids) {
+  const modelsOfSameType = normalizedModels[modelName];
   if (!modelsOfSameType) {
     return undefined;
   }
@@ -28,19 +30,19 @@ function hydrateModels(modelName, allModels, ids) {
 }
 
 export function getModels(state, url) {
-  const urlData = state.modelManager.allUrlData[url];
+  const urlData = state[stateKey].allUrlData[url];
 
   if (!urlData || urlData.ids === undefined) {
     return undefined;
   }
 
-  const { allModels } = state.modelManager;
+  const { normalizedModels } = state[stateKey];
   const modelName = getModelNameFromUrl(url);
-  return hydrateModels(modelName, allModels, urlData.ids);
+  return hydrateModels(modelName, normalizedModels, urlData.ids);
 }
 
 export function getUrlDataStatus(state, url) {
-  const urlData = state.modelManager.allUrlData[url];
+  const urlData = state[stateKey].allUrlData[url];
   return urlData && urlData.status;
 }
 

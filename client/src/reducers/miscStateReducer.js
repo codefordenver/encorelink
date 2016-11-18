@@ -4,7 +4,9 @@ const initialState = {
   appInitiallized: false
 };
 
-export default function miscStateManager(state = initialState, action) {
+export const stateKey = 'miscState';
+
+export default function miscStateReducer(state = initialState, action) {
   switch (action.type) {
     case REHYDRATE:
     // NOTE: Don't want redux-recycle's LOGOUT action to affect the appInitiallized value
@@ -19,4 +21,4 @@ export default function miscStateManager(state = initialState, action) {
   }
 }
 
-export function isAppInitialized(state) { return state.miscStateManager.appInitiallized; }
+export function isAppInitialized(state) { return state[stateKey].appInitiallized; }

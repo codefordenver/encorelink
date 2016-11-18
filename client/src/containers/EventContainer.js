@@ -1,5 +1,5 @@
 import { withRouter } from 'react-router';
-import { isLoggedInUserAMusician } from '../reducers/userManager';
+import { isMusician } from '../reducers/userReducer';
 import { signUpForEvent } from '../actions/eventActions';
 import gimmeData from '../utils/gimmeData';
 
@@ -12,7 +12,7 @@ function urlFn(state, props) {
 
 function mapStateToProps(state) {
   return {
-    isMusician: isLoggedInUserAMusician(state),
+    isMusician: isMusician(state),
   };
 }
 

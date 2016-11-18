@@ -11,7 +11,7 @@ import {
   REGISTER_SUCCESS,
   START_LOGIN_VALID_CHECK
 } from '../constants/reduxConstants';
-import { getUserId } from '../reducers/userManager';
+import { getUserId } from '../reducers/userReducer';
 import { get, post } from '../utils/apiHelpers';
 
 const startLoginRequest = createAction(LOGIN_REQUEST);

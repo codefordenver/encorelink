@@ -5,7 +5,6 @@ import { Field, reduxForm } from 'redux-form';
 
 class Login extends React.Component {
   static propTypes = {
-    errorMessage: PropTypes.string,
     handleSubmit: PropTypes.func.isRequired,
     router: PropTypes.shape({
       push: PropTypes.func.isRequired
@@ -52,7 +51,6 @@ class Login extends React.Component {
             <button className="button secondary" type="submit">Log in</button>
           </form>
           <div>
-            <span>{this.props.errorMessage}</span>
             <Link to="/">Go back to Landing</Link>
           </div>
         </div>

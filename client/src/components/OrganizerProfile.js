@@ -1,11 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router';
 
 class OrganizerProfile extends React.Component {
-  static propTypes = {
-    errorMessage: PropTypes.string
-  };
-
   render() {
     return (
       <div className="row">
@@ -127,9 +123,6 @@ class OrganizerProfile extends React.Component {
               </div>
             </div>
           </form>
-          <div>
-            <span>{this.props.errorMessage}</span>
-          </div>
         </div>
       </div>
     );

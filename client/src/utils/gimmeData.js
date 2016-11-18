@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { apiAction } from '../actions/modelActions';
-import { getModels, getUrlDataStatus } from '../reducers/modelManager';
+import { getModels, getUrlDataStatus } from '../reducers/modelsReducer';
 
 function isObject(o) {
   return o !== null && typeof o === 'object';

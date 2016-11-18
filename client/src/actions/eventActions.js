@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router';
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import { put } from '../utils/apiHelpers';
-import { getUserId } from '../reducers/userManager';
+import { getUserId } from '../reducers/userReducer';
 import {
   SIGNUP_FOR_EVENT_FAILURE,
   SIGNUP_FOR_EVENT_SUCCESS,
