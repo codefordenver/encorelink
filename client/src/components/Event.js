@@ -10,7 +10,8 @@ class Event extends React.Component {
       endDate: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       location: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
+      notes: PropTypes.string.optional
     }),
     isMusician: PropTypes.bool.isRequired,
     params: PropTypes.shape({
@@ -27,18 +28,35 @@ class Event extends React.Component {
     const { date, endDate, name, location } = this.props.event || {};
     const { day, time } = getFormattedDayAndTime(date, endDate);
     return (
-      <div className="event">
-        <h3>{ name }</h3>
-        <h4>{ day } | { time }</h4>
-        { location }
-        { this.props.isMusician &&
-          <button className="button" onClick={() => this.props.signUpForEvent(this.props.event)}>
-            Sign Up
-          </button> }
-        <br />
-        <br />
-        <br />
-        <Link to="/events">Back to Events</Link>
+      <div className="row">
+        <div className="small-12 columns">
+          <h3>{ name }</h3>
+          <h4>{ day } | { time }</h4>
+          <p>{ location }</p>
+        </div>
+        <div className="small-12 medium-8 large-6 columns">
+          <div className="flex-video">
+            <iframe
+              width="600"
+              height="350"
+              frameBorder="0" style={{ border: 0 }}
+              src={'https://www.google.com/maps/embed/v1/place?key=AIzaSyDwAaGJGP92_ZEZUqrzWSpgBm5vXam5Lwg&q=' + encodeURIComponent(location)} allowFullScreen
+            />
+          </div>
+        </div>
+        <div className="small-12 columns">
+          <h5>Additional Information</h5>
+          <p>{ this.props.event.notes }</p>
+          <p>
+            { this.props.isMusician &&
+              <a className="button" onClick={() => this.props.signUpForEvent(this.props.event)}>
+                Sign Up
+              </a>
+            }
+            {' '}
+            <Link to="/events" className="button secondary">Go Back</Link>
+          </p>
+        </div>
       </div>
     );
   }

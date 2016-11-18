@@ -8,27 +8,38 @@ module.exports = function (app) {
     {
       username: 'admin',
       email: 'admin@encorelink.com',
-      password: 'password123'
+      password: 'password123',
+      isMusician: false
+    },
+    {
+      username: 'musician',
+      email: 'musician@encorelink.com',
+      password: 'password123',
+      isMusician: true
     },
     {
       username: 'scottsmeester',
       email: 'scott@smeester.com',
-      password: 'password123'
+      password: 'password123',
+      isMusician: false
     },
     {
       username: 'willydouglas',
       email: 'willy@eastcolfaxcorner.com',
-      password: 'password123'
+      password: 'password123',
+      isMusician: false
     },
     {
       username: 'devindeScenza',
       email: 'devin@sketchyalley.com',
-      password: 'password123'
+      password: 'password123',
+      isMusician: false
     },
     {
       username: 'ryanbird',
       email: 'ryan@eastaurora.com',
-      password: 'password123'
+      password: 'password123',
+      isMusician: false
     }
   ];
 
@@ -47,7 +58,7 @@ module.exports = function (app) {
       name: 'event 1',
       date: '2016-12-22T14:00:00.000Z',
       notes: 'sample note',
-      location: 'east colfax corner',
+      location: 'Coffee at The Point, 710 E 26th Ave, Denver, CO 80205, USA',
       endDate: '2016-12-22T15:00:00.000Z',
       ownerId: 1
     },
@@ -55,7 +66,7 @@ module.exports = function (app) {
       name: 'event 2',
       date: '2017-01-22T14:00:00.000Z',
       notes: 'sample note',
-      location: 'east colfax corner',
+      location: 'Coffee at The Point, 710 E 26th Ave, Denver, CO 80205, USA',
       endDate: '2017-01-22T15:00:00.000Z',
       ownerId: 1
     },
@@ -63,7 +74,7 @@ module.exports = function (app) {
       name: 'event 3',
       date: '2016-11-22T14:00:00.000Z',
       notes: 'sample note',
-      location: 'east colfax corner',
+      location: 'Coffee at The Point, 710 E 26th Ave, Denver, CO 80205, USA',
       endDate: '2016-11-22T15:00:00.000Z',
       ownerId: 1
     },
@@ -71,7 +82,7 @@ module.exports = function (app) {
       name: 'event 4',
       date: '2016-12-23T14:00:00.000Z',
       notes: 'sample note',
-      location: 'east colfax corner',
+      location: 'Coffee at The Point, 710 E 26th Ave, Denver, CO 80205, USA',
       endDate: '2016-12-23T15:00:00.000Z',
       ownerId: 1
     },
