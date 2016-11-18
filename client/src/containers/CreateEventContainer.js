@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createEvent } from '../actions';
+import { createEvent } from '../actions/eventActions';
 
 import CreateEvent from '../components/CreateEvent';
 

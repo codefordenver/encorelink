@@ -5,17 +5,17 @@ import {
   RECEIVE_USER
 } from '../constants/reduxConstants';
 
+export const stateKey = 'authData';
+
 const initialState = {
   isFetching: false,
   user: {},
   userId: null,
   userToken: null,
-  isLoggedIn: false,
-  isError: false,
-  errorMessage: ''
+  isLoggedIn: false
 };
 
-const userManager = (state = initialState, action) => {
+function userReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -31,16 +31,12 @@ const userManager = (state = initialState, action) => {
         userToken: payload.id,
         user: payload.user,
         isLoggedIn: true,
-        isFetching: false,
-        isError: false,
-        errorMessage: ''
+        isFetching: false
       };
     case LOGIN_FAILURE:
       return {
         ...state,
-        isFetching: false,
-        isError: true,
-        errorMessage: payload.message
+        isFetching: false
       };
     case RECEIVE_USER:
       return {
@@ -50,14 +46,16 @@ const userManager = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-export default userManager;
-
-export function getUserId(state) { return state.userManager.userId; }
-export function getUserToken(state) { return state.userManager.userToken; }
-export function getUser(state) { return state.userManager.user; }
-export function isLoggedIn(state) { return state.userManager.isLoggedIn; }
-export function isLoggedInUserAMusician(state) {
-  return state.userManager.user.isMusician;
 }
+
+export default userReducer;
+
+export function getUserState(state) { return state[stateKey]; }
+export function getUserId(state) { return getUserState(state).userId; }
+export function getUserToken(state) { return getUserState(state).userToken; }
+export function getUser(state) { return getUserState(state).user; }
+export function isLoggedIn(state) { return getUserState(state).isLoggedIn; }
+export function isMusician(state) {
+  return getUserState(state).user.isMusician;
+}
+export function userIsBeingFetched(state) { return getUserState(state).isFetching; }

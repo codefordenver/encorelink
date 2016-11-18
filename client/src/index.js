@@ -8,7 +8,8 @@ import { persistStore } from 'redux-persist';
 import routes from './routes';
 import configureStore from './store/configureStore';
 import { allowApiToAccessState } from './utils/apiHelpers';
-import { checkIfLoginIsValid } from './actions';
+import { allowPersistenceToBePurgedOnLogout } from './store/purgeStoreOnLogout';
+import { checkIfLoginIsValid } from './actions/userActions';
 import './scss/app.scss';
 
 const store = configureStore();
@@ -20,9 +21,11 @@ function afterPersistenceRestore() {
 
 // persists the redux store to localStorage, and rehydrates
 // on reload
-persistStore(store, {
+const { purge } = persistStore(store, {
   debounce: 100
 }, afterPersistenceRestore);
+
+allowPersistenceToBePurgedOnLogout(purge);
 
 ReactDOM.render(
   <Provider store={store}>
