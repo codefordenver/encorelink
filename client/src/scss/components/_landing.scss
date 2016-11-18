@@ -5,7 +5,20 @@
       padding: 50px 0;
     }
   }
+
   .easy-to-track {
     background-color: #EFEFEF;
+  }
+
+  .register label {
+    font-size: 16px;
+
+    &.terms {
+      font-size: 14px;
+    }
+  }
+
+  .volunteer-check {
+    margin-bottom: 25px;
   }
 }

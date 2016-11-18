@@ -41,14 +41,16 @@ exports[`test Landing renders correctly 1`] = `
                 required={true}
                 type="password" />
             </label>
-            <label>
-              I am a volunteer
+            <label
+              className="volunteer-check">
               <input
                 checked={false}
                 onChange={[Function]}
                 type="checkbox" />
+              I am a volunteer
             </label>
-            <label>
+            <label
+              className="terms">
               By clicking Register, you agree to the site
               <a
                 href={undefined}
