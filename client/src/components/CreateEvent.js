@@ -43,7 +43,7 @@ const CreateEvent = ({ handleSubmit }) => (
               type="text"
               name="location"
               style={{ width: '100%' }}
-              onPlaceSelected={param => props.input.onChange(param.formatted_address)}
+              onPlaceSelected={param => props.input.onChange(param.name + ', ' + param.formatted_address)}
               types={[]}
             />}
           />
