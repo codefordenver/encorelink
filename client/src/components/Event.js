@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 import GoogleMapEmbeded from './GoogleMapEmbeded';
 
-function Event({ data, signUpForEvent, isMusician, isFetching, isRegistered }) {
+function Event({ data, signUpForEvent, isMusician, isRegistered, isFetching }) {
   const { date, endDate, name, location, notes } = data || {};
   const { day, time } = getFormattedDayAndTime(date, endDate);
 
@@ -69,8 +69,8 @@ Event.propTypes = {
     notes: PropTypes.string.isRequired
   }),
   isMusician: PropTypes.bool.isRequired,
-  isFetching: PropTypes.bool.isRequired,
   isRegistered: PropTypes.bool.isRequired,
+  isFetching: PropTypes.bool.isRequired,
   params: PropTypes.shape({
     id: PropTypes.string.isRequired
   }).isRequired,
