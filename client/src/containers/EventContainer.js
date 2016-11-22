@@ -9,15 +9,15 @@ import Event from '../components/Event';
 function urlFn(state, props) {
   const eventId = props.params.id;
   return `events/${eventId}?filter=${JSON.stringify({
-    includes: 'volunteers'
+    include: 'volunteers'
   })}`;
 }
 
 function mapStateToProps(state, ownProps) {
   return {
     isMusician: isMusician(state),
-    isFetching: isUrlDataFetching(state, urlFn(ownProps)),
-    isRegistered: isRegistered(state, urlFn(ownProps))
+    isFetching: isUrlDataFetching(state, urlFn(state, ownProps)),
+    isRegistered: isRegistered(state, urlFn(state, ownProps))
   };
 }
 

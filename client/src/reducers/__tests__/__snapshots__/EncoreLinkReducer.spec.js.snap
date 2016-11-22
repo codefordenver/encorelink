@@ -1,28 +1,19 @@
 exports[`encoreLinkReducer has the expected initial state 1`] = `
 Object {
-  "eventManager": Object {
-    "event": Object {
-      "date": "",
-      "endDate": "",
-      "id": 0,
-      "location": "",
-      "name": "",
-      "volunteers": Array [],
-    },
-    "isFetching": true,
-  },
-  "form": Object {},
-  "miscStateManager": Object {
-    "appInitiallized": false,
-  },
-  "userManager": Object {
-    "errorMessage": "",
-    "isError": false,
+  "authData": Object {
     "isFetching": false,
     "isLoggedIn": false,
     "user": Object {},
     "userId": null,
     "userToken": null,
+  },
+  "form": Object {},
+  "miscState": Object {
+    "appInitiallized": false,
+  },
+  "models": Object {
+    "allUrlData": Object {},
+    "normalizedModels": Object {},
   },
 }
 `;
