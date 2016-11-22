@@ -10,4 +10,10 @@ function urlFn(state) {
   return `users/${getUserId(state)}/events`;
 }
 
-export default gimmeData(urlFn)(Events);
+function mapStateToProps(state) {
+  return {
+    isMusician: isMusician(state)
+  };
+}
+
+export default gimmeData(urlFn, mapStateToProps)(Events);
