@@ -4,8 +4,14 @@ import { Link } from 'react-router';
 function Header({ userId, logoutUser }) {
   const loggedIn = (
     <div>
-      {userId}
-      <button className="button" onClick={logoutUser}>Log out</button>
+      <div>
+        {userId}
+        <button className="button" onClick={logoutUser}>Log out</button>
+      </div>
+      <div>
+        {userId}
+        <a href="./OrganizerDashboard">To Dashboard</a>"
+      </div>
     </div>
   );
   const loggedOut = (
