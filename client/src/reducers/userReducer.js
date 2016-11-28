@@ -1,3 +1,4 @@
+import { getModels } from './modelsReducer';
 import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
@@ -59,3 +60,9 @@ export function isMusician(state) {
   return getUserState(state).user.isMusician;
 }
 export function userIsBeingFetched(state) { return getUserState(state).isFetching; }
+export function isRegistered(state, url) {
+  const { volunteers = [] } = getModels(state, url) || {};
+  return volunteers.some((item) => {
+    return item.id === state.authData.userId;
+  });
+}
