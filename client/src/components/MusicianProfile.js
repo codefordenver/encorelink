@@ -19,14 +19,14 @@ const MusicianProfile = ({ handleSubmit }) => (
             placeholder="First Name"
             required
             autoFocus
-            />
+          />
           <Field
             name="lastName"
             component="input"
             type="number"
             placeholder="Last Name"
             required
-            />
+          />
         </FormattedFormField>
 
         <FormattedFormField title="Phone Number">
@@ -36,7 +36,7 @@ const MusicianProfile = ({ handleSubmit }) => (
             type="number"
             placeholder="(xxx)-xxx-xxxx"
             required
-            />
+          />
         </FormattedFormField>
 
         <FormattedFormField title="I'm over 21.">
@@ -45,18 +45,11 @@ const MusicianProfile = ({ handleSubmit }) => (
             component="input"
             type="checkbox"
             required
-            />
+          />
         </FormattedFormField>
 
         <FormattedFormField title="Address">
-          <Field name="address" component={props =>
-            <Autocomplete
-              type="text"
-              name="address"
-              onPlaceSelected={param => props.input.onChnage(param.name + ', ' + param.formatted_address)}
-              type={[]}
-              />}
-            />
+          <Field name="address" component={props => <Autocomplete type="text" name="address" onPlaceSelected={param => props.input.onChnage(param.name + ', ' + param.formatted_address)} type={[]} />} />
         </FormattedFormField>
 
         <div className="row">
@@ -74,7 +67,7 @@ const MusicianProfile = ({ handleSubmit }) => (
             type="text"
             placeholder="Instrument / Voice"
             required
-            />
+          />
         </FormattedFormField>
 
         <FormattedFormField title="Secondary Instrument/Voice">
@@ -83,7 +76,7 @@ const MusicianProfile = ({ handleSubmit }) => (
             component="input"
             type="text"
             placeholder="Secondary Instrument/Voice"
-            />
+          />
         </FormattedFormField>
 
         <FormattedFormField title="Video or Audio link:">
@@ -93,7 +86,7 @@ const MusicianProfile = ({ handleSubmit }) => (
             type="text"
             placeholder="Link"
             required
-            />
+          />
         </FormattedFormField>
 
         <FormattedFormField title="Profile:">
@@ -102,7 +95,7 @@ const MusicianProfile = ({ handleSubmit }) => (
             component="textarea"
             type="text"
             required
-            />
+          />
         </FormattedFormField>
 
         <FormattedFormField>
@@ -110,7 +103,7 @@ const MusicianProfile = ({ handleSubmit }) => (
             className="button"
             type="submit"
             value="Save"
-            />
+          />
         </FormattedFormField>
 
       </form>
