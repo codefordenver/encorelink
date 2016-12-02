@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
-function ViewMusician({ data, isFetching }) {
-  if (isFetching) {
+function ViewMusician({ data, urlStatus }) {
+  if (!urlStatus || urlStatus !== 'CURRENT') {
     return <p> Loading ... </p>;
   }
 
@@ -29,10 +29,10 @@ ViewMusician.propTypes = {
     bio: PropTypes.string.isRequired,
     instruments: PropTypes.array.isRequired,
   }),
-  isFetching: PropTypes.bool.isRequired,
   params: PropTypes.shape({
     id: PropTypes.string.isRequired
   }).isRequired,
+  urlStatus: PropTypes.string.isRequired
 };
 
 export default ViewMusician;
