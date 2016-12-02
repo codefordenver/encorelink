@@ -3,9 +3,35 @@ import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 import GoogleMapEmbeded from './GoogleMapEmbeded';
 
-function Event({ data, signUpForEvent, isMusician }) {
+function Event({ data, signUpForEvent, isMusician, isFetching, isRegistered }) {
   const { date, endDate, name, location, notes } = data || {};
   const { day, time } = getFormattedDayAndTime(date, endDate);
+
+  const displayMusicianOptions = () => {
+    if (isRegistered) {
+      return (
+        <p> You are signed up for this event </p>
+      );
+    }
+
+    if (!isMusician) {
+      return undefined;
+    }
+
+    return (
+      <button
+        className="button"
+        onClick={() => signUpForEvent(data)}
+      >
+        Sign Up
+      </button>
+    );
+  };
+
+  if (isFetching) {
+    return <p> Loading ... </p>;
+  }
+
   return (
     <div className="row">
       <div className="small-12 columns">
@@ -26,11 +52,7 @@ function Event({ data, signUpForEvent, isMusician }) {
           </div>
         }
         <p>
-          { isMusician &&
-            <a className="button" onClick={() => signUpForEvent(data)}>
-              Sign Up
-            </a>
-          }
+          {displayMusicianOptions()}
           {' '}
           <Link to="/events" className="button secondary">Go Back</Link>
         </p>
@@ -49,6 +71,8 @@ Event.propTypes = {
     notes: PropTypes.string.isRequired
   }),
   isMusician: PropTypes.bool.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  isRegistered: PropTypes.bool.isRequired,
   params: PropTypes.shape({
     id: PropTypes.string.isRequired
   }).isRequired,
