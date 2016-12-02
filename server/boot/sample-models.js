@@ -15,7 +15,9 @@ module.exports = function (app) {
       username: 'musician',
       email: 'musician@encorelink.com',
       password: 'password123',
-      isMusician: true
+      isMusician: true,
+      bio: 'Hi, my name is Musician!  This is my bio.  I\'m a first chair clarinetist specializing in drum and bass.',
+      instruments: ['clarinet', 'piano', 'vocals']
     },
     {
       username: 'scottsmeester',

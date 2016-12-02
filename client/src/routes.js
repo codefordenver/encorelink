@@ -6,6 +6,7 @@ import Landing from './components/Landing';
 import CreateEventContainer from './containers/CreateEventContainer';
 import EventsContainer from './containers/EventsContainer';
 import EventContainer from './containers/EventContainer';
+import MusicianContainer from './containers/MusicianContainer';
 import Terms from './components/Terms';
 import OrganizerProfile from './components/OrganizerProfile';
 import MusicianProfile from './components/MusicianProfile';
@@ -25,6 +26,7 @@ const routes = (
       <Route path="/event/:id" component={EventContainer} />
       <Route path="/musicianProfile" component={MusicianProfile} />
       <Route path="/eventsAttending" component={EventsAttendingContainer} />
+      <Route path="/musician/:id" component={MusicianContainer} />
     </Route>
   </Route>
 );
