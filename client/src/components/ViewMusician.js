@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
+import { CURRENT } from '../constants/modelStatus';
 
 function ViewMusician({ data, urlStatus }) {
-  if (!urlStatus || urlStatus !== 'CURRENT') {
+  if (!urlStatus || urlStatus !== CURRENT) {
     return <p> Loading ... </p>;
   }
 
