@@ -1,4 +1,5 @@
 import { browserHistory } from 'react-router';
+import { PENDING } from '../constants/eventAttendingStatus';
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import { put } from '../utils/apiHelpers';
 import { getUserId } from '../reducers/userReducer';
@@ -28,7 +29,7 @@ export function signUpForEvent(event) {
   return createApiAction({
     callApi: (state) => put(`users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
       body: {
-        status: 'accepted' // until we actually implement a way to accept these
+        status: PENDING // until we actually implement a way to accept these
       }
     }),
 
