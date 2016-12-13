@@ -69,13 +69,19 @@ class Register extends React.Component {
               required
             />
           </label>
-          <label className="volunteer-check">
-            <input type="checkbox"
+
+          <p className="switch">
+            <input className="switch-input" id="yes-no" type="checkbox"
               checked={this.state.isMusician}
               onChange={this.handleVolunteerChange}
             />
+            <label className="switch-paddle" htmlFor="yes-no">
+                <span className="show-for-sr">I am a volunteer</span> 
+                <span className="switch-active" aria-hidden="true">Yes</span>
+                <span className="switch-inactive" aria-hidden="true">No</span>
+            </label>
             I am a volunteer
-          </label>
+          </p>
           <label className="terms">By clicking Register, you agree to the site
             <Link to="/terms"> terms</Link>
           </label>
