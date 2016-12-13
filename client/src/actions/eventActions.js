@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router';
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import { put } from '../utils/apiHelpers';
-import { getUserId } from '../reducers/userReducer';
+import { getUserId, getUser } from '../reducers/userReducer';
 import {
   SIGNUP_FOR_EVENT_FAILURE,
   SIGNUP_FOR_EVENT_SUCCESS,
@@ -14,8 +14,14 @@ export function createEvent(formData) {
   return apiAction('post', (state) => `users/${getUserId(state)}/events`, {
     body: correctDatesForKeys(formData, ['date', 'endDate']),
 
-    onSuccess: (res) => {
-      browserHistory.push(`/event/${res.id}`);
+    onSuccess: (res, state) => {
+      const organizations = getUser(state).organizations || [];
+      if (organizations.length) {
+        browserHistory.push('/events');
+        return;
+      }
+
+      browserHistory.push('/organizerProfile');
     }
   });
 }

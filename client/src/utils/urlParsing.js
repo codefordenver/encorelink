@@ -9,6 +9,7 @@ const modelAliases = {
 
   eventVolunteers: 'eventVolunteers',
   organizations: 'organizations',
+  organization: 'organization',
 };
 
 function getModelAlias(name) {

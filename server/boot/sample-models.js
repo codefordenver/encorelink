@@ -96,4 +96,13 @@ module.exports = function (app) {
 
     console.log('Created events:', events);
   });
+
+  var Organization = app.models.Organization;
+  var organization = [];
+
+  Organization.create(organization, function(err) {
+    if (err) throw err;
+
+    console.log('Created empty organizations');
+  });
 };
