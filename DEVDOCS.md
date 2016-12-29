@@ -32,13 +32,13 @@ We use Redux to ensure state transitions are understandable. This happens by man
 ###State Transition Example
 Let's walk through an example of the first step of our primary use case: an Organizer registering on the Landing page and going to the CreateEvent page.
 We suggest that you have the app installed on your machine as described on the [README](README.md), and run through the app with your dev tools window open,
-so you can verify for yourself what's going on. [TBC]
+so you can verify for yourself what's going on. [To Be Completed]
 
 ##Quick Tips
 Here are a few tips on how to accomplish specific goals
 
 ###Conditional Hard-Coded Links
-Say you want a peice of text in the UI to be a link to another page, but which page is linked is dependent on some application state.
+Say you want a piece of text in the UI to be a link to another page, but which page is linked is dependent on some application state.
 For example, the username in the header is a link to the user's profile page, but the logged in user could be an organizer or a volunteer,
 so we don't know which page to link to. You need to access the props to find out the state. This assumes you already have the props defined,
 and you just need to access it.
