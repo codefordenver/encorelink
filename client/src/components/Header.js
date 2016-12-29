@@ -12,7 +12,7 @@ class Header extends React.Component {
   render() {
     const loggedIn = (
       <div>
-        Hello, <Link to={this.props.isMusician ? '/musicianProfile' : 'organizerProfile'}>{this.props.user.email}</Link>
+        Hello, <Link to={this.props.isMusician ? '/musicianProfile' : '/organizerProfile'}>{this.props.user.email}</Link>
         {' '}
         <button className="button" onClick={this.props.logoutUser}>Log out</button>
       </div>
