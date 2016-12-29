@@ -32,7 +32,57 @@ We use Redux to ensure state transitions are understandable. This happens by man
 ###State Transition Example
 Let's walk through an example of the first step of our primary use case: an Organizer registering on the Landing page and going to the CreateEvent page.
 We suggest that you have the app installed on your machine as described on the [README](README.md), and run through the app with your dev tools window open,
-so you can verify for yourself what's going on.
+so you can verify for yourself what's going on. [TBC]
 
+##Quick Tips
+Here are a few tips on how to accomplish specific goals
 
+###Conditional Hard-Coded Links
+Say you want a peice of text in the UI to be a link to another page, but which page is linked is dependent on some application state.
+For example, the username in the header is a link to the user's profile page, but the logged in user could be an organizer or a volunteer,
+so we don't know which page to link to. You need to access the props to find out the state. This assumes you already have the props defined,
+and you just need to access it.
 
+1. in your container, import the prop from the proper reducer
+```JavaScript
+import { isLoggedIn, getUser, isMusician } from '../reducers/userReducer';
+```
+
+2. make sure your container maps the proper state to your prop
+```JavaScript
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: isLoggedIn(state),
+    user: getUser(state),
+    isMusician: isMusician(state)
+  };
+};
+```
+
+3. In your component, require your prop
+```JavaScript
+static propTypes = {
+    isLoggedIn: PropTypes.bool.isRequired,
+    logoutUser: PropTypes.func.isRequired,
+    user: PropTypes.object,
+    isMusician: PropTypes.bool.isRequired
+  };
+```
+
+4. Find your target pages in routes.js
+```JavaScript
+<Route component={AuthenticatedRoutesContainer} >
+      <Route path="/createEvent" component={CreateEventContainer} />
+      <Route path="/organizerProfile" component={OrganizerProfile} />
+      <Route path="/events" component={EventsContainer} />
+      <Route path="/event/:id" component={EventContainer} />
+      <Route path="/musicianProfile" component={MusicianProfile} />
+      <Route path="/eventsAttending" component={EventsAttendingContainer} />
+      <Route path="/musician/:id" component={MusicianContainer} />
+</Route>
+```
+
+5. In your component, set up a conditional that links to the correct page based on the prop
+```JavaScript
+  Hello, <Link to={this.props.isMusician ? '/musicianProfile' : 'organizerProfile'}>{this.props.user.email}</Link>
+```
