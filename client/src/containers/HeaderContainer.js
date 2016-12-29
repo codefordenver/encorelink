@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/userActions';
-import { isLoggedIn, getUser } from '../reducers/userReducer';
+import { isLoggedIn, getUser, isMusician } from '../reducers/userReducer';
 import Header from '../components/Header';
 
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: isLoggedIn(state),
-    user: getUser(state)
+    user: getUser(state),
+    isMusician: isMusician(state)
   };
 };
 
