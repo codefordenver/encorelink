@@ -52,8 +52,7 @@ import { isLoggedIn, getUser, isMusician } from '../reducers/userReducer';
 ```JavaScript
 const mapStateToProps = (state) => {
   return {
-    isLoggedIn: isLoggedIn(state),
-    user: getUser(state),
+    //...
     isMusician: isMusician(state)
   };
 };
@@ -62,27 +61,12 @@ const mapStateToProps = (state) => {
 3. In your component, require your prop
 ```JavaScript
 static propTypes = {
-    isLoggedIn: PropTypes.bool.isRequired,
-    logoutUser: PropTypes.func.isRequired,
-    user: PropTypes.object,
+    //...
     isMusician: PropTypes.bool.isRequired
   };
 ```
 
-4. Find your target pages in routes.js
+4. Find your target pages in routes.js. Then, in your component, set up a conditional that links to the correct page based on the prop
 ```JavaScript
-<Route component={AuthenticatedRoutesContainer} >
-      <Route path="/createEvent" component={CreateEventContainer} />
-      <Route path="/organizerProfile" component={OrganizerProfile} />
-      <Route path="/events" component={EventsContainer} />
-      <Route path="/event/:id" component={EventContainer} />
-      <Route path="/musicianProfile" component={MusicianProfile} />
-      <Route path="/eventsAttending" component={EventsAttendingContainer} />
-      <Route path="/musician/:id" component={MusicianContainer} />
-</Route>
-```
-
-5. In your component, set up a conditional that links to the correct page based on the prop
-```JavaScript
-  Hello, <Link to={this.props.isMusician ? '/musicianProfile' : 'organizerProfile'}>{this.props.user.email}</Link>
+  Hello, <Link to={this.props.isMusician ? '/musicianProfile' : '/organizerProfile'}>{this.props.user.email}</Link>
 ```
