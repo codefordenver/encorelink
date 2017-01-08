@@ -30,5 +30,4 @@ const routes = (
     </Route>
   </Route>
 );
-
 export default routes;
