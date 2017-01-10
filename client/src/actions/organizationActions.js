@@ -10,3 +10,12 @@ export function createOrganization(formData) {
     }
   });
 }
+
+export function updateOrganization(formData, id) {
+  return apiAction('put', (state) => `users/${getUserId(state)}/organization/${id}`, {
+    body: formData,
+    onSuccess: () => {
+      browserHistory.push('/events');
+    }
+  });
+}
