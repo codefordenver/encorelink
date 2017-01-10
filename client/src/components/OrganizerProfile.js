@@ -180,7 +180,9 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           </div>
           <div className="row">
             <div className="small-12 medium-12 columns">
-              <button type="submit" className="button">Submit</button>
+              <button type="submit" className="button">
+                {data.length ? 'Update' : 'Submit' }
+              </button>
             </div>
           </div>
         </form>
