@@ -16,7 +16,7 @@ export function createEvent(formData) {
     body: correctDatesForKeys(formData, ['date', 'endDate']),
 
     onSuccess: (res, state) => {
-      const organizations = getModels(state, `/users/${getUserId(state)}/organization`) || [];
+      const organizations = getModels(state, `users/${getUserId(state)}/organization`) || [];
       if (organizations.length) {
         browserHistory.push('/events');
         return;
