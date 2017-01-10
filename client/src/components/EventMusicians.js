@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import { CURRENT } from '../constants/modelStatus';
+import { PENDING, CANCELLED } from '../constants/eventAttendingStatus';
 
-function EventMusicians({ data, urlStatus }) {
+function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlStatus }) {
   if (!urlStatus || urlStatus !== CURRENT) {
     return <p> Loading ... </p>;
   }
@@ -10,18 +11,18 @@ function EventMusicians({ data, urlStatus }) {
     <div className="row">
       { data && data.length &&
         <div className="small-12 columns">
-          {data.map((eventMusician, index) =>
+          {data.filter((em) => (em).status !== CANCELLED).map((eventMusician, index) =>
             <div key={index} className="row">
               <div className="small-6 columns">{eventMusician.volunteer.email}</div>
-              {eventMusician.status === 'PENDING' &&
+              {eventMusician.status === PENDING &&
                 <div className="small-6 columns">
                   <a href={`mailto:${eventMusician.volunteer.email}`}
                     className="button secondary"
                   >
                     Contact
                   </a>
-                  <a href className="button success">Approve</a>
-                  <a href className="button alert">Pass</a>
+                  <button onClick={() => approveEventMusician(eventMusician)} className="button success">Approve</button>
+                  <button onClick={() => rejectEventMusician(eventMusician)} className="button alert">Pass</button>
                 </div>
               }
             </div>
@@ -39,6 +40,8 @@ EventMusicians.propTypes = {
     eventId: PropTypes.number.isRequired,
     volunteerId: PropTypes.number.isRequired
   })).isRequired,
+  approveEventMusician: PropTypes.func.isRequired,
+  rejectEventMusician: PropTypes.func.isRequired,
   urlStatus: PropTypes.string.isRequired
 };
 

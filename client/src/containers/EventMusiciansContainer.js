@@ -1,5 +1,6 @@
 import gimmeData from '../utils/gimmeData';
 import EventMusicians from '../components/EventMusicians';
+import { approveEventMusician, rejectEventMusician } from '../actions/eventActions';
 
 function urlFn(state, props) {
   const id = props.eventId;
@@ -11,4 +12,9 @@ function urlFn(state, props) {
   })}`;
 }
 
-export default gimmeData(urlFn)(EventMusicians);
+const mapDispatchToProps = {
+  approveEventMusician,
+  rejectEventMusician
+};
+
+export default gimmeData(urlFn, null, mapDispatchToProps)(EventMusicians);
