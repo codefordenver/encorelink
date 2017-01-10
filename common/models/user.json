@@ -17,7 +17,7 @@
         "string"
       ]
     }
-    
+
   },
   "validations": [],
   "relations": {
@@ -27,7 +27,7 @@
       "foreignKey": "ownerId"
     },
     "organization": {
-      "type": "hasOne",
+      "type": "hasMany",
       "model": "Organization",
       "foreignKey": "adminId"
     },

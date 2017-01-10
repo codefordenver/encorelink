@@ -5,13 +5,14 @@ class Header extends React.Component {
   static propTypes = {
     isLoggedIn: PropTypes.bool.isRequired,
     logoutUser: PropTypes.func.isRequired,
-    user: PropTypes.object
+    user: PropTypes.object,
+    isMusician: PropTypes.bool.isRequired
   };
 
   render() {
     const loggedIn = (
       <div>
-        Hello, {this.props.user.email}
+        Hello, <Link to={this.props.isMusician ? '/musicianProfile' : '/organizerProfile'}>{this.props.user.email}</Link>
         {' '}
         <button className="button" onClick={this.props.logoutUser}>Log out</button>
       </div>

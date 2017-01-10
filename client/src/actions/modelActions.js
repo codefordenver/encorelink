@@ -27,7 +27,7 @@ export function apiAction(method, urlFn, { body, urlParams, onSuccess } = {}) {
       dispatch(apiActionSuccess(response, metaData));
 
       if (typeof onSuccess === 'function') {
-        onSuccess(response);
+        onSuccess(response, getState());
       }
     } catch (apiError) {
       dispatch(apiActionFail(apiError, metaData));
