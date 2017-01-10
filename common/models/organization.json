@@ -14,6 +14,40 @@
       "type": "string",
       "required": true
     },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "contactJob": {
+      "type": "string",
+      "required": true
+    },
+    "contactName": {
+      "type": "string",
+      "required": true
+    },
+    "zipcode": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "extension": {
+      "type": "string"
+    },
+    "contact": {
+      "type": "string"
+    },
     "notes": {
       "type": "string"
     }

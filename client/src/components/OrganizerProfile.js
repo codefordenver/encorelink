@@ -20,7 +20,6 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                   name="name"
                   component="input"
                   type="text"
-                  placeholder="Organization name"
                   required
                   autoFocus
                 />
@@ -29,15 +28,25 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           </div>
           <div className="row">
             <div className="small-12 medium-12 columns">
-              <label>Your name:
-                <input type="text" required />
+              <label>Contact name:
+                <Field
+                  name="contactName"
+                  component="input"
+                  type="text"
+                  required
+                />
               </label>
             </div>
           </div>
           <div className="row">
             <div className="small-12 medium-12 columns">
-              <label>Job title:
-                <input type="text" required />
+              <label>Contact Job title:
+                <Field
+                  name="contactJob"
+                  component="input"
+                  type="text"
+                  required
+                />
               </label>
             </div>
           </div>
@@ -57,7 +66,12 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           <div className="row">
             <div className="small-12 medium-12 columns">
               <label>City:
-                <input type="text" required />
+                <Field
+                  name="city"
+                  component="input"
+                  type="text"
+                  required
+                />
               </label>
             </div>
           </div>
@@ -66,7 +80,12 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
               <div className="row">
                 <div className="small-12 medium-12 columns">
                   <label>State:
-                    <input type="text" required />
+                    <Field
+                      name="state"
+                      component="input"
+                      type="text"
+                      required
+                    />
                   </label>
                 </div>
               </div>
@@ -75,7 +94,12 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
               <div className="row">
                 <div className="small-12 medium-12 columns">
                   <label>Zipcode:
-                    <input type="text" required />
+                    <Field
+                      name="zipcode"
+                      component="input"
+                      type="text"
+                      required
+                    />
                   </label>
                 </div>
               </div>
@@ -84,7 +108,12 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           <div className="row">
             <div className="small-12 medium-12 columns">
               <label>Email:
-                <input type="text" required />
+                <Field
+                  name="email"
+                  component="input"
+                  type="email"
+                  required
+                />
               </label>
             </div>
           </div>
@@ -93,7 +122,12 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
               <div className="row">
                 <div className="small-12 medium-12 columns">
                   <label>Phone:
-                    <input type="text" required />
+                    <Field
+                      name="phone"
+                      component="input"
+                      type="tel"
+                      required
+                    />
                   </label>
                 </div>
               </div>
@@ -102,7 +136,12 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
               <div className="row">
                 <div className="small-12 medium-12 columns">
                   <label>Ext:
-                    <input type="text" />
+                    <Field
+                      name="extension"
+                      component="input"
+                      type="text"
+                      required
+                    />
                   </label>
                 </div>
               </div>
@@ -111,14 +150,22 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           <div className="row">
             <div className="small-12 medium-12 columns">
               <label>Best contact method (email is default):
-                <input type="text" />
+                <Field
+                  name="contact"
+                  component="input"
+                  type="text"
+                  required
+                />
               </label>
             </div>
           </div>
           <div className="row">
             <div className="small-12 medium-12 columns">
               <label>Special notes:
-                <textarea />
+                <Field
+                  name="notes"
+                  component="textarea"
+                />
               </label>
             </div>
           </div>
