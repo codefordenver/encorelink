@@ -35,7 +35,7 @@ export function signUpForEvent(event) {
   return createApiAction({
     callApi: (state) => put(`users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
       body: {
-        status: PENDING // until we actually implement a way to accept these
+        status: PENDING
       }
     }),
 

@@ -11,8 +11,19 @@ function EventMusicians({ data, urlStatus }) {
       { data && data.length &&
         <div className="small-12 columns">
           {data.map((eventMusician, index) =>
-            <div className="row">
-              <li key={index}>{eventMusician}</li>
+            <div key={index} className="row">
+              <div className="small-6 columns">{eventMusician.volunteer.email}</div>
+              {eventMusician.status === 'PENDING' &&
+                <div className="small-6 columns">
+                  <a href={`mailto:${eventMusician.volunteer.email}`}
+                    className="button secondary"
+                  >
+                    Contact
+                  </a>
+                  <a href className="button success">Approve</a>
+                  <a href className="button alert">Pass</a>
+                </div>
+              }
             </div>
           )}
         </div>
