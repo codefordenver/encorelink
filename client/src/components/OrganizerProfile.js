@@ -172,10 +172,32 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           <div className="row">
             <div className="small-12 medium-12 columns">
               <label>Does the facility have a piano or any other instruments:</label>
-              <input type="radio" name="hasInstruments" value="piano" id="hasInstrumentsPiano" /><label htmlFor="hasInstrumentsPiano">Piano</label>
-              <input type="radio" name="hasInstruments" value="no" id="hasInstrumentsNo" /><label htmlFor="hasInstrumentsNo">Not yet</label>
-              <input type="radio" name="hasInstruments" value="other" id="hasInstrumentsOther" /><label htmlFor="hasInstrumentsOther">Other (please specify in special notes above)</label>
-
+              <Field
+                name="hasInstruments"
+                component="input"
+                type="radio"
+                value="piano"
+                id="hasInstrumentsPiano"
+              />
+              <label htmlFor="hasInstrumentsPiano">Piano</label>
+              <Field
+                name="hasInstruments"
+                component="input"
+                type="radio"
+                value="no"
+                id="hasInstrumentsNo"
+              />
+              <label htmlFor="hasInstrumentsNo">Not yet</label>
+              <Field
+                name="hasInstruments"
+                component="input"
+                type="radio"
+                value="other"
+                id="hasInstrumentsOther"
+              />
+              <label htmlFor="hasInstrumentsOther">
+                Other (please specify in special notes above)
+              </label>
             </div>
           </div>
           <div className="row">

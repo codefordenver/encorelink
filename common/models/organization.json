@@ -48,6 +48,9 @@
     "contact": {
       "type": "string"
     },
+    "hasInstruments": {
+      "type": "string"
+    },
     "notes": {
       "type": "string"
     }
