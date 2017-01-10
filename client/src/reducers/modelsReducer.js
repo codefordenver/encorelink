@@ -43,7 +43,7 @@ export function getModels(state, url) {
 
 export function getUrlDataStatus(state, url) {
   const urlData = state[stateKey].allUrlData[url];
-  return (urlData && urlData.status) || '';
+  return urlData && urlData.status;
 }
 
 export const isUrlDataFetching = (state, url) => getUrlDataStatus(state, url) === FETCHING;
