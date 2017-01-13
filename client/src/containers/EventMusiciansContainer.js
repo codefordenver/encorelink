@@ -4,7 +4,7 @@ import { approveEventMusician, rejectEventMusician } from '../actions/eventActio
 
 function urlFn(state, props) {
   const id = props.eventId;
-  return `EventVolunteers?filter=${JSON.stringify({
+  return `eventVolunteers?filter=${JSON.stringify({
     where: {
       eventId: id
     },

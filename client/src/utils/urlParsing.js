@@ -17,7 +17,7 @@ function getModelAlias(name) {
 }
 
 export function getModelNameFromUrl(url) { // eslint-disable-line import/prefer-default-export
-  const urlParts = url.split('/');
+  const urlParts = url.split(/\/|\?/);
 
   switch (urlParts.length) {
     case 1:
