@@ -61,7 +61,7 @@ const approveEventMusicianFailure = createErrorAction(APPROVE_EVENTMUSICIAN_FAIL
 
 export function approveEventMusician(eventMusician) {
   return createApiAction({
-    callApi: () => put(`EventVolunteers/${eventMusician.id}`, {
+    callApi: () => put(`eventVolunteers/${eventMusician.id}`, {
       body: {
         status: APPROVED
       }
@@ -81,7 +81,7 @@ const rejectEventMusicianFailure = createErrorAction(REJECT_EVENTMUSICIAN_FAILUR
 
 export function rejectEventMusician(eventMusician) {
   return createApiAction({
-    callApi: () => put(`EventVolunteers/${eventMusician.id}`, {
+    callApi: () => put(`eventVolunteers/${eventMusician.id}`, {
       body: {
         status: REJECTED
       }
