@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import normalizedModelsReducer from './normalizedModelsReducer';
 import urlDataReducer from './urlDataReducer';
 import { getModelNameFromUrl } from '../utils/urlParsing';
-import { FETCHING } from '../constants/modelStatus';
+import { STALE, FETCHING } from '../constants/modelStatus';
 
 export const stateKey = 'models';
 
@@ -47,3 +47,7 @@ export function getUrlDataStatus(state, url) {
 }
 
 export const isUrlDataFetching = (state, url) => getUrlDataStatus(state, url) === FETCHING;
+export const shouldFetchUrl = (state, url) => {
+  const urlStatus = getUrlDataStatus(state, url);
+  return urlStatus === undefined || urlStatus === STALE;
+};

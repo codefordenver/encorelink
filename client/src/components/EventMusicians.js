@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { CURRENT } from '../constants/modelStatus';
-import { PENDING, CANCELLED } from '../constants/eventAttendingStatus';
+import { PENDING, CANCELLED, REJECTED } from '../constants/eventAttendingStatus';
 
 function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlStatus }) {
   if (!urlStatus || urlStatus !== CURRENT) {
@@ -11,21 +11,34 @@ function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlSt
     <div className="row">
       { data && data.length &&
         <div className="small-12 columns">
-          {data.filter((em) => (em).status !== CANCELLED).map((eventMusician, index) =>
-            <div key={index} className="row">
-              <div className="small-6 columns">{eventMusician.volunteer.email}</div>
-              {eventMusician.status === PENDING &&
+          {data
+            .filter((em) => em.status !== CANCELLED && em.status !== REJECTED)
+            .map((eventMusician, index) =>
+              <div key={index} className="row">
+                <div className="small-6 columns">{eventMusician.volunteer.email}</div>
+                {eventMusician.status === PENDING &&
                 <div className="small-6 columns">
-                  <a href={`mailto:${eventMusician.volunteer.email}`}
+                  <a
                     className="button secondary"
+                    href={`mailto:${eventMusician.volunteer.email}`}
                   >
                     Contact
                   </a>
-                  <button onClick={() => approveEventMusician(eventMusician)} className="button success">Approve</button>
-                  <button onClick={() => rejectEventMusician(eventMusician)} className="button alert">Pass</button>
+                  <button
+                    className="button success"
+                    onClick={() => approveEventMusician(eventMusician)}
+                  >
+                    Approve
+                  </button>
+                  <button
+                    className="button alert"
+                    onClick={() => rejectEventMusician(eventMusician)}
+                  >
+                    Pass
+                  </button>
                 </div>
               }
-            </div>
+              </div>
           )}
         </div>
       }

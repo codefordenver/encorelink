@@ -5,16 +5,9 @@ import { put } from '../utils/apiHelpers';
 import { getUserId } from '../reducers/userReducer';
 import { getModels } from '../reducers/modelsReducer';
 import {
-  APPROVE_EVENTMUSICIAN_FAILURE,
-  APPROVE_EVENTMUSICIAN_SUCCESS,
-  APPROVE_EVENTMUSICIAN,
-  REJECT_EVENTMUSICIAN_FAILURE,
-  REJECT_EVENTMUSICIAN_SUCCESS,
-  REJECT_EVENTMUSICIAN,
   SIGNUP_FOR_EVENT_FAILURE,
   SIGNUP_FOR_EVENT_SUCCESS,
   SIGNUP_FOR_EVENT
-
 } from '../constants/reduxConstants';
 import { correctDatesForKeys } from '../utils/dateFormatting';
 import { apiAction } from './modelActions';
@@ -56,42 +49,18 @@ export function signUpForEvent(event) {
   });
 }
 
-const approveEventMusicianStart = createAction(APPROVE_EVENTMUSICIAN);
-const approveEventMusicianSuccess = createAction(APPROVE_EVENTMUSICIAN_SUCCESS);
-const approveEventMusicianFailure = createErrorAction(APPROVE_EVENTMUSICIAN_FAILURE);
-
 export function approveEventMusician(eventMusician) {
-  return createApiAction({
-    callApi: () => put(`eventVolunteers/${eventMusician.id}`, {
-      body: {
-        status: APPROVED
-      }
-    }),
-
-    startAction: () => approveEventMusicianStart(),
-    successAction: (res) => {
-      return approveEventMusicianSuccess(res);
-    },
-    failAction: (error) => approveEventMusicianFailure(error)
+  return apiAction('put', `eventVolunteers/${eventMusician.id}`, {
+    body: {
+      status: APPROVED
+    }
   });
 }
 
-const rejectEventMusicianStart = createAction(REJECT_EVENTMUSICIAN);
-const rejectEventMusicianSuccess = createAction(REJECT_EVENTMUSICIAN_SUCCESS);
-const rejectEventMusicianFailure = createErrorAction(REJECT_EVENTMUSICIAN_FAILURE);
-
 export function rejectEventMusician(eventMusician) {
-  return createApiAction({
-    callApi: () => put(`eventVolunteers/${eventMusician.id}`, {
-      body: {
-        status: REJECTED
-      }
-    }),
-
-    startAction: () => rejectEventMusicianStart(),
-    successAction: (res) => {
-      return rejectEventMusicianSuccess(res);
-    },
-    failAction: (error) => rejectEventMusicianFailure(error)
+  return apiAction('put', `eventVolunteers/${eventMusician.id}`, {
+    body: {
+      status: REJECTED
+    }
   });
 }

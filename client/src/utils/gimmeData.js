@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { apiAction } from '../actions/modelActions';
-import { getModels, getUrlDataStatus } from '../reducers/modelsReducer';
+import { getModels, getUrlDataStatus, shouldFetchUrl } from '../reducers/modelsReducer';
 
 function isObject(o) {
   return o !== null && typeof o === 'object';
@@ -46,7 +46,8 @@ export default function gimmeData(urlFn, mapStateToProps, mapDispatchToProps) {
       ...mappedStateProps,
       data: getModels(state, url),
       url,
-      urlStatus: getUrlDataStatus(state, url)
+      urlStatus: getUrlDataStatus(state, url),
+      shouldFetchUrl: shouldFetchUrl(state, url)
     };
   };
 
@@ -68,11 +69,20 @@ export default function gimmeData(urlFn, mapStateToProps, mapDispatchToProps) {
     class DataWrapper extends React.Component {
       static propTypes = {
         apiAction: PropTypes.func.isRequired,
-        url: PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
+        shouldFetchUrl: PropTypes.bool.isRequired
       };
 
       componentDidMount() {
-        this.props.apiAction('get', this.props.url);
+        if (this.props.shouldFetchUrl) {
+          this.props.apiAction('get', this.props.url);
+        }
+      }
+
+      componentWillReceiveProps(nextProps) {
+        if (nextProps.shouldFetchUrl) {
+          nextProps.apiAction('get', nextProps.url);
+        }
       }
 
       render() {
