@@ -74,9 +74,7 @@ export default function gimmeData(urlFn, mapStateToProps, mapDispatchToProps) {
       };
 
       componentDidMount() {
-        if (this.props.shouldFetchUrl) {
-          this.props.apiAction('get', this.props.url);
-        }
+        this.props.apiAction('get', this.props.url);
       }
 
       componentWillReceiveProps(nextProps) {
