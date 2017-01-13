@@ -2,7 +2,8 @@ import { browserHistory } from 'react-router';
 import { PENDING, APPROVED, REJECTED } from '../constants/eventAttendingStatus';
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import { put } from '../utils/apiHelpers';
-import { getUserId, getUser } from '../reducers/userReducer';
+import { getUserId } from '../reducers/userReducer';
+import { getModels } from '../reducers/modelsReducer';
 import {
   APPROVE_EVENTMUSICIAN_FAILURE,
   APPROVE_EVENTMUSICIAN_SUCCESS,
@@ -23,7 +24,7 @@ export function createEvent(formData) {
     body: correctDatesForKeys(formData, ['date', 'endDate']),
 
     onSuccess: (res, state) => {
-      const organizations = getUser(state).organizations || [];
+      const organizations = getModels(state, `users/${getUserId(state)}/organization`) || [];
       if (organizations.length) {
         browserHistory.push('/events');
         return;
