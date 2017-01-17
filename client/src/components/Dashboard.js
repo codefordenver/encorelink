@@ -10,4 +10,8 @@ const Dashboard = ({ isMusician }) => {
   return <OrganizerDashboard />;
 };
 
+Dashboard.propTypes = {
+  isMusician: React.PropTypes.bool.isRequired
+};
+
 export default Dashboard;
