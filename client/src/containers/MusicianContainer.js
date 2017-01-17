@@ -1,9 +1,26 @@
-import ViewMusician from '../components/ViewMusician';
 import gimmeData from '../utils/gimmeData';
+import { apiAction } from '../actions/modelActions';
+import MusicianProfile from '../components/MusicianProfile';
+import { getUserId } from '../reducers/userReducer';
 
-function urlFn(state, props) {
-  const userId = props.params.id;
-  return `users/${userId}`;
+function urlFn(state) {
+  return `users/${getUserId(state)}`;
 }
 
-export default gimmeData(urlFn)(ViewMusician);
+const createMusician = (formData) => {
+  const data = Object.assign({}, formData);
+  data.instuments = [
+    data.majorInstrument,
+    data.secondaryInstrument
+  ];
+
+  return apiAction('post', (state) => `users/${getUserId(state)}`, {
+    body: data,
+  });
+}
+
+const mapDispatchToProps = {
+  onSubmit: createMusician
+};
+
+export default gimmeData(urlFn, null, mapDispatchToProps)(MusicianProfile);
