@@ -15,7 +15,7 @@ const MusicianProfile = ({ handleSubmit }) => (
           <Field
             name="firstName"
             component="input"
-            type="number"
+            type="text"
             placeholder="First Name"
             required
             autoFocus
@@ -23,7 +23,7 @@ const MusicianProfile = ({ handleSubmit }) => (
           <Field
             name="lastName"
             component="input"
-            type="number"
+            type="text"
             placeholder="Last Name"
             required
           />

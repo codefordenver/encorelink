@@ -16,8 +16,26 @@
       "type": [
         "string"
       ]
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "over21": {
+      "type": "boolean",
+      "default": false
+    },
+    "address": {
+      "type": "string"
+    },
+    "videoAudioLink": {
+      "type": "string"
     }
-
   },
   "validations": [],
   "relations": {
@@ -37,6 +55,11 @@
       "foreignKey": "volunteerId",
       "through": "EventVolunteer",
       "keyThrough": "eventId"
+    },
+    "musician": {
+      "type": "hasOne",
+      "model": "musician",
+      "foreignKey": "adminId"
     }
   },
   "acls": [
