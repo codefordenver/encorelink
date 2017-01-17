@@ -54,11 +54,16 @@ function Event({ data, signUpForEvent, isMusician, isFetching, isRegistered, use
           </div>
         }
       </div>
-      <div className="small-12 columns">
-        { isOwner &&
+      { isOwner &&
+      <div>
+        <div className="small-12 columns">
+          <h4>Performance Requests</h4>
+        </div>
+        <div className="small-12 columns">
           <EventMusiciansContainer eventId={data.id} />
-        }
+        </div>
       </div>
+      }
       <div className="small-12 columns">
         <p>
           {displayMusicianOptions()}
