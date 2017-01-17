@@ -8,13 +8,9 @@ function urlFn(state) {
 }
 
 const createMusician = (formData) => {
-  const data = Object.assign({}, formData);
-  data.instuments = [
-    data.majorInstrument,
-    data.secondaryInstrument
-  ];
+  const data = Object.assign({}, formData, { instruments: [formData.majorInstrument, formData.secondaryInstrument] });
 
-  return apiAction('post', (state) => `users/${getUserId(state)}`, {
+  return apiAction('put', (state) => `users/${getUserId(state)}`, {
     body: data,
   });
 }

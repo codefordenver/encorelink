@@ -4,113 +4,110 @@ import Autocomplete from 'react-google-autocomplete';
 
 import FormattedFormField from './FormattedFormField';
 
-const MusicianProfile = ({ handleSubmit }) => (
+const MusicianProfile = ({ handleSubmit }) => {
+  return (
+    <div className="row">
+      <div className="small-12 columns">
+        <h1>Set Up Profile</h1>
 
-  <div className="row">
-    <div className="small-12 columns">
-      <h1>Set Up Profile</h1>
+        <form className="form-create-event" onSubmit={handleSubmit}>
+          <FormattedFormField title="Name">
+            <Field
+              name="firstName"
+              component="input"
+              type="text"
+              placeholder="First Name"
+              required
+              autoFocus
+            />
+            <Field
+              name="lastName"
+              component="input"
+              type="text"
+              placeholder="Last Name"
+              required
+            />
+          </FormattedFormField>
 
-      <form className="form-create-event" onSubmit={handleSubmit}>
-        <FormattedFormField title="Name">
-          <Field
-            name="firstName"
-            component="input"
-            type="text"
-            placeholder="First Name"
-            required
-            autoFocus
-          />
-          <Field
-            name="lastName"
-            component="input"
-            type="text"
-            placeholder="Last Name"
-            required
-          />
-        </FormattedFormField>
+          <FormattedFormField title="Phone Number">
+            <Field
+              name="phoneNumber"
+              component="input"
+              type="number"
+              placeholder="(xxx)-xxx-xxxx"
+              required
+            />
+          </FormattedFormField>
 
-        <FormattedFormField title="Phone Number">
-          <Field
-            name="phoneNumber"
-            component="input"
-            type="number"
-            placeholder="(xxx)-xxx-xxxx"
-            required
-          />
-        </FormattedFormField>
+          <FormattedFormField title="I'm over 21.">
+            <Field
+              name="over21"
+              component="input"
+              type="checkbox"
+            />
+          </FormattedFormField>
 
-        <FormattedFormField title="I'm over 21.">
-          <Field
-            name="over21"
-            component="input"
-            type="checkbox"
-            required
-          />
-        </FormattedFormField>
+          <FormattedFormField title="Address">
+            <Field name="address" component={props => <Autocomplete type="text" name="address" onPlaceSelected={param => props.input.onChange(param.name + ', ' + param.formatted_address)} type={[]} />} />
+          </FormattedFormField>
 
-        <FormattedFormField title="Address">
-          <Field name="address" component={props => <Autocomplete type="text" name="address" onPlaceSelected={param => props.input.onChnage(param.name + ', ' + param.formatted_address)} type={[]} />} />
-        </FormattedFormField>
-
-        <div className="row">
-          <div className="small-6 columns">
-            <div>
-              <h3>About your music You share:</h3>
+          <div className="row">
+            <div className="small-6 columns">
+              <div>
+                <h3>About your music You share:</h3>
+              </div>
             </div>
           </div>
-        </div>
 
-        <FormattedFormField title="Instrument/Voice">
-          <Field
-            name="majorInstrument"
-            component="input"
-            type="text"
-            placeholder="Instrument / Voice"
-            required
-          />
-        </FormattedFormField>
+          <FormattedFormField title="Instrument/Voice">
+            <Field
+              name="majorInstrument"
+              component="input"
+              type="text"
+              placeholder="Instrument / Voice"
+              required
+            />
+          </FormattedFormField>
 
-        <FormattedFormField title="Secondary Instrument/Voice">
-          <Field
-            name="secondaryInstrument"
-            component="input"
-            type="text"
-            placeholder="Secondary Instrument/Voice"
-          />
-        </FormattedFormField>
+          <FormattedFormField title="Secondary Instrument/Voice">
+            <Field
+              name="secondaryInstrument"
+              component="input"
+              type="text"
+              placeholder="Secondary Instrument/Voice"
+            />
+          </FormattedFormField>
 
-        <FormattedFormField title="Video or Audio link:">
-          <Field
-            name="videoAudioLink"
-            component="input"
-            type="text"
-            placeholder="Link"
-            required
-          />
-        </FormattedFormField>
+          <FormattedFormField title="Video or Audio link:">
+            <Field
+              name="videoAudioLink"
+              component="input"
+              type="text"
+              placeholder="Link"
+            />
+          </FormattedFormField>
 
-        <FormattedFormField title="Profile:">
-          <Field
-            name="link"
-            component="textarea"
-            type="text"
-            required
-          />
-        </FormattedFormField>
+          <FormattedFormField title="Profile:">
+            <Field
+              name="bio"
+              component="textarea"
+              type="text"
+            />
+          </FormattedFormField>
 
-        <FormattedFormField>
-          <input
-            className="button"
-            type="submit"
-            value="Save"
-          />
-        </FormattedFormField>
+          <FormattedFormField>
+            <input
+              className="button"
+              type="submit"
+              value="Save"
+            />
+          </FormattedFormField>
 
-      </form>
+        </form>
+      </div>
     </div>
-  </div>
-);
-
+  );
+}
 
 MusicianProfile.propTypes = {
   handleSubmit: PropTypes.func.isRequired
