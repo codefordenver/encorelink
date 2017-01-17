@@ -22,7 +22,8 @@ function afterPersistenceRestore() {
 // persists the redux store to localStorage, and rehydrates
 // on reload
 const { purge } = persistStore(store, {
-  debounce: 100
+  debounce: 100,
+  whitelist: ['authData']
 }, afterPersistenceRestore);
 
 allowPersistenceToBePurgedOnLogout(purge);

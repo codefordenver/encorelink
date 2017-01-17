@@ -1,4 +1,5 @@
 import { browserHistory } from 'react-router';
+import { PENDING, APPROVED, REJECTED } from '../constants/eventAttendingStatus';
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import { put } from '../utils/apiHelpers';
 import { getUserId } from '../reducers/userReducer';
@@ -35,7 +36,7 @@ export function signUpForEvent(event) {
   return createApiAction({
     callApi: (state) => put(`users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
       body: {
-        status: 'accepted' // until we actually implement a way to accept these
+        status: PENDING
       }
     }),
 
@@ -45,5 +46,21 @@ export function signUpForEvent(event) {
       return signUpForEventSuccess(res);
     },
     failAction: (error) => signUpForEventFailure(error)
+  });
+}
+
+export function approveEventMusician(eventMusician) {
+  return apiAction('put', `eventVolunteers/${eventMusician.id}`, {
+    body: {
+      status: APPROVED
+    }
+  });
+}
+
+export function rejectEventMusician(eventMusician) {
+  return apiAction('put', `eventVolunteers/${eventMusician.id}`, {
+    body: {
+      status: REJECTED
+    }
   });
 }
