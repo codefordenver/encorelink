@@ -9,7 +9,7 @@ function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlSt
 
   return (
     <div className="row">
-      { data && data.length &&
+      { data && data.length > 0 &&
         <div className="small-12 columns">
           {data
             .filter((em) => em.status !== CANCELLED && em.status !== REJECTED)
@@ -18,24 +18,26 @@ function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlSt
                 <div className="small-6 columns">{eventMusician.volunteer.email}</div>
                 {eventMusician.status === PENDING &&
                 <div className="small-6 columns">
-                  <a
-                    className="button secondary"
-                    href={`mailto:${eventMusician.volunteer.email}`}
-                  >
-                    Contact
-                  </a>
-                  <button
-                    className="button success"
-                    onClick={() => approveEventMusician(eventMusician)}
-                  >
-                    Approve
-                  </button>
-                  <button
-                    className="button alert"
-                    onClick={() => rejectEventMusician(eventMusician)}
-                  >
-                    Pass
-                  </button>
+                  <ul className="button-group">
+                    <a
+                      className="button secondary"
+                      href={`mailto:${eventMusician.volunteer.email}`}
+                    >
+                      Contact
+                    </a>
+                    <button
+                      className="button success"
+                      onClick={() => approveEventMusician(eventMusician)}
+                    >
+                      Approve
+                    </button>
+                    <button
+                      className="button alert"
+                      onClick={() => rejectEventMusician(eventMusician)}
+                    >
+                      Pass
+                    </button>
+                  </ul>
                 </div>
               }
               </div>
