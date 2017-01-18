@@ -1,7 +1,7 @@
 import React from 'react';
 
-const OrgnizerDashboard = () => (
-  <div> OrgnizerDashboard </div>
+const OrganizerDashboard = () => (
+  <div> OrganizerDashboard </div>
 );
 
-export default OrgnizerDashboard;
+export default OrganizerDashboard;
