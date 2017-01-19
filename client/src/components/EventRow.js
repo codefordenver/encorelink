@@ -25,8 +25,8 @@ function EventRow({ event }) {
 
 EventRow.propTypes = {
   event: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    endDate: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
+    endDate: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired

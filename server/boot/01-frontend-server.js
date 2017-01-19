@@ -28,7 +28,7 @@ module.exports = function(app, done) {
       app.use('/public', loopback.static(path.join(__dirname, '../../client/public')));
 
       // For non-api routes serve the index file
-      app.use(/^(?!\/?api).+$/, function (req, res) {
+      app.use(/^(?!\/?api|graphql).+$/, function (req, res) {
         res.sendFile(path.join(__dirname, '../../client/index.html'));
       });
 
@@ -49,6 +49,9 @@ module.exports = function(app, done) {
       historyApiFallback: false,
       proxy: {
         '/api/*': {
+          target: 'http://localhost:3000'
+        },
+        '/graphql': {
           target: 'http://localhost:3000'
         }
       }
