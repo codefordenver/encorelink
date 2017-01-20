@@ -22,8 +22,8 @@ export function createEvent(formData) {
 }
 
 export function signUpForEvent(event) {
-  return apiAction('post', (state) =>
-  `eventVolunteers/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
+  return apiAction('put', (state) =>
+  `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
     body: {
       status: PENDING
     },

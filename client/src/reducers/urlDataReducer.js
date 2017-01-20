@@ -51,10 +51,11 @@ function updateUrlData(updater, urlDataState, action) {
 }
 
 function handleUpdateRequest(urlDataState, action) {
-
-  return Object.keys(urlDataState).array.forEach((key) => {
-    urlDataState[url] = setUrlDataStatus(urlDataState[url], STALE);
-  }
+  const newState = {};
+  Object.keys(urlDataState).forEach((url) => {
+    newState[url] = setUrlDataStatus(urlDataState[url], STALE);
+  });
+  return newState;
 }
 
 function handleGetRequest(urlDataState, action) {
