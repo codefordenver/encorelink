@@ -29,7 +29,6 @@ export function signUpForEvent(event) {
     },
     onSuccess: () => {
       browserHistory.push('/dashboard');
-      return;
     }
   });
 }
