@@ -28,7 +28,7 @@ export function signUpForEvent(event) {
       status: PENDING
     },
     onSuccess: () => {
-      browserHistory.push('/eventsAttending');
+      browserHistory.push('/dashboard');
       return;
     }
   });

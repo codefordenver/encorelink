@@ -14,6 +14,8 @@ class Header extends React.Component {
       <div>
         Hello, <Link to={this.props.isMusician ? '/musicianProfile' : '/organizerProfile'}>{this.props.user.email}</Link>
         {' '}
+        <Link className="button" to="/dashboard">Dashboard</Link>
+        {' '}
         <button className="button" onClick={this.props.logoutUser}>Log out</button>
       </div>
     );
