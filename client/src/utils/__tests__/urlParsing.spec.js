@@ -21,4 +21,8 @@ describe('getModelNameFromUrl', () => {
     expect(getModelNameFromUrl('users/1/eventsAttending')).toBe('events');
     expect(getModelNameFromUrl('users/1/eventsAttending')).toBe('events');
   });
+
+  it('properly handles deep urls', () => {
+    expect(getModelNameFromUrl('users/1/eventsAttending/rel/1')).toBe('events');
+  });
 });

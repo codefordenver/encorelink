@@ -27,6 +27,7 @@ export function getModelNameFromUrl(url) { // eslint-disable-line import/prefer-
 
     case 3:
     case 4:
+    case 5:
       return getModelAlias(urlParts[2]);
 
     default:
