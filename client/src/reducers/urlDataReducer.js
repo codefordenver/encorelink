@@ -9,9 +9,6 @@ import {
   FETCHING,
   STALE
 } from '../constants/modelStatus';
-import {
-  getModelNameFromUrl
-} from '../utils/urlParsing';
 
 function setUrlDataStatus(currentUrlData, status) {
   return {
