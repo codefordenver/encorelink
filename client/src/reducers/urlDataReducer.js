@@ -51,19 +51,10 @@ function updateUrlData(updater, urlDataState, action) {
 }
 
 function handleUpdateRequest(urlDataState, action) {
-  const meta = action.meta || {};
-  const actionUrl = meta.url;
-  const model = getModelNameFromUrl(actionUrl);
 
-  return Object.keys(urlDataState).reduce((newState, url) => {
-    if (url.startsWith(model)) {
-      return {
-        ...newState,
-        [url]: setUrlDataStatus(newState[url], STALE)
-      };
-    }
-    return newState;
-  }, urlDataState);
+  return Object.keys(urlDataState).array.forEach((key) => {
+    urlDataState[url] = setUrlDataStatus(urlDataState[url], STALE);
+  }
 }
 
 function handleGetRequest(urlDataState, action) {
