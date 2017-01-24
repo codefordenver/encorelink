@@ -4,10 +4,22 @@ import {
   API_ACTION_FAIL
 } from '../constants/reduxConstants';
 import {
-  FETCHING,
   CURRENT,
-  FAILED
+  FAILED,
+  FETCHING,
+  STALE
 } from '../constants/modelStatus';
+import {
+  getModelNameFromUrl,
+  urlHasQueryParams
+} from '../utils/urlParsing';
+
+function setUrlDataStatus(currentUrlData, status) {
+  return {
+    ...currentUrlData,
+    status
+  };
+}
 
 function setUrlDataFetching(currentUrlData) {
   return {
@@ -21,6 +33,13 @@ function setUrlDataSuccess(urlDataState, data) {
   return {
     ids,
     status: CURRENT
+  };
+}
+
+function setUrlUnnormalizedData(urlDataState, data) {
+  return {
+    status: CURRENT,
+    data
   };
 }
 
@@ -39,6 +58,41 @@ function updateUrlData(updater, urlDataState, action) {
   };
 }
 
+function handleUpdateRequest(urlDataState, action) {
+  const meta = action.meta || {};
+  const actionUrl = meta.url;
+  const model = getModelNameFromUrl(actionUrl);
+
+  return Object.keys(urlDataState).reduce((newState, url) => {
+    if (url.startsWith(model)) {
+      return {
+        ...newState,
+        [url]: setUrlDataStatus(newState[url], STALE)
+      };
+    }
+    return newState;
+  }, urlDataState);
+}
+
+function handleGetRequest(urlDataState, action) {
+  switch (action.type) {
+    case API_ACTION_START:
+      return updateUrlData(setUrlDataFetching, urlDataState, action);
+
+    case API_ACTION_SUCCESS:
+      if (urlHasQueryParams(action.meta.url)) {
+        return updateUrlData(setUrlUnnormalizedData, urlDataState, action);
+      }
+      return updateUrlData(setUrlDataSuccess, urlDataState, action);
+
+    case API_ACTION_FAIL:
+      return updateUrlData(setUrlDataFailed, urlDataState, action);
+
+    default:
+      return urlDataState;
+  }
+}
+
 const initialUrlData = {};
 
 // This reducer stores the status of different api url GET requests and the ids
@@ -52,24 +106,15 @@ const initialUrlData = {};
 //  }
 // }
 export default function urlDataReducer(urlDataState = initialUrlData, action) {
-  // For now ignore any actions that aren't GET requests.
-  // At some point we might want to set urls to be stale based on things like
-  // POSTs that create a new model
-  if (action.meta && action.meta.method !== 'get') {
-    return urlDataState;
+  const method = action.meta && action.meta.method;
+
+  if (method === 'get') {
+    return handleGetRequest(urlDataState, action);
   }
 
-  switch (action.type) {
-    case API_ACTION_START:
-      return updateUrlData(setUrlDataFetching, urlDataState, action);
-
-    case API_ACTION_SUCCESS:
-      return updateUrlData(setUrlDataSuccess, urlDataState, action);
-
-    case API_ACTION_FAIL:
-      return updateUrlData(setUrlDataFailed, urlDataState, action);
-
-    default:
-      return urlDataState;
+  if (method === 'put' || method === 'patch') {
+    return handleUpdateRequest(urlDataState, action);
   }
+
+  return urlDataState;
 }

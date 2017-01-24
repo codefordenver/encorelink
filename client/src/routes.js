@@ -8,10 +8,10 @@ import EventsContainer from './containers/EventsContainer';
 import EventContainer from './containers/EventContainer';
 import MusicianContainer from './containers/MusicianContainer';
 import Terms from './components/Terms';
-import OrganizerProfile from './components/OrganizerProfile';
+import OrganizerProfileContainer from './containers/OrganizerProfileContainer';
 import MusicianProfile from './components/MusicianProfile';
 import AuthenticatedRoutesContainer from './containers/AuthenticatedRoutesContainer';
-import EventsAttendingContainer from './containers/EventsAttendingContainer';
+import DashboardContainer from './containers/DashboardContainer';
 
 const routes = (
   <Route path="/" component={App}>
@@ -21,11 +21,11 @@ const routes = (
 
     <Route component={AuthenticatedRoutesContainer} >
       <Route path="/createEvent" component={CreateEventContainer} />
-      <Route path="/organizerProfile" component={OrganizerProfile} />
+      <Route path="/organizerProfile" component={OrganizerProfileContainer} />
       <Route path="/events" component={EventsContainer} />
       <Route path="/event/:id" component={EventContainer} />
       <Route path="/musicianProfile" component={MusicianProfile} />
-      <Route path="/eventsAttending" component={EventsAttendingContainer} />
+      <Route path="/dashboard" component={DashboardContainer} />
       <Route path="/musician/:id" component={MusicianContainer} />
     </Route>
   </Route>

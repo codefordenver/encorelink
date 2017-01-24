@@ -1,7 +1,9 @@
 import { browserHistory } from 'react-router';
+import { PENDING, APPROVED, REJECTED } from '../constants/eventAttendingStatus';
 import { createApiAction, createAction, createErrorAction } from '../utils/reduxActions';
 import { put } from '../utils/apiHelpers';
-import { getUserId, getUser } from '../reducers/userReducer';
+import { getUserId } from '../reducers/userReducer';
+import { getModels } from '../reducers/modelsReducer';
 import {
   SIGNUP_FOR_EVENT_FAILURE,
   SIGNUP_FOR_EVENT_SUCCESS,
@@ -15,7 +17,7 @@ export function createEvent(formData) {
     body: correctDatesForKeys(formData, ['date', 'endDate']),
 
     onSuccess: (res, state) => {
-      const organizations = getUser(state).organizations || [];
+      const organizations = getModels(state, `users/${getUserId(state)}/organization`) || [];
       if (organizations.length) {
         browserHistory.push('/events');
         return;
@@ -34,15 +36,31 @@ export function signUpForEvent(event) {
   return createApiAction({
     callApi: (state) => put(`users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
       body: {
-        status: 'accepted' // until we actually implement a way to accept these
+        status: PENDING
       }
     }),
 
     startAction: () => signUpForEventStart(),
     successAction: (res) => {
-      browserHistory.push('/eventsAttending');
+      browserHistory.push('/dashboard');
       return signUpForEventSuccess(res);
     },
     failAction: (error) => signUpForEventFailure(error)
+  });
+}
+
+export function approveEventMusician(eventMusician) {
+  return apiAction('put', `eventVolunteers/${eventMusician.id}`, {
+    body: {
+      status: APPROVED
+    }
+  });
+}
+
+export function rejectEventMusician(eventMusician) {
+  return apiAction('put', `eventVolunteers/${eventMusician.id}`, {
+    body: {
+      status: REJECTED
+    }
   });
 }

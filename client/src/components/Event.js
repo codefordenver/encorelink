@@ -2,10 +2,12 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 import GoogleMapEmbeded from './GoogleMapEmbeded';
+import EventMusiciansContainer from '../containers/EventMusiciansContainer';
 
-function Event({ data, signUpForEvent, isMusician, isFetching, isRegistered }) {
+function Event({ data, signUpForEvent, isMusician, isFetching, isRegistered, userId }) {
   const { date, endDate, name, location, notes } = data || {};
   const { day, time } = getFormattedDayAndTime(date, endDate);
+  const isOwner = data && (data.ownerId === userId);
 
   const displayMusicianOptions = () => {
     if (isRegistered) {
@@ -51,6 +53,18 @@ function Event({ data, signUpForEvent, isMusician, isFetching, isRegistered }) {
             <p>{ notes }</p>
           </div>
         }
+      </div>
+      { isOwner &&
+      <div className="small-12 columns">
+        <h4>Performance Requests</h4>
+      </div>
+      }
+      { isOwner &&
+      <div className="small-12 columns">
+        <EventMusiciansContainer eventId={data.id} />
+      </div>
+      }
+      <div className="small-12 columns">
         <p>
           {displayMusicianOptions()}
           {' '}
@@ -68,8 +82,14 @@ Event.propTypes = {
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    notes: PropTypes.string.isRequired
+    notes: PropTypes.string.isOptional,
+    ownerId: PropTypes.number.isRequired,
+    volunteers: PropTypes.arrayOf(PropTypes.shape({
+      isMusician: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired
+    })).isRequired
   }),
+  userId: PropTypes.number.isRequired,
   isMusician: PropTypes.bool.isRequired,
   isFetching: PropTypes.bool.isRequired,
   isRegistered: PropTypes.bool.isRequired,
