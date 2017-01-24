@@ -24,17 +24,32 @@ const CreateEvent = ({ handleSubmit }) => (
           <Field
             name="date"
             component="input"
-            type="datetime-local"
+            type="date"
             placeholder="date"
+            className="date small-9 medium-4 columns"
             required
           />
+            <Field
+            name="time"
+            component="input"
+            type="time"
+            className="time small-9 medium-4 columns"
+        required />
         </FormattedFormField>
         <FormattedFormField title="End Date/Time">
           <Field
             name="endDate"
             component="input"
-            type="datetime-local"
+            type="date"
+            className="date small-9 medium-4 columns"
             required
+          />
+          <Field
+          name="endTime"
+          component="input"
+          type="time"
+          className="time small-9 medium-4 columns"
+          required
           />
         </FormattedFormField>
         <FormattedFormField title="Location">
@@ -44,7 +59,7 @@ const CreateEvent = ({ handleSubmit }) => (
           <Field
             name="notes"
             component="textarea"
-            placeholder="Notes"
+            placeholder="Description"
           />
         </FormattedFormField>
         <FormattedFormField>
