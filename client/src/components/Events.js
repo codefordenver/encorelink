@@ -2,8 +2,20 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import EventRow from './EventRow';
 
+const approvedFilter = (event) => event && event.status && event.status.approved;
+const rejectedFilter = (event) => event && event.status && event.status.rejected;
+const pendingFilter = (event) => !approvedFilter(event) && !rejectedFilter(event);
+
 function Events({ data, isMusician, isDashboard }) {
-  const events = data.map(event =>
+  const eventsApproved = data.filter(approvedFilter).map(event =>
+    <EventRow key={event.id} event={event} />
+  );
+
+  const eventsPending = data.filter(pendingFilter).map(event =>
+    <EventRow key={event.id} event={event} />
+  );
+
+  const eventsRejected = data.filter(pendingFilter).map(event =>
     <EventRow key={event.id} event={event} />
   );
 
@@ -24,7 +36,9 @@ function Events({ data, isMusician, isDashboard }) {
       { !isMusician && (
         <Link to="/createEvent">Create Event</Link>
       ) }
-      { events }
+      { eventsApproved }
+      { eventsPending }
+      { eventsRejected }
     </div>
   );
 }
