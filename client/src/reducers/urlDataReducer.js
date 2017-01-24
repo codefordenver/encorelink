@@ -10,7 +10,8 @@ import {
   STALE
 } from '../constants/modelStatus';
 import {
-  getModelNameFromUrl
+  getModelNameFromUrl,
+  urlHasQueryParams
 } from '../utils/urlParsing';
 
 function setUrlDataStatus(currentUrlData, status) {
@@ -32,6 +33,13 @@ function setUrlDataSuccess(urlDataState, data) {
   return {
     ids,
     status: CURRENT
+  };
+}
+
+function setUrlUnnormalizedData(urlDataState, data) {
+  return {
+    status: CURRENT,
+    data
   };
 }
 
@@ -72,6 +80,9 @@ function handleGetRequest(urlDataState, action) {
       return updateUrlData(setUrlDataFetching, urlDataState, action);
 
     case API_ACTION_SUCCESS:
+      if (urlHasQueryParams(action.meta.url)) {
+        return updateUrlData(setUrlUnnormalizedData, urlDataState, action);
+      }
       return updateUrlData(setUrlDataSuccess, urlDataState, action);
 
     case API_ACTION_FAIL:

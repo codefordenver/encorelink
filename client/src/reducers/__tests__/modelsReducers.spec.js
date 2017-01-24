@@ -88,4 +88,24 @@ describe('modelsReducer', () => {
       });
     });
   });
+
+  describe('multiple requests', () => {
+    const collection = [0, 1, 2].map(id => ({ id }));
+    const urlWithInclude = 'events/1?filter={"include":"volunteers"}';
+    const modelWithInclude = { id: 1, otherModels: [] };
+    const collectionActions = getApiActions('get', 'events').withPayload(collection);
+    const includeActions = getApiActions('get', urlWithInclude).withPayload(modelWithInclude);
+
+    it('provides a consistent view of the requested data', () => {
+      const actions = [
+        collectionActions.start,
+        includeActions.start,
+        includeActions.success,
+        collectionActions.success
+      ];
+      const globalState = getGlobalStateFromActions(actions);
+      expect(getModels(globalState, 'events')).toEqual(collection);
+      expect(getModels(globalState, urlWithInclude)).toEqual(modelWithInclude);
+    });
+  });
 });

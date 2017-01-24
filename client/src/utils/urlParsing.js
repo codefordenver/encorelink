@@ -16,7 +16,7 @@ function getModelAlias(name) {
   return modelAliases[name];
 }
 
-export function getModelNameFromUrl(url) { // eslint-disable-line import/prefer-default-export
+export function getModelNameFromUrl(url) {
   const urlWithoutQuery = url.split('?')[0];
   const urlParts = urlWithoutQuery.split('/');
 
@@ -32,4 +32,8 @@ export function getModelNameFromUrl(url) { // eslint-disable-line import/prefer-
     default:
       throw new Error('unable to identify modelName from url');
   }
+}
+
+export function urlHasQueryParams(url) {
+  return url.indexOf('?') >= 0;
 }
