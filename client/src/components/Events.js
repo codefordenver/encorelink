@@ -6,7 +6,7 @@ const approvedFilter = (event) => event && event.status && event.status.approved
 const rejectedFilter = (event) => event && event.status && event.status.rejected;
 const pendingFilter = (event) => !approvedFilter(event) && !rejectedFilter(event);
 
-function Events({ data, isMusician, isDashboard }) {
+function Events({ data, isMusician }) {
   const eventsApproved = data.filter(approvedFilter).map(event =>
     <EventRow key={event.id} event={event} />
   );
@@ -23,14 +23,7 @@ function Events({ data, isMusician, isDashboard }) {
     <div className="volunteer-view-events">
       <div className="row">
         <div className="small-10">
-          <h3>{ isDashboard ? 'My events' : 'Events' }</h3>
-        </div>
-        <div className="small-2">
-          { isDashboard && (
-            <Link to="/events" className="hollow button">
-              Find events
-            </Link>
-          ) }
+          <h3>Events</h3>
         </div>
       </div>
       { !isMusician && (
@@ -45,8 +38,7 @@ function Events({ data, isMusician, isDashboard }) {
 
 Events.propTypes = {
   data: PropTypes.array.isRequired,
-  isMusician: PropTypes.bool.isRequired,
-  isDashboard: PropTypes.bool
+  isMusician: PropTypes.bool.isRequired
 };
 
 Events.defaultProps = {
