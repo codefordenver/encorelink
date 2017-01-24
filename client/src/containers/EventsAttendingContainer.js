@@ -4,7 +4,8 @@ import { isMusician, getUserId } from '../reducers/userReducer';
 
 function mapStateToProps(state) {
   return {
-    isMusician: isMusician(state)
+    isMusician: isMusician(state),
+    isDashboard: true
   };
 }
 

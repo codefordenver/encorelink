@@ -9,7 +9,7 @@
     "status": {
       "type": "string",
       "required": true,
-      "default": "pending"
+      "default": "PENDING"
     }
   },
   "validations": [],

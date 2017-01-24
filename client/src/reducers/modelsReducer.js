@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import normalizedModelsReducer from './normalizedModelsReducer';
 import urlDataReducer from './urlDataReducer';
-import { getModelNameFromUrl } from '../utils/urlParsing';
-import { FETCHING } from '../constants/modelStatus';
+import { getModelNameFromUrl, urlHasQueryParams } from '../utils/urlParsing';
+import { STALE, FETCHING } from '../constants/modelStatus';
 
 export const stateKey = 'models';
 
@@ -32,6 +32,10 @@ function hydrateModels(modelName, normalizedModels, ids) {
 export function getModels(state, url) {
   const urlData = state[stateKey].allUrlData[url];
 
+  if (urlHasQueryParams(url)) {
+    return urlData && urlData.data;
+  }
+
   if (!urlData || urlData.ids === undefined) {
     return undefined;
   }
@@ -47,3 +51,7 @@ export function getUrlDataStatus(state, url) {
 }
 
 export const isUrlDataFetching = (state, url) => getUrlDataStatus(state, url) === FETCHING;
+export const shouldFetchUrl = (state, url) => {
+  const urlStatus = getUrlDataStatus(state, url);
+  return urlStatus === undefined || urlStatus === STALE;
+};
