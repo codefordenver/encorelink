@@ -4,7 +4,7 @@ import { getFormattedDayAndTime } from '../utils/dateFormatting';
 import GoogleMapEmbeded from './GoogleMapEmbeded';
 import EventMusiciansContainer from '../containers/EventMusiciansContainer';
 
-function Event({ data, signUpForEvent, isMusician, isFetching, isRegistered, userId }) {
+function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetching, isRegistered, userId }) {
   const { date, endDate, name, location, notes } = data || {};
   const { day, time } = getFormattedDayAndTime(date, endDate);
   const isOwner = data && (data.ownerId === userId);
@@ -12,7 +12,15 @@ function Event({ data, signUpForEvent, isMusician, isFetching, isRegistered, use
   const displayMusicianOptions = () => {
     if (isRegistered) {
       return (
-        <p> You are signed up for this event </p>
+        <div>
+          <p> You are signed up for this event </p>
+          <button
+            className="button"
+            onClick={() => cancelSignUpForEvent(data)}
+          >
+            Sign Up
+          </button>
+        </div>
       );
     }
 
@@ -96,7 +104,8 @@ Event.propTypes = {
   params: PropTypes.shape({
     id: PropTypes.string.isRequired
   }).isRequired,
-  signUpForEvent: PropTypes.func.isRequired
+  signUpForEvent: PropTypes.func.isRequired,
+  cancelSignUpForEvent: PropTypes.func.isRequired
 };
 
 export default Event;

@@ -1,5 +1,5 @@
 import { browserHistory } from 'react-router';
-import { PENDING, APPROVED, REJECTED } from '../constants/eventAttendingStatus';
+import { PENDING, APPROVED, REJECTED, CANCELLED } from '../constants/eventAttendingStatus';
 import { getUserId } from '../reducers/userReducer';
 import { getModels } from '../reducers/modelsReducer';
 import { correctDatesForKeys } from '../utils/dateFormatting';
@@ -26,6 +26,18 @@ export function signUpForEvent(event) {
   `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
     body: {
       status: PENDING
+    },
+    onSuccess: () => {
+      browserHistory.push('/dashboard');
+    }
+  });
+}
+
+export function cancelSignUpForEvent(event) {
+  return apiAction('put', (state) =>
+  `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
+    body: {
+      status: CANCELLED
     },
     onSuccess: () => {
       browserHistory.push('/dashboard');
