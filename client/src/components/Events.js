@@ -15,7 +15,7 @@ function Events({ data, isMusician, isDashboard }) {
     <EventRow key={event.id} event={event} />
   );
 
-  const eventsRejected = data.filter(pendingFilter).map(event =>
+  const eventsRejected = data.filter(rejectedFilter).map(event =>
     <EventRow key={event.id} event={event} />
   );
 
