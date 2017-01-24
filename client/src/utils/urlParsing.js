@@ -12,6 +12,11 @@ const modelAliases = {
   organization: 'organization',
 };
 
+const relLookup = {
+  eventsAttending: 'eventVolunteers',
+  volunteers: 'eventVolunteers'
+};
+
 function getModelAlias(name) {
   return modelAliases[name];
 }
@@ -29,7 +34,12 @@ export function getModelNameFromUrl(url) {
     case 4:
       return getModelAlias(urlParts[2]);
 
-    default:
+    case 5:
+      if (urlParts[3] === 'rel') {
+        return relLookup[urlParts[2]];
+      }
+
+    default: // eslint-disable-line no-fallthrough
       throw new Error('unable to identify modelName from url');
   }
 }

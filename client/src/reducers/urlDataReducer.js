@@ -10,7 +10,6 @@ import {
   STALE
 } from '../constants/modelStatus';
 import {
-  getModelNameFromUrl,
   urlHasQueryParams
 } from '../utils/urlParsing';
 
@@ -59,19 +58,11 @@ function updateUrlData(updater, urlDataState, action) {
 }
 
 function handleUpdateRequest(urlDataState, action) {
-  const meta = action.meta || {};
-  const actionUrl = meta.url;
-  const model = getModelNameFromUrl(actionUrl);
-
-  return Object.keys(urlDataState).reduce((newState, url) => {
-    if (url.startsWith(model)) {
-      return {
-        ...newState,
-        [url]: setUrlDataStatus(newState[url], STALE)
-      };
-    }
-    return newState;
-  }, urlDataState);
+  const newState = {};
+  Object.keys(urlDataState).forEach((url) => {
+    newState[url] = setUrlDataStatus(urlDataState[url], STALE);
+  });
+  return newState;
 }
 
 function handleGetRequest(urlDataState, action) {
@@ -112,7 +103,7 @@ export default function urlDataReducer(urlDataState = initialUrlData, action) {
     return handleGetRequest(urlDataState, action);
   }
 
-  if (method === 'put' || method === 'patch') {
+  if (['put', 'patch', 'post', 'delete'].indexOf(method) !== -1) {
     return handleUpdateRequest(urlDataState, action);
   }
 

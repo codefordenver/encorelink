@@ -33,4 +33,9 @@ describe('urlParsing', () => {
       expect(urlHasQueryParams('events/1')).toBe(false);
     });
   });
+
+  it('properly handles rel urls', () => {
+    expect(getModelNameFromUrl('users/1/eventsAttending/rel/1')).toBe('eventVolunteers');
+    expect(getModelNameFromUrl('events/1/volunteers/rel/1')).toBe('eventVolunteers');
+  });
 });
