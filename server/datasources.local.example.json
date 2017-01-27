@@ -7,7 +7,7 @@
     "host": "localhost",
     "port": 5432,
     "database": "encorelink",
-    "username": "vagrant",
+    "username": "user",
     "password": "",
     "name": "postgres",
     "connector": "postgresql",
