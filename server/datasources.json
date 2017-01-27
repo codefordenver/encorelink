@@ -1,1 +1,10 @@
-{}
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "postgres": {
+    "name": "db",
+    "connector": "memory"
+  }
+}

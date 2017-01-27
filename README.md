@@ -19,8 +19,7 @@ Developer documentation currently lives [here](DEVDOCS.md)
 2. Clone this repo
 3. Navigate to your repo folder
 4. Run `npm install`
-5. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json`
-6. Run `npm start`
+5. Run `npm start`
 
 ## Linting
 
@@ -64,4 +63,4 @@ before starting).
 
 1. Install [PostgreSQL](http://www.postgresql.org/)
 2. Create a new database in postgres
-3. Copy the [server/datasources.local.postgres.json](server/datasources.local.postgres.json) to `server/datasources.local.json` and update the config to match the postgres database.
+3. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.

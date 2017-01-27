@@ -4,7 +4,13 @@
     "connector": "memory"
   },
   "postgres": {
-    "name": "db",
-    "connector": "memory"
+    "host": "localhost",
+    "port": 5432,
+    "database": "encorelink",
+    "username": "user",
+    "password": "",
+    "name": "postgres",
+    "connector": "postgresql",
+    "debug": true
   }
 }
