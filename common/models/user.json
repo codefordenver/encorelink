@@ -7,7 +7,7 @@
   },
   "properties": {
     "isMusician": {
-      "type": "boolean"
+      "type": "number"
     },
     "bio": {
       "type": "string"
