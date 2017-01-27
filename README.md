@@ -13,7 +13,7 @@ Probably the most helpful will be:
 Developer documentation currently lives [here](DEVDOCS.md)
 
 
-## Setup - Option 1
+## Setup
 
 1. Install [Node.js](https://nodejs.org/)
 2. Clone this repo
@@ -58,3 +58,10 @@ installed on heroku (this can be done with `rm -rf node_modules && npm install
 --production`). In this case, you'll have to start the app with
 `NODE_ENV=production npm start` (or otherwise export `NODE_ENV=production`
 before starting).
+
+
+## Adavanced Setup - Postgres
+
+1. Install [PostgreSQL](http://www.postgresql.org/)
+2. Create a new database in postgres
+3. Copy the [server/datasources.local.postgres.json](server/datasources.local.postgres.json) to `server/datasources.local.json` and update the config to match the postgres database.
