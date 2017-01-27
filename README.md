@@ -16,11 +16,11 @@ Developer documentation currently lives [here](DEVDOCS.md)
 ## Setup - Option 1
 
 1. Install [Node.js](https://nodejs.org/)
-3. Clone this repo
-4. Navigate to your repo folder
-5. Run `npm install`
-7. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json`
-8. Run `npm start`
+2. Clone this repo
+3. Navigate to your repo folder
+4. Run `npm install`
+5. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json`
+6. Run `npm start`
 
 ## Linting
 
