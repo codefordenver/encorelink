@@ -15,10 +15,10 @@ function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetch
         <div>
           <p> You are signed up for this event </p>
           <button
-            className="button"
+            className="button secondary"
             onClick={() => cancelSignUpForEvent(data)}
           >
-            Sign Up
+            Cancel
           </button>
         </div>
       );

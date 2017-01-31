@@ -19,7 +19,11 @@ async function callApi(url, { method, body }) {
     fetchOptions.body = JSON.stringify(body);
   }
   const res = await fetch(`/api/${url}`, fetchOptions);
-  const json = await res.json();
+  let json = {};
+
+  if (method !== 'DELETE') {
+    json = await res.json();
+  }
 
   if (!res.ok) {
     const errMessage = json.error ? json.error.message : res.statusText;
