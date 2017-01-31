@@ -1,10 +1,16 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { CURRENT } from '../constants/modelStatus';
 import Autocomplete from 'react-google-autocomplete';
+import { connect } from 'react-redux';
 
 import FormattedFormField from './FormattedFormField';
 
-const MusicianProfile = ({ handleSubmit }) => {
+const MusicianProfile = ({ data, handleSubmit, urlStatus }) => {
+  if (!urlStatus || urlStatus !== CURRENT) {
+    return <p> Loading ... </p>;
+  } 
+
   return (
     <div className="row">
       <div className="small-12 columns">
@@ -18,7 +24,8 @@ const MusicianProfile = ({ handleSubmit }) => {
               type="text"
               placeholder="First Name"
               required
-              autoFocus
+              autoFocus 
+              value={data.firstName}
             />
             <Field
               name="lastName"
@@ -44,6 +51,7 @@ const MusicianProfile = ({ handleSubmit }) => {
               name="over21"
               component="input"
               type="checkbox"
+              value={data.over21}
             />
           </FormattedFormField>
 
@@ -110,9 +118,27 @@ const MusicianProfile = ({ handleSubmit }) => {
 }
 
 MusicianProfile.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    bio: PropTypes.string.isOptional,
+    instruments: PropTypes.arrayOf(PropTypes.string),
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    phoneNumber: PropTypes.string.isOptional,
+    over21: PropTypes.bool.isOptional,
+    address: PropTypes.string.isOptional,
+    videoAudioLink: PropTypes.string.isOptional
+  }),
+  urlStatus: PropTypes.string.isRequired
 };
 
-export default reduxForm({
+debugger
+var form = reduxForm({
   form: 'musicianProfileForm'
 })(MusicianProfile);
+
+export default connect(
+  state => ({
+    initialValues: state.data
+  })
+)(form)
