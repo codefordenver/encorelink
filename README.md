@@ -59,7 +59,7 @@ installed on heroku (this can be done with `rm -rf node_modules && npm install
 before starting).
 
 
-## Adavanced Setup - Postgres
+## Advanced Setup - Postgres
 
 1. Install [PostgreSQL](http://www.postgresql.org/)
 2. Create a new database in postgres
