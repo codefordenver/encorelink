@@ -21,14 +21,12 @@ async function callApi(url, { method, body }) {
   const res = await fetch(`/api/${url}`, fetchOptions);
   let json;
 
-  try {
+  if (res.status !== 204) {
     json = await res.json();
-  } catch (ex) {
-    json = {};
   }
 
   if (!res.ok) {
-    const errMessage = json.error ? json.error.message : res.statusText;
+    const errMessage = json && json.error ? json.error.message : res.statusText;
     throw new Error(errMessage);
   }
 

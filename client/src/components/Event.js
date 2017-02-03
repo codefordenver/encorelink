@@ -10,22 +10,19 @@ function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetch
   const isOwner = data && (data.ownerId === userId);
 
   const displayMusicianOptions = () => {
-    if (isRegistered) {
-      return (
-        <div>
-          <p> You are signed up for this event </p>
-          <button
-            className="button secondary"
-            onClick={() => cancelSignUpForEvent(data)}
-          >
-            Cancel
-          </button>
-        </div>
-      );
-    }
-
     if (!isMusician) {
       return undefined;
+    }
+
+    if (isRegistered) {
+      return (
+        <button
+          className="button secondary"
+          onClick={() => cancelSignUpForEvent(data)}
+        >
+          Cancel Sign Up
+        </button>
+      );
     }
 
     return (
