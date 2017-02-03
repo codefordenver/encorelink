@@ -19,7 +19,7 @@ async function callApi(url, { method, body }) {
     fetchOptions.body = JSON.stringify(body);
   }
   const res = await fetch(`/api/${url}`, fetchOptions);
-  let json;
+  let json = {};
 
   if (res.status !== 204) {
     json = await res.json();
