@@ -33,6 +33,15 @@ export function signUpForEvent(event) {
   });
 }
 
+export function cancelSignUpForEvent(event) {
+  return apiAction('delete', (state) =>
+  `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
+    onSuccess: () => {
+      browserHistory.push('/dashboard');
+    }
+  });
+}
+
 export function approveEventMusician(eventMusician) {
   return apiAction('put', `eventVolunteers/${eventMusician.id}`, {
     body: {
