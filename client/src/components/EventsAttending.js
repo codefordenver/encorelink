@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import EventRow from './EventRow';
 
-const approvedFilter = (event) => event && event.status && event.status.approved;
-const rejectedFilter = (event) => event && event.status && event.status.rejected;
+const approvedFilter = (event = {}) => event.volunteers && event.volunteers[0] && event.volunteers[0].approved;
+const rejectedFilter = (event = {}) => event.volunteers && event.volunteers[0] && event.volunteers[0].rejected;
 const pendingFilter = (event) => !approvedFilter(event) && !rejectedFilter(event);
 
-function EventsAttending({ data, isMusician }) {
+function Events({ data, isMusician }) {
   const eventsApproved = data.filter(approvedFilter).map(event =>
     <EventRow key={event.id} event={event} />
   );
@@ -34,20 +34,26 @@ function EventsAttending({ data, isMusician }) {
       { !isMusician && (
         <Link to="/createEvent">Create Event</Link>
       ) }
+
+      <h4> Approved </h4>
       { eventsApproved }
+
+      <h4> Pending </h4>
       { eventsPending }
+
+      <h4> Rejected </h4>
       { eventsRejected }
     </div>
   );
 }
 
-EventsAttending.propTypes = {
+Events.propTypes = {
   data: PropTypes.array.isRequired,
   isMusician: PropTypes.bool.isRequired
 };
 
-EventsAttending.defaultProps = {
+Events.defaultProps = {
   data: []
 };
 
-export default EventsAttending;
+export default Events;
