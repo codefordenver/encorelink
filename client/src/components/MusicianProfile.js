@@ -6,11 +6,7 @@ import { connect } from 'react-redux';
 
 import FormattedFormField from './FormattedFormField';
 
-const MusicianProfile = ({ data, handleSubmit, urlStatus }) => {
-  if (!urlStatus || urlStatus !== CURRENT) {
-    return <p> Loading ... </p>;
-  } 
-
+const MusicianProfile = ({ handleSubmit }) => {
   return (
     <div className="row">
       <div className="small-12 columns">
@@ -24,8 +20,7 @@ const MusicianProfile = ({ data, handleSubmit, urlStatus }) => {
               type="text"
               placeholder="First Name"
               required
-              autoFocus 
-              value={data.firstName}
+              autoFocus
             />
             <Field
               name="lastName"
@@ -51,12 +46,22 @@ const MusicianProfile = ({ data, handleSubmit, urlStatus }) => {
               name="over21"
               component="input"
               type="checkbox"
-              value={data.over21}
             />
           </FormattedFormField>
 
           <FormattedFormField title="Address">
-            <Field name="address" component={props => <Autocomplete type="text" name="address" onPlaceSelected={param => props.input.onChange(param.name + ', ' + param.formatted_address)} type={[]} />} />
+            <Field 
+              name="address" 
+              component={props => <Autocomplete 
+                                    type="text" 
+                                    name="address" 
+                                    onPlaceSelected={param => {
+                                      debugger;
+                                      props.input.onChange(param.formatted_address);
+                                    }} 
+                                    types={['address']} 
+                                  />} 
+            />
           </FormattedFormField>
 
           <div className="row">
@@ -128,17 +133,28 @@ MusicianProfile.propTypes = {
     over21: PropTypes.bool.isOptional,
     address: PropTypes.string.isOptional,
     videoAudioLink: PropTypes.string.isOptional
-  }),
-  urlStatus: PropTypes.string.isRequired
+  })
 };
 
-debugger
 var form = reduxForm({
   form: 'musicianProfileForm'
 })(MusicianProfile);
 
 export default connect(
-  state => ({
-    initialValues: state.data
-  })
-)(form)
+  state => {
+    var userData = state.authData.user;
+    return {
+      initialValues: {
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        phoneNumber: userData.phoneNumber,
+        over21: userData.over21,
+        address: userData.address,
+        majorInstrument: userData.instruments ? userData.instruments[0] : '',
+        secondaryInstrument: userData.instruments ? userData.instruments[1] : '',
+        videoAudioLink: userData.videoAudioLink,
+        bio: userData.bio
+      }
+    }
+  }
+)(form);
