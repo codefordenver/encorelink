@@ -7,12 +7,12 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
   return (
     <div className="row">
       <div className="small-12 columns">
-        <h1>Create Your Profile</h1>
+        <h1>{(data && data.length) ? 'Update' : 'Create'} Your Profile</h1>
         <h5 className="subheader">
           Your profile provides information we can share with musicians so they know about you and your organization.
         </h5>
         <br />
-        <form className="form-create-event" onSubmit={handleSubmit(data.length ? updatedOrganization : createOrganization)}>
+        <form className="form-create-event" onSubmit={handleSubmit((data && data.length) ? updatedOrganization : createOrganization)}>
           <div className="row">
             <div className="small-12 medium-12 columns">
               <label>Organization name:
@@ -203,7 +203,7 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           <div className="row">
             <div className="small-12 medium-12 columns">
               <button type="submit" className="button">
-                {data.length ? 'Update' : 'Submit' }
+                {(data && data.length) ? 'Update' : 'Submit' }
               </button>
             </div>
           </div>

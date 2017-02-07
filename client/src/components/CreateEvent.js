@@ -38,7 +38,7 @@ const CreateEvent = ({ handleSubmit }) => (
           />
         </FormattedFormField>
         <FormattedFormField title="Location">
-          <Field name="location" component={props => <Autocomplete type="text" name="location" style={{ width: '100%' }} onPlaceSelected={param => props.input.onChange(param.name + ', ' + param.formatted_address)} types={[]} />} />
+          <Field name="location" component={props => <Autocomplete type="text" name="location" style={{ width: '100%' }} onPlaceSelected={param => props.input.onChange(`${param.name}, ${param.formatted_address}`)} types={[]} />} />
         </FormattedFormField>
         <FormattedFormField title="Notes">
           <Field
