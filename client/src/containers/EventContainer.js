@@ -8,7 +8,7 @@ import Event from '../components/Event';
 function urlFn(state, props) {
   const eventId = props.params.id;
   return `events/${eventId}?filter=${JSON.stringify({
-    include: 'volunteers'
+    include: ['volunteers', 'owner']
   })}`;
 }
 
