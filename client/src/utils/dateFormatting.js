@@ -18,3 +18,7 @@ export function correctDatesForKeys(obj, keys) {
   });
   return objClone;
 }
+
+export function combineDateAndTime(date, time) {
+  return moment(date + ' ' + time, "YYYY-MM-DD HH:mm");
+}

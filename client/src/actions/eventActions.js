@@ -10,9 +10,16 @@ import {
   SIGNUP_FOR_EVENT
 } from '../constants/reduxConstants';
 import { correctDatesForKeys } from '../utils/dateFormatting';
+import { combineDateAndTime } from '../utils/dateFormatting';
 import { apiAction } from './modelActions';
+import moment from 'moment';
 
 export function createEvent(formData) {
+  // body: combineDateAndTime(formData, ['startDate', 'startTime']);
+
+  // date = combineDateAndTime('startDate', 'startTime');
+  // console.log(date, startDate, startTime, 'nothing');
+
   return apiAction('post', (state) => `users/${getUserId(state)}/events`, {
     body: correctDatesForKeys(formData, ['date', 'endDate']),
 
