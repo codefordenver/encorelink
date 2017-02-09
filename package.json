@@ -13,7 +13,9 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "posttest": "nsp check",
-    "test": "jest client"
+    "test": "jest client",
+    "storybook": "start-storybook -p 6006 -c client/stories",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "async": "^2.1.4",
@@ -71,7 +73,8 @@
     "react-test-renderer": "^15.3.2",
     "redux-logger": "^2.6.1",
     "rimraf": "^2.5.4",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "@kadira/storybook": "^2.21.0"
   },
   "repository": {
     "type": "",
