@@ -31,11 +31,11 @@ const CreateEvent = ({ handleSubmit }) => (
               props =>
                 <Datetime
                   onChange={(moment) => props.input.onChange(moment.format())}
-                  inputProps={{required:'required'}}
-                  isValidDate={(moment) => { return moment.isAfter( Datetime.moment().subtract(1, 'day') ) }}
-                  />
+                  inputProps={{ required: 'required' }}
+                  isValidDate={(moment) => { return moment.isAfter(Datetime.moment().subtract(1, 'day')); }}
+                />
             }
-            />
+          />
         </FormattedFormField>
         <FormattedFormField title="End Date/Time">
           <Field
@@ -45,17 +45,26 @@ const CreateEvent = ({ handleSubmit }) => (
               props =>
                 <Datetime
                   onChange={(moment) => props.input.onChange(moment.format())}
-                  inputProps={{required:'required'}}
-                  isValidDate={(moment) => { return moment.isAfter( Datetime.moment().subtract(1, 'day') ) }}
-                  />
+                  inputProps={{ required: 'required' }}
+                  isValidDate={(moment) => { return moment.isAfter(Datetime.moment().subtract(1, 'day')); }}
+                />
             }
-            />
+          />
         </FormattedFormField>
         <FormattedFormField title="Location">
           <Field
             name="location"
-            component={ props => <Autocomplete type="text" name="location" style={{width: '100%' }} onPlaceSelected={ param => props.input.onChange(`${param.name}, ${param.formatted_address}`) } types={[]} />}
-            />
+            component={
+              props =>
+                <Autocomplete
+                  type="text"
+                  name="location"
+                  style={{ width: '100%' }}
+                  onPlaceSelected={param => props.input.onChange(`${param.name}, ${param.formatted_address}`)}
+                  types={[]}
+                />
+            }
+          />
         </FormattedFormField>
         <FormattedFormField title="Notes">
           <Field
