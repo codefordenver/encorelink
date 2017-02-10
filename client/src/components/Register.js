@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
+import Terms from './Terms';
 
 class Register extends React.Component {
   static propTypes = {
@@ -89,8 +90,7 @@ class Register extends React.Component {
               onRequestClose={this.handleClose}
               contentLabel="Example Modal"
             >
-              <h2>Terms</h2>
-              <p> These are the terms. </p>
+              <Terms />
               <button className="button secondary right" onClick={this.handleClose}>Close</button>
             </Modal>
           </label>
