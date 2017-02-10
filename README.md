@@ -15,7 +15,7 @@ Developer documentation currently lives [here](DEVDOCS.md)
 
 ## Setup
 
-1. Install [Node.js](https://nodejs.org/)
+1. Install [Node.js](https://nodejs.org/) (The official node verion for this app is 6.9, although other modern versions will probably work fine)
 2. Clone this repo
 3. Navigate to your repo folder
 4. Run `npm install`
@@ -49,8 +49,9 @@ re-run when files are changed, and snapshots can be updated on the fly.
 ## Things work locally but not on Heroku...
 We run the app with a different configuration for local development than we do
 for deploying. If things work when running locally, but fail when deploying,
-run `npm run heroku` to emulate the config used for
-production (visible on localhost:3000).
+run `npm prune --production` to set your `node_modules` to match production and
+run `npm run heroku` to emulate the config used for production (visible on
+localhost:3000).
 
 You might also want to make sure you have the same npm modules that will be
 installed on heroku (this can be done with `rm -rf node_modules && npm install
