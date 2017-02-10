@@ -1,14 +1,14 @@
 import { withRouter } from 'react-router';
 import { isMusician, isRegistered, getUserId } from '../reducers/userReducer';
 import { isUrlDataFetching } from '../reducers/modelsReducer';
-import { signUpForEvent } from '../actions/eventActions';
+import { signUpForEvent, cancelSignUpForEvent } from '../actions/eventActions';
 import gimmeData from '../utils/gimmeData';
 import Event from '../components/Event';
 
 function urlFn(state, props) {
   const eventId = props.params.id;
   return `events/${eventId}?filter=${JSON.stringify({
-    include: 'volunteers'
+    include: ['volunteers', 'owner']
   })}`;
 }
 
@@ -22,7 +22,8 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  signUpForEvent
+  signUpForEvent,
+  cancelSignUpForEvent
 };
 
 export default withRouter(gimmeData(urlFn, mapStateToProps, mapDispatchToProps)(Event));
