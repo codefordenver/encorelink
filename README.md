@@ -18,16 +18,8 @@ Developer documentation currently lives [here](DEVDOCS.md)
 1. Install [Node.js](https://nodejs.org/)
 2. Clone this repo
 3. Navigate to your repo folder
-4. Run `npm install` (or preferably `yarn` - see below)
+4. Run `npm install`
 5. Run `npm start`
-
-### Using Yarn for dependency management
-This project uses [yarn](https://yarnpkg.com) for managing dependencies.
-For simply installing dependencies you can use `npm`
-If you are making any changes to dependencies, however, you will need to
-[install yarn](https://yarnpkg.com/en/docs/install).
-If you are coming from a familiarity with `npm`, you'll want to reference
-this guide: https://yarnpkg.com/en/docs/migrating-from-npm
 
 ## Linting
 
