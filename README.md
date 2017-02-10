@@ -3,13 +3,13 @@
 [![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers)
 [![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=master)](https://travis-ci.org/codefordenver/encorelink)
 
-##General Documentation
+## General Documentation
 The documents we created when building EncoreLink are [here](https://drive.google.com/drive/folders/0BzPSX8eOfTADckNXd3VIc1U3UUE).
 Probably the most helpful will be:
 
 *[EncoreLink Specification](https://docs.google.com/document/d/1Mwo-pOyveza1XXKrpr966admHFanHzy5Hn2r6ewE3vk/edit#heading=h.6qqugcr09y1p) - this is our current spec
 
-##Developer Documentation
+## Developer Documentation
 Developer documentation currently lives [here](DEVDOCS.md)
 
 
@@ -18,19 +18,27 @@ Developer documentation currently lives [here](DEVDOCS.md)
 1. Install [Node.js](https://nodejs.org/)
 2. Clone this repo
 3. Navigate to your repo folder
-4. Run `npm install`
+4. Run `npm install` (or preferably `yarn` - see below)
 5. Run `npm start`
+
+### Using Yarn for dependency management
+This project uses [yarn](https://yarnpkg.com) for managing dependencies.
+For simply installing dependencies you can use `npm`
+If you are making any changes to dependencies, however, you will need to
+[install yarn](https://yarnpkg.com/en/docs/install).
+If you are coming from a familiarity with `npm`, you'll want to reference
+this guide: https://yarnpkg.com/en/docs/migrating-from-npm
 
 ## Linting
 
 This project uses [eslint](http://eslint.org/) for checking coding practices and standards.
 It is expected that any opened pull requests have a passing eslint run.
 
-It is highly recommended that you configure your editor to run eslint on the fly
+It is _highly recommended_ that you configure your editor to run eslint on the fly
 while you code.
 
 Additionally, you can run eslint on the command line with `npm run lint` (or
-`npm run lint -- --fix` to have eslint attempt to fix some of the issues)
+`npm run lint -- --fix` to have eslint attempt to fix some of the issues it finds)
 
 ## Testing
 
