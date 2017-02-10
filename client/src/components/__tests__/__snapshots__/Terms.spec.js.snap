@@ -1,5 +1,0 @@
-exports[`test Terms renders correctly 1`] = `
-<div>
-   These are the terms. 
-</div>
-`;
