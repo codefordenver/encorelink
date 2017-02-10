@@ -14,7 +14,7 @@
     "pretest": "npm run lint",
     "posttest": "nsp check",
     "test": "jest client",
-    "storybook": "start-storybook -p 6006 -c client/stories",
+    "storybook": "start-storybook -p 6006 -c client/stories -s client",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
