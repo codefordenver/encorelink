@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link, withRouter } from 'react-router';
+import Modal from 'react-modal';
 
 class Register extends React.Component {
   static propTypes = {
@@ -14,6 +15,7 @@ class Register extends React.Component {
     this.state = {
       password: '',
       email: '',
+      open: false,
       isMusician: false
     };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -49,6 +51,10 @@ class Register extends React.Component {
     this.props.registerRequest(this.state.email, this.state.password, this.state.isMusician);
   }
 
+  handleOpen = () => { this.setState({ open: true }); }
+
+  handleClose = () => { this.setState({ open: false }); }
+
   render() {
     return (
       <div className="register">
@@ -77,7 +83,16 @@ class Register extends React.Component {
             I am a volunteer
           </label>
           <label className="terms">By clicking Register, you agree to the site
-            <Link to="/terms"> terms</Link>
+            <Link onClick={this.handleOpen}> terms</Link>
+            <Modal
+              isOpen={this.state.open}
+              onRequestClose={this.handleClose}
+              contentLabel="Example Modal"
+            >
+              <h2>Terms</h2>
+              <p> These are the terms. </p>
+              <button className="button secondary right" onClick={this.handleClose}>Close</button>
+            </Modal>
           </label>
           <button className="button secondary" type="submit">Register</button>
         </form>
