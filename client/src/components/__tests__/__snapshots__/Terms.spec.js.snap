@@ -1,6 +1,10 @@
 exports[`test Terms renders correctly 1`] = `
 <div>
-  <h2>Terms</h2>
-  <p>These are the terms.</p>
+  <h2>
+    Terms
+  </h2>
+  <p>
+    These are the terms.
+  </p>
 </div>
 `;
