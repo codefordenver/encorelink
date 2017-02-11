@@ -84,11 +84,11 @@ class Register extends React.Component {
             I am a volunteer
           </label>
           <label className="terms">By clicking Register, you agree to the site
-            <Link onClick={this.handleOpen}> terms</Link>
+            <Link onClick={this.handleOpen} tabIndex={1}> terms</Link>
             <Modal
               isOpen={this.state.open}
               onRequestClose={this.handleClose}
-              contentLabel="Example Modal"
+              contentLabel="Terms Modal"
             >
               <Terms />
               <button className="button secondary right" onClick={this.handleClose}>Close</button>
