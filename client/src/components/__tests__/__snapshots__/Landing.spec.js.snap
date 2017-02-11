@@ -54,7 +54,8 @@ exports[`test Landing renders correctly 1`] = `
               By clicking Register, you agree to the site
               <a
                 onClick={[Function]}
-                style={Object {}}>
+                style={Object {}}
+                tabIndex={1}>
                  terms
               </a>
               <noscript />
@@ -70,8 +71,7 @@ exports[`test Landing renders correctly 1`] = `
             <a
               href={undefined}
               onClick={[Function]}
-              style={Object {}}
-              tabIndex={1}>
+              style={Object {}}>
               Log in
             </a>
           </p>
