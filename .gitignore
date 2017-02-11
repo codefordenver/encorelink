@@ -21,4 +21,4 @@ server/datasources.local.json
 .vagrant/
 client/dist
 .vscode
-
+yarn.lock
