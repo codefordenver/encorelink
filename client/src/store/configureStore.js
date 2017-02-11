@@ -26,7 +26,11 @@ export default function configureStore(initialState) {
     middlewares.push(logger);
   }
 
-  const storeEnhancers = compose(
+  /* eslint-disable no-underscore-dangle */
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  /* eslint-enable */
+
+  const storeEnhancers = composeEnhancers(
     applyMiddleware(
       ...middlewares
     ),
