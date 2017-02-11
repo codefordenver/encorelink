@@ -70,7 +70,8 @@ exports[`test Landing renders correctly 1`] = `
             <a
               href={undefined}
               onClick={[Function]}
-              style={Object {}}>
+              style={Object {}}
+              tabIndex={1}>
               Log in
             </a>
           </p>
