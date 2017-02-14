@@ -15,7 +15,7 @@ Developer documentation currently lives [here](DEVDOCS.md)
 
 ## Setup
 
-1. Install [Node.js](https://nodejs.org/)
+1. Install [Node.js](https://nodejs.org/) (The official node verion for this app is 6.9, although other modern versions will probably work fine)
 2. Clone this repo
 3. Navigate to your repo folder
 4. Run `npm install`
@@ -49,8 +49,9 @@ re-run when files are changed, and snapshots can be updated on the fly.
 ## Things work locally but not on Heroku...
 We run the app with a different configuration for local development than we do
 for deploying. If things work when running locally, but fail when deploying,
-run `npm run heroku` to emulate the config used for
-production (visible on localhost:3000).
+run `npm prune --production` to set your `node_modules` to match production and
+run `npm run heroku` to emulate the config used for production (visible on
+localhost:3000).
 
 You might also want to make sure you have the same npm modules that will be
 installed on heroku (this can be done with `rm -rf node_modules && npm install
@@ -64,3 +65,11 @@ before starting).
 1. Install [PostgreSQL](http://www.postgresql.org/)
 2. Create a new database in postgres
 3. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
+
+
+## Client App State
+This project uses Redux for managing state on the client. There is a neat
+[Redux DevTools browser extension](http://extension.remotedev.io/) that can help with
+understanding and debugging what is happening in the app as a user interacts with the client.
+
+The [Chrome version of the plugin can be found here](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
