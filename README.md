@@ -65,3 +65,11 @@ before starting).
 1. Install [PostgreSQL](http://www.postgresql.org/)
 2. Create a new database in postgres
 3. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
+
+
+## Client App State
+This project uses Redux for managing state on the client. There is a neat
+[Redux DevTools browser extension](http://extension.remotedev.io/) that can help with
+understanding and debugging what is happening in the app as a user interacts with the client.
+
+The [Chrome version of the plugin can be found here](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
