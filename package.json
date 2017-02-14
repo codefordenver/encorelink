@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "engines": {
-    "node": "6.6.x",
+    "node": "6.9.5",
     "npm": "3.10.x"
   },
   "scripts": {
@@ -36,7 +36,7 @@
     "loopback-connector-postgresql": "^2.4.1",
     "loopback-datasource-juggler": "^2.39.0",
     "moment": "^2.17.1",
-    "node-sass": "~3.11.0",
+    "node-sass": "^4.5.0",
     "numeral": "^1.5.3",
     "react": "^15.3.0",
     "react-datetime": "^2.8.5",
@@ -49,7 +49,7 @@
     "redux-persist": "^4.0.0-alpha7",
     "redux-recycle": "^1.2.0",
     "redux-thunk": "^2.1.0",
-    "sass-loader": "^4.0.0",
+    "sass-loader": "^4.0.1",
     "serve-favicon": "^2.0.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
