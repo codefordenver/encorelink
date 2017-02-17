@@ -84,7 +84,16 @@ class Register extends React.Component {
             I am a volunteer
           </label>
           <label className="terms">By clicking Register, you agree to the site
-            <Link onClick={this.handleOpen} tabIndex={1}> terms</Link>
+            {' '}
+            <Link onKeyPress={(e) => {
+              if (e.charCode === 13) { this.handleOpen(); }
+            }}
+              onClick={this.handleOpen}
+              tabIndex={0}
+            >
+              terms
+            </Link>
+            .
             <Modal
               isOpen={this.state.open}
               onRequestClose={this.handleClose}
