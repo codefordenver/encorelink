@@ -8,7 +8,9 @@ class Register extends React.Component {
     registerRequest: PropTypes.func.isRequired,
     router: PropTypes.shape({
       push: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
+    isMusician: PropTypes.func.isRequired,
+    isLoggedIn: PropTypes.func.isRequired
   };
 
   constructor(props) {
