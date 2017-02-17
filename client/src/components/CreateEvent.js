@@ -86,7 +86,10 @@ const CreateEvent = ({ handleSubmit }) => (
 );
 
 CreateEvent.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  input: PropTypes.shape({
+    onChange: PropTypes.func.isRequired
+  }).isRequired,
 };
 
 export default reduxForm({
