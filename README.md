@@ -73,3 +73,14 @@ This project uses Redux for managing state on the client. There is a neat
 understanding and debugging what is happening in the app as a user interacts with the client.
 
 The [Chrome version of the plugin can be found here](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+
+## React Storybook
+
+We have integrated [React Storybook](https://getstorybook.io) for development of React components
+in isolation independent of having to wire up data from the app.
+
+To run react storybook, run `npm run storybook`
+This will start storybook running at http://localhost:6006
+
+Stories are defined for components in [client/stories/index.js](client/stories/index.js).
+For docs on how to write stories see the [storybook docs](https://getstorybook.io/docs/react-storybook/basics/writing-stories).

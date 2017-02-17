@@ -1,0 +1,107 @@
+exports[`Storyshots Header Logged In: Organizer 1`] = `
+<header
+  className="top-bar">
+  <div
+    className="top-bar-left">
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      <img
+        alt="EncoreLink"
+        className="logo-img"
+        src="/public/img/encorelink-logo.png" />
+    </a>
+  </div>
+  <div
+    className="top-bar-right text-right">
+    <div>
+      Hello, 
+      <a
+        onClick={[Function]}
+        style={Object {}}>
+        organizer@encorelink.com
+      </a>
+       
+      <a
+        className="button"
+        onClick={[Function]}
+        style={Object {}}>
+        Dashboard
+      </a>
+       
+      <button
+        className="button"
+        onClick={[Function]}>
+        Log out
+      </button>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`Storyshots Header Logged in: Musician 1`] = `
+<header
+  className="top-bar">
+  <div
+    className="top-bar-left">
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      <img
+        alt="EncoreLink"
+        className="logo-img"
+        src="/public/img/encorelink-logo.png" />
+    </a>
+  </div>
+  <div
+    className="top-bar-right text-right">
+    <div>
+      Hello, 
+      <a
+        onClick={[Function]}
+        style={Object {}}>
+        musican@encorelink.com
+      </a>
+       
+      <a
+        className="button"
+        onClick={[Function]}
+        style={Object {}}>
+        Dashboard
+      </a>
+       
+      <button
+        className="button"
+        onClick={[Function]}>
+        Log out
+      </button>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`Storyshots Header Not logged in 1`] = `
+<header
+  className="top-bar">
+  <div
+    className="top-bar-left">
+    <a
+      onClick={[Function]}
+      style={Object {}}>
+      <img
+        alt="EncoreLink"
+        className="logo-img"
+        src="/public/img/encorelink-logo.png" />
+    </a>
+  </div>
+  <div
+    className="top-bar-right text-right">
+    <a
+      className="button"
+      onClick={[Function]}
+      style={Object {}}>
+      Log in
+    </a>
+  </div>
+</header>
+`;
