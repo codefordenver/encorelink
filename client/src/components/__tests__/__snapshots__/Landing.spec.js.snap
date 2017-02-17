@@ -52,12 +52,16 @@ exports[`test Landing renders correctly 1`] = `
             <label
               className="terms">
               By clicking Register, you agree to the site
+               
               <a
-                href={undefined}
                 onClick={[Function]}
-                style={Object {}}>
-                 terms
+                onKeyPress={[Function]}
+                style={Object {}}
+                tabIndex={0}>
+                terms
               </a>
+              .
+              <noscript />
             </label>
             <button
               className="button secondary"

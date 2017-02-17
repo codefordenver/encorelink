@@ -7,7 +7,6 @@ import CreateEventContainer from './containers/CreateEventContainer';
 import EventsContainer from './containers/EventsContainer';
 import EventContainer from './containers/EventContainer';
 import MusicianContainer from './containers/MusicianContainer';
-import Terms from './components/Terms';
 import OrganizerProfileContainer from './containers/OrganizerProfileContainer';
 import MusicianProfile from './components/MusicianProfile';
 import AuthenticatedRoutesContainer from './containers/AuthenticatedRoutesContainer';
@@ -17,7 +16,6 @@ const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Landing} />
     <Route path="/login" component={LoginContainer} />
-    <Route path="/terms" component={Terms} />
 
     <Route component={AuthenticatedRoutesContainer} >
       <Route path="/createEvent" component={CreateEventContainer} />

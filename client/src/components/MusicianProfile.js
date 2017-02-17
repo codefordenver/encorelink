@@ -49,7 +49,7 @@ const MusicianProfile = ({ handleSubmit }) => (
         </FormattedFormField>
 
         <FormattedFormField title="Address">
-          <Field name="address" component={props => <Autocomplete type="text" name="address" onPlaceSelected={param => props.input.onChnage(`${param.name}, ${param.formatted_address}`)} type={[]} />} />
+          <Field name="address" component={props => <Autocomplete type="text" name="address" onPlaceSelected={param => props.input.onChange(`${param.name}, ${param.formatted_address}`)} type={[]} />} />
         </FormattedFormField>
 
         <div className="row">
@@ -113,7 +113,10 @@ const MusicianProfile = ({ handleSubmit }) => (
 
 
 MusicianProfile.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  input: PropTypes.shape({
+    onChange: PropTypes.func.isRequired
+  })
 };
 
 export default reduxForm({

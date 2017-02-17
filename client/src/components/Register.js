@@ -1,12 +1,16 @@
 import React, { PropTypes } from 'react';
 import { Link, withRouter } from 'react-router';
+import Modal from 'react-modal';
+import Terms from './Terms';
 
 class Register extends React.Component {
   static propTypes = {
     registerRequest: PropTypes.func.isRequired,
     router: PropTypes.shape({
       push: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
+    isMusician: PropTypes.bool.isRequired,
+    isLoggedIn: PropTypes.bool.isRequired
   };
 
   constructor(props) {
@@ -14,6 +18,7 @@ class Register extends React.Component {
     this.state = {
       password: '',
       email: '',
+      open: false,
       isMusician: false
     };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -49,6 +54,10 @@ class Register extends React.Component {
     this.props.registerRequest(this.state.email, this.state.password, this.state.isMusician);
   }
 
+  handleOpen = () => { this.setState({ open: true }); }
+
+  handleClose = () => { this.setState({ open: false }); }
+
   render() {
     return (
       <div className="register">
@@ -77,7 +86,24 @@ class Register extends React.Component {
             I'm a musician
           </label>
           <label className="terms">By clicking Register, you agree to the site
-            <Link to="/terms"> terms</Link>
+            {' '}
+            <Link onKeyPress={(e) => {
+              if (e.charCode === 13) { this.handleOpen(); }
+            }}
+              onClick={this.handleOpen}
+              tabIndex={0}
+            >
+              terms
+            </Link>
+            .
+            <Modal
+              isOpen={this.state.open}
+              onRequestClose={this.handleClose}
+              contentLabel="Terms Modal"
+            >
+              <Terms />
+              <button className="button secondary right" onClick={this.handleClose}>Close</button>
+            </Modal>
           </label>
           <button className="button secondary" type="submit">Register</button>
         </form>
