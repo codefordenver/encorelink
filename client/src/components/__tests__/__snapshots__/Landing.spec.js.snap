@@ -47,7 +47,7 @@ exports[`test Landing renders correctly 1`] = `
                 checked={false}
                 onChange={[Function]}
                 type="checkbox" />
-              I am a volunteer
+              I'm a musician
             </label>
             <label
               className="terms">
