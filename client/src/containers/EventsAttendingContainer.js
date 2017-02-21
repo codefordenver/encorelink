@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 const getEventsAttendingUrl = (state) => {
   return `eventVolunteers?filter=${JSON.stringify({
     where: {
-      volunteer: getUserId(state)
+      volunteerId: getUserId(state)
     },
     include: 'event'
   })}`;

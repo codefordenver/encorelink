@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import EventRow from './EventRow';
 
-const approvedFilter = (volunteer = {}) => volunteer.event && volunteer.status === 'APPROVED';
-const rejectedFilter = (volunteer = {}) => volunteer.event && volunteer.status === 'PENDING';
-const pendingFilter = (volunteer) => !approvedFilter(event) && !rejectedFilter(event);
+const approvedFilter = (volunteer = {}) => volunteer.status === 'APPROVED';
+const rejectedFilter = (volunteer = {}) => volunteer.status === 'REJECTED';
+const pendingFilter = (volunteer = {}) => !approvedFilter(volunteer) && !rejectedFilter(volunteer);
 
 function Events({ data, isMusician }) {
   const eventsApproved = data.filter(approvedFilter).map(volunteer =>
