@@ -8,10 +8,13 @@ function mapStateToProps(state) {
   };
 }
 
-const getEventsAttendingUrl = (state) => `
-  users/${getUserId(state)}/eventsAttending?filter=${JSON.stringify({
-    include: 'volunteers'
-  })}
-`;
+const getEventsAttendingUrl = (state) => {
+  return `eventVolunteers?filter=${JSON.stringify({
+    where: {
+      volunteer: getUserId(state)
+    },
+    include: 'event'
+  })}`;
+};
 
 export default gimmeData(getEventsAttendingUrl, mapStateToProps)(EventsAttending);
