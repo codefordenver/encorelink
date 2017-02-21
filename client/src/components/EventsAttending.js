@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { APPROVED, PENDING, REJECTED } from '../constants/eventAttendingStatus';
 import EventRow from './EventRow';
 
-const approvedFilter = (volunteer = {}) => volunteer.status === 'APPROVED';
-const rejectedFilter = (volunteer = {}) => volunteer.status === 'REJECTED';
-const pendingFilter = (volunteer = {}) => volunteer.status === 'PENDING';
+const approvedFilter = (volunteer = {}) => volunteer.status === APPROVED;
+const rejectedFilter = (volunteer = {}) => volunteer.status === REJECTED;
+const pendingFilter = (volunteer = {}) => volunteer.status === PENDING;
 
 function Events({ data }) {
   const eventsApproved = data.filter(approvedFilter).map(volunteer =>
