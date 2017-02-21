@@ -2,20 +2,22 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import EventRow from './EventRow';
 
-const approvedFilter = (volunteer = {}) => volunteer.status === 'APPROVED';
-const rejectedFilter = (volunteer = {}) => volunteer.status === 'REJECTED';
-const pendingFilter = (volunteer = {}) => !approvedFilter(volunteer) && !rejectedFilter(volunteer);
+// const approvedFilter = (volunteer = {}) => volunteer.status === 'APPROVED';
+// const rejectedFilter = (volunteer = {}) => volunteer.status === 'REJECTED';
+// const pendingFilter = (volunteer = {}) => volunteer.status === 'PENDING';
+
+const filter = (status) => (volunteer) => volunteer.status === status;
 
 function Events({ data, isMusician }) {
-  const eventsApproved = data.filter(approvedFilter).map(volunteer =>
+  const eventsApproved = data.filter(filter('APPROVED')).map(volunteer =>
     <EventRow key={volunteer.event.id} event={volunteer.event} />
   );
 
-  const eventsPending = data.filter(pendingFilter).map(volunteer =>
+  const eventsPending = data.filter(filter('PENDING')).map(volunteer =>
     <EventRow key={volunteer.event.id} event={volunteer.event} />
   );
 
-  const eventsRejected = data.filter(rejectedFilter).map(volunteer =>
+  const eventsRejected = data.filter(filter('REJECTED')).map(volunteer =>
     <EventRow key={volunteer.event.id} event={volunteer.event} />
   );
 
