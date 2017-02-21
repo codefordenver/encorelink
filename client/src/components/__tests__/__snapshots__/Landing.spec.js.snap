@@ -47,17 +47,21 @@ exports[`test Landing renders correctly 1`] = `
                 checked={false}
                 onChange={[Function]}
                 type="checkbox" />
-              I am a volunteer
+              I'm a musician
             </label>
             <label
               className="terms">
               By clicking Register, you agree to the site
+               
               <a
-                href={undefined}
                 onClick={[Function]}
-                style={Object {}}>
-                 terms
+                onKeyPress={[Function]}
+                style={Object {}}
+                tabIndex={0}>
+                terms
               </a>
+              .
+              <noscript />
             </label>
             <button
               className="button secondary"

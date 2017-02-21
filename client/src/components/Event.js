@@ -73,6 +73,15 @@ function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetch
         <p>
           {displayMusicianOptions()}
           {' '}
+          { (!isOwner && data && data.owner && data.owner.email) &&
+            <a
+              className="button secondary"
+              href={`mailto:${data.owner.email}`}
+            >
+              Contact Organizer
+            </a>
+          }
+          {' '}
           <Link to="/events" className="button secondary">Go Back</Link>
         </p>
       </div>
@@ -88,6 +97,12 @@ Event.propTypes = {
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     notes: PropTypes.string.isOptional,
+    owner: PropTypes.shape({
+      email: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      isMusician: PropTypes.bool.isRequired,
+      username: PropTypes.string.isRequired
+    }),
     ownerId: PropTypes.number.isRequired,
     volunteers: PropTypes.arrayOf(PropTypes.shape({
       isMusician: PropTypes.bool.isRequired,
