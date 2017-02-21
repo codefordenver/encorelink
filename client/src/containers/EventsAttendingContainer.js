@@ -1,12 +1,7 @@
 import EventsAttending from '../components/EventsAttending';
 import gimmeData from '../utils/gimmeData';
-import { isMusician, getUserId } from '../reducers/userReducer';
+import { getUserId } from '../reducers/userReducer';
 
-function mapStateToProps(state) {
-  return {
-    isMusician: isMusician(state)
-  };
-}
 
 const getEventsAttendingUrl = (state) => {
   return `eventVolunteers?filter=${JSON.stringify({
@@ -17,4 +12,4 @@ const getEventsAttendingUrl = (state) => {
   })}`;
 };
 
-export default gimmeData(getEventsAttendingUrl, mapStateToProps)(EventsAttending);
+export default gimmeData(getEventsAttendingUrl)(EventsAttending);
