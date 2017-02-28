@@ -32,7 +32,6 @@ function Events({ data }) {
           </Link>
         </div>
       </div>
-      <Link to="/createEvent">Create Event</Link>
 
       <h4> Approved </h4>
       { eventsApproved }
