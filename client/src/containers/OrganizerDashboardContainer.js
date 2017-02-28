@@ -3,7 +3,7 @@ import gimmeData from '../utils/gimmeData';
 
 const getEventsAttendingUrl = (state) => {
   return `eventVolunteers?filter=${JSON.stringify({
-    include: 'event'
+    include: ['event', 'volunteer']
   })}`;
 };
 
