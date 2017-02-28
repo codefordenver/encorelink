@@ -1,5 +1,5 @@
 import React from 'react';
-import OrganizerDashboard from './OrganizerDashboard';
+import OrganizerDashboardContainer from '../containers/OrganizerDashboardContainer';
 import EventsAttendingContainer from '../containers/EventsAttendingContainer';
 
 const Dashboard = ({ isMusician }) => {
@@ -7,7 +7,7 @@ const Dashboard = ({ isMusician }) => {
     return <EventsAttendingContainer />;
   }
 
-  return <OrganizerDashboard />;
+  return <OrganizerDashboardContainer />;
 };
 
 Dashboard.propTypes = {
