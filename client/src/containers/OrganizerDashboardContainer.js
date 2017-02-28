@@ -4,8 +4,14 @@ import gimmeData from '../utils/gimmeData';
 import { approveEventMusician, rejectEventMusician } from '../actions/eventActions';
 
 const getEventsAttendingUrl = (state) => {
-  return `eventVolunteers?filter=${JSON.stringify({
-    include: ['event', 'volunteer']
+  return `events?filter=${JSON.stringify({
+    include: {
+      relation: 'eventvolunteers',
+      include: 'volunteer'
+    },
+    where: {
+      ownerId: getUserId(state)
+    },
   })}`;
 };
 
