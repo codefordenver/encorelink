@@ -42,11 +42,6 @@
       "foreignKey": "eventId",
       "through": "EventVolunteer",
       "keyThrough": "volunteerId"
-    },
-    "eventvolunteers": {
-      "type": "hasMany",
-      "model": "EventVolunteer",
-      "foreignKey": "eventId"
     }
   },
   "acls": [],
