@@ -1,15 +1,15 @@
-import React from 'react';
-import {Link} from 'react-router';
-import {getFormattedDayAndTime} from '../utils/dateFormatting';
+import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
-const EventVolunteerRow = ({ev, isCurrentlyPending, index, approveEventMusician, rejectEventMusician}) => {
-  const {day, time} = getFormattedDayAndTime(ev.event.date, ev.event.endDate);
+const EventVolunteerRow = ({ ev, isCurrentlyPending, index, approveEventMusician, rejectEventMusician }) => {
+  const { day, time } = getFormattedDayAndTime(ev.event.date, ev.event.endDate);
 
   return (
     <tr key={index}>
       <td>
         {ev.volunteer.email}
-        <br/>
+        <br />
         <Link to={`/musician/${ev.volunteer.id}`}>View Profile</Link>
       </td>
       <td>{day} {time}</td>
@@ -35,6 +35,23 @@ const EventVolunteerRow = ({ev, isCurrentlyPending, index, approveEventMusician,
       </td>}
     </tr>
   );
+};
+
+EventVolunteerRow.propTypes = {
+  ev: PropTypes.shape({
+    event: PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      endDate: PropTypes.string.isRequired,
+    }),
+    volunteer: PropTypes.shape({
+      email: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired
+    })
+  }),
+  approveEventMusician: PropTypes.func.isRequired,
+  rejectEventMusician: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  isCurrentlyPending: PropTypes.bool.isRequired
 };
 
 export default EventVolunteerRow;

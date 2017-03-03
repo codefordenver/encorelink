@@ -1,30 +1,28 @@
-import React from 'react';
-import {PENDING, APPROVED} from '../constants/eventAttendingStatus';
+import React, { PropTypes } from 'react';
+import { PENDING, APPROVED } from '../constants/eventAttendingStatus';
 import EventVolunteerRow from '../components/EventVolunteerRow';
 
-const OrganizerDashboard = ({data, approveEventMusician, rejectEventMusician}) => {
-  let pendingEventVolunteers = [];
-  let approvedEventVolunteers = [];
+const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician }) => {
+  const pendingEventVolunteers = data
+    .filter((v) => v.status === PENDING)
+    .map(v => <EventVolunteerRow ev={v}
+      isCurrentlyPending
+      key={v.id}
+      approveEventMusiscian={approveEventMusician}
+      rejectEventMusician={rejectEventMusician}
+    />);
+  const approvedEventVolunteers = data
+    .filter((v) => v.status === APPROVED)
+    .map(v => <EventVolunteerRow ev={v}
+      isCurrentlyPending={false}
+      key={v.id}
+    />);
 
-  if (data && data.length > 0) {
-    pendingEventVolunteers = data
-      .filter((v) => v.status === PENDING)
-      .map(v => <EventVolunteerRow ev={v}
-                                   isCurrentlyPending={true}
-                                   key={v.id}
-                                   approveEventMusiscian={approveEventMusician}
-                                   rejectEventMusician={rejectEventMusician}/>);
-    approvedEventVolunteers = data
-      .filter((v) => v.status === APPROVED)
-      .map(v => <EventVolunteerRow ev={v}
-                                   isCurrentlyPending={false}
-                                   key={v.id}/>)
-  }
   return (
     <div className="row">
       <div className="small-10">
         <h3>Dashboard</h3>
-        <br/>
+        <br />
         <div className="card">
           <div className="card-divider">
             <h5>Pending Request</h5>
@@ -32,7 +30,7 @@ const OrganizerDashboard = ({data, approveEventMusician, rejectEventMusician}) =
           <div className="card-section">
             <table>
               <tbody>
-              {pendingEventVolunteers}
+                {pendingEventVolunteers}
               </tbody>
             </table>
           </div>
@@ -44,7 +42,7 @@ const OrganizerDashboard = ({data, approveEventMusician, rejectEventMusician}) =
           <div className="card-section">
             <table>
               <tbody>
-              {approvedEventVolunteers}
+                {approvedEventVolunteers}
               </tbody>
             </table>
           </div>
@@ -53,5 +51,16 @@ const OrganizerDashboard = ({data, approveEventMusician, rejectEventMusician}) =
     </div>
   );
 };
+
+OrganizerDashboard.propTypes = {
+  data: PropTypes.array.isRequired,
+  approveEventMusician: PropTypes.func.isRequired,
+  rejectEventMusician: PropTypes.func.isRequired
+};
+
+OrganizerDashboard.defaultProps = {
+  data: []
+};
+
 
 export default OrganizerDashboard;
