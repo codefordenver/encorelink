@@ -1,4 +1,3 @@
-import { getUserId } from '../reducers/userReducer';
 import OrganizerDashboard from '../components/OrganizerDashboard';
 import gimmeData from '../utils/gimmeData';
 import { approveEventMusician, rejectEventMusician } from '../actions/eventActions';

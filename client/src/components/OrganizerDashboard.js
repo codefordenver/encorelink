@@ -1,5 +1,5 @@
 import React from 'react';
-import {PENDING, CANCELLED, REJECTED, APPROVED} from '../constants/eventAttendingStatus';
+import {PENDING, APPROVED} from '../constants/eventAttendingStatus';
 import EventVolunteerRow from '../components/EventVolunteerRow';
 
 const OrganizerDashboard = ({data, approveEventMusician, rejectEventMusician}) => {
@@ -8,7 +8,7 @@ const OrganizerDashboard = ({data, approveEventMusician, rejectEventMusician}) =
 
   if (data && data.length > 0) {
     pendingEventVolunteers = data
-      .filter((v) => v.status !== APPROVED && v.status !== REJECTED)
+      .filter((v) => v.status === PENDING)
       .map(v => <EventVolunteerRow ev={v}
                                    isCurrentlyPending={true}
                                    key={v.id}
