@@ -1,9 +1,25 @@
 import React from 'react';
-import {Link} from 'react-router';
 import {PENDING, CANCELLED, REJECTED, APPROVED} from '../constants/eventAttendingStatus';
-import { getFormattedDayAndTime } from '../utils/dateFormatting';
+import EventVolunteerRow from '../components/EventVolunteerRow';
 
-const OrganizerDashboard = ({data, userId, approveEventMusician, rejectEventMusician}) => {
+const OrganizerDashboard = ({data, approveEventMusician, rejectEventMusician}) => {
+  let pendingEventVolunteers = [];
+  let approvedEventVolunteers = [];
+
+  if (data && data.length > 0) {
+    pendingEventVolunteers = data
+      .filter((v) => v.status !== APPROVED && v.status !== REJECTED)
+      .map(v => <EventVolunteerRow ev={v}
+                                   isCurrentlyPending={true}
+                                   key={v.id}
+                                   approveEventMusiscian={approveEventMusician}
+                                   rejectEventMusician={rejectEventMusician}/>);
+    approvedEventVolunteers = data
+      .filter((v) => v.status === APPROVED)
+      .map(v => <EventVolunteerRow ev={v}
+                                   isCurrentlyPending={false}
+                                   key={v.id}/>)
+  }
   return (
     <div className="row">
       <div className="small-10">
@@ -15,46 +31,9 @@ const OrganizerDashboard = ({data, userId, approveEventMusician, rejectEventMusi
           </div>
           <div className="card-section">
             <table>
-              {data && data.length > 0 &&
               <tbody>
-              {data
-                .filter((v) => {
-                  return v.event.ownerId === userId;
-                })
-                .filter((v) => v.status !== APPROVED && v.status !== REJECTED)
-                .map((ev, index) => {
-                  const { day, time } = getFormattedDayAndTime(ev.event.date, ev.event.endDate);
-                  return (
-                    <tr key={index}>
-                      <td>
-                        {ev.volunteer.email}
-                        <br/>
-                        <Link to={`/musician/${ev.volunteer.id}`}>View Profile</Link>
-                      </td>
-                      <td>{day} {time}</td>
-                      <td>
-                        <div className="button-group">
-                          <a
-                            className="button secondary"
-                            href={`mailto:${ev.volunteer.email}`}
-                          >Contact
-                          </a>
-                          <button
-                            className="button success"
-                            onClick={() => approveEventMusician(ev)}
-                          >Approve
-                          </button>
-                          <button
-                            className="button alert"
-                            onClick={() => rejectEventMusician(ev)}
-                          >Pass
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>}
+              {pendingEventVolunteers}
+              </tbody>
             </table>
           </div>
         </div>
@@ -64,27 +43,9 @@ const OrganizerDashboard = ({data, userId, approveEventMusician, rejectEventMusi
           </div>
           <div className="card-section">
             <table>
-              {data && data.length > 0 &&
               <tbody>
-              {data
-                .filter((v) => {
-                  return v.event.ownerId === userId;
-                })
-                .filter((v) => v.status === APPROVED)
-                .map((ev, index) => {
-                  const { day, time } = getFormattedDayAndTime(ev.event.date, ev.event.endDate);
-                  return (
-                    <tr key={index}>
-                      <td>
-                        {ev.volunteer.email}
-                        <br/>
-                        <Link to={`/musician/${ev.volunteer.id}`}>View Profile</Link>
-                      </td>
-                      <td>{day} {time}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>}
+              {approvedEventVolunteers}
+              </tbody>
             </table>
           </div>
         </div>
