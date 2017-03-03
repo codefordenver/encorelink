@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import AutocompleteLocation from './forms/AutocompleteLocation';
 
 const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization, data }) => {
   const updatedOrganization = (formData) => updateOrganization(formData, data[0].id);
@@ -15,7 +16,7 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
         <form className="form-create-event" onSubmit={handleSubmit((data && data.length) ? updatedOrganization : createOrganization)}>
           <div className="row">
             <div className="small-12 medium-12 columns">
-              <label>Organization name:
+              <label>Organization name*:
                 <Field
                   name="name"
                   component="input"
@@ -33,7 +34,6 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                   name="contactName"
                   component="input"
                   type="text"
-                  required
                 />
               </label>
             </div>
@@ -45,64 +45,18 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                   name="contactJob"
                   component="input"
                   type="text"
-                  required
                 />
               </label>
             </div>
           </div>
           <div className="row">
             <div className="small-12 medium-12 columns">
-              <label>Address:
-                <Field
+              <label>Address*:
+                <AutocompleteLocation
                   name="address"
-                  component="input"
-                  type="text"
-                  placeholder="Address"
                   required
                 />
               </label>
-            </div>
-          </div>
-          <div className="row">
-            <div className="small-12 medium-12 columns">
-              <label>City:
-                <Field
-                  name="city"
-                  component="input"
-                  type="text"
-                  required
-                />
-              </label>
-            </div>
-          </div>
-          <div className="row">
-            <div className="small-12 medium-7 columns">
-              <div className="row">
-                <div className="small-12 medium-12 columns">
-                  <label>State:
-                    <Field
-                      name="state"
-                      component="input"
-                      type="text"
-                      required
-                    />
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div className="small-12 medium-3 columns">
-              <div className="row">
-                <div className="small-12 medium-12 columns">
-                  <label>Zipcode:
-                    <Field
-                      name="zipcode"
-                      component="input"
-                      type="text"
-                      required
-                    />
-                  </label>
-                </div>
-              </div>
             </div>
           </div>
           <div className="row">
@@ -112,7 +66,6 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                   name="email"
                   component="input"
                   type="email"
-                  required
                 />
               </label>
             </div>
@@ -126,7 +79,6 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                       name="phone"
                       component="input"
                       type="tel"
-                      required
                     />
                   </label>
                 </div>
@@ -139,8 +91,7 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                     <Field
                       name="extension"
                       component="input"
-                      type="text"
-                      required
+                      type="number"
                     />
                   </label>
                 </div>
@@ -154,7 +105,6 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                   name="contact"
                   component="input"
                   type="text"
-                  required
                 />
               </label>
             </div>

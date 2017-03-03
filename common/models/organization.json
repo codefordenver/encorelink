@@ -14,33 +14,17 @@
       "type": "string",
       "required": true
     },
-    "city": {
-      "type": "string",
-      "required": true
-    },
-    "state": {
-      "type": "string",
-      "required": true
-    },
     "contactJob": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "contactName": {
-      "type": "string",
-      "required": true
-    },
-    "zipcode": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "email": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "phone": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "extension": {
       "type": "string"

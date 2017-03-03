@@ -2,28 +2,55 @@ import React, { PropTypes } from 'react';
 import { Field } from 'redux-form';
 import Autocomplete from 'react-google-autocomplete';
 
-function AutocompleteLocation({ name }) {
+function emulateTabPress(currentEl) {
+  const formEls = Array.from(currentEl.form.elements);
+  const currentIdx = formEls.findIndex(el => el === currentEl);
+  formEls[currentIdx + 1].focus();
+}
+
+function getFormattedGoogleAddress(googleParams) {
+  return googleParams.formatted_address || googleParams.name;
+}
+
+function renderGoogleAutoComplete(props) {
+  return (
+    <Autocomplete
+      type="text"
+      name="location"
+      onPlaceSelected={
+        param => props.input.onChange(getFormattedGoogleAddress(param))
+      }
+      types={[]}
+      value={props.input.value}
+      onChange={newValue => props.input.onChange(newValue)}
+      onKeyPress={event => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          emulateTabPress(event.target);
+        }
+      }}
+    />
+  );
+}
+renderGoogleAutoComplete.propTypes = {
+  input: PropTypes.shape({
+    value: PropTypes.string
+  })
+};
+
+function AutocompleteLocation({ name, required }) {
   return (
     <Field
       name={name}
-      component={
-        props =>
-          <Autocomplete
-            type="text"
-            name="location"
-            style={{ width: '100%' }}
-            onPlaceSelected={
-              param => props.input.onChange(`${param.name}, ${param.formatted_address}`)
-            }
-            types={[]}
-          />
-      }
+      required={required}
+      component={renderGoogleAutoComplete}
     />
   );
 }
 
 AutocompleteLocation.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  required: PropTypes.bool
 };
 
 export default AutocompleteLocation;
