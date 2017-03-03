@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
-const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, index, approveEventMusician, rejectEventMusician }) => {
+const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, approveEventMusician, rejectEventMusician }) => {
   const { day, time } = getFormattedDayAndTime(eventVolunteer.event.date, eventVolunteer.event.endDate);
 
   return (
-    <tr key={index}>
+    <tr>
       <td>
         {eventVolunteer.volunteer.email}
         <br />
@@ -45,12 +45,11 @@ EventVolunteerRow.propTypes = {
     }),
     volunteer: PropTypes.shape({
       email: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired
+      id: PropTypes.number.isRequired
     })
   }),
   approveEventMusician: PropTypes.func.isRequired,
   rejectEventMusician: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired,
   isCurrentlyPending: PropTypes.bool.isRequired
 };
 
