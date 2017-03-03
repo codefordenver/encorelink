@@ -2,15 +2,15 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
-const EventVolunteerRow = ({ ev, isCurrentlyPending, index, approveEventMusician, rejectEventMusician }) => {
-  const { day, time } = getFormattedDayAndTime(ev.event.date, ev.event.endDate);
+const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, index, approveEventMusician, rejectEventMusician }) => {
+  const { day, time } = getFormattedDayAndTime(eventVolunteer.event.date, eventVolunteer.event.endDate);
 
   return (
     <tr key={index}>
       <td>
-        {ev.volunteer.email}
+        {eventVolunteer.volunteer.email}
         <br />
-        <Link to={`/musician/${ev.volunteer.id}`}>View Profile</Link>
+        <Link to={`/musician/${eventVolunteer.volunteer.id}`}>View Profile</Link>
       </td>
       <td>{day} {time}</td>
       {isCurrentlyPending &&
@@ -18,17 +18,17 @@ const EventVolunteerRow = ({ ev, isCurrentlyPending, index, approveEventMusician
         <div className="button-group">
           <a
             className="button secondary"
-            href={`mailto:${ev.volunteer.email}`}
+            href={`mailto:${eventVolunteer.volunteer.email}`}
           >Contact
           </a>
           <button
             className="button success"
-            onClick={() => approveEventMusician(ev)}
+            onClick={() => approveEventMusician(eventVolunteer)}
           >Approve
           </button>
           <button
             className="button alert"
-            onClick={() => rejectEventMusician(ev)}
+            onClick={() => rejectEventMusician(eventVolunteer)}
           >Pass
           </button>
         </div>
@@ -38,7 +38,7 @@ const EventVolunteerRow = ({ ev, isCurrentlyPending, index, approveEventMusician
 };
 
 EventVolunteerRow.propTypes = {
-  ev: PropTypes.shape({
+  eventVolunteer: PropTypes.shape({
     event: PropTypes.shape({
       date: PropTypes.string.isRequired,
       endDate: PropTypes.string.isRequired,
