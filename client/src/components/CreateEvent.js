@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Autocomplete from 'react-google-autocomplete';
 import Datetime from 'react-datetime';
-
 import 'react-datetime/css/react-datetime.css';
+import AutocompleteLocation from './forms/AutocompleteLocation';
 
-import FormattedFormField from './FormattedFormField';
+
+import FormattedFormField from './forms/FormattedFormField';
 
 const CreateEvent = ({ handleSubmit }) => (
   <div className="row">
@@ -52,19 +52,7 @@ const CreateEvent = ({ handleSubmit }) => (
           />
         </FormattedFormField>
         <FormattedFormField title="Location">
-          <Field
-            name="location"
-            component={
-              props =>
-                <Autocomplete
-                  type="text"
-                  name="location"
-                  style={{ width: '100%' }}
-                  onPlaceSelected={param => props.input.onChange(`${param.name}, ${param.formatted_address}`)}
-                  types={[]}
-                />
-            }
-          />
+          <AutocompleteLocation name="location" />
         </FormattedFormField>
         <FormattedFormField title="Notes">
           <Field

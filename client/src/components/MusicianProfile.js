@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Autocomplete from 'react-google-autocomplete';
 
-import FormattedFormField from './FormattedFormField';
+import FormattedFormField from './forms/FormattedFormField';
 
 const MusicianProfile = ({ handleSubmit }) => (
 
