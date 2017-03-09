@@ -2,8 +2,12 @@
   "name": "encorelink",
   "description": "review apps",
   "scripts": {
+    "postdeploy": "pg_dump $STAGING_DATABASE_URL | psql $DATABASE_URL"
   },
   "env": {
+    "STAGING_DATABASE_URL": {
+      "required": true
+    },
     "NODE_ENV": {
       "required": true
     }
