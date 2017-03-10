@@ -3,11 +3,9 @@ import { PENDING, APPROVED } from '../constants/eventAttendingStatus';
 import EventVolunteerRow from '../components/EventVolunteerRow';
 
 const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician }) => {
-  const pendingEventVolunteers = data
-    .filter(event => event.eventvolunteers.filter(
-      eventvolunteer => eventvolunteer.status === APPROVED).length === 0)
-    .reduce((evarr, event) => evarr.concat(event.eventvolunteers.filter(
-      eventvolunteer => eventvolunteer.status === PENDING)), [])
+  const eventVolunteers = data.reduce((prev, curr) => prev.concat(curr.eventvolunteers), []);
+  const pendingEventVolunteers = eventVolunteers
+    .filter(eventVolunteer => eventVolunteer.status === PENDING)
     .map(eventVolunteer => <EventVolunteerRow
       eventVolunteer={eventVolunteer}
       isCurrentlyPending
@@ -15,9 +13,8 @@ const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician })
       approveEventMusician={approveEventMusician}
       rejectEventMusician={rejectEventMusician}
     />);
-  const approvedEventVolunteers = data
-    .reduce((evarr, event) => evarr.concat(event.eventvolunteers.filter(
-      eventvolunteer => eventvolunteer.status === APPROVED)), [])
+  const approvedEventVolunteers = eventVolunteers
+    .filter(eventVolunteer => eventVolunteer.status === APPROVED)
     .map(eventVolunteer => <EventVolunteerRow eventVolunteer={eventVolunteer}
       key={eventVolunteer.id}
     />);
