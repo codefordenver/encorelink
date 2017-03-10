@@ -50,7 +50,10 @@ function AutocompleteLocation({ name, required }) {
 
 AutocompleteLocation.propTypes = {
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  input: PropTypes.shape({
+    onChange: PropTypes.func.isRequired
+  })
 };
 
 export default AutocompleteLocation;
