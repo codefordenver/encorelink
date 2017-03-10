@@ -3,7 +3,8 @@ import { PENDING, APPROVED } from '../constants/eventAttendingStatus';
 import EventVolunteerRow from '../components/EventVolunteerRow';
 
 const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician }) => {
-  const pendingEventVolunteers = data
+  const eventVolunteers = data.reduce((prev, curr) => prev.concat(curr.eventvolunteers), []);
+  const pendingEventVolunteers = eventVolunteers
     .filter(eventVolunteer => eventVolunteer.status === PENDING)
     .map(eventVolunteer => <EventVolunteerRow
       eventVolunteer={eventVolunteer}
@@ -12,7 +13,7 @@ const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician })
       approveEventMusician={approveEventMusician}
       rejectEventMusician={rejectEventMusician}
     />);
-  const approvedEventVolunteers = data
+  const approvedEventVolunteers = eventVolunteers
     .filter(eventVolunteer => eventVolunteer.status === APPROVED)
     .map(eventVolunteer => <EventVolunteerRow eventVolunteer={eventVolunteer}
       key={eventVolunteer.id}

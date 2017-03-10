@@ -34,7 +34,8 @@ function renderGoogleAutoComplete(props) {
 }
 renderGoogleAutoComplete.propTypes = {
   input: PropTypes.shape({
-    value: PropTypes.string
+    value: PropTypes.string,
+    onChange: PropTypes.func
   })
 };
 
