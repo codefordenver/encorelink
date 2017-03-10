@@ -34,7 +34,8 @@ function renderGoogleAutoComplete(props) {
 }
 renderGoogleAutoComplete.propTypes = {
   input: PropTypes.shape({
-    value: PropTypes.string
+    value: PropTypes.string,
+    onChange: PropTypes.func
   })
 };
 
@@ -50,10 +51,7 @@ function AutocompleteLocation({ name, required }) {
 
 AutocompleteLocation.propTypes = {
   name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
-  input: PropTypes.shape({
-    onChange: PropTypes.func.isRequired
-  })
+  required: PropTypes.bool
 };
 
 export default AutocompleteLocation;
