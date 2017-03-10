@@ -83,7 +83,7 @@ class Register extends React.Component {
               checked={this.state.isMusician}
               onChange={this.handleVolunteerChange}
             />
-            I'm a musician
+            { 'I\'m a musician' }
           </label>
           <label className="terms">By clicking Register, you agree to the site
             {' '}
