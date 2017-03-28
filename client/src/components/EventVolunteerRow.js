@@ -8,7 +8,9 @@ const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, approveEventMus
   return (
     <tr>
       <td>
-        {eventVolunteer.volunteer.email}
+        <a href={`mailto:${eventVolunteer.volunteer.email}`}>
+          {eventVolunteer.volunteer.email}
+        </a>
         <br />
         <Link to={`/musician/${eventVolunteer.volunteer.id}`}>View Profile</Link>
       </td>
