@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 
-class Login extends React.Component {
+class ResetPassword extends React.Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     router: PropTypes.shape({
@@ -14,7 +14,7 @@ class Login extends React.Component {
         nextPathname: PropTypes.string
       })
     }).isRequired,
-    isLoggedIn: PropTypes.bool.isRequired
+    isLoggedIn: PropTypes.bool.isRequired,
   };
 
   componentWillReceiveProps(nextProps) {
@@ -35,27 +35,24 @@ class Login extends React.Component {
         <div className="column small-12 medium-6 medium-offset-3 large-4 large-offset-4">
           <form className="form-login" onSubmit={this.props.handleSubmit}>
             <Field
-              name="email"
-              component="input"
-              type="text"
-              placeholder="Email"
-              required
-              autoFocus
-            />
-            <Field
               name="password"
               component="input"
               type="password"
-              placeholder="Password"
+              placeholder="New Password"
               required
+              autoFocus
             />
-            <button className="button secondary" type="submit">Log in</button>
+            {/* <Field
+              name="password"
+              component="input"
+              type="password"
+              placeholder="Type Password again"
+              required
+            /> */}
+            <button className="button secondary" type="submit">Update Password</button>
           </form>
           <div>
             <Link to="/">Go back to Landing</Link>
-          </div>
-          <div>
-            <Link to="/forgotPassword">Forgot Password?</Link>
           </div>
         </div>
       </div>
@@ -66,6 +63,6 @@ class Login extends React.Component {
 export default compose(
   withRouter,
   reduxForm({
-    form: 'loginForm'
+    form: 'resetPasswordForm'
   })
-)(Login);
+)(ResetPassword);

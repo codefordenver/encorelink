@@ -10,12 +10,16 @@ import MusicianContainer from './containers/MusicianContainer';
 import OrganizerProfileContainer from './containers/OrganizerProfileContainer';
 import MusicianProfile from './components/MusicianProfile';
 import AuthenticatedRoutesContainer from './containers/AuthenticatedRoutesContainer';
+import ResetPasswordContainer from './containers/ResetPasswordContainer';
+import ForgotPasswordContainer from './containers/ForgotPasswordContainer';
 import DashboardContainer from './containers/DashboardContainer';
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Landing} />
     <Route path="/login" component={LoginContainer} />
+    <Route path="/forgotPassword" component={ForgotPasswordContainer} />
+    <Route path="/resetPassword" component={ResetPasswordContainer} />
 
     <Route component={AuthenticatedRoutesContainer} >
       <Route path="/createEvent" component={CreateEventContainer} />

@@ -6,6 +6,15 @@
   "env": {
     "NODE_ENV": {
       "required": true
+    },
+    "APP_EMAIL": {
+      "required": true
+    },
+    "APP_EMAILPW": {
+      "required": true
+    },
+    "APP_SMTP": {
+      "required": true
     }
   },
   "formation": {

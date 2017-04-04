@@ -1,5 +1,11 @@
 .top-bar {
   background-color: #fff;
+  padding: 0;
+  height: 8vh;
+
+  .button {
+    margin-right: 5px;
+  }
   .logo-img {
     width: 200px;
   }

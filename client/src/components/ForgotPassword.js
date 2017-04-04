@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 
-class Login extends React.Component {
+class ForgotPassword extends React.Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     router: PropTypes.shape({
@@ -14,8 +14,16 @@ class Login extends React.Component {
         nextPathname: PropTypes.string
       })
     }).isRequired,
-    isLoggedIn: PropTypes.bool.isRequired
+    isLoggedIn: PropTypes.bool.isRequired,
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      resetEmailSent: false
+    };
+    this.handleSendEmail = this.handleSendEmail.bind(this);
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.isLoggedIn) {
@@ -29,33 +37,43 @@ class Login extends React.Component {
     }
   }
 
+  handleSendEmail(event) {
+    event.preventDefault();
+    this.setState({
+      resetEmailSent: true
+    });
+    this.props.handleSubmit();
+  }
+
+  renderMessage() {
+    if (this.state.resetEmailSent) {
+      return (
+        <h2>Email sent.</h2>
+      );
+    }
+
+    return (
+      <form className="form-login" onSubmit={this.handleSendEmail}>
+        <Field
+          name="email"
+          component="input"
+          type="text"
+          placeholder="Enter your email"
+          required
+          autoFocus
+        />
+        <button className="button secondary" type="submit">Reset Password</button>
+      </form>
+    );
+  }
+
   render() {
     return (
       <div className="login row">
         <div className="column small-12 medium-6 medium-offset-3 large-4 large-offset-4">
-          <form className="form-login" onSubmit={this.props.handleSubmit}>
-            <Field
-              name="email"
-              component="input"
-              type="text"
-              placeholder="Email"
-              required
-              autoFocus
-            />
-            <Field
-              name="password"
-              component="input"
-              type="password"
-              placeholder="Password"
-              required
-            />
-            <button className="button secondary" type="submit">Log in</button>
-          </form>
+          {this.renderMessage()}
           <div>
             <Link to="/">Go back to Landing</Link>
-          </div>
-          <div>
-            <Link to="/forgotPassword">Forgot Password?</Link>
           </div>
         </div>
       </div>
@@ -66,6 +84,6 @@ class Login extends React.Component {
 export default compose(
   withRouter,
   reduxForm({
-    form: 'loginForm'
+    form: 'forgotPasswordForm'
   })
-)(Login);
+)(ForgotPassword);
