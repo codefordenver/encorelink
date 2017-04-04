@@ -12,6 +12,10 @@ function getFormattedGoogleAddress(googleParams) {
   return googleParams.formatted_address || googleParams.name;
 }
 
+function getLocationFriendlyName(googleParams) {
+  return googleParams.name || null;
+}
+
 function renderGoogleAutoComplete(props) {
   return (
     <Autocomplete
