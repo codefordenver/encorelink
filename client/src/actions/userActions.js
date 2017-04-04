@@ -13,6 +13,7 @@ import {
 } from '../constants/reduxConstants';
 import { getUserId } from '../reducers/userReducer';
 import { get, post } from '../utils/apiHelpers';
+import { apiAction } from './modelActions';
 
 const startLoginRequest = createAction(LOGIN_REQUEST);
 const loginSuccess = createAction(LOGIN_SUCCESS);
@@ -69,5 +70,14 @@ export function checkIfLoginIsValid() {
     startAction: startLoginValidCheck,
     successAction: receiveUser,
     failAction: logoutUser
+  });
+}
+
+export function updateUser(formData, id) {
+  return apiAction('put', (state) => `users/${getUserId(state)}`, {
+    body: formData,
+    onSuccess: () => {
+      browserHistory.push('/events');
+    }
   });
 }
