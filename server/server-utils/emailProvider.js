@@ -5,8 +5,6 @@ module.exports = function emailProvider(mailObject, callback) {
   var fromEmail = process.env.APP_EMAIL; // 'email-address'
   //emailserver token:
   var smtpToken = process.env.APP_EMAILPW; // 'smtpassword';
-  //SMTP server
-  var smtpServer = process.env.APP_SMTP; // 'smtp.domain.com';
 
  var transporter = nodemailer.createTransport({
     service: 'Zoho',
@@ -15,7 +13,6 @@ module.exports = function emailProvider(mailObject, callback) {
       pass: smtpToken
     }
    });
-
 
   mailObject.from = "'EncoreLink' <" + fromEmail + ">";
   
