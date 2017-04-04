@@ -100,12 +100,15 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           </div>
           <div className="row">
             <div className="small-12 medium-12 columns">
-              <label>Best contact method (email is default):
-                <Field
-                  name="contact"
-                  component="input"
-                  type="text"
-                />
+              <label>Preferred contact method (email is default):
+              <Field
+                name="contact"
+                component="select"
+                type="select"
+              >
+                <option selected value="email">Email</option>
+                <option value="phone">Phone</option>
+              </Field>
               </label>
             </div>
           </div>
