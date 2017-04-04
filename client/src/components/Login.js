@@ -52,7 +52,7 @@ class Login extends React.Component {
             <button className="button secondary" type="submit">Log in</button>
           </form>
           <div>
-            <Link to="/">Go back to Landing</Link>
+            <Link to="/">Back to Homepage</Link>
           </div>
           <div>
             <Link to="/forgotPassword">Forgot Password?</Link>
