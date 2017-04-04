@@ -52,7 +52,7 @@ class ResetPassword extends React.Component {
             <button className="button secondary" type="submit">Update Password</button>
           </form>
           <div>
-            <Link to="/">Go back to Landing</Link>
+            <Link to="/">Back to Homepage</Link>
           </div>
         </div>
       </div>

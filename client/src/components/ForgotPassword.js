@@ -73,7 +73,7 @@ class ForgotPassword extends React.Component {
         <div className="column small-12 medium-6 medium-offset-3 large-4 large-offset-4">
           {this.renderMessage()}
           <div>
-            <Link to="/">Go back to Landing</Link>
+            <Link to="/">Back to Homepage</Link>
           </div>
         </div>
       </div>
