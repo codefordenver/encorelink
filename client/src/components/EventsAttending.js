@@ -46,7 +46,12 @@ function Events({ data }) {
 }
 
 Events.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.arrayOf(PropTypes.shape({
+    status: PropTypes.string.isRequired,
+    event: PropTypes.shape({
+      id: PropTypes.number.isRequired
+    })
+  })).isRequired
 };
 
 Events.defaultProps = {

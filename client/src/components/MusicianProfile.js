@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Autocomplete from 'react-google-autocomplete';
+import AutocompleteLocation from './forms/AutocompleteLocation';
 
 import FormattedFormField from './forms/FormattedFormField';
 
@@ -49,7 +49,7 @@ const MusicianProfile = ({ handleSubmit }) => (
         </FormattedFormField>
 
         <FormattedFormField title="Address">
-          <Field name="address" component={props => <Autocomplete type="text" name="address" onPlaceSelected={param => props.input.onChange(`${param.name}, ${param.formatted_address}`)} type={[]} />} />
+          <AutocompleteLocation name="address" />
         </FormattedFormField>
 
         <div className="row">

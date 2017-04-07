@@ -54,7 +54,12 @@ const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician })
 };
 
 OrganizerDashboard.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    eventVolunteers: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      status: PropTypes.string.isRequired
+    }))
+  })).isRequired,
   approveEventMusician: PropTypes.func.isRequired,
   rejectEventMusician: PropTypes.func.isRequired
 };

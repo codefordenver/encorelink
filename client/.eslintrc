@@ -11,12 +11,13 @@
     "browser": true
   },
 
-  "globals": [
-    "fetch"
-  ],
+  "globals": {
+    "fetch": true
+  },
 
   "rules": {
     "arrow-body-style": 0,
+    "arrow-parens": 0,
     "comma-dangle": 0,
     "generator-star-spacing": 0,
     "import/default": 2,
@@ -34,6 +35,8 @@
     "react/jsx-filename-extension": 0,
     "react/jsx-first-prop-new-line": 0,
     "react/prefer-stateless-function": 1,
+    "react/require-default-props": 0,
+    "react/no-unused-prop-types": 0, # wait for bug to be fixed: https://github.com/yannickcr/eslint-plugin-react/issues/1079
     "react/sort-comp": 1,
     "semi": [2, "always"]
   }

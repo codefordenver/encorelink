@@ -86,7 +86,6 @@ export function resetPasswordFromToken(newPass, uid, token) {
     body: { password: newPass },
     onSuccess: () => {
       browserHistory.push('/login');
-      return;
     }
   });
 }
