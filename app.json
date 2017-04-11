@@ -12,9 +12,6 @@
     },
     "APP_EMAILPW": {
       "required": true
-    },
-    "APP_SMTP": {
-      "required": true
     }
   },
   "formation": {
