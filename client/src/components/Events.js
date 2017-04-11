@@ -24,7 +24,7 @@ function Events({ data, isMusician }) {
 
 Events.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.numbers.isRequired
+    id: PropTypes.number.isRequired
   })).isRequired,
   isMusician: PropTypes.bool.isRequired
 };
