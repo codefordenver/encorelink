@@ -261,5 +261,10 @@ $button-opacity-disabled: 0.25 !default;
       float: none;
       top: -0.1em;
     }
+
+    &.event-highlight {
+      margin: auto 0 auto 2em;
+      // @include button-disabled;
+    }
   }
 }

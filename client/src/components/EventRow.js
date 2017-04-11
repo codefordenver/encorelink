@@ -13,13 +13,18 @@ function EventRow({ event }) {
       <div className="small-12 medium-3 columns">
         {time}
       </div>
-      <div className="small-12 medium-5 columns">
+      <div className="small-12 medium-4 columns">
         {name} {location}
       </div>
-      <div className="small-12 medium-2 columns">
+      <div className="small-12 medium-3 columns">
         <Link to={`/event/${id}`}>details</Link>
+        <button className="button success small event-highlight">
+          Approved
+        </button>
+        <button className="button warning small event-highlight">
+          Pending
+        </button>
       </div>
-      //TODO add approved/pending notification here.
     </div>
   );
 }
