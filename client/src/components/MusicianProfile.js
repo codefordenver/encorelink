@@ -4,7 +4,7 @@ import Autocomplete from 'react-google-autocomplete';
 
 import FormattedFormField from './forms/FormattedFormField';
 
-const MusicianProfile = ({ handleSubmit }) => (
+const MusicianProfile = ({ handleSubmit, data }) => (
 
   <div className="row">
     <div className="small-12 columns">
@@ -116,7 +116,8 @@ MusicianProfile.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   input: PropTypes.shape({
     onChange: PropTypes.func.isRequired
-  })
+  }),
+  data: PropTypes.array
 };
 
 export default reduxForm({
