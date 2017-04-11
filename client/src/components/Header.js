@@ -34,7 +34,9 @@ Header.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   isMusician: PropTypes.bool.isRequired,
   logoutUser: PropTypes.func.isRequired,
-  user: PropTypes.object
+  user: PropTypes.shape({
+    email: PropTypes.string.isRequired
+  })
 };
 
 export default Header;

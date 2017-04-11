@@ -14,7 +14,7 @@ function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlSt
           {data
             .filter((em) => em.status !== CANCELLED && em.status !== REJECTED)
             .map((eventMusician, index) =>
-              <div key={index} className="row">
+              <div key={eventMusician.id} className="row">
                 <div className="small-6 columns">{eventMusician.volunteer.email}</div>
                 {eventMusician.status === PENDING &&
                 <div className="small-6 columns">

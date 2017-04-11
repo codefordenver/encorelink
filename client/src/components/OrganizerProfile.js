@@ -170,7 +170,9 @@ OrganizerProfile.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   createOrganization: PropTypes.func.isRequired,
   updateOrganization: PropTypes.func.isRequired,
-  data: PropTypes.array
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired
+  }))
 };
 
 export default reduxForm({

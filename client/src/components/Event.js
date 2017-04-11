@@ -113,9 +113,6 @@ Event.propTypes = {
   isMusician: PropTypes.bool.isRequired,
   isFetching: PropTypes.bool.isRequired,
   isRegistered: PropTypes.bool.isRequired,
-  params: PropTypes.shape({
-    id: PropTypes.string.isRequired
-  }).isRequired,
   signUpForEvent: PropTypes.func.isRequired,
   cancelSignUpForEvent: PropTypes.func.isRequired
 };
