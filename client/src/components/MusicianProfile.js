@@ -117,7 +117,9 @@ MusicianProfile.propTypes = {
   input: PropTypes.shape({
     onChange: PropTypes.func.isRequired
   }),
-  data: PropTypes.array
+  data: PropTypes.shape({
+
+  }).isRequired
 };
 
 export default reduxForm({
