@@ -9,6 +9,21 @@
     "isMusician": {
       "type": "boolean"
     },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
     "bio": {
       "type": "string"
     },

@@ -13,8 +13,8 @@ const mapDispatchToProps = {
 };
 
 function getInitialValues(state) {
-  const users = getModels(state, urlFn(state)) || [];
-  return users[0];
+  const user = getModels(state, urlFn(state));
+  return user;
 }
 
 function mapStateToProps(state) {

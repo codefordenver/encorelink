@@ -4,13 +4,13 @@ import AutocompleteLocation from './forms/AutocompleteLocation';
 
 import FormattedFormField from './forms/FormattedFormField';
 
-const MusicianProfile = ({ handleSubmit, data }) => (
+const MusicianProfile = ({ handleSubmit, updateUser, data }) => (
 
   <div className="row">
     <div className="small-12 columns">
       <h1>Set Up Profile</h1>
 
-      <form className="form-create-event" onSubmit={handleSubmit}>
+      <form className="form-create-event" onSubmit={handleSubmit(updateUser)}>
         <FormattedFormField title="Name">
           <Field
             name="firstName"
@@ -44,7 +44,6 @@ const MusicianProfile = ({ handleSubmit, data }) => (
             name="over21"
             component="input"
             type="checkbox"
-            required
           />
         </FormattedFormField>
 
@@ -62,17 +61,16 @@ const MusicianProfile = ({ handleSubmit, data }) => (
 
         <FormattedFormField title="Instrument/Voice">
           <Field
-            name="majorInstrument"
+            name="instruments[0]"
             component="input"
             type="text"
             placeholder="Instrument / Voice"
-            required
           />
         </FormattedFormField>
 
         <FormattedFormField title="Secondary Instrument/Voice">
           <Field
-            name="secondaryInstrument"
+            name="instruments[1]"
             component="input"
             type="text"
             placeholder="Secondary Instrument/Voice"
@@ -81,17 +79,16 @@ const MusicianProfile = ({ handleSubmit, data }) => (
 
         <FormattedFormField title="Video or Audio link:">
           <Field
-            name="videoAudioLink"
+            name="link"
             component="input"
             type="url"
             placeholder="Link"
-            required
           />
         </FormattedFormField>
 
         <FormattedFormField title="Profile:">
           <Field
-            name="link"
+            name="bio"
             component="textarea"
             type="text"
             required
@@ -114,11 +111,17 @@ const MusicianProfile = ({ handleSubmit, data }) => (
 
 MusicianProfile.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
   input: PropTypes.shape({
     onChange: PropTypes.func.isRequired
   }),
   data: PropTypes.shape({
-
+    isMusician: PropTypes.bool,
+    bio: PropTypes.string,
+    instruments: PropTypes.arrayOf(PropTypes.string),
+    username: PropTypes.string,
+    email: PropTypes.string,
+    id: PropTypes.number.isRequired
   }).isRequired
 };
 

@@ -116,7 +116,7 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
             <div className="small-12 medium-12 columns">
               <label>Special notes:
                 <Field
-                  name="bio"
+                  name="notes"
                   component="textarea"
                 />
               </label>
