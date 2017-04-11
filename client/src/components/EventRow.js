@@ -19,6 +19,7 @@ function EventRow({ event }) {
       <div className="small-12 medium-2 columns">
         <Link to={`/event/${id}`}>details</Link>
       </div>
+      //TODO add approved/pending notification here.
     </div>
   );
 }
