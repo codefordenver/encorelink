@@ -37,13 +37,14 @@ const CreateEvent = ({ handleSubmit }) => (
             }
           />
         </FormattedFormField>
-        <FormattedFormField title="End Date/Time">
+        <FormattedFormField title="End Time">
           <Field
             name="endDate"
             required
             component={
               props =>
                 <Datetime
+                  dateFormat={false}
                   onChange={(moment) => props.input.onChange(moment.format())}
                   inputProps={{ required: 'required' }}
                   isValidDate={(moment) => { return moment.isAfter(Datetime.moment().subtract(1, 'day')); }}
