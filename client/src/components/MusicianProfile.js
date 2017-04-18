@@ -85,7 +85,6 @@ const MusicianProfile = ({ handleSubmit }) => (
             component="input"
             type="url"
             placeholder="Link"
-            required
           />
         </FormattedFormField>
 
