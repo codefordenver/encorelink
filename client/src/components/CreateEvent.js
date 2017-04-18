@@ -58,7 +58,7 @@ const CreateEvent = ({ handleSubmit }) => (
           <Field
             name="notes"
             component="textarea"
-            placeholder="Notes"
+            placeholder="Please describe your event e.g., number of attendees, number of musicians, or type of music"
           />
         </FormattedFormField>
         <FormattedFormField>
