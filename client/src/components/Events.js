@@ -4,7 +4,8 @@ import EventRow from './EventRow';
 
 function Events({ data, isMusician }) {
   const events = data.map(event =>
-    <EventRow key={event.id} event={event} />
+  // TODO
+    <EventRow key={event.id} event={event} status="APPROVED" />
   );
 
   return (

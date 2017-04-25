@@ -2,7 +2,31 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
-function EventRow({ event }) {
+function getStatusButton(status) {
+  if (status === 'PENDING') {
+    return (
+      <button className="button warning small event-highlight">
+          Pending
+      </button>
+    );
+  } else if (status === 'APPROVED') {
+    return (
+      <button className="button success small event-highlight">
+          Approved
+      </button>
+    );
+  } else if (status === 'REJECTED') {
+    return (
+      <button className="button alert small event-highlight">
+          Rejected
+      </button>
+    );
+  }
+  return null;
+}
+
+
+function EventRow({ event, status }) {
   const { id, date, endDate, name, location } = event;
   const { day, time } = getFormattedDayAndTime(date, endDate);
   return (
@@ -18,12 +42,7 @@ function EventRow({ event }) {
       </div>
       <div className="small-12 medium-3 columns">
         <Link to={`/event/${id}`}>details</Link>
-        <button className="button success small event-highlight">
-          Approved
-        </button>
-        <button className="button warning small event-highlight">
-          Pending
-        </button>
+        {getStatusButton(status)}
       </div>
     </div>
   );
@@ -36,7 +55,8 @@ EventRow.propTypes = {
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  status: PropTypes.string
 };
 
 export default EventRow;

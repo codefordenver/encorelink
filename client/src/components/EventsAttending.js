@@ -9,15 +9,15 @@ const pendingFilter = (volunteer = {}) => volunteer.status === PENDING;
 
 function Events({ data }) {
   const eventsApproved = data.filter(approvedFilter).map(volunteer =>
-    <EventRow key={volunteer.event.id} event={volunteer.event} />
+    <EventRow key={volunteer.event.id} event={volunteer.event} status="APPROVED" />
   );
 
   const eventsPending = data.filter(pendingFilter).map(volunteer =>
-    <EventRow key={volunteer.event.id} event={volunteer.event} />
+    <EventRow key={volunteer.event.id} event={volunteer.event} status="PENDING" />
   );
 
   const eventsRejected = data.filter(rejectedFilter).map(volunteer =>
-    <EventRow key={volunteer.event.id} event={volunteer.event} />
+    <EventRow key={volunteer.event.id} event={volunteer.event} status="REJECTED" />
   );
 
   return (
