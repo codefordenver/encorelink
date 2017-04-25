@@ -22,12 +22,6 @@ exports[`Storyshots Header Logged In: Organizer 1`] = `
         organizer@encorelink.com
       </a>
        
-      <a
-        className="button"
-        onClick={[Function]}
-        style={Object {}}>
-        Dashboard
-      </a>
        
       <button
         className="button"
