@@ -82,7 +82,7 @@ function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetch
             </a>
           }
           {' '}
-          <Link to="/events" className="button secondary">Go Back</Link>
+          <Link to={isMusician ? '/events' : '/dashboard'} className="button secondary">Go Back</Link>
         </p>
       </div>
     </div>

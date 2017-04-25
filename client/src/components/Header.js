@@ -8,7 +8,9 @@ function Header({ isLoggedIn, isMusician, logoutUser, user }) {
         { user && user.email }
       </Link>
       {' '}
-      <Link className="button" to="/dashboard">Dashboard</Link>
+      {isMusician && (
+        <Link className="button" to="/dashboard">Dashboard</Link>
+      )}
       {' '}
       <button className="button" onClick={logoutUser}>Log out</button>
     </div>
@@ -19,7 +21,7 @@ function Header({ isLoggedIn, isMusician, logoutUser, user }) {
   return (
     <header className="top-bar">
       <div className="top-bar-left">
-        <Link to={isLoggedIn ? '/events' : '/'}>
+        <Link to={isLoggedIn ? '/dashboard' : '/'}>
           <img alt="EncoreLink" className="logo-img" src="/public/img/encorelink-logo.png" />
         </Link>
       </div>
