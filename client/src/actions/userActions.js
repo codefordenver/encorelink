@@ -73,6 +73,15 @@ export function checkIfLoginIsValid() {
   });
 }
 
+export function updateUser(formData, id) {
+  return apiAction('put', (state) => `users/${getUserId(state)}`, {
+    body: formData,
+    onSuccess: () => {
+      browserHistory.push('/events');
+    }
+  });
+}
+
 export function sendPasswordReset(formData) {
   return createApiAction({
     callApi: () => post('users/reset', { body: formData }),

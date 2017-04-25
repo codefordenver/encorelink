@@ -8,7 +8,7 @@ import EventsContainer from './containers/EventsContainer';
 import EventContainer from './containers/EventContainer';
 import MusicianContainer from './containers/MusicianContainer';
 import OrganizerProfileContainer from './containers/OrganizerProfileContainer';
-import MusicianProfile from './components/MusicianProfile';
+import MusicianProfileContainer from './containers/MusicianProfileContainer';
 import AuthenticatedRoutesContainer from './containers/AuthenticatedRoutesContainer';
 import ResetPasswordContainer from './containers/ResetPasswordContainer';
 import ForgotPasswordContainer from './containers/ForgotPasswordContainer';
@@ -26,7 +26,7 @@ const routes = (
       <Route path="/organizerProfile" component={OrganizerProfileContainer} />
       <Route path="/events" component={EventsContainer} />
       <Route path="/event/:id" component={EventContainer} />
-      <Route path="/musicianProfile" component={MusicianProfile} />
+      <Route path="/musicianProfile" component={MusicianProfileContainer} />
       <Route path="/dashboard" component={DashboardContainer} />
       <Route path="/musician/:id" component={MusicianContainer} />
     </Route>
