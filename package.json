@@ -60,7 +60,10 @@
     "whatwg-fetch": "^2.0.2"
   },
   "devDependencies": {
+    "@kadira/react-storybook-addon-info": "^3.4.0",
     "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addon-knobs": "^1.7.1",
+    "@kadira/storybook-addons": "^1.6.1",
     "babel-eslint": "^6.1.2",
     "babel-jest": "^16.0.0",
     "cross-env": "^2.0.1",
