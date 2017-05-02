@@ -23,13 +23,14 @@ const CreateEvent = ({ handleSubmit }) => (
             autoFocus
           />
         </FormattedFormField>
-        <FormattedFormField title="Start Date/Time">
+        <FormattedFormField title="Start Date">
           <Field
             name="date"
             required
             component={
               props =>
                 <Datetime
+                  timeFormat={false}
                   onChange={(moment) => props.input.onChange(moment.format())}
                   inputProps={{ required: 'required' }}
                   isValidDate={(moment) => { return moment.isAfter(Datetime.moment().subtract(1, 'day')); }}
