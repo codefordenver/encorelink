@@ -1,13 +1,13 @@
 import moment from 'moment';
 
-export function getFormattedDayAndTime(startDate, endDate) {
+export function getFormattedDayAndTime(startDate, startTime, endTime) {
   const startDateMoment = moment(startDate);
   const day = startDateMoment.format('MMM ddd D');
-  const startTime = startDateMoment.format('h:mm');
-  const endTime = moment(endDate).format('h:mm a');
+  const start = moment(startTime).format('h:mm a');
+  const end = moment(endTime).format('h:mm a');
   return {
     day,
-    time: `${startTime}-${endTime}`
+    time: `${start}-${end}`
   };
 }
 

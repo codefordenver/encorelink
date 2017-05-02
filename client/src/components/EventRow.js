@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
 function EventRow({ event }) {
-  const { id, date, endDate, name, location } = event;
-  const { day, time } = getFormattedDayAndTime(date, endDate);
+  const { id, date, startTime, endTime, name, location } = event;
+  const { day, time } = getFormattedDayAndTime(date, startTime, endTime);
   return (
     <div className="row event-row">
       <div className="small-12 medium-2 columns">
@@ -26,7 +26,7 @@ function EventRow({ event }) {
 EventRow.propTypes = {
   event: PropTypes.shape({
     date: PropTypes.string.isRequired,
-    endDate: PropTypes.string.isRequired,
+    endTime: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired

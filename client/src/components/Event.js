@@ -5,8 +5,8 @@ import GoogleMapEmbeded from './GoogleMapEmbeded';
 import EventMusiciansContainer from '../containers/EventMusiciansContainer';
 
 function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetching, isRegistered, userId }) {
-  const { date, endDate, name, location, notes } = data || {};
-  const { day, time } = getFormattedDayAndTime(date, endDate);
+  const { date, endTime, name, location, notes } = data || {};
+  const { day, time } = getFormattedDayAndTime(date, endTime);
   const isOwner = data && (data.ownerId === userId);
 
   const displayMusicianOptions = () => {
@@ -92,7 +92,7 @@ function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetch
 Event.propTypes = {
   data: PropTypes.shape({
     date: PropTypes.string.isRequired,
-    endDate: PropTypes.string.isRequired,
+    endTime: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
