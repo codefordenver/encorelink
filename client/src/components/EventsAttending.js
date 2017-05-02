@@ -33,20 +33,36 @@ function Events({ data }) {
         </div>
       </div>
 
-      <h4> Approved </h4>
+      <div className="row events-status-header">
+        <div className="small-12">
+          <h4>Approved</h4>
+        </div>
+      </div>
+
       { eventsApproved }
 
-      <h4> Pending </h4>
+      <div className="row events-status-header">
+        <div className="small-12">
+          <h4>Pending</h4>
+        </div>
+      </div>
+      
       { eventsPending }
 
-      <h4> Rejected </h4>
+      <div className="row events-status-header">
+        <div className="small-12">
+          <h4> Rejected </h4>
+        </div>
+      </div>
+
       { eventsRejected }
+
     </div>
   );
 }
 
 Events.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
+    data: PropTypes.arrayOf(PropTypes.shape({
     status: PropTypes.string.isRequired,
     event: PropTypes.shape({
       id: PropTypes.number.isRequired
