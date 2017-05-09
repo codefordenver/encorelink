@@ -22,7 +22,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
         <h4>
           Tuesday, January 1, 1901
            | 
-          4:00-7:30 pm
+          9:00-12:30 pm
         </h4>
         <p>
           Galvanize, Golden Triangle, Denver
@@ -302,7 +302,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
                                 }
                               }
                             >
-                              -2177370000000
+                              -2177395200000
                             </span>
                             }
                           </span>
@@ -326,7 +326,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
                                 }
                               }
                             >
-                              -2177357400000
+                              -2177382600000
                             </span>
                             }
                           </span>
