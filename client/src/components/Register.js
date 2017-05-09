@@ -19,7 +19,8 @@ class Register extends React.Component {
       password: '',
       email: '',
       open: false,
-      isMusician: false
+      isMusician: false,
+      tab: 'Musician'
     };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -54,41 +55,98 @@ class Register extends React.Component {
     this.props.registerRequest(this.state.email, this.state.password, this.state.isMusician);
   }
 
-  handleOpen = () => { this.setState({ open: true }); }
+  handleOpen = () => {
+    this.setState({ open: true });
+  }
 
-  handleClose = () => { this.setState({ open: false }); }
+  handleClose = () => {
+    this.setState({ open: false });
+  }
+
+  isActive = () => {
+    this.setState({ active: true });
+  }
+
+  handleMusicianTabClick = () => {
+    this.setState({ tab: 'Musician' });
+  }
+  handleOrganizerTabClick = () => {
+    this.setState({ tab: 'Organizer' });
+  }
 
   render() {
     return (
       <div className="register">
         <h3>Sign up</h3>
         <form className="form-register" onSubmit={this.handleFormSubmit}>
-          <label>Email
-            <input type="text"
-              onChange={this.handleEmailChange}
-              placeholder="Email"
-              required
-              autoFocus
-            />
-          </label>
-          <label>Password
-            <input type="password"
-              onChange={this.handlePasswordChange}
-              placeholder="Password"
-              required
-            />
-          </label>
-          <label className="volunteer-check">
-            <input type="checkbox"
-              checked={this.state.isMusician}
-              onChange={this.handleVolunteerChange}
-            />
-            { 'I\'m a musician' }
-          </label>
+
+          <ul className="tabs" data-tabs id="register-tabs">
+            <li className={'tabs-title ' + (this.state.tab === 'Musician' ? 'is-active' : '')}>
+              <Link onKeyPress={(e) => {
+                if (e.charCode === 13) {
+                  this.handleMusicianTabClick();
+                }
+              }}
+                onClick={this.handleMusicianTabClick}
+                tabIndex={0}
+              >As a Musician</Link>
+            </li>
+            <li className={'tabs-title ' + (this.state.tab === 'Organizer' ? 'is-active' : '')}>
+              <Link onKeyPress={(e) => {
+                if (e.charCode === 13) {
+                  this.handleOrganizerTabClick();
+                }
+              }}
+                onClick={this.handleOrganizerTabClick}
+                tabIndex={0}
+              >As an Organizer</Link>
+            </li>
+          </ul>
+
+          <div className="tabs-content" data-tabs-content="register-tabs">
+            <div className={'tabs-panel ' + (this.state.tab === 'Musician' ? 'is-active' : '')} id="panel1">
+              <label>Email
+                <input type="text"
+                  onChange={this.handleEmailChange}
+                  placeholder="Email"
+                  required
+                  autoFocus
+                />
+              </label>
+              <label>Password
+                <input type="password"
+                  onChange={this.handlePasswordChange}
+                  placeholder="Password"
+                  required
+                />
+              </label>
+            </div>
+          </div>
+          <div className="tabs-content" data-tabs-content="register-tabs">
+            <div className={'tabs-panel ' + (this.state.tab === 'Organizer' ? 'is-active' : '')} id="panel2">
+              <label>Email
+                <input type="text"
+                  onChange={this.handleEmailChange}
+                  placeholder="Email"
+                  required
+                  autoFocus
+                />
+              </label>
+              <label>Password
+                <input type="password"
+                  onChange={this.handlePasswordChange}
+                  placeholder="Password"
+                  required
+                />
+              </label>
+            </div>
+          </div>
           <label className="terms">By clicking Register, you agree to the site
             {' '}
             <Link onKeyPress={(e) => {
-              if (e.charCode === 13) { this.handleOpen(); }
+              if (e.charCode === 13) {
+                this.handleOpen();
+              }
             }}
               onClick={this.handleOpen}
               tabIndex={0}

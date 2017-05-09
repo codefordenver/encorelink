@@ -24,31 +24,81 @@ exports[`test Landing renders correctly 1`] = `
           <form
             className="form-register"
             onSubmit={[Function]}>
-            <label>
-              Email
-              <input
-                autoFocus={true}
-                onChange={[Function]}
-                placeholder="Email"
-                required={true}
-                type="text" />
-            </label>
-            <label>
-              Password
-              <input
-                onChange={[Function]}
-                placeholder="Password"
-                required={true}
-                type="password" />
-            </label>
-            <label
-              className="volunteer-check">
-              <input
-                checked={false}
-                onChange={[Function]}
-                type="checkbox" />
-              I'm a musician
-            </label>
+            <ul
+              className="tabs"
+              data-tabs={true}
+              id="register-tabs">
+              <li
+                className="tabs-title is-active">
+                <a
+                  onClick={[Function]}
+                  onKeyPress={[Function]}
+                  style={Object {}}
+                  tabIndex={0}>
+                  As a Musician
+                </a>
+              </li>
+              <li
+                className="tabs-title ">
+                <a
+                  onClick={[Function]}
+                  onKeyPress={[Function]}
+                  style={Object {}}
+                  tabIndex={0}>
+                  As an Organizer
+                </a>
+              </li>
+            </ul>
+            <div
+              className="tabs-content"
+              data-tabs-content="register-tabs">
+              <div
+                className="tabs-panel is-active"
+                id="panel1">
+                <label>
+                  Email
+                  <input
+                    autoFocus={true}
+                    onChange={[Function]}
+                    placeholder="Email"
+                    required={true}
+                    type="text" />
+                </label>
+                <label>
+                  Password
+                  <input
+                    onChange={[Function]}
+                    placeholder="Password"
+                    required={true}
+                    type="password" />
+                </label>
+              </div>
+            </div>
+            <div
+              className="tabs-content"
+              data-tabs-content="register-tabs">
+              <div
+                className="tabs-panel "
+                id="panel2">
+                <label>
+                  Email
+                  <input
+                    autoFocus={true}
+                    onChange={[Function]}
+                    placeholder="Email"
+                    required={true}
+                    type="text" />
+                </label>
+                <label>
+                  Password
+                  <input
+                    onChange={[Function]}
+                    placeholder="Password"
+                    required={true}
+                    type="password" />
+                </label>
+              </div>
+            </div>
             <label
               className="terms">
               By clicking Register, you agree to the site
