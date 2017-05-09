@@ -30,7 +30,7 @@ class Register extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.isLoggedIn) {
       if (nextProps.isMusician) {
-        this.props.router.push('/events');
+        this.props.router.push('/dashboard');
       } else {
         this.props.router.push('/createEvent');
       }
