@@ -2,7 +2,7 @@ import moment from 'moment';
 
 export function getFormattedDayAndTime(startDate, endDate) {
   const startDateMoment = moment(startDate);
-  const day = startDateMoment.format('MMM ddd D');
+  const day = startDateMoment.format('dddd, MMMM D, YYYY');
   const startTime = startDateMoment.format('h:mm');
   const endTime = moment(endDate).format('h:mm a');
   return {
