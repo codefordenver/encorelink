@@ -46,7 +46,7 @@ function Events({ data }) {
           <h4>Pending</h4>
         </div>
       </div>
-      
+
       { eventsPending }
 
       <div className="row events-status-header">
@@ -62,7 +62,7 @@ function Events({ data }) {
 }
 
 Events.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.shape({
+  data: PropTypes.arrayOf(PropTypes.shape({
     status: PropTypes.string.isRequired,
     event: PropTypes.shape({
       id: PropTypes.number.isRequired
