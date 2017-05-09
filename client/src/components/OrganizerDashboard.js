@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { PENDING, APPROVED } from '../constants/eventAttendingStatus';
 import EventVolunteerRow from '../components/EventVolunteerRow';
+import EventRow from '../components/EventRow';
 
 const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician }) => {
   const eventVolunteers = data.reduce((prev, curr) => prev.concat(curr.eventvolunteers), []);
@@ -17,6 +18,12 @@ const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician })
     .filter(eventVolunteer => eventVolunteer.status === APPROVED)
     .map(eventVolunteer => <EventVolunteerRow eventVolunteer={eventVolunteer}
       key={eventVolunteer.id}
+    />);
+  const eventsWithoutVolunteers = data
+    .filter(event => event.eventvolunteers.length === 0)
+    .map(event => <EventRow
+      event={event}
+      key={event.id}
     />);
 
   return (
@@ -44,6 +51,18 @@ const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician })
             <table>
               <tbody>
                 {approvedEventVolunteers}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-divider">
+            <h5>Events Without Volunteers</h5>
+          </div>
+          <div className="card-section">
+            <table>
+              <tbody>
+                {eventsWithoutVolunteers}
               </tbody>
             </table>
           </div>
