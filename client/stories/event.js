@@ -11,8 +11,8 @@ storiesOf('Event', module)
     'Check the knobs tab in the panel below to customize the props for this component',
     () => {
       const eventData = {
-        date: date('data.date', new Date('Jan 1, 1901 4:00 pm mst GMT')),
-        endDate: date('data.endDate', new Date('Jan 1, 1901 7:30 pm GMT')),
+        date: date('data.date', new Date('Jan 1, 1901 4:00 pm')),
+        endDate: date('data.endDate', new Date('Jan 1, 1901 7:30 pm')),
         id: 2,
         location: text('data.location', 'Galvanize, Golden Triangle, Denver'),
         name: text('data.name', 'The best event'),
