@@ -83,6 +83,8 @@ function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetch
           }
           {' '}
           <Link to="/events" className="button secondary">Go Back</Link>
+          {' '}
+          <Link to="/events/update" className="button secondary" onClick={() => updateEvent(data)}>Update</Link>
         </p>
       </div>
     </div>

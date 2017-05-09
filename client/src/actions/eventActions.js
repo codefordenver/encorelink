@@ -21,6 +21,22 @@ export function createEvent(formData) {
   });
 }
 
+export function updateEvent(formData) {
+  return apiAction('post', (state) => `users/${getUserId(state)}/events`, {
+    body: correctDatesForKeys(formData, ['date', 'endDate']),
+
+    onSuccess: (res, state) => {
+      const organizations = getModels(state, `users/${getUserId(state)}/organization`) || [];
+      if (organizations.length) {
+        browserHistory.push('/events');
+        return;
+      }
+
+      browserHistory.push('/organizerProfile');
+    }
+  });
+}
+
 export function signUpForEvent(event) {
   return apiAction('put', (state) =>
   `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {

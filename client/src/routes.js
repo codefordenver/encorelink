@@ -25,6 +25,7 @@ const routes = (
       <Route path="/createEvent" component={CreateEventContainer} />
       <Route path="/organizerProfile" component={OrganizerProfileContainer} />
       <Route path="/events" component={EventsContainer} />
+      <Route path="/events/update" component={CreateEventContainer} />
       <Route path="/event/:id" component={EventContainer} />
       <Route path="/musicianProfile" component={MusicianProfileContainer} />
       <Route path="/dashboard" component={DashboardContainer} />
