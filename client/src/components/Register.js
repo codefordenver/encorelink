@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import Terms from './Terms';
 
 class Register extends React.Component {
+
   static propTypes = {
     registerRequest: PropTypes.func.isRequired,
     router: PropTypes.shape({
@@ -63,7 +64,7 @@ class Register extends React.Component {
       <div className="register">
         <h3>Sign up</h3>
         <form className="form-register" onSubmit={this.handleFormSubmit}>
-          <label>Email
+          <label>Email<sup><strong> *</strong></sup>
             <input type="text"
               onChange={this.handleEmailChange}
               placeholder="Email"
@@ -71,7 +72,7 @@ class Register extends React.Component {
               autoFocus
             />
           </label>
-          <label>Password
+          <label>Password<sup><strong> *</strong></sup>
             <input type="password"
               onChange={this.handlePasswordChange}
               placeholder="Password"
@@ -111,6 +112,9 @@ class Register extends React.Component {
           Already have an account?&nbsp;
           <Link to="/login">Log in</Link>
         </p>
+        <small>
+          <sup><strong>* </strong></sup>Required Fields
+        </small>
       </div>
     );
   }
