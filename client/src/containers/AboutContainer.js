@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AboutContainer() {  
+function AboutContainer() {
   return (
     <div className="row">
       <div className="small-10">
