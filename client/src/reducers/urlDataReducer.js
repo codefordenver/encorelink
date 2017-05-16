@@ -103,7 +103,7 @@ export default function urlDataReducer(urlDataState = initialUrlData, action) {
     return handleGetRequest(urlDataState, action);
   }
 
-  if (['put', 'patch', 'post', 'delete'].indexOf(method) !== -1) {
+  if (['put', 'patch', 'post'].indexOf(method) !== -1) {
     return handleUpdateRequest(urlDataState, action);
   }
 
