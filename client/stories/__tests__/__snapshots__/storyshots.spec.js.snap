@@ -190,13 +190,15 @@ exports[`Storyshots Header Not logged in 1`] = `
     <span>
       <a
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         About Us
       </a>
       <a
         className="button login"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Log in
       </a>
     </span>
