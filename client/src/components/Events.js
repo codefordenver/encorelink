@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import EventRow from './EventRow';
 
 function Events({ data, isMusician }) {

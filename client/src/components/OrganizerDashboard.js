@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import EventRow from './EventRow';
 import { Link } from 'react-router';
+import EventRow from './EventRow';
 import { PENDING, APPROVED } from '../constants/eventAttendingStatus';
 import EventVolunteerRow from '../components/EventVolunteerRow';
 
