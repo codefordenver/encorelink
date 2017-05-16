@@ -12,7 +12,7 @@ export function createEvent(formData) {
     onSuccess: (res, state) => {
       const organizations = getModels(state, `users/${getUserId(state)}/organization`) || [];
       if (organizations.length) {
-        browserHistory.push('/events');
+        browserHistory.push('/dashboard');
         return;
       }
 

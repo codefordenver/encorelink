@@ -60,7 +60,11 @@
     "whatwg-fetch": "^2.0.2"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
+    "@kadira/react-storybook-addon-info": "^3.4.0",
+    "@kadira/storybook": "^2.35.3",
+    "@kadira/storybook-addon-knobs": "^1.7.1",
+    "@kadira/storybook-addon-options": "^1.0.2",
+    "@kadira/storybook-addons": "^1.6.1",
     "babel-eslint": "^6.1.2",
     "babel-jest": "^16.0.0",
     "cross-env": "^2.0.1",
@@ -69,13 +73,13 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.0",
-    "jest": "^18.1.0",
+    "jest": "^19.0.2",
     "nsp": "^2.1.0",
     "react-hot-loader": "^3.0.0-beta.5",
     "react-test-renderer": "^15.3.2",
     "redux-logger": "^2.6.1",
     "rimraf": "^2.5.4",
-    "storyshots": "^3.2.1",
+    "storyshots": "^3.2.2",
     "webpack-dev-server": "^1.14.1"
   },
   "repository": {
