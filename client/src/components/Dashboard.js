@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import OrganizerDashboardContainer from '../containers/OrganizerDashboardContainer';
 import EventsAttendingContainer from '../containers/EventsAttendingContainer';
@@ -11,7 +12,7 @@ const Dashboard = ({ isMusician }) => {
 };
 
 Dashboard.propTypes = {
-  isMusician: React.PropTypes.bool.isRequired
+  isMusician: PropTypes.bool.isRequired
 };
 
 export default Dashboard;
