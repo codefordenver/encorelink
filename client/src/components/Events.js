@@ -15,9 +15,6 @@ function Events({ data, isMusician }) {
           <h3>Events</h3>
         </div>
       </div>
-      { !isMusician && (
-        <Link to="/createEvent">Create Event</Link>
-      ) }
       { events }
     </div>
   );
