@@ -76,6 +76,17 @@ Let's fetch some data from the StrongLoop web api!
 
 1. In your browser, navigate to the [StrongLoop API Explorer](http://localhost:3000/explorer) and choose an API endpoint you'd like to retrieve data from. For the purposes of this example we'll choose [Get All Events](http://localhost:3000/explorer/#!/Event/Event_find)
 
-2. 
-```JavaScript
+2. This file is the events.js container and retrieves
+data from the url for events.
+```JavaScript 
+import gimmeData from '../utils/gimmeData';
+
+//This function returns the url for all events
+function urlFn(state) {
+  return 'events';
+}
+
+/* Fetches the data from the URL and provides it to the 
+   events component. */
+export default gimmeData(urlFn)(Events);
 ```
