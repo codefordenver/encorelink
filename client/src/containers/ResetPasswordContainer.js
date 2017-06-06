@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import ResetPassword from '../components/ResetPassword';
 import { resetPasswordFromToken } from '../actions/userActions';
 
