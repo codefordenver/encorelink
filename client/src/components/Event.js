@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 import GoogleMapEmbeded from './GoogleMapEmbeded';
 import EventMusiciansContainer from '../containers/EventMusiciansContainer';
