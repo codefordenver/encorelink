@@ -85,8 +85,8 @@ export function updateUser(formData, id) {
 export function sendPasswordReset(formData) {
   return createApiAction({
     callApi: () => post('users/reset', { body: formData }),
-    //successAction: receiveUser,
-    //failAction: logoutUser
+    // successAction: receiveUser,
+    // failAction: logoutUser
   });
 }
 
