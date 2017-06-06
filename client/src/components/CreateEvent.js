@@ -14,7 +14,7 @@ const CreateEvent = ({ handleSubmit }) => (
       <h1>Schedule Performance</h1>
       <h4 className="subheader">Fill form below to set up a performance time slot</h4>
       <form className="form-create-event" onSubmit={handleSubmit}>
-        <FormattedFormField title="Event Title">
+        <FormattedFormField title="Event Title*">
           <Field
             name="name"
             component="input"
@@ -23,7 +23,7 @@ const CreateEvent = ({ handleSubmit }) => (
             autoFocus
           />
         </FormattedFormField>
-        <FormattedFormField title="Start Date/Time">
+        <FormattedFormField title="Start Date/Time*">
           <Field
             name="date"
             required
@@ -37,7 +37,7 @@ const CreateEvent = ({ handleSubmit }) => (
             }
           />
         </FormattedFormField>
-        <FormattedFormField title="End Date/Time">
+        <FormattedFormField title="End Date/Time*">
           <Field
             name="endDate"
             required
@@ -67,6 +67,7 @@ const CreateEvent = ({ handleSubmit }) => (
             type="submit"
             value="Schedule"
           />
+          <p>* <small>Required Fields</small></p>
         </FormattedFormField>
       </form>
     </div>
