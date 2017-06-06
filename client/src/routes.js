@@ -13,6 +13,7 @@ import AuthenticatedRoutesContainer from './containers/AuthenticatedRoutesContai
 import ResetPasswordContainer from './containers/ResetPasswordContainer';
 import ForgotPasswordContainer from './containers/ForgotPasswordContainer';
 import DashboardContainer from './containers/DashboardContainer';
+import AboutContainer from './containers/AboutContainer';
 
 const routes = (
   <Route path="/" component={App}>
@@ -20,6 +21,7 @@ const routes = (
     <Route path="/login" component={LoginContainer} />
     <Route path="/forgotPassword" component={ForgotPasswordContainer} />
     <Route path="/resetPassword" component={ResetPasswordContainer} />
+    <Route path="/about" component={AboutContainer} />
 
     <Route component={AuthenticatedRoutesContainer} >
       <Route path="/createEvent" component={CreateEventContainer} />

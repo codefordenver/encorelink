@@ -187,13 +187,21 @@ exports[`Storyshots Header Not logged in 1`] = `
   <div
     className="top-bar-right text-right"
   >
-    <a
-      className="button"
-      onClick={[Function]}
-      style={Object {}}
-    >
-      Log in
-    </a>
+    <span>
+      <a
+        onClick={[Function]}
+        style={Object {}}
+      >
+        About Us
+      </a>
+      <a
+        className="button login"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Log in
+      </a>
+    </span>
   </div>
 </header>
 `;
