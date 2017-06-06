@@ -70,3 +70,12 @@ static propTypes = {
 ```JavaScript
   Hello, <Link to={this.props.isMusician ? '/musicianProfile' : '/organizerProfile'}>{this.props.user.email}</Link>
 ```
+
+### Fetching Data with gimmeData
+Let's fetch some data from the StrongLoop web api!
+
+1. In your browser, navigate to the [StrongLoop API Explorer](http://localhost:3000/explorer) and choose an API endpoint you'd like to retrieve data from. For the purposes of this example we'll choose [Get All Events](http://localhost:3000/explorer/#!/Event/Event_find)
+
+2. 
+```JavaScript
+```
