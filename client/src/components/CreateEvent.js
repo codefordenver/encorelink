@@ -3,9 +3,16 @@ import { Field, reduxForm } from 'redux-form';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import AutocompleteLocation from './forms/AutocompleteLocation';
-
-
 import FormattedFormField from './forms/FormattedFormField';
+
+// const lessThan = (otherField = Datetime.moment()) => (value, previousValue, allValues) => value < allValues[otherField] ? value : previousValue;
+// const greaterThan = (otherField = Datetime.moment()) => (value, previousValue, allValues) => {
+//   console.log(allValues);
+//   return value > allValues[otherField] ? value : previousValue;
+// }
+const lessThan = (allValues, props) => 4 < 3 ? false : { startTime: 'bad time' };
+const greaterThan = (allValues, props) => 3 > 2 ? false : console.log('greaterThan error');
+
 
 const CreateEvent = ({ handleSubmit }) => (
   <div className="row">
@@ -33,6 +40,7 @@ const CreateEvent = ({ handleSubmit }) => (
                   timeFormat={false}
                   onChange={(moment) => props.input.onChange(moment.format())}
                   inputProps={{ required: 'required' }}
+                  defaultValue={(Datetime.moment())}
                   isValidDate={(moment) => { return moment.isAfter(Datetime.moment().subtract(1, 'day')); }}
                 />
             }
@@ -42,14 +50,15 @@ const CreateEvent = ({ handleSubmit }) => (
           <Field
             name="startTime"
             required
+            validate={lessThan}
             component={
-              props =>
-                <Datetime
-                  dateFormat={false}
-                  onChange={(moment) => props.input.onChange(moment.format())}
-                  inputProps={{ required: 'required' }}
-                  isValidDate={(moment) => { return moment.isAfter(Datetime.moment().subtract(1, 'day')); }}
-                />
+                props =>
+                  <Datetime
+                    dateFormat={false}
+                    onChange={(moment) => props.input.onChange(moment.format())}
+                    inputProps={{ required: 'required' }}
+                    defaultValue={(Datetime.moment())}
+                  />
             }
           />
         </FormattedFormField>
@@ -57,13 +66,14 @@ const CreateEvent = ({ handleSubmit }) => (
           <Field
             name="endTime"
             required
+            validate={greaterThan}
             component={
               props =>
                 <Datetime
                   dateFormat={false}
                   onChange={(moment) => props.input.onChange(moment.format())}
                   inputProps={{ required: 'required' }}
-                  isValidDate={(moment) => { return moment.isAfter(Datetime.moment().subtract(1, 'day')); }}
+                  defaultValue={(Datetime.moment().add(1, 'minute'))}
                 />
             }
           />
