@@ -3,6 +3,15 @@
   margin-bottom: 20px;
 }
 
+.events-status-header {
+  @extend .event-row;
+  h4 {
+     margin-top: 0.75rem;
+     margin-bottom: 0;
+     line-height: 2.5rem;
+  }
+}
+
 .event-row {
   padding: 10px;
   background-color: white;
