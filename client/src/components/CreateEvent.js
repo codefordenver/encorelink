@@ -5,13 +5,10 @@ import 'react-datetime/css/react-datetime.css';
 import AutocompleteLocation from './forms/AutocompleteLocation';
 import FormattedFormField from './forms/FormattedFormField';
 
-// const lessThan = (otherField = Datetime.moment()) => (value, previousValue, allValues) => value < allValues[otherField] ? value : previousValue;
-// const greaterThan = (otherField = Datetime.moment()) => (value, previousValue, allValues) => {
-//   console.log(allValues);
-//   return value > allValues[otherField] ? value : previousValue;
-// }
-const lessThan = (allValues, props) => 4 < 3 ? false : { startTime: 'bad time' };
-const greaterThan = (allValues, props) => 3 > 2 ? false : console.log('greaterThan error');
+
+let error = ''
+const lessThan = (value, allValues) => ((value > allValues.endTime) ? undefined : error = 'blahh');
+const greaterThan = (value, allValues) => ((1 > 2) ? false : 'blahhh');
 
 
 const CreateEvent = ({ handleSubmit }) => (
@@ -61,6 +58,7 @@ const CreateEvent = ({ handleSubmit }) => (
                   />
             }
           />
+          <label className="error">{error}</label>
         </FormattedFormField>
         <FormattedFormField title="End Time">
           <Field

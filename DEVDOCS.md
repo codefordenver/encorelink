@@ -26,7 +26,6 @@ We use Redux to ensure state transitions are understandable. This happens by man
 * **Initial state** and **Reducers** are defined in `client\src\reducers`. [Reducers](http://redux.js.org/docs/basics/Reducers.html) are functions that define how client state is mutated. The `rootReducer` combines our project-specific reducers into one using the Redux `combineReducers` convenience function.
 * Our management of the **[Store](http://redux.js.org/docs/basics/Store.html)** is in `client\src\store`.
    * `configureStore.js` does the main setup and configuration of the store
-   * `errorMiddleware.js` sets up [middleware](http://redux.js.org/docs/advanced/Middleware.html) for handling errors
    * `promiseMiddleware.js` sets up middleware for handling **[Promises](http://redux.js.org/docs/advanced/AsyncFlow.html)**
 
 ###State Transition Example
