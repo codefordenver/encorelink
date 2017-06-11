@@ -6,10 +6,8 @@ import AutocompleteLocation from './forms/AutocompleteLocation';
 import FormattedFormField from './forms/FormattedFormField';
 
 
-let error = ''
-const lessThan = (value, allValues) => ((value > allValues.endTime) ? undefined : error = 'blahh');
-const greaterThan = (value, allValues) => ((1 > 2) ? false : 'blahhh');
-
+const lessThan = (value, allValues) => ((false) ? false : 'End time must be after Start time');
+const greaterThan = (value, allValues) => ((false) ? false : 'blahhh');
 
 const CreateEvent = ({ handleSubmit }) => (
   <div className="row">
@@ -49,16 +47,18 @@ const CreateEvent = ({ handleSubmit }) => (
             required
             validate={lessThan}
             component={
-                props =>
+              (props) =>
+                <div>
                   <Datetime
                     dateFormat={false}
                     onChange={(moment) => props.input.onChange(moment.format())}
                     inputProps={{ required: 'required' }}
                     defaultValue={(Datetime.moment())}
                   />
+                  <span className="error">{props.meta.error}</span>
+                </div>
             }
           />
-          <label className="error">{error}</label>
         </FormattedFormField>
         <FormattedFormField title="End Time">
           <Field

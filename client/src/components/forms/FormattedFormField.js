@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const FormattedFormField = ({ title, children }) => (
+const FormattedFormField = ({ title, children, field }) => (
   <div className="row">
     <div className="small-3 medium-2 columns">
       <label>{ title }</label>
