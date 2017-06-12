@@ -15,12 +15,11 @@ const CreateEvent = ({ handleSubmit }) => (
       <h1>Schedule Performance</h1>
       <h4 className="subheader">Fill form below to set up a performance time slot</h4>
       <form className="form-create-event" onSubmit={handleSubmit}>
-        <FormattedFormField title="Name">
+        <FormattedFormField title="Event Title">
           <Field
             name="name"
             component="input"
             type="text"
-            placeholder="name"
             required
             autoFocus
           />
@@ -83,7 +82,7 @@ const CreateEvent = ({ handleSubmit }) => (
           <Field
             name="notes"
             component="textarea"
-            placeholder="Notes"
+            placeholder="Please describe your event e.g., number of attendees, number of musicians, or type of music"
           />
         </FormattedFormField>
         <FormattedFormField>

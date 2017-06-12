@@ -1,12 +1,18 @@
-exports[`test Landing renders correctly 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing renders correctly 1`] = `
 <div
-  className="landing-page">
+  className="landing-page"
+>
   <div
-    className="theater">
+    className="theater"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="small-12 medium-6 large-6 large-offset-1 column align-middle text-center">
+        className="small-12 medium-6 large-6 large-offset-1 column align-middle text-center"
+      >
         <h1>
           Match. Play. Contribute.
         </h1>
@@ -15,15 +21,18 @@ exports[`test Landing renders correctly 1`] = `
         </p>
       </div>
       <div
-        className="small-12 medium-6 large-4 large-offset-1 column align-middle">
+        className="small-12 medium-6 large-4 large-offset-1 column align-middle"
+      >
         <div
-          className="register">
+          className="register"
+        >
           <h3>
             Sign up
           </h3>
           <form
             className="form-register"
-            onSubmit={[Function]}>
+            onSubmit={[Function]}
+          >
             <label>
               Email
               <input
@@ -31,7 +40,8 @@ exports[`test Landing renders correctly 1`] = `
                 onChange={[Function]}
                 placeholder="Email"
                 required={true}
-                type="text" />
+                type="text"
+              />
             </label>
             <label>
               Password
@@ -39,25 +49,30 @@ exports[`test Landing renders correctly 1`] = `
                 onChange={[Function]}
                 placeholder="Password"
                 required={true}
-                type="password" />
+                type="password"
+              />
             </label>
             <label
-              className="volunteer-check">
+              className="volunteer-check"
+            >
               <input
                 checked={false}
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
               I'm a musician
             </label>
             <label
-              className="terms">
+              className="terms"
+            >
               By clicking Register, you agree to the site
                
               <a
                 onClick={[Function]}
                 onKeyPress={[Function]}
                 style={Object {}}
-                tabIndex={0}>
+                tabIndex={0}
+              >
                 terms
               </a>
               .
@@ -65,7 +80,8 @@ exports[`test Landing renders correctly 1`] = `
             </label>
             <button
               className="button secondary"
-              type="submit">
+              type="submit"
+            >
               Register
             </button>
           </form>
@@ -74,7 +90,8 @@ exports[`test Landing renders correctly 1`] = `
             <a
               href={undefined}
               onClick={[Function]}
-              style={Object {}}>
+              style={Object {}}
+            >
               Log in
             </a>
           </p>
@@ -83,40 +100,49 @@ exports[`test Landing renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="row content-block text-center">
+    className="row content-block text-center"
+  >
     <div
-      className="small-12 column">
+      className="small-12 column"
+    >
       <h1
-        className="blue-txt">
+        className="blue-txt"
+      >
         How It Works
       </h1>
     </div>
     <div
-      className="column small-12 large-4">
+      className="column small-12 large-4"
+    >
       <h1>
         1
       </h1>
       <img
         alt="Organizers Create Volunteering Spots"
-        src="../../public/img/how/how_organizer.png" />
+        src="../../public/img/how/how_organizer.png"
+      />
     </div>
     <div
-      className="column small-12 large-4">
+      className="column small-12 large-4"
+    >
       <h1>
         2
       </h1>
       <img
         alt="Musicians Search and Schedule Volunteering Spots"
-        src="../../public/img/how/how_musician.png" />
+        src="../../public/img/how/how_musician.png"
+      />
     </div>
     <div
-      className="column small-12 large-4">
+      className="column small-12 large-4"
+    >
       <h1>
         3
       </h1>
       <img
         alt="Musicians Play for Audience"
-        src="../../public/img/how/how_performance.png" />
+        src="../../public/img/how/how_performance.png"
+      />
     </div>
   </div>
 </div>

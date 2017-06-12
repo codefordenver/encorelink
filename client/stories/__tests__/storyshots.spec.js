@@ -1,5 +1,5 @@
 import initStoryshots from 'storyshots';
 
 initStoryshots({
-  configPath: 'client/stories'
+  configPath: 'client/stories/snapshotConfig'
 });

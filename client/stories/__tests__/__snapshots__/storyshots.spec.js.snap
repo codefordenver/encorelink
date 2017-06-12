@@ -1,37 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Event Event with customizable props 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="small-12 columns"
+  >
+    <h3>
+      The best event
+    </h3>
+    <h4>
+      Tuesday, January 1, 1901
+       | 
+      4:00-7:30 pm
+    </h4>
+    <p>
+      Galvanize, Golden Triangle, Denver
+    </p>
+  </div>
+  <div
+    className="small-12 medium-8 large-6 columns"
+  >
+    <div
+      className="flex-video"
+    >
+      <iframe
+        allowFullScreen={true}
+        frameBorder="0"
+        height="350"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBY3OXm5es86eB4pUrzemhj39unL0BwAKc&q=Galvanize%2C%20Golden%20Triangle%2C%20Denver"
+        style={
+          Object {
+            "border": 0,
+          }
+        }
+        width="600"
+      />
+    </div>
+  </div>
+  <div
+    className="small-12 columns"
+  >
+    <div>
+      <h5>
+        Additional Information
+      </h5>
+      <p>
+        These are the notes on the event
+      </p>
+    </div>
+  </div>
+  <div
+    className="small-12 columns"
+  >
+    <p>
+       
+      <a
+        className="button secondary"
+        href="mailto:thedude@loves.me"
+      >
+        Contact Organizer
+      </a>
+       
+      <a
+        className="button secondary"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Go Back
+      </a>
+    </p>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Header Logged In: Organizer 1`] = `
 <header
-  className="top-bar">
+  className="top-bar"
+>
   <div
-    className="top-bar-left">
+    className="top-bar-left"
+  >
     <a
       onClick={[Function]}
-      style={Object {}}>
+      style={Object {}}
+    >
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/public/img/encorelink-logo.png" />
+        src="/public/img/encorelink-logo.png"
+      />
     </a>
   </div>
   <div
-    className="top-bar-right text-right">
+    className="top-bar-right text-right"
+  >
     <div>
       Hello, 
       <a
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         organizer@encorelink.com
       </a>
        
-      <a
-        className="button"
-        onClick={[Function]}
-        style={Object {}}>
-        Dashboard
-      </a>
        
       <button
         className="button"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Log out
       </button>
     </div>
@@ -41,38 +119,46 @@ exports[`Storyshots Header Logged In: Organizer 1`] = `
 
 exports[`Storyshots Header Logged in: Musician 1`] = `
 <header
-  className="top-bar">
+  className="top-bar"
+>
   <div
-    className="top-bar-left">
+    className="top-bar-left"
+  >
     <a
       onClick={[Function]}
-      style={Object {}}>
+      style={Object {}}
+    >
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/public/img/encorelink-logo.png" />
+        src="/public/img/encorelink-logo.png"
+      />
     </a>
   </div>
   <div
-    className="top-bar-right text-right">
+    className="top-bar-right text-right"
+  >
     <div>
       Hello, 
       <a
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         musican@encorelink.com
       </a>
        
       <a
         className="button"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         Dashboard
       </a>
        
       <button
         className="button"
-        onClick={[Function]}>
+        onClick={[Function]}
+      >
         Log out
       </button>
     </div>
@@ -82,24 +168,30 @@ exports[`Storyshots Header Logged in: Musician 1`] = `
 
 exports[`Storyshots Header Not logged in 1`] = `
 <header
-  className="top-bar">
+  className="top-bar"
+>
   <div
-    className="top-bar-left">
+    className="top-bar-left"
+  >
     <a
       onClick={[Function]}
-      style={Object {}}>
+      style={Object {}}
+    >
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/public/img/encorelink-logo.png" />
+        src="/public/img/encorelink-logo.png"
+      />
     </a>
   </div>
   <div
-    className="top-bar-right text-right">
+    className="top-bar-right text-right"
+  >
     <a
       className="button"
       onClick={[Function]}
-      style={Object {}}>
+      style={Object {}}
+    >
       Log in
     </a>
   </div>

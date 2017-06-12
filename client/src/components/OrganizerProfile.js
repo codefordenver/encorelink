@@ -118,6 +118,8 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                 <Field
                   name="notes"
                   component="textarea"
+                  placeholder="Please describe the kind of events generally associated with your
+                    facility e.g., room size, audience, or preferred music style"
                 />
               </label>
             </div>

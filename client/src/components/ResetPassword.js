@@ -24,7 +24,7 @@ class ResetPassword extends React.Component {
       if (locationState && locationState.nextPathname) {
         this.props.router.push(locationState.nextPathname);
       } else {
-        this.props.router.push('/events');
+        this.props.router.push('/dashboard');
       }
     }
   }
