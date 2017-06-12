@@ -103,6 +103,7 @@ CreateEvent.propTypes = {
   input: PropTypes.shape({
     onChange: PropTypes.func.isRequired
   }).isRequired,
+  meta: PropTypes.func,
 };
 
 export default reduxForm({
