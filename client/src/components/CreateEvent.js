@@ -6,8 +6,8 @@ import AutocompleteLocation from './forms/AutocompleteLocation';
 import FormattedFormField from './forms/FormattedFormField';
 
 
-const lessThan = (value, allValues) => ((false) ? false : 'End time must be after Start time');
-const greaterThan = (value, allValues) => ((false) ? false : 'blahhh');
+const lessThan = (value, allValues) => ((value < allValues.endTime) ? undefined : 'Start time must be before end time');
+const greaterThan = (value, allValues) => ((value > allValues.startTime) ? undefined : 'End time must be after start time');
 
 const CreateEvent = ({ handleSubmit }) => (
   <div className="row">
