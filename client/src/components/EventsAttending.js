@@ -18,7 +18,7 @@ function Events({ data }) {
   );
 
   const eventsRejected = data.filter(rejectedFilter).map(volunteer =>
-    <EventRow key={volunteer.event.id} event={volunteer.event} />
+    <EventRow key={volunteer.event.id} event={volunteer.event} hideCalendar />
   );
 
   return (
