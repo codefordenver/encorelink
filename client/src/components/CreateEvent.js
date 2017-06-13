@@ -6,8 +6,8 @@ import AutocompleteLocation from './forms/AutocompleteLocation';
 import FormattedFormField from './forms/FormattedFormField';
 
 
-const lessThan = (value, allValues) => ((value < allValues.endTime) ? undefined : 'Start time must be before end time');
-const greaterThan = (value, allValues) => ((value > allValues.startTime) ? undefined : 'End time must be after start time');
+const lessThan = (value, allValues) => ((value && value.isBefore(allValues.endTime, 'minutes')) ? undefined : 'Start time must be before end time');
+const greaterThan = (value, allValues) => ((value && value.isAfter(allValues.startTime, 'minutes')) ? undefined : 'End time must be after start time');
 
 const CreateEvent = ({ handleSubmit }) => (
   <div className="row">
@@ -51,9 +51,8 @@ const CreateEvent = ({ handleSubmit }) => (
                   <span className="error" style={{ color: 'red' }}>{props.meta.error}</span>
                   <Datetime
                     dateFormat={false}
-                    onChange={(moment) => props.input.onChange(moment.format())}
                     inputProps={{ required: 'required' }}
-                    defaultValue={(Datetime.moment())}
+                    {...props.input}
                   />
                 </div>
             }
@@ -70,9 +69,8 @@ const CreateEvent = ({ handleSubmit }) => (
                   <span className="error" style={{ color: 'red' }}>{props.meta.error}</span>
                   <Datetime
                     dateFormat={false}
-                    onChange={(moment) => props.input.onChange(moment.format())}
                     inputProps={{ required: 'required' }}
-                    defaultValue={(Datetime.moment().add(1, 'minute'))}
+                    {...props.input}
                   />
                 </div>
             }
@@ -109,5 +107,5 @@ CreateEvent.propTypes = {
 };
 
 export default reduxForm({
-  form: 'createEventForm'
+  form: 'createEventForm',
 })(CreateEvent);
