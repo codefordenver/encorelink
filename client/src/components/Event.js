@@ -5,8 +5,8 @@ import GoogleMapEmbeded from './GoogleMapEmbeded';
 import EventMusiciansContainer from '../containers/EventMusiciansContainer';
 
 function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetching, isRegistered, userId }) {
-  const { date, endTime, name, location, notes } = data || {};
-  const { day, time } = getFormattedDayAndTime(date, endTime);
+  const { date, startTime, endTime, name, location, notes } = data || {};
+  const { day, time } = getFormattedDayAndTime(date, startTime, endTime);
   const isOwner = data && (data.ownerId === userId);
 
   const displayMusicianOptions = () => {
