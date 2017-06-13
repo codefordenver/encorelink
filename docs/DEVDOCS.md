@@ -40,10 +40,10 @@ Here are a few tips on how to accomplish specific goals
 ### Conditional Hard-Coded Links
 Say you want a piece of text in the UI to be a link to another page, but which page is linked is dependent on some application state.
 For example, the username in the header is a link to the user's profile page, but the logged in user could be an organizer or a volunteer,
-so we don't know which page to link to. You need to access the props to find out the state. This assumes you already have the props defined,
+so we don't know which page to link to. You need to access the [props](https://facebook.github.io/react/docs/components-and-props.html) to find out the state. This assumes you already have the props defined,
 and you just need to access it.
 
-1. in your container, import the prop from the proper reducer
+1. in your [container](https://medium.com/@learnreact/container-components-c0e67432e005), import the prop from the proper reducer
 ```JavaScript
 import { isLoggedIn, getUser, isMusician } from '../reducers/userReducer';
 ```
@@ -78,7 +78,7 @@ Let's fetch some data from the StrongLoop web api!
 
 2. This file is the events.js container and retrieves
 data from the url for events.
-```JavaScript 
+```JavaScript
 import gimmeData from '../utils/gimmeData';
 
 //This function returns the url for all events
@@ -86,7 +86,7 @@ function urlFn(state) {
   return 'events';
 }
 
-/* Fetches the data from the URL and provides it to the 
+/* Fetches the data from the URL and provides it to the
    events component. */
 export default gimmeData(urlFn)(Events);
 ```
