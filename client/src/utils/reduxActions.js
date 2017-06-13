@@ -41,8 +41,6 @@ export function createAction(type) {
 }
 
 export function createErrorAction(type, message) {
-  console.log('got here')
-  console.log(type, message)
   return (data, metaData) => {
     return {
       type,
