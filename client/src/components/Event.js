@@ -1,12 +1,23 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 import GoogleMapEmbeded from './GoogleMapEmbeded';
 import EventMusiciansContainer from '../containers/EventMusiciansContainer';
 
-function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetching, isRegistered, userId }) {
-  const { date, startTime, endTime, name, location, notes } = data || {};
-  const { day, time } = getFormattedDayAndTime(date, startTime, endTime);
+
+function Event({
+  data,
+  signUpForEvent,
+  cancelSignUpForEvent,
+  isMusician,
+  isFetching,
+  isRegistered,
+  userId,
+  deleteEvent
+}) {
+  const { date, startTime, endDate, name, location, notes } = data || {};
+  const { day, time } = getFormattedDayAndTime(date, endDate);
   const isOwner = data && (data.ownerId === userId);
 
   const displayMusicianOptions = () => {
@@ -71,6 +82,14 @@ function Event({ data, signUpForEvent, cancelSignUpForEvent, isMusician, isFetch
       }
       <div className="small-12 columns">
         <p>
+          {isOwner && (
+            <button
+              className="button alert"
+              onClick={() => deleteEvent(data)}
+            >
+              Delete Event
+            </button>
+          )}
           {displayMusicianOptions()}
           {' '}
           { (!isOwner && data && data.owner && data.owner.email) &&
@@ -114,6 +133,7 @@ Event.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   isRegistered: PropTypes.bool.isRequired,
   signUpForEvent: PropTypes.func.isRequired,
+  deleteEvent: PropTypes.func.isRequired,
   cancelSignUpForEvent: PropTypes.func.isRequired
 };
 

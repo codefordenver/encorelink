@@ -13,7 +13,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
     <h4>
       Tuesday, January 1, 1901
        | 
-      4:00-7:30 pm
+      4:00-7:30 pm UTC
     </h4>
     <p>
       Galvanize, Golden Triangle, Denver
@@ -187,13 +187,21 @@ exports[`Storyshots Header Not logged in 1`] = `
   <div
     className="top-bar-right text-right"
   >
-    <a
-      className="button"
-      onClick={[Function]}
-      style={Object {}}
-    >
-      Log in
-    </a>
+    <span>
+      <a
+        onClick={[Function]}
+        style={Object {}}
+      >
+        About Us
+      </a>
+      <a
+        className="button login"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Log in
+      </a>
+    </span>
   </div>
 </header>
 `;

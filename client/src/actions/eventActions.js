@@ -33,6 +33,16 @@ export function signUpForEvent(event) {
   });
 }
 
+export function deleteEvent(event) {
+  return apiAction('delete', (state) =>
+    `events/${event.id}`, {
+      onSuccess: () => {
+        browserHistory.replace('/events');
+      }
+    }
+  );
+}
+
 export function cancelSignUpForEvent(event) {
   return apiAction('delete', (state) =>
   `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
