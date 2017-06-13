@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
 const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, approveEventMusician, rejectEventMusician }) => {
-  const { day, time } = getFormattedDayAndTime(eventVolunteer.event.date, eventVolunteer.event.endDate);
+  const { day, time } = getFormattedDayAndTime(eventVolunteer.event.date, eventVolunteer.event.endTime);
 
   return (
     <tr>
@@ -44,7 +44,7 @@ EventVolunteerRow.propTypes = {
   eventVolunteer: PropTypes.shape({
     event: PropTypes.shape({
       date: PropTypes.string.isRequired,
-      endDate: PropTypes.string.isRequired,
+      endTime: PropTypes.string.isRequired,
     }),
     volunteer: PropTypes.shape({
       email: PropTypes.string.isRequired,
