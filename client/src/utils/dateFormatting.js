@@ -1,13 +1,13 @@
 import moment from 'moment-timezone';
 // import 'moment-timezone';
 
-export function getFormattedDayAndTime(startDate, startTime, endDate) {
+export function getFormattedDayAndTime(startDate, startTime, endTime) {
   const localTimezone = moment.tz.guess();
 
   const startDateMoment = moment(startDate);
   const day = startDateMoment.format('dddd, MMMM D, YYYY');
-  const startTime = moment(startTime).tz(localTimezone).format('h:mm');
-  const endTime = moment(endDate).tz(localTimezone).format('h:mm a z');
+  const start = moment(startTime).tz(localTimezone).format('h:mm');
+  const end = moment(endTime).tz(localTimezone).format('h:mm a z');
   return {
     day,
     time: `${start}-${end}`
