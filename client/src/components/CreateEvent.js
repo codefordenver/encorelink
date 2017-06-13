@@ -48,13 +48,13 @@ const CreateEvent = ({ handleSubmit }) => (
             component={
               (props) =>
                 <div>
+                  <span className="error" style={{ color: 'red' }}>{props.meta.error}</span>
                   <Datetime
                     dateFormat={false}
                     onChange={(moment) => props.input.onChange(moment.format())}
                     inputProps={{ required: 'required' }}
                     defaultValue={(Datetime.moment())}
                   />
-                  <span className="error">{props.meta.error}</span>
                 </div>
             }
           />
@@ -66,12 +66,15 @@ const CreateEvent = ({ handleSubmit }) => (
             validate={greaterThan}
             component={
               props =>
-                <Datetime
-                  dateFormat={false}
-                  onChange={(moment) => props.input.onChange(moment.format())}
-                  inputProps={{ required: 'required' }}
-                  defaultValue={(Datetime.moment().add(1, 'minute'))}
-                />
+                <div>
+                  <span className="error" style={{ color: 'red' }}>{props.meta.error}</span>
+                  <Datetime
+                    dateFormat={false}
+                    onChange={(moment) => props.input.onChange(moment.format())}
+                    inputProps={{ required: 'required' }}
+                    defaultValue={(Datetime.moment().add(1, 'minute'))}
+                  />
+                </div>
             }
           />
         </FormattedFormField>
