@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import FlashMessage from '../components/FlashMessage';
 import { isLoggedIn } from '../reducers/userReducer';
 import { isAppInitialized } from '../reducers/miscStateReducer';
+import { dismissMessage } from '../actions/flashMessageActions';
 
 function mapStateToProps(state) {
   return {
@@ -11,4 +12,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(FlashMessage);
+const mapDispatchToProps = {
+  dismissMessage
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FlashMessage);
