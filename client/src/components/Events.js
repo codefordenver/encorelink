@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import React from 'react';
 import EventRow from './EventRow';
 
 function Events({ data, isMusician }) {
@@ -14,9 +14,6 @@ function Events({ data, isMusician }) {
           <h3>Events</h3>
         </div>
       </div>
-      { !isMusician && (
-        <Link to="/createEvent">Create Event</Link>
-      ) }
       { events }
     </div>
   );

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router';
 
 function Header({ isLoggedIn, isMusician, logoutUser, user }) {
@@ -16,7 +17,10 @@ function Header({ isLoggedIn, isMusician, logoutUser, user }) {
     </div>
   );
   const loggedOut = (
-    <Link className="button" to="/login">Log in</Link>
+    <span>
+      <Link to="/about">About Us</Link>
+      <Link className="button login" to="/login">Log in</Link>
+    </span>
   );
   return (
     <header className="top-bar">
