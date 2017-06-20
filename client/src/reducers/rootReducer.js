@@ -3,6 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 import recycleState from 'redux-recycle';
 
 import userReducer, { stateKey as userStateKey } from './userReducer';
+import flashMessageReducer, { stateKey as flashMessageStateKey } from './flashMessageReducer';
 import miscStateReducer, { stateKey as miscStateStateKey } from './miscStateReducer';
 import modelsReducer, { stateKey as modelsReducerStateKey } from './modelsReducer';
 import { LOGOUT } from '../constants/reduxConstants';
@@ -16,6 +17,7 @@ const encoreLinkReducer = combineReducers({
   [userStateKey]: userReducer,
   [miscStateStateKey]: miscStateReducer,
   [modelsReducerStateKey]: modelsReducer,
+  [flashMessageStateKey]: flashMessageReducer,
   form: formReducer
 });
 
