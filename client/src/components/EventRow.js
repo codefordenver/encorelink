@@ -28,7 +28,7 @@ function EventRow({ event, hideCalendar }) {
             event={{
               title: name,
               description: notes,
-              location: location,
+              location,
               startTime: date,
               endTime: endDate
             }}
