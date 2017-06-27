@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router';
+import AddToCalendar from 'react-add-to-calendar';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
 const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, approveEventMusician, rejectEventMusician }) => {
   const { day, time } = getFormattedDayAndTime(eventVolunteer.event.date, eventVolunteer.event.endDate);
+  const { event } = eventVolunteer;
 
   return (
     <tr>
@@ -16,6 +18,18 @@ const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, approveEventMus
         <Link to={`/musician/${eventVolunteer.volunteer.id}`}>View Profile</Link>
       </td>
       <td>{day} {time}</td>
+      <td>
+        <AddToCalendar
+          event={{
+            title: event.name,
+            description: event.notes,
+            location: event.location,
+            startTime: event.date,
+            endTime: event.endDate
+          }}
+          buttonLabel="add to calendar"
+        />
+      </td>
       {isCurrentlyPending &&
       <td>
         <div className="button-group">
