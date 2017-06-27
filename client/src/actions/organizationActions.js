@@ -6,7 +6,7 @@ export function createOrganization(formData) {
   return apiAction('post', (state) => `users/${getUserId(state)}/organization`, {
     body: formData,
     onSuccess: () => {
-      browserHistory.push('/events');
+      browserHistory.push('/dashboard');
     }
   });
 }
@@ -15,7 +15,7 @@ export function updateOrganization(formData, id) {
   return apiAction('put', (state) => `users/${getUserId(state)}/organization/${id}`, {
     body: formData,
     onSuccess: () => {
-      browserHistory.push('/events');
+      browserHistory.push('/dashboard');
     }
   });
 }

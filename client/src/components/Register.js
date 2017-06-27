@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import Terms from './Terms';
@@ -30,7 +31,7 @@ class Register extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.isLoggedIn) {
       if (nextProps.isMusician) {
-        this.props.router.push('/events');
+        this.props.router.push('/dashboard');
       } else {
         this.props.router.push('/createEvent');
       }

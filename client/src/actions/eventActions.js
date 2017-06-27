@@ -12,7 +12,7 @@ export function createEvent(formData) {
     onSuccess: (res, state) => {
       const organizations = getModels(state, `users/${getUserId(state)}/organization`) || [];
       if (organizations.length) {
-        browserHistory.push('/events');
+        browserHistory.push('/dashboard');
         return;
       }
 
@@ -31,6 +31,16 @@ export function signUpForEvent(event) {
       browserHistory.push('/dashboard');
     }
   });
+}
+
+export function deleteEvent(event) {
+  return apiAction('delete', (state) =>
+    `events/${event.id}`, {
+      onSuccess: () => {
+        browserHistory.replace('/events');
+      }
+    }
+  );
 }
 
 export function cancelSignUpForEvent(event) {

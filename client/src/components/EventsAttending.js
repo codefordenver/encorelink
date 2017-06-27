@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Link } from 'react-router';
 import { APPROVED, PENDING, REJECTED } from '../constants/eventAttendingStatus';
 import EventRow from './EventRow';
@@ -33,14 +34,30 @@ function Events({ data }) {
         </div>
       </div>
 
-      <h4> Approved </h4>
+      <div className="row events-status-header">
+        <div className="small-12">
+          <h4>Approved</h4>
+        </div>
+      </div>
+
       { eventsApproved }
 
-      <h4> Pending </h4>
+      <div className="row events-status-header">
+        <div className="small-12">
+          <h4>Pending</h4>
+        </div>
+      </div>
+
       { eventsPending }
 
-      <h4> Rejected </h4>
+      <div className="row events-status-header">
+        <div className="small-12">
+          <h4> Rejected </h4>
+        </div>
+      </div>
+
       { eventsRejected }
+
     </div>
   );
 }

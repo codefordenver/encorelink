@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { withRouter, Link } from 'react-router';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
@@ -24,7 +25,7 @@ class ResetPassword extends React.Component {
       if (locationState && locationState.nextPathname) {
         this.props.router.push(locationState.nextPathname);
       } else {
-        this.props.router.push('/events');
+        this.props.router.push('/dashboard');
       }
     }
   }
