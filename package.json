@@ -77,7 +77,6 @@
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.0",
     "jest": "^19.0.2",
-    "json-loader": "^0.5.4",
     "nsp": "^2.1.0",
     "react-hot-loader": "^3.0.0-beta.5",
     "react-test-renderer": "^15.3.2",
