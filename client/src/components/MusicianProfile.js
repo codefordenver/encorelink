@@ -12,7 +12,7 @@ const MusicianProfile = ({ handleSubmit, updateUser, data }) => (
       <h1>Set Up Profile</h1>
 
       <form className="form-create-event" onSubmit={handleSubmit(updateUser)}>
-        <FormattedFormField title="Name">
+        <FormattedFormField title="First Name*">
           <Field
             name="firstName"
             component="input"
@@ -21,6 +21,8 @@ const MusicianProfile = ({ handleSubmit, updateUser, data }) => (
             required
             autoFocus
           />
+        </FormattedFormField>
+        <FormattedFormField title="Last Name*">
           <Field
             name="lastName"
             component="input"
@@ -30,7 +32,7 @@ const MusicianProfile = ({ handleSubmit, updateUser, data }) => (
           />
         </FormattedFormField>
 
-        <FormattedFormField title="Phone Number">
+        <FormattedFormField title="Phone Number*">
           <Field
             name="phoneNumber"
             component="input"
