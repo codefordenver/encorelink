@@ -12,8 +12,8 @@ exports[`Storyshots Event Event with customizable props 1`] = `
     </h3>
     <h4>
       Tuesday, January 1, 1901
-       |
-      4:00-7:30 pm UTC
+       | 
+      4:00-7:30 pm MST
     </h4>
     <p>
       Galvanize, Golden Triangle, Denver
@@ -55,14 +55,14 @@ exports[`Storyshots Event Event with customizable props 1`] = `
     className="small-12 columns"
   >
     <p>
-
+       
       <a
         className="button secondary"
         href="mailto:thedude@loves.me"
       >
         Contact Organizer
       </a>
-
+       
       <a
         className="button secondary"
         onClick={[Function]}
@@ -97,15 +97,15 @@ exports[`Storyshots Header Logged In: Organizer 1`] = `
     className="top-bar-right text-right"
   >
     <div>
-      Hello,
+      Hello, 
       <a
         onClick={[Function]}
         style={Object {}}
       >
         organizer@encorelink.com
       </a>
-
-
+       
+       
       <button
         className="button"
         onClick={[Function]}
@@ -139,14 +139,14 @@ exports[`Storyshots Header Logged in: Musician 1`] = `
     className="top-bar-right text-right"
   >
     <div>
-      Hello,
+      Hello, 
       <a
         onClick={[Function]}
         style={Object {}}
       >
         musician@encorelink.com
       </a>
-
+       
       <a
         className="button"
         onClick={[Function]}
@@ -154,7 +154,7 @@ exports[`Storyshots Header Logged in: Musician 1`] = `
       >
         Dashboard
       </a>
-
+       
       <button
         className="button"
         onClick={[Function]}
