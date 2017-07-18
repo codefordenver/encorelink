@@ -3,7 +3,6 @@ import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, date, text, boolean } from '@kadira/storybook-addon-knobs';
 import Event from '../src/components/Event';
 
-
 storiesOf('Event', module)
   .addDecorator(withKnobs)
   .addWithInfo(
