@@ -21,10 +21,7 @@
     "location": {
       "type": "string"
     },
-    "startTime": {
-      "type": "date"
-    },
-    "endTime": {
+    "endDate": {
       "type": "date"
     },
     "created": {

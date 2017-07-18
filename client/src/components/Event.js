@@ -16,8 +16,8 @@ function Event({
   userId,
   deleteEvent
 }) {
-  const { date, startTime, endTime, name, location, notes } = data || {};
-  const { day, time } = getFormattedDayAndTime(date, startTime, endTime);
+  const { date, endDate, name, location, notes } = data || {};
+  const { day, time } = getFormattedDayAndTime(date, endDate);
   const isOwner = data && (data.ownerId === userId);
 
   const displayMusicianOptions = () => {
@@ -111,7 +111,7 @@ function Event({
 Event.propTypes = {
   data: PropTypes.shape({
     date: PropTypes.string.isRequired,
-    endTime: PropTypes.string.isRequired,
+    endDate: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

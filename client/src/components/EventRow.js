@@ -43,7 +43,7 @@ function EventRow({ event, hideCalendar }) {
 EventRow.propTypes = {
   event: PropTypes.shape({
     date: PropTypes.string.isRequired,
-    endTime: PropTypes.string.isRequired,
+    endDate: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
