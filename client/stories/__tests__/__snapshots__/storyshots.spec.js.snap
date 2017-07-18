@@ -144,7 +144,7 @@ exports[`Storyshots Header Logged in: Musician 1`] = `
         onClick={[Function]}
         style={Object {}}
       >
-        musican@encorelink.com
+        musician@encorelink.com
       </a>
        
       <a

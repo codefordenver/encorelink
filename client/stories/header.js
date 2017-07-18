@@ -19,7 +19,7 @@ storiesOf('Header', module)
       isLoggedIn
       isMusician
       logoutUser={action('log out')}
-      user={{ email: 'musican@encorelink.com' }}
+      user={{ email: 'musician@encorelink.com' }}
     />
   ))
   .addWithInfo('Logged In: Organizer', () => (
