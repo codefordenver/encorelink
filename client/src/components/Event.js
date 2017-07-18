@@ -5,7 +5,6 @@ import { getFormattedDayAndTime } from '../utils/dateFormatting';
 import GoogleMapEmbeded from './GoogleMapEmbeded';
 import EventMusiciansContainer from '../containers/EventMusiciansContainer';
 
-
 function Event({
   data,
   signUpForEvent,

@@ -25,7 +25,7 @@ const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, approveEventMus
             description: event.notes,
             location: event.location,
             startTime: event.date,
-            endTime: event.endDate
+            endDate: event.endDate
           }}
           buttonLabel="add to calendar"
         />
