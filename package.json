@@ -45,6 +45,7 @@
     "numeral": "^1.5.3",
     "prop-types": "^15.5.10",
     "react": "^15.3.0",
+    "react-add-to-calendar": "^0.1.4",
     "react-datetime": "^2.8.5",
     "react-dom": "^15.3.0",
     "react-google-autocomplete": "^1.0.7",
