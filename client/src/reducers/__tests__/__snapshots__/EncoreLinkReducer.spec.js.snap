@@ -9,6 +9,10 @@ Object {
     "userId": null,
     "userToken": null,
   },
+  "flashMessage": Object {
+    "body": "",
+    "shown": false,
+  },
   "form": Object {},
   "miscState": Object {
     "appInitiallized": false,
