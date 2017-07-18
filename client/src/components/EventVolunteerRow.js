@@ -25,7 +25,7 @@ const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, approveEventMus
             description: event.notes,
             location: event.location,
             startTime: event.date,
-            endDate: event.endDate
+            endTime: event.endDate
           }}
           buttonLabel="add to calendar"
         />
@@ -58,7 +58,7 @@ EventVolunteerRow.propTypes = {
   eventVolunteer: PropTypes.shape({
     event: PropTypes.shape({
       date: PropTypes.string.isRequired,
-      endTime: PropTypes.string.isRequired,
+      endDate: PropTypes.string.isRequired,
     }),
     volunteer: PropTypes.shape({
       email: PropTypes.string.isRequired,
