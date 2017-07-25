@@ -57,7 +57,7 @@ export function getUserToken(state) { return getUserState(state).userToken; }
 export function getUser(state) { return getUserState(state).user; }
 export function isLoggedIn(state) { return getUserState(state).isLoggedIn; }
 export function isMusician(state) {
-  return getUserState(state).user.isMusician;
+  return getUserState(state).user.isMusician || false;
 }
 export function userIsBeingFetched(state) { return getUserState(state).isFetching; }
 export function isRegistered(state, url) {

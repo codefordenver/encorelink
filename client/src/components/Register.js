@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import Terms from './Terms';
@@ -20,7 +19,7 @@ class Register extends React.Component {
       password: '',
       email: '',
       open: false,
-      isMusician: false,
+      isMusician: true,
       tab: 'musician'
     };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -32,7 +31,7 @@ class Register extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.isLoggedIn) {
       if (nextProps.isMusician) {
-        this.props.router.push('/dashboard');
+        this.props.router.push('/events');
       } else {
         this.props.router.push('/createEvent');
       }
@@ -60,7 +59,7 @@ class Register extends React.Component {
 
   handleClose = () => { this.setState({ open: false }); }
 
-  switchTabs = (tab) => { return () => { this.setState({ tab }); }; }
+  switchTabs = (tab) => { return () => { this.setState({ tab, isMusician: tab === 'musician' }); }; }
 
   registerForm = (type) => (
     <form className="form-register" onSubmit={this.handleFormSubmit}>
@@ -86,7 +85,7 @@ class Register extends React.Component {
         />
       </label>
       <label className="terms">By clicking Register, you agree to the site
-            {' '}
+        {' '}
         <Link onKeyPress={(e) => {
           if (e.charCode === 13) { this.handleOpen(); }
         }}
