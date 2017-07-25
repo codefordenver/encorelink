@@ -17,7 +17,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
+      'process.env.NODE_ENV': JSON.stringify('development'),
     })
   ],
   module: {
@@ -27,6 +27,7 @@ module.exports = {
         loaders: ['babel'],
         include: path.resolve(__dirname, '../client/src')
       },
+      { include: /\.json$/, loaders: ["json-loader"] },
       {
         test: /\.s?css$/,
         loaders: ['style', 'css', 'sass']
