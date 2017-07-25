@@ -6,7 +6,7 @@ function Header({ isLoggedIn, isMusician, logoutUser, user }) {
   const loggedIn = (
     <div>
       Hello, <Link to={isMusician ? '/musicianProfile' : '/organizerProfile'}>
-        { user.hasOwnProperty('email') && user.email }
+        { user && user.email }
       </Link>
       {' '}
       {isMusician && (
