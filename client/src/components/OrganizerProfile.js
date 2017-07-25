@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AutocompleteLocation from './forms/AutocompleteLocation';
 
@@ -100,12 +101,15 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           </div>
           <div className="row">
             <div className="small-12 medium-12 columns">
-              <label>Best contact method (email is default):
-                <Field
-                  name="contact"
-                  component="input"
-                  type="text"
-                />
+              <label>Preferred contact method (email is default):
+              <Field
+                name="contact"
+                component="select"
+                type="select"
+              >
+                <option selected value="email">Email</option>
+                <option value="phone">Phone</option>
+              </Field>
               </label>
             </div>
           </div>
@@ -115,6 +119,8 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
                 <Field
                   name="notes"
                   component="textarea"
+                  placeholder="Please describe the kind of events generally associated with your
+                    facility e.g., room size, audience, or preferred music style"
                 />
               </label>
             </div>
@@ -167,7 +173,9 @@ OrganizerProfile.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   createOrganization: PropTypes.func.isRequired,
   updateOrganization: PropTypes.func.isRequired,
-  data: PropTypes.array
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired
+  }))
 };
 
 export default reduxForm({

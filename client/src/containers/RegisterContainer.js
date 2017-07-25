@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { registerRequest } from '../actions/userActions';
-import { isMusician, userIsBeingFetched, isLoggedIn } from '../reducers/userReducer';
+import { userIsBeingFetched, isLoggedIn, isMusician } from '../reducers/userReducer';
 
 import Register from '../components/Register';
 

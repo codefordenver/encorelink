@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { CURRENT } from '../constants/modelStatus';
 
 function ViewMusician({ data, urlStatus }) {
@@ -15,8 +16,8 @@ function ViewMusician({ data, urlStatus }) {
         <h5>Instruments</h5>
         { data.instruments && data.instruments.length &&
           <ul>
-            {data.instruments.map((instrument, index) =>
-              <li key={index}>{instrument}</li>
+            {data.instruments.map((instrument) =>
+              <li key={instrument}>{instrument}</li>
             )}
           </ul>
         }
@@ -30,9 +31,6 @@ ViewMusician.propTypes = {
     bio: PropTypes.string.isRequired,
     instruments: PropTypes.array.isRequired,
   }),
-  params: PropTypes.shape({
-    id: PropTypes.string.isRequired
-  }).isRequired,
   urlStatus: PropTypes.string.isRequired
 };
 

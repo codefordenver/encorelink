@@ -6,13 +6,24 @@ import { correctDatesForKeys } from '../utils/dateFormatting';
 import { apiAction } from './modelActions';
 
 export function createEvent(formData) {
+  const postData = correctDatesForKeys(formData, ['date', 'startTime', 'endTime']);
+  postData.date.set({
+    hours: postData.startTime.get('hours'),
+    minutes: postData.startTime.get('minutes'),
+    seconds: postData.startTime.get('seconds')
+  });
+  postData.endDate = postData.endTime.set({
+    date: postData.date.get('date'),
+    month: postData.date.get('month'),
+    year: postData.date.get('year')
+  });
   return apiAction('post', (state) => `users/${getUserId(state)}/events`, {
-    body: correctDatesForKeys(formData, ['date', 'endDate']),
+    body: postData,
 
     onSuccess: (res, state) => {
       const organizations = getModels(state, `users/${getUserId(state)}/organization`) || [];
       if (organizations.length) {
-        browserHistory.push('/events');
+        browserHistory.push('/dashboard');
         return;
       }
 
@@ -31,6 +42,16 @@ export function signUpForEvent(event) {
       browserHistory.push('/dashboard');
     }
   });
+}
+
+export function deleteEvent(event) {
+  return apiAction('delete', (state) =>
+    `events/${event.id}`, {
+      onSuccess: () => {
+        browserHistory.replace('/events');
+      }
+    }
+  );
 }
 
 export function cancelSignUpForEvent(event) {

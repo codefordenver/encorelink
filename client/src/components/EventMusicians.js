@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { CURRENT } from '../constants/modelStatus';
 import { PENDING, CANCELLED, REJECTED } from '../constants/eventAttendingStatus';
 
@@ -14,7 +15,7 @@ function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlSt
           {data
             .filter((em) => em.status !== CANCELLED && em.status !== REJECTED)
             .map((eventMusician, index) =>
-              <div key={index} className="row">
+              <div key={eventMusician.id} className="row">
                 <div className="small-6 columns">{eventMusician.volunteer.email}</div>
                 {eventMusician.status === PENDING &&
                 <div className="small-6 columns">

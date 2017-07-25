@@ -1,4 +1,4 @@
-import Events from '../components/Events';
+import Events from '../components/DetailedEventsList';
 import { isMusician, getUserId } from '../reducers/userReducer';
 import gimmeData from '../utils/gimmeData';
 

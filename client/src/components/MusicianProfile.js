@@ -1,35 +1,38 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Autocomplete from 'react-google-autocomplete';
+import AutocompleteLocation from './forms/AutocompleteLocation';
 
 import FormattedFormField from './forms/FormattedFormField';
 
-const MusicianProfile = ({ handleSubmit }) => (
+const MusicianProfile = ({ handleSubmit, updateUser, data }) => (
 
   <div className="row">
     <div className="small-12 columns">
       <h1>Set Up Profile</h1>
 
-      <form className="form-create-event" onSubmit={handleSubmit}>
-        <FormattedFormField title="Name">
+      <form className="form-create-event" onSubmit={handleSubmit(updateUser)}>
+        <FormattedFormField title="First Name*">
           <Field
             name="firstName"
             component="input"
-            type="number"
+            type="text"
             placeholder="First Name"
             required
             autoFocus
           />
+        </FormattedFormField>
+        <FormattedFormField title="Last Name*">
           <Field
             name="lastName"
             component="input"
-            type="number"
+            type="text"
             placeholder="Last Name"
             required
           />
         </FormattedFormField>
 
-        <FormattedFormField title="Phone Number">
+        <FormattedFormField title="Phone Number*">
           <Field
             name="phoneNumber"
             component="input"
@@ -44,12 +47,11 @@ const MusicianProfile = ({ handleSubmit }) => (
             name="over21"
             component="input"
             type="checkbox"
-            required
           />
         </FormattedFormField>
 
         <FormattedFormField title="Address">
-          <Field name="address" component={props => <Autocomplete type="text" name="address" onPlaceSelected={param => props.input.onChange(`${param.name}, ${param.formatted_address}`)} type={[]} />} />
+          <AutocompleteLocation name="address" />
         </FormattedFormField>
 
         <div className="row">
@@ -62,17 +64,16 @@ const MusicianProfile = ({ handleSubmit }) => (
 
         <FormattedFormField title="Instrument/Voice">
           <Field
-            name="majorInstrument"
+            name="instruments[0]"
             component="input"
             type="text"
             placeholder="Instrument / Voice"
-            required
           />
         </FormattedFormField>
 
         <FormattedFormField title="Secondary Instrument/Voice">
           <Field
-            name="secondaryInstrument"
+            name="instruments[1]"
             component="input"
             type="text"
             placeholder="Secondary Instrument/Voice"
@@ -81,17 +82,16 @@ const MusicianProfile = ({ handleSubmit }) => (
 
         <FormattedFormField title="Video or Audio link:">
           <Field
-            name="videoAudioLink"
+            name="link"
             component="input"
-            type="text"
+            type="url"
             placeholder="Link"
-            required
           />
         </FormattedFormField>
 
         <FormattedFormField title="Profile:">
           <Field
-            name="link"
+            name="bio"
             component="textarea"
             type="text"
             required
@@ -114,9 +114,18 @@ const MusicianProfile = ({ handleSubmit }) => (
 
 MusicianProfile.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
   input: PropTypes.shape({
     onChange: PropTypes.func.isRequired
-  })
+  }),
+  data: PropTypes.shape({
+    isMusician: PropTypes.bool,
+    bio: PropTypes.string,
+    instruments: PropTypes.arrayOf(PropTypes.string),
+    username: PropTypes.string,
+    email: PropTypes.string,
+    id: PropTypes.number.isRequired
+  }).isRequired
 };
 
 export default reduxForm({
