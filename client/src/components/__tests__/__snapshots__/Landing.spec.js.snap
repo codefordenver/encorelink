@@ -26,65 +26,152 @@ exports[`Landing renders correctly 1`] = `
         <div
           className="register"
         >
-          <h3>
-            Sign up
-          </h3>
-          <form
-            className="form-register"
-            onSubmit={[Function]}
+          <ul
+            className="tabs"
           >
-            <label>
-              Email
-              <input
-                autoFocus={true}
-                onChange={[Function]}
-                placeholder="Email"
-                required={true}
-                type="text"
-              />
-            </label>
-            <label>
-              Password
-              <input
-                onChange={[Function]}
-                placeholder="Password"
-                required={true}
-                type="password"
-              />
-            </label>
-            <label
-              className="volunteer-check"
+            <li
+              className="tabs-title is-active"
             >
-              <input
-                checked={false}
-                onChange={[Function]}
-                type="checkbox"
-              />
-              I'm a musician
-            </label>
-            <label
-              className="terms"
-            >
-              By clicking Register, you agree to the site
-               
               <a
                 onClick={[Function]}
-                onKeyPress={[Function]}
                 style={Object {}}
-                tabIndex={0}
               >
-                terms
+                Sign up as a Musician
               </a>
-              .
-              <noscript />
-            </label>
-            <button
-              className="button secondary"
-              type="submit"
+            </li>
+            <li
+              className="tabs-title not-active"
             >
-              Register
-            </button>
-          </form>
+              <a
+                onClick={[Function]}
+                style={Object {}}
+              >
+                Sign up as an Organizer
+              </a>
+            </li>
+          </ul>
+          <div
+            className="tabs-content"
+          >
+            <div
+              className="tabs-panel is-active"
+            >
+              <form
+                className="form-register"
+                onSubmit={[Function]}
+              >
+                <label>
+                  Email
+                  <input
+                    autoFocus={true}
+                    onChange={[Function]}
+                    placeholder="Email"
+                    required={true}
+                    type="text"
+                  />
+                </label>
+                <label>
+                  Password
+                  <input
+                    onChange={[Function]}
+                    placeholder="Password"
+                    required={true}
+                    type="password"
+                  />
+                </label>
+                <label
+                  className="volunteer-check"
+                >
+                  <input
+                    checked={true}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                </label>
+                <label
+                  className="terms"
+                >
+                  By clicking Register, you agree to the site
+                   
+                  <a
+                    onClick={[Function]}
+                    onKeyPress={[Function]}
+                    style={Object {}}
+                    tabIndex={0}
+                  >
+                    terms
+                  </a>
+                  .
+                  <noscript />
+                </label>
+                <button
+                  className="button secondary"
+                  type="submit"
+                >
+                  Register
+                </button>
+              </form>
+            </div>
+            <div
+              className="tabs-panel not-active"
+            >
+              <form
+                className="form-register"
+                onSubmit={[Function]}
+              >
+                <label>
+                  Email
+                  <input
+                    autoFocus={true}
+                    onChange={[Function]}
+                    placeholder="Email"
+                    required={true}
+                    type="text"
+                  />
+                </label>
+                <label>
+                  Password
+                  <input
+                    onChange={[Function]}
+                    placeholder="Password"
+                    required={true}
+                    type="password"
+                  />
+                </label>
+                <label
+                  className="volunteer-check"
+                >
+                  <input
+                    checked={false}
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                </label>
+                <label
+                  className="terms"
+                >
+                  By clicking Register, you agree to the site
+                   
+                  <a
+                    onClick={[Function]}
+                    onKeyPress={[Function]}
+                    style={Object {}}
+                    tabIndex={0}
+                  >
+                    terms
+                  </a>
+                  .
+                  <noscript />
+                </label>
+                <button
+                  className="button secondary"
+                  type="submit"
+                >
+                  Register
+                </button>
+              </form>
+            </div>
+          </div>
           <p>
             Already have an account? 
             <a

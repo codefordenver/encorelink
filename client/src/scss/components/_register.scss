@@ -2,3 +2,66 @@
   background-color: #B4DFE5;
   padding: 20px;
 }
+
+.tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
+  background: #e6e6e6;
+  color: #1779ba;
+}
+
+.tabs-title > a {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: #1779ba;
+}
+
+.tabs-content {
+  background: #b4dfe5;
+  border: 0px;
+}
+
+.tabs-title.is-active {
+  background: #fff;
+}
+
+.tabs-title.not-active {
+  background: #eee;
+}
+
+.tabs-title:hover {
+  background: #777;
+}
+
+.tabs-title > a:hover {
+  background: #ddddff;
+}
+
+.tabs-title.is-active:hover {
+  background: #777777;
+}
+
+.tabs::before, .tabs::after {
+  display: table;
+  content: ' ';
+}
+.tabs::after {
+  clear: both;
+}
+
+.tabs::before, .tabs::after {
+  display: table;
+  content: ' ';
+}
+
+ul > li {
+  width: 50%;
+}
+
+ul > li > #panel2 {
+  margin-right: 0;
+}
+
+.volunteer-check {
+  display: none;
+}
