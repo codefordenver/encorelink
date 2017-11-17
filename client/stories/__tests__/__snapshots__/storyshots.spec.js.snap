@@ -13,7 +13,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
     <h4>
       Tuesday, January 1, 1901
        | 
-      4:00-7:30 pm UTC
+      11:00-2:30 am GMT
     </h4>
     <p>
       Galvanize, Golden Triangle, Denver
@@ -87,7 +87,7 @@ exports[`Storyshots EventRow Event row with customizable props 1`] = `
   <div
     className="small-12 medium-2 columns"
   >
-    12:00-12:00 am MST
+    12:00-12:00 am GMT
   </div>
   <div
     className="small-12 medium-5 columns"
