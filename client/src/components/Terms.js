@@ -9,7 +9,7 @@ function Terms() {
         <p>
           These Website Standard Terms and Conditions written on this webpage shall manage your use
           of this website. These Terms will be applied fully and affect to your use of this Website.
-          By using this Website, you agreed to accept all terms and conditions written in here. You
+          By using this Website, you agree to accept all terms and conditions written in here. You
           must not use this Website if you disagree with any of these Website Standard Terms and
           Conditions.
         </p>
@@ -103,7 +103,7 @@ function Terms() {
         </p>
         <ol start={10}><li><strong>Assignment</strong></li></ol>
         <p>
-          The EncoreLink is allowed to assign, transfer, and subcontract its rights and/or
+          EncoreLink is allowed to assign, transfer, and subcontract its rights and/or
           obligations under these Terms without any notification. However, you are not allowed to
           assign, transfer, or subcontract any of your rights and/or obligations under these Terms.
         </p>
