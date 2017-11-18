@@ -20,7 +20,7 @@ function Terms() {
           <li><strong>Intellectual Property Rights</strong></li>
         </ol>
         <p>
-          Other than the content you own, under these Terms, EncoreLInk and/or its licensors own all
+          Other than the content you own, under these Terms, EncoreLink and/or its licensors own all
           the intellectual property rights and materials contained in this Website.
         </p>
         <p>
@@ -52,7 +52,7 @@ function Terms() {
           <li>using this Website to engage in any advertising or marketing.</li>
         </ul>
         <p>
-          Certain areas of this Website are restricted from being access by you and EncoreLInk may
+          Certain areas of this Website are restricted from being access by you and EncoreLink may
           further restrict access by you to any areas of this Website, at any time, in absolute
           discretion. Any user ID and password you may have for this Website are confidential and
           you must maintain confidentiality as well.
@@ -61,7 +61,7 @@ function Terms() {
         <p>
           In these Website Standard Terms and Conditions, “Your Content” shall mean any audio, video
           text, images or other material you choose to display on this Website. By displaying Your
-          Content, you grant EncoreLInk a non-exclusive, worldwide irrevocable, sub licensable
+          Content, you grant EncoreLink a non-exclusive, worldwide irrevocable, sub licensable
           license to use, reproduce, adapt, publish, translate and distribute it in any and all
           media.
         </p>
@@ -72,22 +72,22 @@ function Terms() {
         </p>
         <ol start={5}><li><strong>No warranties</strong></li></ol>
         <p>
-          This Website is provided “as is,” with all faults, and EncoreLInk express no
+          This Website is provided “as is,” with all faults, and EncoreLink express no
           representations or warranties, of any kind related to this Website or the materials
           contained on this Website. Also, nothing contained on this Website shall be interpreted as
           advising you.
         </p>
         <ol start={6}><li><strong>Limitation of liability</strong></li></ol>
         <p>
-          In no event shall EncoreLInk, nor any of its officers, directors and employees, shall be
+          In no event shall EncoreLink, nor any of its officers, directors and employees, shall be
           held liable for anything arising out of or in any way connected with your use of this
-          Website whether such liability is under contract. &nbsp;EncoreLInk, including its
+          Website whether such liability is under contract. &nbsp;EncoreLink, including its
           officers, directors and employees shall not be held liable for any indirect, consequential
           or special liability arising out of or in any way related to your use of this Website.
         </p>
         <ol start={7}><li><strong>Indemnification</strong></li></ol>
         <p>
-          You hereby indemnify to the fullest extent EncoreLInk from and against any and/or all
+          You hereby indemnify to the fullest extent EncoreLink from and against any and/or all
           liabilities, costs, demands, causes of action, damages and expenses arising in any way
           related to your breach of any of the provisions of these Terms.
         </p>
@@ -98,18 +98,18 @@ function Terms() {
         </p>
         <ol start={9}><li><strong>Variation of Terms</strong></li></ol>
         <p>
-          EncoreLInk is permitted to revise these Terms at any time as it sees fit, and by using
+          EncoreLink is permitted to revise these Terms at any time as it sees fit, and by using
           this Website you are expected to review these Terms on a regular basis.
         </p>
         <ol start={10}><li><strong>Assignment</strong></li></ol>
         <p>
-          The EncoreLInk is allowed to assign, transfer, and subcontract its rights and/or
+          The EncoreLink is allowed to assign, transfer, and subcontract its rights and/or
           obligations under these Terms without any notification. However, you are not allowed to
           assign, transfer, or subcontract any of your rights and/or obligations under these Terms.
         </p>
         <ol start={11}><li><strong>Entire Agreement</strong></li></ol>
         <p>
-          These Terms constitute the entire agreement between EncoreLInk and you in relation to your
+          These Terms constitute the entire agreement between EncoreLink and you in relation to your
           use of this Website, and supersede all prior agreements and understandings.
         </p>
         <ol start={12}>
