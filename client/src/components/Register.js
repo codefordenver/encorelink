@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 import Terms from './Terms';
 
 class Register extends React.Component {
