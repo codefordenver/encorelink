@@ -13,7 +13,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
     <h4>
       Tuesday, January 1, 1901
        | 
-      4:00-7:30 pm UTC
+      11:00-2:30 am GMT
     </h4>
     <p>
       Galvanize, Golden Triangle, Denver
@@ -71,6 +71,63 @@ exports[`Storyshots Event Event with customizable props 1`] = `
         Go Back
       </a>
     </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots EventRow Event row with customizable props 1`] = `
+<div
+  className="row event-row"
+>
+  <div
+    className="small-12 medium-2 columns"
+  >
+    Monday, January 1, 2018
+  </div>
+  <div
+    className="small-12 medium-2 columns"
+  >
+    12:00-12:00 am GMT
+  </div>
+  <div
+    className="small-12 medium-5 columns"
+  >
+    music
+     
+    denver
+  </div>
+  <div
+    className="small-12 medium-1 columns"
+  >
+    <a
+      onClick={[Function]}
+      style={Object {}}
+    >
+      details
+    </a>
+  </div>
+  <div
+    className="small-12 medium-2 columns"
+  >
+    <div
+      className="react-add-to-calendar"
+    >
+      <div
+        className="react-add-to-calendar__wrapper"
+      >
+        <a
+          className="react-add-to-calendar__button"
+          onClick={[Function]}
+        >
+          <span>
+            add to calendar 
+            <i
+              className="react-add-to-calendar__icon--right fa fa-caret-down"
+            />
+          </span>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 `;
