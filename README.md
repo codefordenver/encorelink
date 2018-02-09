@@ -64,7 +64,7 @@ before starting).
 
 1. Install [PostgreSQL](http://www.postgresql.org/)
 2. Create a new database in postgres
-3. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
+3. Rename [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
 
 
 ## Client App State
