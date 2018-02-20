@@ -85,9 +85,9 @@ This will start storybook running at http://localhost:6006
 Stories are defined for components in [client/stories/index.js](client/stories/index.js).
 For docs on how to write stories see the [storybook docs](https://getstorybook.io/docs/react-storybook/basics/writing-stories).
 
-## Port Numbers
+## Port Numbers 
 
-3000: API explorer
-5432: PostgreSQL
-6006: React storybook
-8080: UI/client
+* 3000: API explorer
+* 5432: PostgreSQL
+* 6006: React storybook
+* 8080: UI/client
