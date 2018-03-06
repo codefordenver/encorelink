@@ -10,7 +10,7 @@
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js",
+    "build": "npm-run-all build-css build-js && cpy build/index.html build --rename 404.html",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -36,6 +36,7 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "cpy-cli": "^1.0.1",
     "react-scripts": "^1.1.0",
     "react-test-renderer": "^15.6.1"
   },
