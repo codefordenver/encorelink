@@ -36,9 +36,16 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "@kadira/react-storybook-addon-info": "^3.4.0",
+    "@kadira/storybook": "^2.35.3",
+    "@kadira/storybook-addon-knobs": "^1.7.1",
+    "@kadira/storybook-addon-options": "^1.0.2",
+    "@kadira/storybook-addons": "^1.6.1",
+    "@kadira/storybook-channel": "^1.1.0",
     "cpy-cli": "^1.0.1",
     "react-scripts": "^1.1.0",
-    "react-test-renderer": "^15.6.1"
+    "react-test-renderer": "^15.6.1",
+    "storyshots": "^3.2.2"
   },
   "repository": {
     "type": "",
