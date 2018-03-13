@@ -1,13 +1,13 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, date, text, boolean } from '@kadira/storybook-addon-knobs';
-import Event from '../src/components/Event';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withKnobs, date, text, boolean } from '@storybook/addon-knobs/react';
+import Event from '../components/Event';
 
 storiesOf('Event', module)
   .addDecorator(withKnobs)
-  .addWithInfo(
-    'Event with customizable props',
-    'Check the knobs tab in the panel below to customize the props for this component',
+  .add(
+    'Event with customizable props - Check the knobs tab in the panel below to customize the props for this component',
     () => {
       const eventData = {
         date: date('data.date', new Date('Jan 1, 1901 4:00 pm MST')),

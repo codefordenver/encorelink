@@ -1,13 +1,12 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-import { withKnobs, boolean } from '@kadira/storybook-addon-knobs';
-import EventRow from '../src/components/EventRow';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import EventRow from '../components/EventRow';
 
 storiesOf('EventRow', module)
   .addDecorator(withKnobs)
-  .addWithInfo(
-    'Event row with customizable props',
-    'Check the knobs tab in the panel below to customize the props for this component',
+  .add(
+    'Event row with customizable props - Check the knobs tab in the panel below to customize the props for this component',
     () => (
       <EventRow
         hideCalendar={boolean('hide calendar', false)}

@@ -1,11 +1,11 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
-import Header from '../src/components/Header';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import Header from '../components/Header';
 
 storiesOf('Header', module)
-  .addWithInfo(
-    'Not logged in',
-    'Default landing page, not logged in props',
+  .add(
+    'Not logged in Default landing page, not logged in props',
     () => (
       <Header
         isLoggedIn={false}
@@ -14,7 +14,7 @@ storiesOf('Header', module)
       />
     )
   )
-  .addWithInfo('Logged in: Musician', () => (
+  .add('Logged in: Musician', () => (
     <Header
       isLoggedIn
       isMusician
@@ -22,7 +22,7 @@ storiesOf('Header', module)
       user={{ email: 'musician@encorelink.com' }}
     />
   ))
-  .addWithInfo('Logged In: Organizer', () => (
+  .add('Logged In: Organizer', () => (
     <Header
       isLoggedIn
       isMusician={false}

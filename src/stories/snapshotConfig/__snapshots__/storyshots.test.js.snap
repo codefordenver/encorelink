@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Event Event with customizable props 1`] = `
+exports[`Storyshots Event Event with customizable props - Check the knobs tab in the panel below to customize the props for this component 1`] = `
 <div
   className="row"
 >
@@ -13,7 +13,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
     <h4>
       Tuesday, January 1, 1901
        | 
-      11:00-2:30 am GMT
+      4:00-7:30 pm MST
     </h4>
     <p>
       Galvanize, Golden Triangle, Denver
@@ -35,6 +35,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
             "border": 0,
           }
         }
+        title="Location Map"
         width="600"
       />
     </div>
@@ -75,7 +76,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
 </div>
 `;
 
-exports[`Storyshots EventRow Event row with customizable props 1`] = `
+exports[`Storyshots EventRow Event row with customizable props - Check the knobs tab in the panel below to customize the props for this component 1`] = `
 <div
   className="row event-row"
 >
@@ -87,7 +88,7 @@ exports[`Storyshots EventRow Event row with customizable props 1`] = `
   <div
     className="small-12 medium-2 columns"
   >
-    12:00-12:00 am GMT
+    12:00-12:00 am MST
   </div>
   <div
     className="small-12 medium-5 columns"
@@ -146,7 +147,7 @@ exports[`Storyshots Header Logged In: Organizer 1`] = `
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/public/img/encorelink-logo.png"
+        src="/img/encorelink-logo.png"
       />
     </a>
   </div>
@@ -188,7 +189,7 @@ exports[`Storyshots Header Logged in: Musician 1`] = `
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/public/img/encorelink-logo.png"
+        src="/img/encorelink-logo.png"
       />
     </a>
   </div>
@@ -223,7 +224,7 @@ exports[`Storyshots Header Logged in: Musician 1`] = `
 </header>
 `;
 
-exports[`Storyshots Header Not logged in 1`] = `
+exports[`Storyshots Header Not logged in Default landing page, not logged in props 1`] = `
 <header
   className="top-bar"
 >
@@ -237,7 +238,7 @@ exports[`Storyshots Header Not logged in 1`] = `
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/public/img/encorelink-logo.png"
+        src="/img/encorelink-logo.png"
       />
     </a>
   </div>
