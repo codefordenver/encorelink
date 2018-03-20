@@ -90,12 +90,13 @@ For docs on how to write stories see the [storybook docs](https://getstorybook.i
 
 ## Built With
 
-* [Node.js](https://nodejs.org/en/about/) - Executes JavaScript code server-side  
+* [Node.js](https://nodejs.org/en/about/) - Executes JavaScript code server-side
+* [Loopback](https://loopback.io/) - Node.js API framework
 * [Netlify](https://www.netlify.com/docs/) - Frontend hosting; platform for automated deployment of static webpages
 * [Heroku](https://www.heroku.com/platform) - Backend hosting; Cloud application platform for web application deployment
 * [PostgreSQL](https://www.postgresql.org/about/) - An object-relational database
-* [React Storybook](https://github.com/storybooks/storybook) - Development environment for UI components  
-* [Redux](https://redux.js.org/) - Manages state on the client  
+* [React Storybook](https://github.com/storybooks/storybook) - Development environment for UI components
+* [Redux](https://redux.js.org/) - Manages state on the client
 
 ## Port Numbers 
 
