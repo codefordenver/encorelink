@@ -12,7 +12,7 @@ Probably the most helpful will be:
 * [EncoreLink Specification](https://docs.google.com/document/d/1Mwo-pOyveza1XXKrpr966admHFanHzy5Hn2r6ewE3vk/edit#heading=h.6qqugcr09y1p) - this is our current spec
 
 ## Developer Documentation
-Developer documentation currently lives [here](DEVDOCS.md)
+Developer documentation currently lives [here](/docs/DEVDOCS.md)
 
 ## Getting Started
 
@@ -91,14 +91,14 @@ For docs on how to write stories see the [storybook docs](https://getstorybook.i
 ## Built With
 
 * [Node.js](https://nodejs.org/en/about/) - Executes JavaScript code server-side  
-* [Heroku](https://www.heroku.com/platform) - Cloud application platform  
+* [Heroku](https://www.heroku.com/platform) - Cloud application platform for web application deployment  
 * [PostgreSQL](https://www.postgresql.org/about/) - SQL-style database  
 * [React Storybook](https://github.com/storybooks/storybook) - Development environment for UI components  
 * [Redux](https://redux.js.org/) - Manages state on the client  
 
 ## Port Numbers 
 
-* 3000: API explorer
-* 5432: PostgreSQL
-* 6006: React storybook
-* 8080: UI/client
+* [3000](http://localhost:3000): API explorer
+* [5432](http://localhost:5432): PostgreSQL
+* [6006](http://localhost:6006): React storybook
+* [8080](http://localhost:8080): UI/client
