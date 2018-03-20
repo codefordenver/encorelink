@@ -1,6 +1,6 @@
 # EncoreLink
 
-A web application to connect musicians with heatlhcare centers. 
+A web application to connect musicians with healthcare centers. 
 
 [![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers)
 [![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=master)](https://travis-ci.org/codefordenver/encorelink)
@@ -92,7 +92,7 @@ For docs on how to write stories see the [storybook docs](https://getstorybook.i
 
 * [Node.js](https://nodejs.org/en/about/) - Executes JavaScript code server-side  
 * [Heroku](https://www.heroku.com/platform) - Cloud application platform for web application deployment  
-* [PostgreSQL](https://www.postgresql.org/about/) - SQL-style database  
+* [PostgreSQL](https://www.postgresql.org/about/) - An object-relational database
 * [React Storybook](https://github.com/storybooks/storybook) - Development environment for UI components  
 * [Redux](https://redux.js.org/) - Manages state on the client  
 
