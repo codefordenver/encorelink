@@ -32,7 +32,7 @@ const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician })
     <div className="row">
       <div className="small-10">
         <h3>Dashboard</h3>
-        <Link to="/createEvent">Create Event</Link>
+        <Link to="/createEvent"><button className="button">Create Event</button></Link>
         <br />
         <div className="card">
           <div className="card-divider">
