@@ -26,7 +26,7 @@ Developer documentation currently lives [here](/docs/DEVDOCS.md)
 
 ### Advanced Setup - Postgres
 
-1. Install [PostgreSQL](http://www.postgresql.org/)
+1. Install [PostgreSQL](https://www.postgresql.org/download/)
 2. Create a new database in postgres
 3. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
 
@@ -91,7 +91,8 @@ For docs on how to write stories see the [storybook docs](https://getstorybook.i
 ## Built With
 
 * [Node.js](https://nodejs.org/en/about/) - Executes JavaScript code server-side  
-* [Heroku](https://www.heroku.com/platform) - Cloud application platform for web application deployment  
+* [Netlify](https://www.netlify.com/docs/) - Frontend hosting; platform for automated deployment of static webpages
+* [Heroku](https://www.heroku.com/platform) - Backend hosting; Cloud application platform for web application deployment
 * [PostgreSQL](https://www.postgresql.org/about/) - An object-relational database
 * [React Storybook](https://github.com/storybooks/storybook) - Development environment for UI components  
 * [Redux](https://redux.js.org/) - Manages state on the client  
