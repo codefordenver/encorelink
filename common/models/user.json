@@ -18,6 +18,9 @@
     "phoneNumber": {
       "type": "string"
     },
+    "over21": {
+      "type": "boolean"
+    },
     "link": {
       "type": "string"
     },
