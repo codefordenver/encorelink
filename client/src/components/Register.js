@@ -24,11 +24,8 @@ class Register extends React.Component {
       tab: 'musician',
       agreeTerms: false,
     };
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleVolunteerChange = this.handleVolunteerChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleCheckbox = this.handleCheckbox.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -41,20 +38,14 @@ class Register extends React.Component {
     }
   }
 
-  handlePasswordChange(ev) {
-    this.setState({ password: ev.target.value });
-  }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
-  handleEmailChange(ev) {
-    this.setState({ email: ev.target.value });
-  }
-
-  handleVolunteerChange(ev) {
-    this.setState({ isMusician: ev.target.checked });
-  }
-
-  handleCheckbox(event) {
-    this.setState({ agreeTerms: !this.state.agreeTerms });
+    this.setState({
+      [name]: value
+    });
   }
 
   handleFormSubmit(ev) {
@@ -73,24 +64,30 @@ class Register extends React.Component {
   registerForm = (type) => (
     <form className="form-register" onSubmit={this.handleFormSubmit}>
       <label>Email
-        <input type="text"
-          onChange={this.handleEmailChange}
+        <input
+          type="text"
+          name="email"
+          onChange={this.handleInputChange}
           placeholder="Email"
           required
           autoFocus
         />
       </label>
       <label>Password
-        <input type="password"
-          onChange={this.handlePasswordChange}
+        <input
+          type="password"
+          name="password"
+          onChange={this.handleInputChange}
           placeholder="Password"
           required
         />
       </label>
       <label className="volunteer-check">
-        <input type="checkbox"
+        <input
+          type="checkbox"
+          name="isMusician"
           checked={type === 'musician'}
-          onChange={this.handleVolunteerChange}
+          onChange={this.handleInputChange}
         />
       </label>
       <label className="terms"> I have read and agree to the
@@ -106,7 +103,8 @@ class Register extends React.Component {
         .
         <input
           type="checkbox"
-          onChange={this.handleCheckbox}
+          name="agreeTerms"
+          onChange={this.handleInputChange}
           checked={this.state.agreeTerms}
         />
         <Modal
