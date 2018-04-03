@@ -123,7 +123,7 @@ class Register extends React.Component {
         type="submit"
         disabled={this.state.agreeTerms === false}
       >
-          Register
+        Register
       </button>
     </form>
   )
@@ -132,12 +132,12 @@ class Register extends React.Component {
     return (
       <div className="register">
         <ul className="tabs">
-          <li className={'tabs-title ' + (this.state.tab === 'musician' ? 'is-active' : 'not-active')}>
+          <li className={`tabs-title ${this.state.tab === 'musician' ? 'is-active' : 'not-active'}`}>
             <Link onClick={this.switchTabs('musician')}>
               Sign up as a Musician
             </Link>
           </li>
-          <li className={'tabs-title ' + (this.state.tab === 'organizer' ? 'is-active' : 'not-active')}>
+          <li className={`tabs-title ${this.state.tab === 'organizer' ? 'is-active' : 'not-active'}`}>
             <Link onClick={this.switchTabs('organizer')}>
               Sign up as an Organizer
             </Link>
@@ -145,10 +145,10 @@ class Register extends React.Component {
         </ul>
 
         <div className="tabs-content">
-          <div className={'tabs-panel ' + (this.state.tab === 'musician' ? 'is-active' : 'not-active')}>
+          <div className={`tabs-panel ${this.state.tab === 'musician' ? 'is-active' : 'not-active'}`}>
             {this.registerForm('musician')}
           </div>
-          <div className={'tabs-panel ' + (this.state.tab === 'organizer' ? 'is-active' : 'not-active')}>
+          <div className={`tabs-panel ${this.state.tab === 'organizer' ? 'is-active' : 'not-active'}`}>
             {this.registerForm('organizer')}
           </div>
         </div>
