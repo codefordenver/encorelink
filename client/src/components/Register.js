@@ -107,6 +107,7 @@ class Register extends React.Component {
         <input
           type="checkbox"
           onChange={this.handleCheckbox}
+          checked={this.state.agreeTerms}
         />
         <Modal
           isOpen={this.state.open}
