@@ -103,6 +103,7 @@ class Register extends React.Component {
         .
         <input
           type="checkbox"
+          className="terms-check"
           name="agreeTerms"
           onChange={this.handleInputChange}
           checked={this.state.agreeTerms}
