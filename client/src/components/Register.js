@@ -59,7 +59,9 @@ class Register extends React.Component {
 
   handleFormSubmit(ev) {
     ev.preventDefault();
-    this.props.registerRequest(this.state.email, this.state.password, this.state.isMusician);
+    const { email, password, isMusician, agreeTerms } = this.state;
+
+    this.props.registerRequest(email, password, isMusician, agreeTerms);
   }
 
   handleOpen = () => { this.setState({ open: true }); }
