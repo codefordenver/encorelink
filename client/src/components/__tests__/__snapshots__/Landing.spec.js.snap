@@ -64,6 +64,7 @@ exports[`Landing renders correctly 1`] = `
                   Email
                   <input
                     autoFocus={true}
+                    name="email"
                     onChange={[Function]}
                     placeholder="Email"
                     required={true}
@@ -73,6 +74,7 @@ exports[`Landing renders correctly 1`] = `
                 <label>
                   Password
                   <input
+                    name="password"
                     onChange={[Function]}
                     placeholder="Password"
                     required={true}
@@ -84,6 +86,7 @@ exports[`Landing renders correctly 1`] = `
                 >
                   <input
                     checked={true}
+                    name="isMusician"
                     onChange={[Function]}
                     type="checkbox"
                   />
@@ -91,7 +94,7 @@ exports[`Landing renders correctly 1`] = `
                 <label
                   className="terms"
                 >
-                  By clicking Register, you agree to the site
+                   I have read and agree to the
                    
                   <a
                     onClick={[Function]}
@@ -102,10 +105,18 @@ exports[`Landing renders correctly 1`] = `
                     terms
                   </a>
                   .
+                  <input
+                    checked={false}
+                    className="terms-check"
+                    name="agreeTerms"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
                   <noscript />
                 </label>
                 <button
                   className="button secondary"
+                  disabled={true}
                   type="submit"
                 >
                   Register
@@ -123,6 +134,7 @@ exports[`Landing renders correctly 1`] = `
                   Email
                   <input
                     autoFocus={true}
+                    name="email"
                     onChange={[Function]}
                     placeholder="Email"
                     required={true}
@@ -132,6 +144,7 @@ exports[`Landing renders correctly 1`] = `
                 <label>
                   Password
                   <input
+                    name="password"
                     onChange={[Function]}
                     placeholder="Password"
                     required={true}
@@ -143,6 +156,7 @@ exports[`Landing renders correctly 1`] = `
                 >
                   <input
                     checked={false}
+                    name="isMusician"
                     onChange={[Function]}
                     type="checkbox"
                   />
@@ -150,7 +164,7 @@ exports[`Landing renders correctly 1`] = `
                 <label
                   className="terms"
                 >
-                  By clicking Register, you agree to the site
+                   I have read and agree to the
                    
                   <a
                     onClick={[Function]}
@@ -161,10 +175,18 @@ exports[`Landing renders correctly 1`] = `
                     terms
                   </a>
                   .
+                  <input
+                    checked={false}
+                    className="terms-check"
+                    name="agreeTerms"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
                   <noscript />
                 </label>
                 <button
                   className="button secondary"
+                  disabled={true}
                   type="submit"
                 >
                   Register
