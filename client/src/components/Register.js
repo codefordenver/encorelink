@@ -118,7 +118,13 @@ class Register extends React.Component {
           <button className="button secondary right" onClick={this.handleClose}>Close</button>
         </Modal>
       </label>
-      <button className="button secondary" type="submit">Register</button>
+      <button
+        className="button secondary"
+        type="submit"
+        disabled={this.state.agreeTerms === false}
+      >
+          Register
+      </button>
     </form>
   )
 
