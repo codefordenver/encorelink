@@ -24,3 +24,5 @@ client/dist
 yarn.lock
 .env
 build/
+src/scss/app.css
+src/scss/index.css
