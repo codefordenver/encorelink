@@ -90,7 +90,15 @@ class Register extends React.Component {
           onChange={this.handleInputChange}
         />
       </label>
-      <label className="terms"> I have read and agree to the
+      <label className="terms">
+        <input
+          type="checkbox"
+          className="terms-check"
+          name="agreeTerms"
+          onChange={this.handleInputChange}
+          checked={this.state.agreeTerms}
+        />
+        I have read and agree to the
         {' '}
         <Link onKeyPress={(e) => {
           if (e.charCode === 13) { this.handleOpen(); }
@@ -101,13 +109,6 @@ class Register extends React.Component {
           terms
         </Link>
         .
-        <input
-          type="checkbox"
-          className="terms-check"
-          name="agreeTerms"
-          onChange={this.handleInputChange}
-          checked={this.state.agreeTerms}
-        />
         <Modal
           isOpen={this.state.open}
           onRequestClose={this.handleClose}
