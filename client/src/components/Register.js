@@ -21,12 +21,14 @@ class Register extends React.Component {
       email: '',
       open: false,
       isMusician: true,
-      tab: 'musician'
+      tab: 'musician',
+      agreeTerms: false,
     };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleVolunteerChange = this.handleVolunteerChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleCheckbox = this.handleCheckbox.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,6 +51,10 @@ class Register extends React.Component {
 
   handleVolunteerChange(ev) {
     this.setState({ isMusician: ev.target.checked });
+  }
+
+  handleCheckbox(event) {
+    this.setState({ agreeTerms: !this.state.agreeTerms });
   }
 
   handleFormSubmit(ev) {
@@ -85,7 +91,7 @@ class Register extends React.Component {
           onChange={this.handleVolunteerChange}
         />
       </label>
-      <label className="terms">By clicking Register, you agree to the site
+      <label className="terms"> I have read and agree to the
         {' '}
         <Link onKeyPress={(e) => {
           if (e.charCode === 13) { this.handleOpen(); }
@@ -96,6 +102,10 @@ class Register extends React.Component {
           terms
         </Link>
         .
+        <input
+          type="checkbox"
+          onChange={this.handleCheckbox}
+        />
         <Modal
           isOpen={this.state.open}
           onRequestClose={this.handleClose}
