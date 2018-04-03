@@ -27,6 +27,9 @@
     "address": {
       "type": "string"
     },
+    "agreeTerms": {
+      "type": "boolean"
+    },
     "bio": {
       "type": "string"
     },
