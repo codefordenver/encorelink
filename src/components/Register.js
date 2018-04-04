@@ -21,11 +21,10 @@ class Register extends React.Component {
       email: '',
       open: false,
       isMusician: true,
-      tab: 'musician'
+      tab: 'musician',
+      agreeTerms: false,
     };
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleVolunteerChange = this.handleVolunteerChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
@@ -39,21 +38,21 @@ class Register extends React.Component {
     }
   }
 
-  handlePasswordChange(ev) {
-    this.setState({ password: ev.target.value });
-  }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
-  handleEmailChange(ev) {
-    this.setState({ email: ev.target.value });
-  }
-
-  handleVolunteerChange(ev) {
-    this.setState({ isMusician: ev.target.checked });
+    this.setState({
+      [name]: value
+    });
   }
 
   handleFormSubmit(ev) {
     ev.preventDefault();
-    this.props.registerRequest(this.state.email, this.state.password, this.state.isMusician);
+    const { email, password, isMusician, agreeTerms } = this.state;
+
+    this.props.registerRequest(email, password, isMusician, agreeTerms);
   }
 
   handleOpen = () => { this.setState({ open: true }); }
@@ -65,27 +64,41 @@ class Register extends React.Component {
   registerForm = (type) => (
     <form className="form-register" onSubmit={this.handleFormSubmit}>
       <label>Email
-        <input type="text"
-          onChange={this.handleEmailChange}
+        <input
+          type="text"
+          name="email"
+          onChange={this.handleInputChange}
           placeholder="Email"
           required
           autoFocus
         />
       </label>
       <label>Password
-        <input type="password"
-          onChange={this.handlePasswordChange}
+        <input
+          type="password"
+          name="password"
+          onChange={this.handleInputChange}
           placeholder="Password"
           required
         />
       </label>
       <label className="volunteer-check">
-        <input type="checkbox"
+        <input
+          type="checkbox"
+          name="isMusician"
           checked={type === 'musician'}
-          onChange={this.handleVolunteerChange}
+          onChange={this.handleInputChange}
         />
       </label>
-      <label className="terms">By clicking Register, you agree to the site
+      <label className="terms">
+        <input
+          type="checkbox"
+          className="terms-check"
+          name="agreeTerms"
+          onChange={this.handleInputChange}
+          checked={this.state.agreeTerms}
+        />
+        I have read and agree to the
         {' '}
         <Link onKeyPress={(e) => {
           if (e.charCode === 13) { this.handleOpen(); }
@@ -105,7 +118,13 @@ class Register extends React.Component {
           <button className="button secondary right" onClick={this.handleClose}>Close</button>
         </Modal>
       </label>
-      <button className="button secondary" type="submit">Register</button>
+      <button
+        className="button secondary"
+        type="submit"
+        disabled={this.state.agreeTerms === false}
+      >
+        Register
+      </button>
     </form>
   )
 
@@ -113,12 +132,12 @@ class Register extends React.Component {
     return (
       <div className="register">
         <ul className="tabs">
-          <li className={'tabs-title ' + (this.state.tab === 'musician' ? 'is-active' : 'not-active')}>
+          <li className={`tabs-title ${this.state.tab === 'musician' ? 'is-active' : 'not-active'}`}>
             <Link onClick={this.switchTabs('musician')}>
               Sign up as a Musician
             </Link>
           </li>
-          <li className={'tabs-title ' + (this.state.tab === 'organizer' ? 'is-active' : 'not-active')}>
+          <li className={`tabs-title ${this.state.tab === 'organizer' ? 'is-active' : 'not-active'}`}>
             <Link onClick={this.switchTabs('organizer')}>
               Sign up as an Organizer
             </Link>
@@ -126,10 +145,10 @@ class Register extends React.Component {
         </ul>
 
         <div className="tabs-content">
-          <div className={'tabs-panel ' + (this.state.tab === 'musician' ? 'is-active' : 'not-active')}>
+          <div className={`tabs-panel ${this.state.tab === 'musician' ? 'is-active' : 'not-active'}`}>
             {this.registerForm('musician')}
           </div>
-          <div className={'tabs-panel ' + (this.state.tab === 'organizer' ? 'is-active' : 'not-active')}>
+          <div className={`tabs-panel ${this.state.tab === 'organizer' ? 'is-active' : 'not-active'}`}>
             {this.registerForm('organizer')}
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, date, text } from '@storybook/addon-knobs/react';
 import EventRow from '../components/EventRow';
 
 storiesOf('EventRow', module)
@@ -11,11 +11,11 @@ storiesOf('EventRow', module)
       <EventRow
         hideCalendar={boolean('hide calendar', false)}
         event={{
-          date: '2018-01-01',
-          endDate: '2018-01-02',
+          date: date('data.date', new Date('Jan 1, 2018 12:00 am GMT')),
+          endDate: date('data.endDate', new Date('Jan 1, 1901 12:00 am GMT')),
           id: 5,
-          location: 'denver',
-          name: 'music' }}
+          location: text('data.location', 'denver'),
+          name: text('data.name', 'music') }}
       />
     )
   );

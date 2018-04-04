@@ -18,11 +18,17 @@
     "phoneNumber": {
       "type": "string"
     },
+    "over21": {
+      "type": "boolean"
+    },
     "link": {
       "type": "string"
     },
     "address": {
       "type": "string"
+    },
+    "agreeTerms": {
+      "type": "boolean"
     },
     "bio": {
       "type": "string"
