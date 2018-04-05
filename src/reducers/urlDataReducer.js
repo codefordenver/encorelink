@@ -9,9 +9,7 @@ import {
   FETCHING,
   STALE
 } from '../constants/modelStatus';
-import {
-  urlHasQueryParams
-} from '../utils/urlParsing';
+import { urlHasQueryParams } from '../utils/urlParsing';
 
 function setUrlDataStatus(currentUrlData, status) {
   return {

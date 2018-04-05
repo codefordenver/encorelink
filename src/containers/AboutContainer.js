@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function AboutContainer() {
   return (
@@ -32,7 +32,7 @@ function AboutContainer() {
           <strong>Major Partners: </strong>
           Encore Link is created and currently maintained
           by
-          {" "}
+          {' '}
           <a
             href="https://www.codefordenver.org/"
             target="_blank"
@@ -48,7 +48,7 @@ function AboutContainer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {" "}Lamont School of Music{" "}
+            {' '}Lamont School of Music{' '}
           </a>
           have volunteered through individual community outreach and now they are helping
           us launch EncoreLink in Denver, Colorado. Many thanks to the volunteers at Code

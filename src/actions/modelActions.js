@@ -6,7 +6,9 @@ import {
   API_ACTION_FAIL
 } from '../constants/reduxConstants';
 
-const api = { get, put, post, patch, delete: del };
+const api = {
+  get, put, post, patch, delete: del
+};
 
 
 export const apiActionStart = createAction(API_ACTION_START);
@@ -19,7 +21,9 @@ export const apiActionFail = createErrorAction(API_ACTION_FAIL);
 export function apiAction(method, urlFn, { body, urlParams, onSuccess } = {}) {
   return async (dispatch, getState) => {
     const url = (typeof urlFn === 'function') ? urlFn(getState()) : urlFn;
-    const metaData = { method, url, body, urlParams };
+    const metaData = {
+      method, url, body, urlParams
+    };
 
     try {
       dispatch(apiActionStart(null, metaData));

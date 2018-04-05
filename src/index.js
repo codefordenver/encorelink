@@ -10,6 +10,14 @@ import { allowPersistenceToBePurgedOnLogout } from './store/purgeStoreOnLogout';
 import { checkIfLoginIsValid } from './actions/userActions';
 import './scss/app.css';
 
+if (!process.env.REACT_APP_API_ENDPOINT) {
+  let error = 'REACT_APP_API_ENDPOINT not defined';
+  if (process.env.NODE_ENV === 'development') {
+    error += ' make sure you set up the .env file properly';
+  }
+  throw new Error(error);
+}
+
 const store = configureStore();
 allowApiToAccessState(store);
 

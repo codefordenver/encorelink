@@ -3,7 +3,7 @@ import { getUserToken } from '../reducers/userReducer';
 let getState = null;
 
 export function allowApiToAccessState(store) {
-  getState = store.getState;
+  getState = store.getState; // eslint-disable-line prefer-destructuring
 }
 
 async function callApi(url, { method, body }) {

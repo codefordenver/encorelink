@@ -29,7 +29,9 @@ function getGlobalStateFromActions(actions) {
 }
 
 function getApiActions(method, url, { body, urlParams } = {}) {
-  const metaData = { method, url, body, urlParams };
+  const metaData = {
+    method, url, body, urlParams
+  };
   return {
     withPayload: (payload) => ({
       start: apiActionStart(null, metaData),

@@ -88,7 +88,7 @@ exports[`Storyshots EventRow Event row with customizable props - Check the knobs
   <div
     className="small-12 medium-2 columns"
   >
-    12:00-12:00 am MST
+    7:00-9:00 pm MST
   </div>
   <div
     className="small-12 medium-5 columns"

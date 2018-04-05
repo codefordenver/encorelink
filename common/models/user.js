@@ -1,10 +1,10 @@
 var mailerService = require('../../server/server-utils/emailProvider');
 
 module.exports = function(user) {
-    var User = user;
-    var frontendUrl = "";
-    console.log(frontendUrl);
-    /* 
+  var User = user;
+  var frontendUrl = '';
+  console.log(frontendUrl);
+  /* 
     WARNING: Utterly disgusting, dirty hack.
     So in order for our backend to find the correct URL to direct the client to in the email
     when resetting their password, we need to access the 'req' object. From what I can tell
@@ -23,32 +23,32 @@ module.exports = function(user) {
     */
 
 
-    User.beforeRemote('**', function (ctx, unused, next) {
-      frontendUrl = ctx.req.headers.origin;
-      next();
-    });
+  User.beforeRemote('**', function (ctx, unused, next) {
+    frontendUrl = ctx.req.headers.origin;
+    next();
+  });
 
-    User.on('resetPasswordRequest', function(info){
-      var accessToken = info.accessToken.id;
-      var email = info.email;
-      var user_id = info.accessToken.userId;
+  User.on('resetPasswordRequest', function(info){
+    var accessToken = info.accessToken.id;
+    var email = info.email;
+    var user_id = info.accessToken.userId;
 
-      var resetURL = frontendUrl + '/resetPassword/?id=' + user_id + '&token=' + accessToken;
+    var resetURL = frontendUrl + '/resetPassword/?id=' + user_id + '&token=' + accessToken;
    
-      var emailObject = {
-        to: email,
-        subject: 'Your EncoreLink account recovery',
-        text: '',
-        html: `Hi ${User.name},
+    var emailObject = {
+      to: email,
+      subject: 'Your EncoreLink account recovery',
+      text: '',
+      html: `Hi ${User.name},
               <p>Somebody recently asked to reset your EncoreLink password.</p>
               <p><a href='${resetURL}'>Click here to change your password.</a></p>`
-      }
+    }
 
-      mailerService(emailObject, (err) => {
-        if (err) throw err;
+    mailerService(emailObject, (err) => {
+      if (err) throw err;
 
-        console.log('Email sent.')
-      })
-    });
+      console.log('Email sent.')
+    })
+  });
 
 };

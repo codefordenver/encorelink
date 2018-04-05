@@ -34,7 +34,7 @@ export function createEvent(formData) {
 
 export function signUpForEvent(event) {
   return apiAction('put', (state) =>
-  `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
+    `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
     body: {
       status: PENDING
     },
@@ -47,16 +47,15 @@ export function signUpForEvent(event) {
 export function deleteEvent(event) {
   return apiAction('delete', (state) =>
     `events/${event.id}`, {
-      onSuccess: () => {
-        browserHistory.replace('/events');
-      }
+    onSuccess: () => {
+      browserHistory.replace('/events');
     }
-  );
+  });
 }
 
 export function cancelSignUpForEvent(event) {
   return apiAction('delete', (state) =>
-  `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
+    `users/${getUserId(state)}/eventsAttending/rel/${event.id}`, {
     onSuccess: () => {
       browserHistory.push('/dashboard');
     }

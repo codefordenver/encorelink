@@ -1,4 +1,7 @@
 language: node_js
 node_js:
-  - 6.11.1
-script: "npm test"
+  - 8.9.4
+
+script:
+  - "npm run lint"
+  - "npm test"

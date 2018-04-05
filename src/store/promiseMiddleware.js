@@ -7,7 +7,9 @@ function shouldCall(shouldCallPromise, getState) {
 }
 
 function handlePromise(action, dispatch, getState) {
-  const { createPromise, shouldCallPromise, startAction, successAction, failAction } = action.meta;
+  const {
+    createPromise, shouldCallPromise, startAction, successAction, failAction
+  } = action.meta;
 
   if (shouldCall(shouldCallPromise, getState)) {
     if (typeof startAction === 'function') {

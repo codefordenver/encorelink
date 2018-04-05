@@ -1,1 +1,3 @@
-client/dist
+build
+node_modules
+coverage

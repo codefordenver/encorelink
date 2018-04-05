@@ -51,7 +51,9 @@ function registerSuccessAndLogin(response, email, password) {
 export function registerRequest(email, password, isMusician, agreeTerms) {
   return createApiAction({
     callApi: () => post('users', {
-      body: { isMusician, email, password, agreeTerms }
+      body: {
+        isMusician, email, password, agreeTerms
+      }
     }),
 
     startAction: () => startRegisterRequest(),

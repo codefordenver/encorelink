@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router';
 
-function Header({ isLoggedIn, isMusician, logoutUser, user }) {
+function Header({
+  isLoggedIn, isMusician, logoutUser, user
+}) {
   const loggedIn = (
     <div>
       Hello, <Link to={isMusician ? '/musicianProfile' : '/organizerProfile'}>

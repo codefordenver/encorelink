@@ -3,7 +3,9 @@ import React from 'react';
 import { CURRENT } from '../constants/modelStatus';
 import { PENDING, CANCELLED, REJECTED } from '../constants/eventAttendingStatus';
 
-function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlStatus }) {
+function EventMusicians({
+  data, approveEventMusician, rejectEventMusician, urlStatus
+}) {
   if (!urlStatus || urlStatus !== CURRENT) {
     return <p> Loading ... </p>;
   }
@@ -14,35 +16,36 @@ function EventMusicians({ data, approveEventMusician, rejectEventMusician, urlSt
         <div className="small-12 columns">
           {data
             .filter((em) => em.status !== CANCELLED && em.status !== REJECTED)
-            .map((eventMusician, index) =>
+            .map((eventMusician, index) => (
               <div key={eventMusician.id} className="row">
                 <div className="small-6 columns">{eventMusician.volunteer.email}</div>
                 {eventMusician.status === PENDING &&
-                <div className="small-6 columns">
-                  <ul className="button-group">
-                    <a
-                      className="button secondary"
-                      href={`mailto:${eventMusician.volunteer.email}`}
-                    >
-                      Contact
-                    </a>
-                    <button
-                      className="button success"
-                      onClick={() => approveEventMusician(eventMusician)}
-                    >
-                      Approve
-                    </button>
-                    <button
-                      className="button alert"
-                      onClick={() => rejectEventMusician(eventMusician)}
-                    >
-                      Pass
-                    </button>
-                  </ul>
-                </div>
-              }
+                  <div className="small-6 columns">
+                    <ul className="button-group">
+                      <a
+                        className="button secondary"
+                        href={`mailto:${eventMusician.volunteer.email}`}
+                      >
+                        Contact
+                      </a>
+                      <button
+                        className="button success"
+                        onClick={() => approveEventMusician(eventMusician)}
+                      >
+                        Approve
+                      </button>
+                      <button
+                        className="button alert"
+                        onClick={() => rejectEventMusician(eventMusician)}
+                      >
+                        Pass
+                      </button>
+                    </ul>
+                  </div>
+                }
               </div>
-          )}
+            ))
+          }
         </div>
       }
     </div>

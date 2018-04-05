@@ -10,16 +10,13 @@ const pendingFilter = (volunteer = {}) => volunteer.status === PENDING;
 
 function Events({ data }) {
   const eventsApproved = data.filter(approvedFilter).map(volunteer =>
-    <EventRow key={volunteer.event.id} event={volunteer.event} />
-  );
+    <EventRow key={volunteer.event.id} event={volunteer.event} />);
 
   const eventsPending = data.filter(pendingFilter).map(volunteer =>
-    <EventRow key={volunteer.event.id} event={volunteer.event} />
-  );
+    <EventRow key={volunteer.event.id} event={volunteer.event} />);
 
   const eventsRejected = data.filter(rejectedFilter).map(volunteer =>
-    <EventRow key={volunteer.event.id} event={volunteer.event} hideCalendar />
-  );
+    <EventRow key={volunteer.event.id} event={volunteer.event} hideCalendar />);
 
   return (
     <div className="volunteer-view-events">
@@ -68,7 +65,7 @@ Events.propTypes = {
     event: PropTypes.shape({
       id: PropTypes.number.isRequired
     })
-  })).isRequired
+  }))
 };
 
 Events.defaultProps = {

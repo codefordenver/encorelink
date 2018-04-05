@@ -33,7 +33,7 @@ const CreateEvent = ({ handleSubmit }) => (
             name="date"
             required
             component={
-              props =>
+              props => (
                 <Datetime
                   timeFormat={false}
                   onChange={(moment) => props.input.onChange(moment.format())}
@@ -41,6 +41,7 @@ const CreateEvent = ({ handleSubmit }) => (
                   defaultValue={(Datetime.moment())}
                   isValidDate={(moment) => { return moment.isAfter(Datetime.moment().subtract(1, 'day')); }}
                 />
+              )
             }
           />
         </FormattedFormField>
@@ -50,7 +51,7 @@ const CreateEvent = ({ handleSubmit }) => (
             required
             validate={lessThan}
             component={
-              (props) =>
+              (props) => (
                 <div>
                   <span className="error" style={{ color: 'red' }}>{props.meta.error}</span>
                   <Datetime
@@ -60,6 +61,7 @@ const CreateEvent = ({ handleSubmit }) => (
                     {...props.input}
                   />
                 </div>
+              )
             }
           />
         </FormattedFormField>
@@ -69,7 +71,7 @@ const CreateEvent = ({ handleSubmit }) => (
             required
             validate={greaterThan}
             component={
-              props =>
+              props => (
                 <div>
                   <span className="error" style={{ color: 'red' }}>{props.meta.error}</span>
                   <Datetime
@@ -79,6 +81,7 @@ const CreateEvent = ({ handleSubmit }) => (
                     {...props.input}
                   />
                 </div>
+              )
             }
           />
         </FormattedFormField>

@@ -17,8 +17,7 @@ function ViewMusician({ data, urlStatus }) {
         { data.instruments && data.instruments.length &&
           <ul>
             {data.instruments.map((instrument) =>
-              <li key={instrument}>{instrument}</li>
-            )}
+              <li key={instrument}>{instrument}</li>)}
           </ul>
         }
       </div>

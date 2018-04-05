@@ -3,7 +3,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AutocompleteLocation from './forms/AutocompleteLocation';
 
-const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization, data }) => {
+const OrganizerProfile = ({
+  handleSubmit, createOrganization, updateOrganization, data
+}) => {
   const updatedOrganization = (formData) => updateOrganization(formData, data[0].id);
 
   return (
@@ -102,14 +104,14 @@ const OrganizerProfile = ({ handleSubmit, createOrganization, updateOrganization
           <div className="row">
             <div className="small-12 medium-12 columns">
               <label>Preferred contact method (email is default):
-              <Field
-                name="contact"
-                component="select"
-                type="select"
-              >
-                <option selected value="email">Email</option>
-                <option value="phone">Phone</option>
-              </Field>
+                <Field
+                  name="contact"
+                  component="select"
+                  type="select"
+                >
+                  <option selected value="email">Email</option>
+                  <option value="phone">Phone</option>
+                </Field>
               </label>
             </div>
           </div>

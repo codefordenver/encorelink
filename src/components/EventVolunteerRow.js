@@ -4,8 +4,13 @@ import { Link } from 'react-router';
 import AddToCalendar from 'react-add-to-calendar';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
-const EventVolunteerRow = ({ eventVolunteer, isCurrentlyPending, approveEventMusician, rejectEventMusician }) => {
-  const { day, time } = getFormattedDayAndTime(eventVolunteer.event.date, eventVolunteer.event.endDate);
+const EventVolunteerRow = ({
+  eventVolunteer, isCurrentlyPending, approveEventMusician, rejectEventMusician
+}) => {
+  const { day, time } = getFormattedDayAndTime(
+    eventVolunteer.event.date,
+    eventVolunteer.event.endDate
+  );
   const { event } = eventVolunteer;
 
   return (

@@ -14,7 +14,9 @@ Instead saw: ${createPromise}`);
 
   return {
     type: PROMISE_ACTION,
-    meta: { createPromise, shouldCallPromise, startAction, successAction, failAction }
+    meta: {
+      createPromise, shouldCallPromise, startAction, successAction, failAction
+    }
   };
 }
 

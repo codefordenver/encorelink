@@ -15,7 +15,9 @@ function Event({
   userId,
   deleteEvent
 }) {
-  const { date, endDate, name, location, notes } = data || {};
+  const {
+    date, endDate, name, location, notes
+  } = data || {};
   const { day, time } = getFormattedDayAndTime(date, endDate);
   const isOwner = data && (data.ownerId === userId);
 
@@ -114,7 +116,7 @@ Event.propTypes = {
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    notes: PropTypes.string.isOptional,
+    notes: PropTypes.string,
     owner: PropTypes.shape({
       email: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,

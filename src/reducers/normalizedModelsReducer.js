@@ -1,6 +1,4 @@
-import {
-  API_ACTION_SUCCESS
-} from '../constants/reduxConstants';
+import { API_ACTION_SUCCESS } from '../constants/reduxConstants';
 import { getModelNameFromUrl } from '../utils/urlParsing';
 
 function updateModels(modelState, data) {

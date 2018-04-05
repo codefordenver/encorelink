@@ -39,9 +39,8 @@ class Register extends React.Component {
   }
 
   handleInputChange(event) {
-    const target = event.target;
+    const { target, name } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
 
     this.setState({
       [name]: value
@@ -50,7 +49,9 @@ class Register extends React.Component {
 
   handleFormSubmit(ev) {
     ev.preventDefault();
-    const { email, password, isMusician, agreeTerms } = this.state;
+    const {
+      email, password, isMusician, agreeTerms
+    } = this.state;
 
     this.props.registerRequest(email, password, isMusician, agreeTerms);
   }

@@ -5,7 +5,9 @@ import AddToCalendar from 'react-add-to-calendar';
 import { getFormattedDayAndTime } from '../utils/dateFormatting';
 
 function EventRow({ event, hideCalendar }) {
-  const { id, date, endDate, name, location, notes } = event;
+  const {
+    id, date, endDate, name, location, notes
+  } = event;
   const { day, time } = getFormattedDayAndTime(date, endDate);
 
   return (

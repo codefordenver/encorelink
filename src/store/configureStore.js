@@ -31,9 +31,7 @@ export default function configureStore(initialState) {
   /* eslint-enable */
 
   const storeEnhancers = composeEnhancers(
-    applyMiddleware(
-      ...middlewares
-    ),
+    applyMiddleware(...middlewares),
     autoRehydrate()
   );
   return createStore(

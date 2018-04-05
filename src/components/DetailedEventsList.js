@@ -4,8 +4,7 @@ import EventRow from './EventRow';
 
 function Events({ data, isMusician }) {
   const events = data.map(event =>
-    <EventRow key={event.id} event={event} />
-  );
+    <EventRow key={event.id} event={event} />);
 
   return (
     <div className="volunteer-view-events">
@@ -22,7 +21,7 @@ function Events({ data, isMusician }) {
 Events.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired
-  })).isRequired,
+  })),
   isMusician: PropTypes.bool.isRequired
 };
 

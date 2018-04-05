@@ -9,24 +9,23 @@ import EventVolunteerRow from '../components/EventVolunteerRow';
 const OrganizerDashboard = ({ data, approveEventMusician, rejectEventMusician }) => {
   const eventVolunteers = data.reduce((prev, curr) => prev.concat(curr.eventvolunteers), []);
   const awaitingVolunteers = data.filter((event) =>
-    !event.eventvolunteers || !event.eventvolunteers.length
-  ).map((event) => <EventRow key={event.id} event={event} />);
+    !event.eventvolunteers || !event.eventvolunteers.length).map((event) => <EventRow key={event.id} event={event} />);
 
   const pendingEventVolunteers = eventVolunteers
     .filter(eventVolunteer => eventVolunteer.status === PENDING)
-    .map(eventVolunteer => <EventVolunteerRow
+    .map(eventVolunteer => (<EventVolunteerRow
       eventVolunteer={eventVolunteer}
       isCurrentlyPending
       key={eventVolunteer.id}
       approveEventMusician={approveEventMusician}
       rejectEventMusician={rejectEventMusician}
-    />);
+    />));
 
   const approvedEventVolunteers = eventVolunteers
     .filter(eventVolunteer => eventVolunteer.status === APPROVED)
-    .map(eventVolunteer => <EventVolunteerRow eventVolunteer={eventVolunteer}
+    .map(eventVolunteer => (<EventVolunteerRow eventVolunteer={eventVolunteer}
       key={eventVolunteer.id}
-    />);
+    />));
 
   return (
     <div className="row">
@@ -73,7 +72,7 @@ OrganizerDashboard.propTypes = {
       id: PropTypes.number.isRequired,
       status: PropTypes.string.isRequired
     }))
-  })).isRequired,
+  })),
   approveEventMusician: PropTypes.func.isRequired,
   rejectEventMusician: PropTypes.func.isRequired
 };
