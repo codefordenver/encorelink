@@ -1,6 +1,12 @@
 import { getUserToken } from '../reducers/userReducer';
 
-const API_BASE_URL = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:54321';
+let API_BASE_URL = '';
+if (process.env.NODE_ENV === 'development') {
+  API_BASE_URL = 'http://localhost:54321';
+}
+if (process.env.REACT_APP_API_ENDPOINT) {
+  API_BASE_URL = process.env.REACT_APP_API_ENDPOINT;
+}
 
 let getState = null;
 

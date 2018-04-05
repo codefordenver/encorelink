@@ -11,10 +11,7 @@ import { checkIfLoginIsValid } from './actions/userActions';
 // The following file is generated from the app.scss file
 import './scss/app.css'; // eslint-disable-line import/no-unresolved
 
-if (process.env.NODE_ENV === 'production' && !process.env.REACT_APP_API_ENDPOINT) {
-  const errorMessage = 'The REACT_APP_API_ENDPOINT environment variable is not defined';
-  throw new Error(errorMessage);
-}
+// TODO: Ping server to wake it up if we don't already
 
 const store = configureStore();
 allowApiToAccessState(store);
