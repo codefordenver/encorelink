@@ -32,6 +32,7 @@ const routes = (
       <Route path="/dashboard" component={DashboardContainer} />
       <Route path="/musician/:id" component={MusicianContainer} />
     </Route>
+    <Route path="*" component={() => <div>404 not found</div>} />
   </Route>
 );
 
