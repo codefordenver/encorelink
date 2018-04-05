@@ -11,6 +11,7 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js setup-routing",
     "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build",
     "lint": "eslint .",
     "postinstall": "npm install --prefix server",
     "posttest": "nsp check --threshold 4",
