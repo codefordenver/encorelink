@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router';
+import logo from '../static-assets/img/encorelink-logo.png';
 
 function Header({
   isLoggedIn, isMusician, logoutUser, user
@@ -28,7 +29,7 @@ function Header({
     <header className="top-bar">
       <div className="top-bar-left">
         <Link to={isLoggedIn ? '/dashboard' : '/'}>
-          <img alt="EncoreLink" className="logo-img" src={`${process.env.PUBLIC_URL}/img/encorelink-logo.png`} />
+          <img alt="EncoreLink" className="logo-img" src={logo} />
         </Link>
       </div>
       <div className="top-bar-right text-right">

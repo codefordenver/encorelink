@@ -147,7 +147,7 @@ exports[`Storyshots Header Logged In: Organizer 1`] = `
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/img/encorelink-logo.png"
+        src="encorelink-logo.png"
       />
     </a>
   </div>
@@ -189,7 +189,7 @@ exports[`Storyshots Header Logged in: Musician 1`] = `
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/img/encorelink-logo.png"
+        src="encorelink-logo.png"
       />
     </a>
   </div>
@@ -238,7 +238,7 @@ exports[`Storyshots Header Not logged in Default landing page, not logged in pro
       <img
         alt="EncoreLink"
         className="logo-img"
-        src="/img/encorelink-logo.png"
+        src="encorelink-logo.png"
       />
     </a>
   </div>

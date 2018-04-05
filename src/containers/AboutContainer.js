@@ -1,4 +1,6 @@
 import React from 'react';
+import bandNursingHome from '../static-assets/img/band-nursinghome.jpg';
+import cfdTeam from '../static-assets/img/cfd_team.jpg';
 
 function AboutContainer() {
   return (
@@ -9,12 +11,12 @@ function AboutContainer() {
         <div className="row about-img">
           <div className="medium-6 small-12 columns">
             <img
-              src="/img/band-nursinghome.jpg"
+              src={bandNursingHome}
               alt="musicians playing"
             />
           </div>
           <div className="medium-6 small-12 columns">
-            <img src="/img/IMG_8306.jpg" alt="code for denver" />
+            <img src={cfdTeam} alt="code for denver" />
           </div>
         </div>
 

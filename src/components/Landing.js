@@ -1,5 +1,8 @@
 import React from 'react';
 import RegisterContainer from '../containers/RegisterContainer';
+import howOrganizer from '../static-assets/img/how/how_organizer.png';
+import howMusician from '../static-assets/img/how/how_musician.png';
+import howPerformance from '../static-assets/img/how/how_performance.png';
 
 function Landing() {
   return (
@@ -24,15 +27,15 @@ function Landing() {
         </div>
         <div className="column small-12 large-4">
           <h1>1</h1>
-          <img src={`${process.env.PUBLIC_URL}/img/how/how_organizer.png`} alt="Organizers Create Volunteering Spots" />
+          <img src={howOrganizer} alt="Organizers Create Volunteering Spots" />
         </div>
         <div className="column small-12 large-4">
           <h1>2</h1>
-          <img src={`${process.env.PUBLIC_URL}/img/how/how_musician.png`} alt="Musicians Search and Schedule Volunteering Spots" />
+          <img src={howMusician} alt="Musicians Search and Schedule Volunteering Spots" />
         </div>
         <div className="column small-12 large-4">
           <h1>3</h1>
-          <img src={`${process.env.PUBLIC_URL}/img/how/how_performance.png`} alt="Musicians Play for Audience" />
+          <img src={howPerformance} alt="Musicians Play for Audience" />
         </div>
       </div>
     </div>
