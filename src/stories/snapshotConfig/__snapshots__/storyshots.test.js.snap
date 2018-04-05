@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Event Event with customizable props - Check the knobs tab in the panel below to customize the props for this component 1`] = `
+exports[`Storyshots Event Event with customizable props 1`] = `
 <div
   className="row"
 >
@@ -13,7 +13,7 @@ exports[`Storyshots Event Event with customizable props - Check the knobs tab in
     <h4>
       Tuesday, January 1, 1901
        | 
-      4:00-7:30 pm MST
+      11:00-2:30 am GMT
     </h4>
     <p>
       Galvanize, Golden Triangle, Denver
@@ -76,19 +76,19 @@ exports[`Storyshots Event Event with customizable props - Check the knobs tab in
 </div>
 `;
 
-exports[`Storyshots EventRow Event row with customizable props - Check the knobs tab in the panel below to customize the props for this component 1`] = `
+exports[`Storyshots EventRow Event row with customizable props 1`] = `
 <div
   className="row event-row"
 >
   <div
     className="small-12 medium-2 columns"
   >
-    Monday, January 1, 2018
+    Tuesday, January 2, 2018
   </div>
   <div
     className="small-12 medium-2 columns"
   >
-    7:00-9:00 pm MST
+    2:00-4:00 am GMT
   </div>
   <div
     className="small-12 medium-5 columns"
@@ -224,7 +224,7 @@ exports[`Storyshots Header Logged in: Musician 1`] = `
 </header>
 `;
 
-exports[`Storyshots Header Not logged in Default landing page, not logged in props 1`] = `
+exports[`Storyshots Header Not logged in 1`] = `
 <header
   className="top-bar"
 >

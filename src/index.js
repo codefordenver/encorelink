@@ -8,7 +8,8 @@ import configureStore from './store/configureStore';
 import { allowApiToAccessState } from './utils/apiHelpers';
 import { allowPersistenceToBePurgedOnLogout } from './store/purgeStoreOnLogout';
 import { checkIfLoginIsValid } from './actions/userActions';
-import './scss/app.css';
+// The following file is generated from the app.scss file
+import './scss/app.css'; // eslint-disable-line import/no-unresolved
 
 if (!process.env.REACT_APP_API_ENDPOINT) {
   let error = 'REACT_APP_API_ENDPOINT not defined';

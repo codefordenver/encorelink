@@ -15,7 +15,7 @@ storiesOf('Header', module)
       />
     ))
   )
-  .add('Logged in: Musician', withInfo()(() => (
+  .add('Logged in: Musician', withInfo('test')(() => (
     <Header
       isLoggedIn
       isMusician
