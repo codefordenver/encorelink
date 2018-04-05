@@ -5,13 +5,16 @@ import { Router, browserHistory } from 'react-router';
 import { persistStore } from 'redux-persist';
 import routes from './routes';
 import configureStore from './store/configureStore';
-import { allowApiToAccessState } from './utils/apiHelpers';
+import { allowApiToAccessState, get } from './utils/apiHelpers';
 import { allowPersistenceToBePurgedOnLogout } from './store/purgeStoreOnLogout';
 import { checkIfLoginIsValid } from './actions/userActions';
 // The following file is generated from the app.scss file
 import './scss/app.css'; // eslint-disable-line import/no-unresolved
 
-// TODO: Ping server to wake it up if we don't already
+function callApiToWakeUpPossiblySleepingHerokuServer() {
+  get('events/count').catch(() => {});
+}
+callApiToWakeUpPossiblySleepingHerokuServer();
 
 const store = configureStore();
 allowApiToAccessState(store);
