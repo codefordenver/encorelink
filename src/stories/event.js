@@ -5,8 +5,6 @@ import { withKnobs, date, text, boolean } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import Event from '../components/Event';
 
-console.log('withInfo', withInfo);
-
 storiesOf('Event', module)
   .addDecorator(withKnobs)
   .add(

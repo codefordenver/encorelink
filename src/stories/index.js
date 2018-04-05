@@ -1,4 +1,4 @@
-import '../scss/app.css'; // eslint-disable-line import/no-unresolved
+import '../scss/app.scss';
 import './header';
 import './event';
 import './eventrow';
