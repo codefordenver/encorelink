@@ -11,12 +11,9 @@ import { checkIfLoginIsValid } from './actions/userActions';
 // The following file is generated from the app.scss file
 import './scss/app.css'; // eslint-disable-line import/no-unresolved
 
-if (!process.env.REACT_APP_API_ENDPOINT) {
-  let error = 'REACT_APP_API_ENDPOINT not defined';
-  if (process.env.NODE_ENV === 'development') {
-    error += ' make sure you set up the .env file properly';
-  }
-  throw new Error(error);
+if (process.env.NODE_ENV === 'production' && !process.env.REACT_APP_API_ENDPOINT) {
+  const errorMessage = 'The REACT_APP_API_ENDPOINT environment variable is not defined';
+  throw new Error(errorMessage);
 }
 
 const store = configureStore();

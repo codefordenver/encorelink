@@ -1,5 +1,7 @@
 import { getUserToken } from '../reducers/userReducer';
 
+const API_BASE_URL = process.env.REACT_APP_API_ENDPOINT || 'http://localhost:54321';
+
 let getState = null;
 
 export function allowApiToAccessState(store) {
@@ -18,7 +20,7 @@ async function callApi(url, { method, body }) {
   if (body) {
     fetchOptions.body = JSON.stringify(body);
   }
-  const res = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/api/${url}`, fetchOptions);
+  const res = await fetch(`${API_BASE_URL}/api/${url}`, fetchOptions);
 
   let json = {};
 

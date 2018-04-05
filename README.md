@@ -22,8 +22,7 @@ Developer documentation currently lives [here](/docs/DEVDOCS.md)
 2. Clone this repo
 3. Navigate to your repo folder
 4. Run `npm install`
-5. Copy the contents of `.env.sample` into a new file called `.env`
-6. Run `npm start`
+5. Run `npm start`
 
 If this doesn't open a browser for you, you can navigate to http://localhost:3000 to view the app.
 There is also an api explorer available at http://localhost:54321/explorer/
