@@ -1,12 +1,24 @@
 import { getUserToken } from '../reducers/userReducer';
 
-let API_BASE_URL = '';
-if (process.env.NODE_ENV === 'development') {
-  API_BASE_URL = 'http://localhost:54321';
+function getApiBaseUrl() {
+  if (process.env.NODE_ENV === 'development') {
+    return 'http://localhost:54321';
+  }
+
+  // If we're in a netlify review app => point to the heroku review app
+  const { host } = window.location;
+  if (host.includes('netlify') && host.startsWith('deploy-preview-')) {
+    const prNumber = host.match(/\d{1,}/)[0];
+    return `https://encorelink-stage-pr-${prNumber}.herokuapp.com`;
+  }
+
+  if (process.env.REACT_APP_API_ENDPOINT) {
+    return process.env.REACT_APP_API_ENDPOINT;
+  }
+
+  return '';
 }
-if (process.env.REACT_APP_API_ENDPOINT) {
-  API_BASE_URL = process.env.REACT_APP_API_ENDPOINT;
-}
+const API_BASE_URL = getApiBaseUrl();
 
 let getState = null;
 

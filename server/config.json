@@ -23,5 +23,6 @@
       "disableStackTrace": false
     }
   },
-  "legacyExplorer": false
+  "legacyExplorer": false,
+  "logoutSessionsOnSensitiveChanges": true
 }
