@@ -22,7 +22,9 @@ Developer documentation currently lives [here](/docs/DEVDOCS.md)
 2. Clone this repo
 3. Navigate to your repo folder
 4. Run `npm install`
-5. Run `npm start`
+5. Get a Google api key with the Google Maps Embed API and the Google Maps JavaScript API enabled (you can probably get this from one of the team members on the project)
+6. Copy `.env.sample` to `.env` and set the `REACT_APP_GOOGLE_API_KEY` environment variable
+7. Run `npm start`
 
 If this doesn't open a browser for you, you can navigate to http://localhost:3000 to view the app.
 There is also an api explorer available at http://localhost:54321/explorer/

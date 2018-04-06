@@ -29,7 +29,7 @@ exports[`Storyshots Event Event with customizable props 1`] = `
         allowFullScreen={true}
         frameBorder="0"
         height="350"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBY3OXm5es86eB4pUrzemhj39unL0BwAKc&q=Galvanize%2C%20Golden%20Triangle%2C%20Denver"
+        src="https://www.google.com/maps/embed/v1/place?key=REDACTED&q=Galvanize%2C%20Golden%20Triangle%2C%20Denver"
         style={
           Object {
             "border": 0,

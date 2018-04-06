@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = function(app) {
   if (process.env.NODE_ENV === 'production') {
-    console.log('serving up the front end')
+    console.log('serving up the front end');
 
     app.use(loopback.static(path.join(__dirname, '../../build')));
     app.use(/^(?!\/?api).+$/, function (req, res) {

@@ -8,7 +8,7 @@ const GoogleMapEmbeded = ({ query }) => (
     title="Location Map"
     frameBorder="0"
     style={{ border: 0 }}
-    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBY3OXm5es86eB4pUrzemhj39unL0BwAKc&q=${encodeURIComponent(query)}`}
+    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${encodeURIComponent(query)}`}
     allowFullScreen
   />
 );
