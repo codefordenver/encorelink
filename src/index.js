@@ -14,11 +14,11 @@ import './scss/app.css'; // eslint-disable-line import/no-unresolved
 function callApiToWakeUpPossiblySleepingHerokuServer() {
   get('events/count').catch(() => {});
 }
-callApiToWakeUpPossiblySleepingHerokuServer();
 
 const store = configureStore();
 allowApiToAccessState(store);
 
+callApiToWakeUpPossiblySleepingHerokuServer();
 function afterPersistenceRestore() {
   store.dispatch(checkIfLoginIsValid());
 }
