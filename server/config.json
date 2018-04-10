@@ -1,7 +1,7 @@
 {
   "restApiRoot": "/api",
   "host": "0.0.0.0",
-  "port": 3000,
+  "port": 54321,
   "remoting": {
     "context": {
       "enableHttpContext": false
@@ -23,5 +23,6 @@
       "disableStackTrace": false
     }
   },
-  "legacyExplorer": false
+  "legacyExplorer": false,
+  "logoutSessionsOnSensitiveChanges": true
 }

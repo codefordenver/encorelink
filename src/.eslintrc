@@ -1,0 +1,50 @@
+{
+  "extends": "airbnb",
+
+  "parser": "babel-eslint",
+
+  "parserOptions": {
+    "sourceType": "module"
+  },
+
+  "plugins": [
+     "react"
+  ],
+
+  "env": {
+    "browser": true
+  },
+
+  "globals": {
+    "fetch": true
+  },
+
+  "rules": {
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
+    "comma-dangle": "off",
+    "generator-star-spacing": "off",
+    "import/default": "error",
+    "import/named": "error",
+    "import/namespace": "error",
+    "import/no-unresolved": "error",
+    "jsx-a11y/anchor-is-valid": "off", # There was something screw happening with this and Link from react-router
+    "jsx-a11y/label-has-for": "off",  # For our purposes let's wait for an option to support label nesting
+                                      # see https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/51
+    "jsx-a11y/no-autofocus": "off",
+    "linebreak-style": "off",
+    "max-len": "warn",
+    "no-global-assign": "off",
+    "no-unsafe-negation": "off",
+    "no-unused-vars": ["error", {"args": "none"}],
+    "prefer-template": "warn",
+    "react/jsx-closing-tag-location": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-first-prop-new-line": "off",
+    "react/prefer-stateless-function": "warn",
+    "react/require-default-props": "off",
+    "react/no-unused-prop-types": "off", # wait for bug to be fixed: https://github.com/yannickcr/eslint-plugin-react/issues/1"off"79
+    "react/sort-comp": "warn",
+    "semi": ["error", "always"]
+  }
+}

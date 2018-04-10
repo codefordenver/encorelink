@@ -1,6 +1,6 @@
 # EncoreLink
 
-A web application to connect musicians with healthcare centers. 
+A web application to connect musicians with healthcare centers.
 
 [![Stories Ready to Work On](https://badge.waffle.io/codefordenver/music-volunteers.svg?label=ready&title=Cards%20Ready%20To%20Work%20On)](https://waffle.io/codefordenver/music-volunteers)
 [![Build Status](https://travis-ci.org/codefordenver/encorelink.svg?branch=master)](https://travis-ci.org/codefordenver/encorelink)
@@ -22,13 +22,20 @@ Developer documentation currently lives [here](/docs/DEVDOCS.md)
 2. Clone this repo
 3. Navigate to your repo folder
 4. Run `npm install`
-5. Run `npm start`
+5. Get a Google api key with the Google Maps Embed API and the Google Maps JavaScript API enabled (you can probably get this from one of the team members on the project)
+6. Copy `.env.sample` to `.env` and set the `REACT_APP_GOOGLE_API_KEY` environment variable
+7. Run `npm start`
+
+If this doesn't open a browser for you, you can navigate to http://localhost:3000 to view the app.
+There is also an api explorer available at http://localhost:54321/explorer/
 
 ### Advanced Setup - Postgres
 
-1. Install [PostgreSQL](https://www.postgresql.org/download/)
-2. Create a new database in postgres
-3. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config to match the postgres database.
+This is an _optional_ setup to run the app against postgres. This is good if you want to persist data or test how the app interacts with the actual database that we use in production, however, it can be a bit more complicated, so we don't recommend it generally.
+
+1. Install [PostgreSQL](https://www.postgresql.org/download/) (for mac we'd recommend installing http://postgresapp.com/)
+2. Create a new database in postgres (you can call it `encorelink`)
+3. Copy the [server/datasources.local.example.json](server/datasources.local.example.json) to `server/datasources.local.json` and update the config for `postgres` in that file to match the info for that postgres database (i.e. setting the `host`, `port`, `database`, `username`, and `password`)
 
 ## Usage
 
@@ -83,7 +90,7 @@ We have integrated [React Storybook](https://getstorybook.io) for development of
 in isolation independent of having to wire up data from the app.
 
 To run react storybook, run `npm run storybook`
-This will start storybook running at http://localhost:6006
+This will start storybook running at http://localhost:9001
 
 Stories are defined for components in [client/stories/index.js](client/stories/index.js).
 For docs on how to write stories see the [storybook docs](https://getstorybook.io/docs/react-storybook/basics/writing-stories).
@@ -97,10 +104,3 @@ For docs on how to write stories see the [storybook docs](https://getstorybook.i
 * [PostgreSQL](https://www.postgresql.org/about/) - An object-relational database
 * [React Storybook](https://github.com/storybooks/storybook) - Development environment for UI components
 * [Redux](https://redux.js.org/) - Manages state on the client
-
-## Port Numbers 
-
-* [3000](http://localhost:3000): API explorer
-* [5432](http://localhost:5432): PostgreSQL
-* [6006](http://localhost:6006): React storybook
-* [8080](http://localhost:8080): UI/client

@@ -3,13 +3,13 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
-  //define environment variables for e-mail
-  // if (!process.env.APP_URL || !process.env.APP_EMAIL || !process.env.APP_EMAILPW || !process.env.APP_SMTP) {
-  //   console.log("WARNING: Email environment variables not defined. App cannot send email.")
-  //   if (process.env.NODE_ENV == 'production'){
-  //     process.exit();
-  //   }
-  // }
+  // define environment variables for e-mail
+  if (!process.env.APP_EMAIL || !process.env.APP_EMAILPW) {
+    console.log('WARNING: Email environment variables not defined. App cannot send email.')
+    if (process.env.NODE_ENV === 'production'){
+      process.exit();
+    }
+  }
 
 app.start = function() {
   // start the web server
