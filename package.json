@@ -25,6 +25,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "dependencies": {
+    "mailgun-js": "^0.17.0",
     "moment-timezone": "^0.5.14",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",

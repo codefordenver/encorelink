@@ -1,5 +1,6 @@
 var loopback = require('loopback');
 var path = require('path');
+require('dotenv').config()
 
 module.exports = function(app) {
   if (process.env.NODE_ENV === 'production') {

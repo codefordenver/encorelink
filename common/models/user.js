@@ -1,4 +1,4 @@
-const mailerService = require('../../server/server-utils/emailProvider');
+const mailerService = require('../../server/server-utils/emailProvider').directEmail;
 
 module.exports = function(user) {
   const User = user;
